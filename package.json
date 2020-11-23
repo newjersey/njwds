@@ -1,0 +1,38 @@
+{
+  "name": "njwds",
+  "version": "0.1.0",
+  "description": "NJ Web Design Standards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "build-uswds",
+    "import-components": "cp -nr node_modules/uswds/src/components ./src/",
+    "build-components": "fractal build",
+    "build-uswds": "gulp build",
+    "start": "fractal start --sync & gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newjersey/njwds.git"
+  },
+  "author": "dhcole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newjersey/njwds/issues"
+  },
+  "homepage": "https://github.com/newjersey/njwds#readme",
+  "devDependencies": {
+    "@frctl/fractal": "^1.5.1",
+    "@frctl/nunjucks": "^2.0.5",
+    "autoprefixer": "^9.8.6",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss-csso": "^4.0.0",
+    "sass": "^1.29.0",
+    "uswds": "^2.9.0",
+    "uswds-gulp": "github:uswds/uswds-gulp"
+  }
+}

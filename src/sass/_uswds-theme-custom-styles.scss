@@ -1,0 +1,67 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS THEME CUSTOM STYLES
+----------------------------------------
+!! Copy this file to your project's
+   sass root. Don't edit the version
+   in node_modules.
+----------------------------------------
+Custom project SASS goes here.
+
+i.e.
+@include u-padding-right('05');
+----------------------------------------
+*/
+
+// Banner
+.nj-banner {
+  @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
+  background-color: color($theme-banner-background-color);
+  font-size: font-size($theme-banner-font-family, 1);
+  line-height: line-height($theme-banner-font-family, 1);
+  min-height: units($size-touch-target);
+  position: relative;
+}
+.nj-banner__header {
+  @include u-padding-y(1);
+}
+.nj-banner__header,
+.nj-banner__header a {
+  @include set-text-from-bg($theme-banner-background-color);
+}
+.nj-banner__inner {
+  @include add-responsive-site-margins;
+  @include grid-container($theme-banner-max-width);
+  @include grid-row;
+  @include u-flex("align-center");
+  padding-right: units(0);
+}
+.nj-banner__header-seal {
+  padding-right: units(1);
+}
+
+// Hero
+.usa-hero__callout {
+  background-color: color("yellow-40v");
+  color: color("base-darkest");
+}
+.usa-hero__heading--alt {
+  color: color("primary-darker");
+}
+.usa-hero__heading {
+  @include typeset-h2;
+  color: color("white");
+}
+
+// Section
+.usa-section--dark {
+  background-color: color("primary-darker");
+}
