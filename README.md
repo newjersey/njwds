@@ -14,5 +14,13 @@ This imports the USWDS, pulls in the NJ-specific components and styles, and save
 
 ## Build the component library
 
-* Run `npm run build-components` to general a [Fractal]() component gallery for reviewing the style guide
+* Run `npm run build-docs` to general a [Fractal]() component gallery for reviewing the style guide
 
+
+## View component library locally or development
+
+* Run `npm start` to build the component library, launch a web server to host it, and live reload on development changes.
+
+## Deploy the component library
+
+* Run `npm run deploy`

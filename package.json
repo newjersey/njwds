@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "build-uswds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
-    "build-components": "fractal build",
+    "build-docs": "fractal build",
     "build-uswds": "gulp build",
-    "start": "fractal start --sync & gulp watch"
+    "start": "fractal start --sync & gulp watch",
+    "deploy": "npm run build-uswds && npm run build-docs && gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "@frctl/fractal": "^1.5.1",
     "@frctl/nunjucks": "^2.0.5",
     "autoprefixer": "^9.8.6",
+    "gh-pages": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",

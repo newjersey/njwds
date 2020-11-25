@@ -47,7 +47,7 @@ const FONTS_DEST = "./dist/fonts";
 const JS_DEST = "./dist/js";
 
 // Compiled CSS destination
-const CSS_DEST = "./dist//css";
+const CSS_DEST = "./dist/css";
 
 // Site CSS destination
 // Like the _site/assets/css directory in Jekyll, if necessary.

@@ -48,6 +48,6 @@ web.theme(
 web.set("static.path", "dist");
 web.set("static.mount", "dist");
 // output files to /build
-web.set("builder.dest", "docs");
+web.set("builder.dest", "build");
 
 module.exports = fractal;
