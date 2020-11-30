@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm run build-uswds",
+    "postinstall": "npm run build-uswds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "build-docs": "fractal build",
     "build-uswds": "gulp build",

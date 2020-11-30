@@ -24,3 +24,7 @@ This imports the USWDS, pulls in the NJ-specific components and styles, and save
 ## Deploy the component library
 
 * Run `npm run deploy`
+
+This builds USWDS styles, builds the Fractal docs, and then deploys them to the gh-pages branch.
+
+Note: do not push directly to the gh-pages branch.
