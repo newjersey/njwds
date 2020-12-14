@@ -38,8 +38,6 @@ i.e.
   @include set-text-from-bg($theme-banner-background-color);
 }
 .nj-banner__inner {
-  @include add-responsive-site-margins;
-  @include grid-container($theme-banner-max-width);
   @include grid-row;
   @include u-flex("align-center");
   padding-right: units(0);
