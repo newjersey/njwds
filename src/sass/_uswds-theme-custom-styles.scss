@@ -63,3 +63,9 @@ i.e.
 .usa-section--dark {
   background-color: color("primary-darker");
 }
+
+// Tighten letter spacing for h1 and intro text
+.usa-prose>h1,
+.usa-intro {
+  letter-spacing: -0.4px;
+}
