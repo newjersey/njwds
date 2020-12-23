@@ -2,7 +2,7 @@ label: Identifier
 status: ready
 context:
   lang: en
-  domain: domain.gov
+  domain:
   masthead:
     label:
       content:
@@ -19,11 +19,11 @@ context:
         es: Un sitio web oficial de
     parent:
       name:
-        en: <Parent agency>
+        en: the State of New Jersey
         es: <Parent agency>
       shortname: <Parent shortname>
       url:
-        en: javascript:void(0);
+        en: https://nj.gov
         es: javascript:void(0);
       logo: default
     agency:
@@ -102,11 +102,11 @@ context:
         es: Información y servicios del Gobierno de EE. UU.
     description:
       content:
-        en: Looking for U.S. government information and services?
+        en: Copyright © 2020 State of New Jersey
         es: ¿Necesita información y servicios del Gobierno?
     link:
       content:
-        en: Visit USA.gov
+        en:
         es: Visite USA.gov en Español
       url:
         en: https://www.usa.gov/

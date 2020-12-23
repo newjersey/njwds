@@ -9,7 +9,7 @@
           <img
             class="usa-identifier__logo-img"
             {% if masthead.parent.logo == "default" %}
-            src="{{ uswds.path }}/img/circle-gray-20.svg"
+            src="{{ uswds.path }}/img/nj-logo-gray-20.png"
             {% else %}
             src="{{ masthead.parent.logo }}"
             {% endif %}
@@ -69,41 +69,61 @@
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.about.url[lang] }}" class="usa-identifier__required-link">
-            {{- required_links.links.about.content[lang] }} {{ masthead.parent.shortname -}}
+          <a href="https://nj.gov/governor/admin/about/" class="usa-identifier__required-link">
+            Governor Phil Murphy
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.accessibility.url[lang] }}"
+          <a href="https://nj.gov/governor/admin/lt/"
             class="usa-identifier__required-link">
-            {{- required_links.links.accessibility.content[lang] -}}
+            Lt. Governor Sheila Oliver
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.foia.url[lang] }}"
+          <a href="https://nj.gov/"
             class="usa-identifier__required-link usa-link">
-            {{- required_links.links.foia.content[lang] -}}
+            NJ Home
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.no_fear.url[lang] }}"
+          <a href="https://nj.gov/nj/gov/njgov/alphaserv.html"
             class="usa-identifier__required-link usa-link">
-            {{- required_links.links.no_fear.content[lang] -}}
+            Services A to Z
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.oig.url[lang] }}" class="usa-identifier__required-link usa-link">
-            {{- required_links.links.oig.content[lang] -}}
+          <a href="https://nj.gov/nj/gov/deptserv/" class="usa-identifier__required-link usa-link">
+            Departments/Agencies
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.performance.url[lang] }}" class="usa-identifier__required-link usa-link">
-            {{- required_links.links.performance.content[lang] -}}
+          <a href="https://nj.gov/faqs/" class="usa-identifier__required-link usa-link">
+            FAQs
           </a>
         </li>
         <li class="usa-identifier__required-links-item">
-          <a href="{{ required_links.links.privacy.url[lang] }}" class="usa-identifier__required-link usa-link">
-            {{- required_links.links.privacy.content[lang] -}}
+          <a href="https://nj.gov/nj/feedback.html" class="usa-identifier__required-link usa-link">
+            Contact Us
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="https://nj.gov/nj/privacy.html" class="usa-identifier__required-link usa-link">
+            Privacy Notice
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="https://nj.gov/nj/legal.html" class="usa-identifier__required-link usa-link">
+            Legal Statement & Disclaimers
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="https://nj.gov/nj/accessibility.html" class="usa-identifier__required-link usa-link">
+            Accessibility
+          </a>
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <a href="https://nj.gov/opra/" class="usa-identifier__required-link usa-link">
+            Open Public Records Act (OPRA)
           </a>
         </li>
       </ul>

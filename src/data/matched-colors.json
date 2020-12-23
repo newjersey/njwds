@@ -1,0 +1,151 @@
+[{
+    "yellow": {
+      "value": "#ffe38e",
+      "match": {
+        "name": "gold-10v",
+        "value": "#ffe396",
+        "rgb": {
+          "r": 255,
+          "g": 227,
+          "b": 150
+        },
+        "distance": 8
+      }
+    }
+  },
+  {
+    "green1": {
+      "value": "#56930c",
+      "match": {
+        "name": "green-50v",
+        "value": "#538200",
+        "rgb": {
+          "r": 83,
+          "g": 130,
+          "b": 0
+        },
+        "distance": 21.02379604162864
+      }
+    }
+  },
+  {
+    "green2": {
+      "value": "#447604",
+      "match": {
+        "name": "green-60v",
+        "value": "#466c04",
+        "rgb": {
+          "r": 70,
+          "g": 108,
+          "b": 4
+        },
+        "distance": 10.198039027185569
+      }
+    }
+  },
+  {
+    "blue1": {
+      "value": "#6caedc",
+      "match": {
+        "name": "blue-30",
+        "value": "#73b3e7",
+        "rgb": {
+          "r": 115,
+          "g": 179,
+          "b": 231
+        },
+        "distance": 13.96424004376894
+      }
+    }
+  },
+  {
+    "blue2": {
+      "value": "#1980c8",
+      "match": {
+        "name": "blue-50",
+        "value": "#2378c3",
+        "rgb": {
+          "r": 35,
+          "g": 120,
+          "b": 195
+        },
+        "distance": 13.74772708486752
+      }
+    }
+  },
+  {
+    "blue3": {
+      "value": "#163753",
+      "match": {
+        "name": "blue-warm-80v",
+        "value": "#162e51",
+        "rgb": {
+          "r": 22,
+          "g": 46,
+          "b": 81
+        },
+        "distance": 9.219544457292887
+      }
+    }
+  },
+  {
+    "red1": {
+      "value": "#fd9906",
+      "match": {
+        "name": "gold-30v",
+        "value": "#e5a000",
+        "rgb": {
+          "r": 229,
+          "g": 160,
+          "b": 0
+        },
+        "distance": 25.709920264364882
+      }
+    }
+  },
+  {
+    "red2": {
+      "value": "#e46a06",
+      "match": {
+        "name": "orange-40v",
+        "value": "#e66f0e",
+        "rgb": {
+          "r": 230,
+          "g": 111,
+          "b": 14
+        },
+        "distance": 9.643650760992955
+      }
+    }
+  },
+  {
+    "red3": {
+      "value": "#e42906",
+      "match": {
+        "name": "red-50v",
+        "value": "#e52207",
+        "rgb": {
+          "r": 229,
+          "g": 34,
+          "b": 7
+        },
+        "distance": 7.14142842854285
+      }
+    }
+  },
+  {
+    "red4": {
+      "value": "#7b2803",
+      "match": {
+        "name": "orange-warm-70v",
+        "value": "#782312",
+        "rgb": {
+          "r": 120,
+          "g": 35,
+          "b": 18
+        },
+        "distance": 16.09347693943108
+      }
+    }
+  }
+]
