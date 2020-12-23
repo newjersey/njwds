@@ -104,13 +104,6 @@ context:
       content:
         en: Copyright © 2020 State of New Jersey
         es: ¿Necesita información y servicios del Gobierno?
-    link:
-      content:
-        en:
-        es: Visite USA.gov en Español
-      url:
-        en: https://www.usa.gov/
-        es: https://www.usa.gov/espanol/
     display: true
 
 variants:
