@@ -108,3 +108,5 @@ typings/
 
 # Fractal site
 /build
+
+/.idea
