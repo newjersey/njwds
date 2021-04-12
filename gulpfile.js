@@ -49,6 +49,9 @@ const JS_DEST = "./dist/js";
 // Compiled CSS destination
 const CSS_DEST = "./dist/css";
 
+// SCSS destination
+const SCSS_DEST = "./dist/scss";
+
 // Site CSS destination
 // Like the _site/assets/css directory in Jekyll, if necessary.
 // If using, uncomment line 106
@@ -75,20 +78,27 @@ gulp.task("copy-uswds-images", () => {
 });
 
 gulp.task("copy-src-images", () => {
-  return gulp.src(`${PROJECT_SASS_SRC}/../img/**/**`).pipe(gulp.dest(`${IMG_DEST}`));
+  return gulp
+    .src(`${PROJECT_SASS_SRC}/../img/**/**`)
+    .pipe(gulp.dest(`${IMG_DEST}`));
 });
-
 
 gulp.task("copy-uswds-js", () => {
   return gulp.src(`${uswds}/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
-gulp.task("build-sass", function(done) {
+gulp.task("copy-src-scss", () => {
+  return gulp
+    .src(`${PROJECT_SASS_SRC}/../sass/**/**`)
+    .pipe(gulp.dest(`${SCSS_DEST}`));
+});
+
+gulp.task("build-sass", function (done) {
   var plugins = [
     // Autoprefix
     autoprefixer({
       cascade: false,
-      grid: true
+      grid: true,
     }),
     // Minify
     csso({ forceMediaMerge: false }),
@@ -102,8 +112,8 @@ gulp.task("build-sass", function(done) {
           includePaths: [
             `${PROJECT_SASS_SRC}`,
             `${uswds}/scss`,
-            `${uswds}/scss/packages`
-          ]
+            `${uswds}/scss/packages`,
+          ],
         })
       )
       .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
@@ -122,7 +132,8 @@ gulp.task(
     "copy-uswds-fonts",
     "copy-uswds-images",
     "copy-uswds-js",
-    "build-sass"
+    "build-sass",
+    "copy-src-scss"
   )
 );
 
@@ -133,13 +144,16 @@ gulp.task(
     "copy-uswds-images",
     "copy-src-images",
     "copy-uswds-js",
-    "build-sass"
+    "build-sass",
+    "copy-src-scss"
   )
 );
 
-
-gulp.task("watch-sass", function() {
-  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass"));
+gulp.task("watch-sass", function () {
+  gulp.watch(
+    `${PROJECT_SASS_SRC}/**/*.scss`,
+    gulp.series("copy-src-images", "build-sass")
+  );
 });
 
 gulp.task("watch", gulp.series("copy-src-images", "build-sass", "watch-sass"));
