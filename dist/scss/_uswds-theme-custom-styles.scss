@@ -1,0 +1,85 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS THEME CUSTOM STYLES
+----------------------------------------
+!! Copy this file to your project's
+   sass root. Don't edit the version
+   in node_modules.
+----------------------------------------
+Custom project SASS goes here.
+
+i.e.
+@include u-padding-right('05');
+----------------------------------------
+*/
+
+// Banner
+.nj-banner {
+  @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
+  background-color: color($theme-banner-background-color);
+  font-size: font-size($theme-banner-font-family, '2xs');
+  line-height: line-height($theme-banner-font-family, 1);
+  min-height: units($size-touch-target);
+  position: relative;
+}
+.nj-banner__header {
+  @include u-padding-y(1);
+}
+.nj-banner__header,
+.nj-banner__header a {
+  @include set-text-from-bg($theme-banner-background-color);
+  text-decoration: none;
+}
+.nj-banner__header a:hover {
+  text-decoration: underline;
+}
+.nj-banner__header li {
+  display: none;
+  @include at-media("tablet") { display: inline; }
+  @include u-margin-right(1);
+  @include u-padding-right(1);
+  @include u-border-right(1px);
+}
+
+.nj-banner__header li:last-child {
+  display: inline;
+  @include u-margin-right(0);
+  @include u-padding-right(0);
+  @include u-border-right(0);
+}
+.nj-banner__inner {
+  @include grid-row;
+  @include u-flex("align-center");
+  padding-right: units(0);
+}
+.nj-banner__header-seal {
+  padding-right: units(1);
+}
+// hero
+.usa-hero__callout {
+  background-color: color("secondary-darker");
+}
+// Section
+.usa-section--dark {
+  background-color: color("secondary-darker");
+}
+
+// Tighten letter spacing for h1 and intro text
+.usa-prose>h1,
+.usa-intro {
+  letter-spacing: -0.4px;
+}
+
+// Wrap long links that would break page container
+.usa-prose a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
