@@ -1,0 +1,62 @@
+@use "uswds-core" with (
+  // Base colors
+  $theme-color-base-family: "gray",
+  $theme-color-base-lighter: "gray-10",
+  $theme-color-base-light: "gray-30",
+  $theme-color-base: "gray-50",
+  $theme-color-base-dark: "gray-60",
+  $theme-color-base-darker: "gray-80",
+  // Primary colors
+  $theme-color-primary-family: "green-vivid",
+  $theme-color-primary-lighter: "green-10v",
+  $theme-color-primary-light: "green-30v",
+  $theme-color-primary: "green-50v",
+  $theme-color-primary-vivid: "green-warm-50v",
+  $theme-color-primary-dark: "green-60v",
+  $theme-color-primary-darker: "green-80v",
+  // Secondary colors
+  $theme-color-secondary-family: "blue-vivid",
+  $theme-color-secondary-lighter: "blue-10",
+  $theme-color-secondary-light: "blue-30",
+  $theme-color-secondary: "blue-50",
+  $theme-color-secondary-vivid: "blue-50v",
+  $theme-color-secondary-dark: "blue-warm-60v",
+  $theme-color-secondary-darker: "blue-warm-80v",
+  // Accent warm colors
+  $theme-color-accent-warm-family: "gold-vivid",
+  $theme-color-accent-warm-lighter: "gold-10v",
+  $theme-color-accent-warm-light: "gold-30v",
+  $theme-color-accent-warm: "gold-50v",
+  $theme-color-accent-warm-dark: "gold-60v",
+  $theme-color-accent-warm-darker: "gold-70v",
+  // Accent cool colors
+  $theme-color-accent-cool-lighter: "blue-10",
+  $theme-color-accent-cool-light: "blue-20",
+  $theme-color-accent-cool: "blue-30",
+  $theme-color-accent-cool-dark: "blue-40",
+  $theme-color-accent-cool-darker: "blue-60",
+  // Success colors
+  $theme-color-success-dark: "green-cool-50",
+  $theme-color-success-darker: "green-cool-60",
+  // Links
+  $theme-link-visited-color: "primary",
+  // Banner
+  $theme-banner-background-color: "base-darkest",
+  // Layout Grid
+  $theme-layout-grid-use-important: false !default,
+  // Focus Styles
+  $theme-focus-color: "primary",
+  // Site
+  $theme-grid-container-max-width: "desktop",
+  // Global Styles
+  $theme-global-paragraph-styles: true,
+  $theme-global-link-styles: true,
+  // Type Based Font Settings
+  $theme-font-type-sans: "public-sans",
+  // Role Based Font Settings
+  $theme-font-role-heading: "sans",
+  // Type Scale
+  $theme-type-scale-md: 7,
+  // Headings
+  $theme-h4-font-size: "md"
+);
