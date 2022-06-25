@@ -30,8 +30,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "postcss-csso": "^4.0.0",
     "sass": "^1.29.0",
-    "uswds": "^2.11.1",
-    "uswds-gulp": "github:uswds/uswds-gulp"
+    "uswds": "^2.11.1"
   },
   "devDependencies": {
     "@frctl/fractal": "^1.5.1",
