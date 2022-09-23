@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run build-uswds",
+    "prepare": "npm run build-uswds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "build-docs": "fractal build",
     "build-uswds": "gulp build",
@@ -41,5 +41,8 @@
     "@frctl/fractal": "^1.5.1",
     "@frctl/nunjucks": "^2.0.5",
     "gh-pages": "^3.1.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
