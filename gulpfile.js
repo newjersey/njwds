@@ -80,7 +80,7 @@ gulp.task("copy-src-images", () => {
 
 
 gulp.task("copy-uswds-js", () => {
-  return gulp.src(`${uswds}/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
+  return gulp.src(`${uswds}/dist/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
 gulp.task("build-sass", function(done) {
