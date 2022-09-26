@@ -24,9 +24,11 @@ jobs:
       - name: Bump and commit new version
         id: bump_version
         run: |
+          git config --global user.email "<>"
+          git config --global user.name "NJWDS Draft Release Action"
           NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
           git add package.json
-          git commit -m "Bump version to $NEW_VERSION" --author "NJWDS Draft Release Action <>"
+          git commit -m "Bump version to $NEW_VERSION"
           git push
           RELEASE_SHA=$(git rev-parse HEAD)
           echo ::set-output name=new_version::$NEW_VERSION
