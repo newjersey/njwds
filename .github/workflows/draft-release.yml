@@ -1,0 +1,49 @@
+name: Draft release
+on:
+  workflow_dispatch:
+    inputs:
+      semver_release_type:
+        description: SemVer Level for this Release
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm ci
+      - name: Bump and commit new version
+        id: bump_version
+        run: |
+          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
+          git add package.json
+          git commit -m "Bump version to $NEW_VERSION" --author "NJWDS Draft Release Action <>"
+          git push
+          RELEASE_SHA=$(git rev-parse HEAD)
+          echo ::set-output name=new_version::$NEW_VERSION
+          echo ::set-output name=release_sha::$RELEASE_SHA
+    outputs:
+      new_version: ${{ steps.bump_version.outputs.new_version }}
+      release_sha: ${{ steps.bump_version.outputs.release_sha }}
+
+  draft-release:
+    needs: update-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.update-version.outputs.release_sha }}
+      - run: |
+          gh release create ${{ needs.update-version.outputs.new_version }} \
+          --draft \
+          --generate-notes \
+          --target ${{ needs.update-version.outputs.release_sha }}
