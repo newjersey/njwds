@@ -20,14 +20,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm ci
       - name: Bump and commit new version
         id: bump_version
         run: |
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
-          git add package.json
+          git add package.json package-lock.json
           git commit -m "Bump version to $NEW_VERSION"
           git push
           RELEASE_SHA=$(git rev-parse HEAD)
@@ -49,3 +48,5 @@ jobs:
           --draft \
           --generate-notes \
           --target ${{ needs.update-version.outputs.release_sha }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
