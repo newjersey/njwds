@@ -39,6 +39,9 @@ jobs:
     needs: update-version
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.update-version.outputs.release_sha }}
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
