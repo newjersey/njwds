@@ -43,6 +43,7 @@
     "uswds-gulp": "github:uswds/uswds-gulp"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ]
 }
