@@ -44,6 +44,10 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "package.json",
+    "gulpfile.js",
+    ".browserslistrc",
+    ".nvmrc"
   ]
 }
