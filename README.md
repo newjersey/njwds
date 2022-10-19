@@ -2,23 +2,36 @@
 
 The NJ Web Design Standards are an extension of the [US Web Design Standards](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
 
-## Using the library
+## How to install and use the NJWDS
 
-- If you are using Node and npm in your project, then you can install the package in the root of your project directory with the following command in your terminal:
+### With Node and NPM
+
+Follow the instructions on the USWDS Documentation (https://designsystem.digital.gov/documentation/developers/#installation) to install the NJWDS with Node. The key difference between these instructions and what you will need to do is that our package name is `@newjersey/njwds` instead of `@uswds/uswds`. Therefore, on Step 4, your installation commmand would be:
 
 ```bash
 npm install @newjersey/njwds --save
 ```
 
-If this worked successfully, you should see `@newjersey/njwds` listed as a new dependency in your `package.json` file.
+Once installed, the NJWDS package name would affect the file path used in `node_modules` as well (i.e. `node_modules/@newjersey/njwds/dist/` instead of `node_modules/@uswds/uswds/dist/`).
 
-- In the root JavaScript file of your project's frontend, import the CSS for this designs system with the following line:
+### Without a package manager
 
-```js
-import "@newjersey/njwds/dist/css/styles.css";
-```
+1. Go to the following link - https://github.com/newjersey/njwds/releases. Click on the latest release at the top of hte list, and on that release page, closer to the bottom, download the ZIP file listed under Assets.
+2. Follow Step 2 in the USWDS Documentation - https://designsystem.digital.gov/documentation/developers/#installation. Note that in our case, you would want to replace the `uswds` folder name with `njwds`.
 
-- Use the CSS classes in your frontend code (HTML or JS) to render certain NJWDS components. For a full list of examples and the corresponding code, see here: https://newjersey.github.io/njwds/components/detail/layout--docs.html. Note that the NJWDS is built on top of the USWDS. Components and utilities included in the USWDS can be used with this same package, only they will have certain themed styling included: https://designsystem.digital.gov.
+### Using NJWDS files in your project
+
+Follow the instructions on the USWDS Documentation (https://designsystem.digital.gov/documentation/developers/#using-uswds-css-and-javascript-in-your-project). Note that instead of `uswds.css` or `uswds.min.css`, you will refer to `styles.css` in the `/dist/css` directory. Also, the filepath should have `njwds` instead of `uswds` (i.e. `assets/njwds/dist/js/uswds.min.js` instead of `assets/uswds/dist/js/uswds.min.js`).
+
+For a full list of examples of NJWDS components and their corresponding code, see here: https://newjersey.github.io/njwds/components/detail/layout--docs.html. Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
+
+### Customizing NJWDS or compiling your own assets
+
+The NJWDS package also includes pre-compiled files in the `src/` directory. Specifically, we add custom styles to USWDS on `_uswds-theme-custom-styles.scss` and custom theme on `_uswds-theme.scss`. Follow the instructions on the USWDS Documentation (https://designsystem.digital.gov/documentation/developers/#compiling-uswds-sass-into-css) to compile your own CSS using SASS.
+
+### Without build tools
+
+If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
 ## Developing the library
 
