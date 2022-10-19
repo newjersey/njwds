@@ -14,7 +14,7 @@ npm install @newjersey/njwds --save
 
 Once installed, the NJWDS package name would affect the file path used in `node_modules` as well (i.e. `node_modules/@newjersey/njwds/dist/` instead of `node_modules/@uswds/uswds/dist/`).
 
-### Without a package manager
+### Without Node and NPM
 
 1. On our [Github Releases page](https://github.com/newjersey/njwds/releases), on the latest release (at the top of the list), you will see an "Assets" section at the bottom of the release information. Click on the "Source codede (zip)" link to download our package.
 2. Follow the instructions on the [USWDS Documentation - Installation](https://designsystem.digital.gov/documentation/developers/#installation) page, starting with Step 2 of "Install the package directly from GitHub." Note that in our case, you would want to replace the `uswds` folder name with `njwds`.
@@ -28,10 +28,6 @@ For a full list of examples of NJWDS components and their corresponding code, se
 ### Customizing NJWDS or compiling your own assets
 
 The NJWDS package also includes pre-compiled files in the `src/` directory. Specifically, we add custom styles to USWDS on `_uswds-theme-custom-styles.scss` and custom theme on `_uswds-theme.scss`. Follow the instructions on the [USWDS Documentation - Compiling SASS into CSS](https://designsystem.digital.gov/documentation/developers/#compiling-uswds-sass-into-css) page to compile your own CSS using SASS.
-
-### Without build tools
-
-If you’re using a framework or package manager that doesn’t support npm, you can find the source files in this repository and use them in your project. Otherwise, we recommend that you follow the steps outlined in this section.
 
 ## Developing the library
 
