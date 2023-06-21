@@ -34,6 +34,18 @@ context:
       - text: Yet another page
 
   inner:
+    - title: Sign in form
+      id: sign-in-form
+      component: sign-in-form
+    - title: Radio buttons
+      id: radio-buttons
+      component: radio-buttons
+    - title: Check boxes
+      id: checkboxes
+      component: checkboxes
+    - title: Tables
+      id: tables
+      component: tables
     - title: Basic cards
       id: default-cards
       component: card
