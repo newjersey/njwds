@@ -83,3 +83,8 @@ i.e.
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+
+// Nav
+.usa-nav__secondary-links a {
+  color: color("base-darker");
+}
