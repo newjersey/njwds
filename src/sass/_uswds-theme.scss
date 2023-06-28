@@ -7,22 +7,27 @@
 
   // Base colors
   $theme-color-base-family: "gray-cool",
-  $theme-color-base-lighter: "gray-cool-3",
-  $theme-color-base-light: "gray-cool-5",
-  $theme-color-base: "gray-cool-20",
-  $theme-color-base-dark: "gray-cool-60",
-  $theme-color-base-darker: "gray-cool-70",
+  $theme-color-base-lightest: "gray-cool-3",
+  $theme-color-base-lighter: "gray-cool-5",
+  $theme-color-base-light: "gray-cool-10",
+  $theme-color-base: "gray-cool-60",
+  $theme-color-base-dark: "gray-cool-70",
+  $theme-color-base-darker: "gray-cool-80",
   $theme-color-base-darkest: "gray-cool-90",
   $theme-color-base-ink: "gray-cool-90",
   // Primary colors
   $theme-color-primary-family: "blue",
+  $theme-color-primary-lighter: "blue-10v",
   $theme-color-primary-light: "blue-20v",
-  $theme-color-primary: "blue-60v",
+  $theme-color-primary: "blue-50v",
+  $theme-color-primary-vivid: "blue-warm-60v",
   $theme-color-primary-dark: "blue-70v",
-  // Secondary colors
+  $theme-color-primary-darker: "blue-80v",
+
+  // Secondary colors (to be deprecated after v1.0.0)
   $theme-color-secondary-family: "blue",
   $theme-color-secondary-darker: "blue-80v",
-  // Accent warm colors
+  // Accent warm colors (to be deprecated after v1.0.0)
   $theme-color-accent-warm-family: "gold",
   $theme-color-accent-warm-light: "gold-5",
   $theme-color-accent-warm: "gold-10",
@@ -90,7 +95,7 @@
   $theme-text-reverse-color: "white",
 
   // Links
-  $theme-link-color: "primary",
+  $theme-link-color: "blue-60v",
   $theme-link-visited-color: "violet-70v",
   $theme-link-hover-color: "primary-dark",
   $theme-link-active-color: "primary-darker",
