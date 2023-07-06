@@ -16,7 +16,7 @@ Once installed, the NJWDS package name would affect the file path used in `node_
 
 ### Without Node and NPM
 
-1. On our [Github Releases page](https://github.com/newjersey/njwds/releases), on the latest release (at the top of the list), you will see an "Assets" section at the bottom of the release information. Click on the "Source codede (zip)" link to download our package.
+1. On our [GitHub Releases page](https://github.com/newjersey/njwds/releases), on the latest release (at the top of the list), you will see an "Assets" section at the bottom of the release information. Click on the "Source codede (zip)" link to download our package.
 2. Follow the instructions on the [USWDS Documentation - Installation](https://designsystem.digital.gov/documentation/developers/#installation) page, starting with Step 2 of "Install the package directly from GitHub." Note that in our case, you would want to replace the `uswds` folder name with `njwds`.
 
 ### Using NJWDS files in your project
@@ -54,3 +54,11 @@ This imports the USWDS, pulls in the NJ-specific components and styles, and save
 This builds USWDS styles, builds the Fractal docs, and then deploys them to the gh-pages branch.
 
 Note: do not push directly to the gh-pages branch.
+
+## Releasing a new version to NPM
+
+1. Go to the [Draft Release GitHub Action](https://github.com/newjersey/njwds/actions/workflows/draft-release.yml)
+2. Click the "Run workflow" dropdown, keep the branch set to `main`, and update the Semver Level based on what has changed since the previous release ([semver documentation](https://semver.org/)). Click the green button to "Run workflow".
+3. Confirm that this action ran successfully by checking that the `package.json` file's version has been bumped according to the level you set to the release (e.g. minor release changes version from 0.1.0 to 0.2.0). Go to the [GitHub Releases page](https://github.com/newjersey/njwds/releases) and confirm that you see a new draft release with this version.
+4. On the releases page, click the pencil icon on the top right to Edit the release. Document what has changed in this release; be sure to note any breaking changes. Once all looks good, click "Publish release" at the bottom.
+5. This will automatically trigger the [Publish Release GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm this action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
