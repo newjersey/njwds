@@ -1,11 +1,10 @@
 @use "uswds-core" with (
- /*
+  /*
  ----------------------------------------
  Theme palette colors
  ----------------------------------------
  */
-
-  // Base colors
+    // Base colors
   $theme-color-base-family: "gray-cool",
   $theme-color-base-lightest: "gray-cool-3",
   $theme-color-base-lighter: "gray-cool-5",
@@ -17,6 +16,7 @@
   $theme-color-base-ink: "gray-cool-90",
   // Primary colors
   $theme-color-primary-family: "blue",
+  $theme-color-primary-lightest: "blue-5v",
   $theme-color-primary-lighter: "blue-10v",
   $theme-color-primary-light: "blue-20v",
   $theme-color-primary: "blue-50v",
@@ -38,8 +38,7 @@
   State palette colors
   ----------------------------------------
   */
-
-  // Error colors
+    // Error colors
   $theme-color-error-family: "red-warm",
   $theme-color-error-lighter: "red-warm-10",
   $theme-color-error-light: "red-warm-30v",
@@ -86,8 +85,7 @@
   General colors
   ----------------------------------------
   */
-
-  // Body
+    // Body
   $theme-body-background-color: "white",
 
   // Text
@@ -105,8 +103,6 @@
 
   // Banner
   $theme-banner-background-color: "base-darkest",
-  // Header
-  $theme-header-logo-text-width: 50%,
   // Layout Grid
   $theme-layout-grid-use-important: false,
   // Focus Styles
