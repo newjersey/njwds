@@ -17,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ssh-key: ${{secrets.YOUR_SECRET_KEY}}
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
@@ -28,12 +26,17 @@ jobs:
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
+          BRANCH_NAME=upgrade-package-$NEW_VERSION
+          git checkout -b $BRANCH_NAME
           git add package.json package-lock.json
           git commit -m "Bump version to $NEW_VERSION"
-          git push
+          git push -u origin $BRANCH_NAME
+          gh pr create -B main -H $BRANCH_NAME --title 'Upgrade NWJDS package version to $NEW_VERSION' --body 'Created by Github Action'
           RELEASE_SHA=$(git rev-parse HEAD)
           echo ::set-output name=new_version::$NEW_VERSION
           echo ::set-output name=release_sha::$RELEASE_SHA
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       new_version: ${{ steps.bump_version.outputs.new_version }}
       release_sha: ${{ steps.bump_version.outputs.release_sha }}
