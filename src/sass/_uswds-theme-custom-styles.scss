@@ -90,3 +90,10 @@ i.e.
 .usa-nav__secondary-links a {
   color: color("base-darker");
 }
+
+// Header - prevent wrapping of logo text
+.usa-header--extended {
+  .usa-logo {
+    max-width: 50%;
+  }
+}
