@@ -32,26 +32,21 @@ jobs:
           git commit -m "Bump version to $NEW_VERSION"
           git push -u origin $BRANCH_NAME
           gh pr create -B main -H $BRANCH_NAME --title "Upgrade NWJDS package version to $NEW_VERSION" --body "Created by Github Action"
-          RELEASE_SHA=$(git rev-parse HEAD)
           echo ::set-output name=new_version::$NEW_VERSION
-          echo ::set-output name=release_sha::$RELEASE_SHA
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       new_version: ${{ steps.bump_version.outputs.new_version }}
-      release_sha: ${{ steps.bump_version.outputs.release_sha }}
 
   draft-release:
     needs: update-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ needs.update-version.outputs.release_sha }}
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
           --generate-notes \
-          --target ${{ needs.update-version.outputs.release_sha }}
+          --target main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
