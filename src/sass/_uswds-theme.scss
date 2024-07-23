@@ -6,12 +6,12 @@
  */
     // Base colors
   $theme-color-base-family: "gray-cool",
-  $theme-color-base-lightest: "gray-cool-3",
+  $theme-color-base-lightest: "gray-cool-1",
   $theme-color-base-lighter: "gray-cool-5",
-  $theme-color-base-light: "gray-cool-10",
-  $theme-color-base: "gray-cool-60",
-  $theme-color-base-dark: "gray-cool-70",
-  $theme-color-base-darker: "gray-cool-80",
+  $theme-color-base-light: "gray-cool-20",
+  $theme-color-base: "gray-cool-50",
+  $theme-color-base-dark: "gray-cool-60",
+  $theme-color-base-darker: "gray-cool-70",
   $theme-color-base-darkest: "gray-cool-90",
   $theme-color-base-ink: "gray-cool-90",
   // Primary colors
@@ -21,8 +21,9 @@
   $theme-color-primary-light: "blue-20v",
   $theme-color-primary: "blue-50v",
   $theme-color-primary-vivid: "blue-warm-60v",
-  $theme-color-primary-dark: "blue-70v",
-  $theme-color-primary-darker: "blue-80v",
+  $theme-color-primary-dark: "blue-60v",
+  $theme-color-primary-darker: "blue-70v",
+  $theme-color-primary-darkest: "blue-80v",
 
   // Secondary colors (to be deprecated after v1.0.0)
   $theme-color-secondary-family: "blue",
