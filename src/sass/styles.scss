@@ -9,6 +9,14 @@
 */
 
 // -------------------------------------
+// Configuration settings
+@use "uswds-core" with (
+  $text-align-settings: (
+    responsive: true
+  )
+);
+
+// -------------------------------------
 // Import individual theme settings
 @forward "uswds-theme";
 
