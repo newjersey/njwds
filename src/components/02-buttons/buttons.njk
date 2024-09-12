@@ -1,4 +1,4 @@
-{%- if (classes == 'usa-button--outline usa-button--inverse') -%}
+{%- if (classes == 'usa-button primary-button-dark') or (classes == 'usa-button--outline usa-button--inverse') or (classes == 'usa-button--unstyled unstyled-button-dark') -%}
 <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% endif -%}
 
@@ -9,8 +9,7 @@
 <button class="usa-button {{ classes }} usa-focus">Focus</button>
 <button class="usa-button {{ classes }}" disabled>Disabled</button>
 {%- endif -%}
-<button class="usa-button {{ classes }} usa-button--unstyled">Unstyled button</button>
 
-{%- if (classes == 'usa-button--outline usa-button--inverse') %}
+{%- if (classes == 'usa-button primary-button-dark') or (classes == 'usa-button--outline usa-button--inverse') or (classes == 'usa-button--unstyled unstyled-button-dark') -%}
 </div>
 {%- endif %}

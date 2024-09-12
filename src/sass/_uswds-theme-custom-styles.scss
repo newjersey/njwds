@@ -97,3 +97,148 @@ i.e.
     max-width: 50%;
   }
 }
+
+// Buttons
+.usa-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.usa-button:focus,
+.usa-button.usa-focus {
+  outline-color: color($theme-color-primary-vivid);
+}
+
+//Primary Buttons (dark)
+.usa-button.primary-button-dark:not(:disabled) {
+  color: color($theme-text-color);
+  background-color: color($theme-color-base-lightest);
+}
+
+.usa-button.primary-button-dark.usa-button--hover:not(:disabled),
+.usa-button.primary-button-dark:hover:not(:disabled) {
+  color: color($theme-text-color);
+  background-color: color($theme-color-base-lighter);
+}
+
+.usa-button.primary-button-dark.usa-button--active:not(:disabled),
+.usa-button.primary-button-dark:active:not(:disabled) {
+  color: color($theme-text-color);
+  background-color: color($theme-color-base-light);
+}
+
+//Primary Buttons (danger)
+.usa-button--secondary {
+  background-color: color($theme-color-error);
+}
+
+.usa-button--secondary.usa-button--hover,
+.usa-button--secondary:hover {
+  background-color: color($theme-color-error-dark);
+}
+
+.usa-button--secondary.usa-button--active,
+.usa-button--secondary:active {
+  background-color: color($theme-color-error-darker);
+}
+
+// Secondary buttons (light)
+.usa-button--outline {
+  color: color($theme-color-primary-dark);
+  box-shadow: inset 0 0 0 2px color($theme-color-primary-dark);
+}
+
+.usa-button--outline.usa-button--hover,
+.usa-button--outline:hover {
+  color: color($theme-color-primary-darker);
+  box-shadow: inset 0 0 0 2px color($theme-color-primary-darker);
+}
+
+.usa-button--outline.usa-button--active,
+.usa-button--outline:active {
+  color: color($theme-color-primary-darkest);
+  box-shadow: inset 0 0 0 2px color($theme-color-primary-darkest);
+}
+
+//Secondary Buttons (dark)
+.usa-button--outline.usa-button--inverse:not(:disabled) {
+  color: color($theme-link-reverse-active-color);
+  box-shadow: inset 0 0 0 2px color($theme-link-reverse-active-color);
+}
+
+.usa-button--outline.usa-button--inverse.usa-button--hover:not(:disabled),
+.usa-button--outline.usa-button--inverse:hover:not(:disabled) {
+  color: color($theme-color-base-lighter);
+  box-shadow: inset 0 0 0 2px color($theme-color-base-lighter);
+}
+
+.usa-button--outline.usa-button--inverse.usa-button--active:not(:disabled),
+.usa-button--outline.usa-button--inverse:active:not(:disabled) {
+  color: color($theme-color-base-light);
+  box-shadow: inset 0 0 0 2px color($theme-color-base-light);
+}
+
+// Secondary Buttons (danger)
+.usa-button--outline.outline-danger:not(:disabled) {
+  color: color($theme-color-error);
+  box-shadow: inset 0 0 0 2px color($theme-color-error);
+}
+
+.usa-button--hover.outline-danger:not(:disabled),
+.usa-button--outline.outline-danger:hover:not(:disabled) {
+  color: color($theme-color-error-dark);
+  box-shadow: inset 0 0 0 2px color($theme-color-error-dark);
+}
+
+.usa-button--active.outline-danger:not(:disabled),
+.usa-button--outline.outline-danger:active:not(:disabled) {
+  color: color($theme-color-error-darker);
+  box-shadow: inset 0 0 0 2px color($theme-color-error-darker);
+}
+
+// Unstyled buttons (light)
+.usa-button--unstyled {
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 700;
+}
+.usa-button--unstyled.usa-button--hover,
+.usa-button--unstyled:hover {
+  color: color($theme-color-primary-darker);
+}
+
+.usa-button--unstyled.usa-button--active,
+.usa-button--unstyled:active {
+  color: color($theme-color-primary-darkest);
+}
+
+//Unstyled Buttons (dark)
+.usa-button--unstyled.unstyled-button-dark {
+  color: color($theme-text-reverse-color);
+}
+
+.usa-button--unstyled.unstyled-button-dark.usa-button--hover,
+.usa-button--unstyled.unstyled-button-dark:hover {
+  color: color($theme-color-base-lighter);
+}
+
+.usa-button--unstyled.unstyled-button-dark.usa-button--active,
+.usa-button--unstyled.unstyled-button-dark:active {
+  color: color($theme-color-base-light);
+}
+
+//Unstyled Buttons (danger)
+.usa-button--unstyled.unstyled-button-danger:not(:disabled) {
+  color: color($theme-color-error);
+}
+
+.usa-button--hover.unstyled-button-danger:not(:disabled),
+.usa-button--unstyled.unstyled-button-danger:hover:not(:disabled) {
+  color: color($theme-color-error-dark);
+}
+
+.usa-button--active.unstyled-button-danger:not(:disabled),
+.usa-button--unstyled.unstyled-button-danger:active:not(:disabled) {
+  color: color($theme-color-error-darker);
+}
+
