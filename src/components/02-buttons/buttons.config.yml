@@ -1,19 +1,13 @@
 label: Buttons
 status: ready
-
+default: Primary (Light)
 variants:
-
-  - name: Primary (Light)
-    context:
-      category: primary
-      label: Primary Buttons (Light)
-      classes: "usa-button"
 
   - name: Primary (Dark)
     context:
       category: primary
       label: Primary Buttons (Dark)
-      classes: "usa-button primary-button-dark"
+      classes: "primary-button-dark"
 
   - name: Primary (Danger)
     context:
