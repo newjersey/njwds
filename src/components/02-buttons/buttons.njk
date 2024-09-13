@@ -1,25 +1,28 @@
-{%- if (classes == 'usa-button primary-button-dark') or (classes == 'usa-button--outline usa-button--inverse') or (classes == 'usa-button--unstyled unstyled-button-dark') -%}
+{%- set buttonClasses = 'usa-button ' + (classes | default('')) -%}
+
+{%- if (label == 'Secondary Buttons (Dark)') or (label == 'Primary Buttons (Dark)') or (label == 'Tertiary/Link Dark Buttons') -%}
 <div class="bg-base-darkest padding-1" style="max-width: fit-content">
 {% else -%}
 <div class="padding-1" style="max-width: fit-content">
 {% endif -%}
-  <button class="usa-button {{ classes }}">Default</button>
-  <button class="usa-button {{ classes }} usa-button--hover">Hover</button>
-  <button class="usa-button {{ classes }} usa-button--active">Active</button>
-  <button class="usa-button {{ classes }} usa-focus">Focus</button>
-  <button class="usa-button {{ classes }} button-icon icon-trailing">
+
+  <button class="{{ buttonClasses | trim }}">Default</button>
+  <button class="{{ buttonClasses | trim }} usa-button--hover">Hover</button>
+  <button class="{{ buttonClasses | trim }} usa-button--active">Active</button>
+  <button class="{{ buttonClasses | trim }} usa-focus">Focus</button>
+  <button class="{{ buttonClasses | trim }} button-icon">
     Icon Trailing
     <svg class="usa-icon usa-icon--size-3 margin-left-105" aria-hidden="true" focusable="false" role="img">
       <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
     </svg>
   </button>
-  <button class="usa-button {{ classes }} button-icon icon-leadng">
+  <button class="{{ buttonClasses | trim }} button-icon">
     <svg class="usa-icon usa-icon--size-3 margin-right-105" aria-hidden="true" focusable="false" role="img">
       <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
     </svg>
     Icon Leading
   </button>
-  <button aria-label="icon-label" class="usa-button {{ classes }} button-icon icon-only">
+  <button aria-label="icon-label" class="{{ buttonClasses | trim }} button-icon">
     <svg class="usa-icon usa-icon--size-3" focusable="false" role="img">
       <use xlink:href="{{ uswds.path }}/img/sprite.svg#accessibility_new"></use>
     </svg>
