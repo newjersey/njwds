@@ -1,45 +1,52 @@
 label: Buttons
 status: ready
-
+default: Primary (Light)
 variants:
-  - name: secondary
+
+  - name: Primary (Dark)
     context:
-      category: alternate
-      label: Secondary buttons
+      category: primary
+      label: Primary Buttons (Dark)
+      classes: "primary-button-dark"
+
+  - name: Primary (Danger)
+    context:
+      category: primary
+      label: Primary Buttons (Danger)
       classes: "usa-button--secondary"
 
-  - name: accent-cool
+  - name: Secondary (Light)
     context:
-      category: alternate
-      label: Accent cool buttons
-      classes: "usa-button--accent-cool"
-
-  - name: accent-warm
-    context:
-      category: alternate
-      label: Accent warm buttons
-      classes: "usa-button--accent-warm"
-
-  - name: base
-    context:
-      category: alternate
-      label: Gray buttons
-      classes: "usa-button--base"
-
-  - name: outline
-    context:
-      category: outline
-      label: outline buttons
+      category: secondary
+      label: Secondary Buttons (Light)
       classes: "usa-button--outline"
 
-  - name: outline-inverse
+  - name: Secondary (Dark)
     context:
-      category: outline-inverse
-      label: outline inverse buttons
+      category: secondary
+      label: Secondary Buttons (Dark)
       classes: "usa-button--outline usa-button--inverse"
 
-  - name: big
+  - name: Secondary (Danger)
     context:
-      category: "big"
-      label: Big button
-      classes: "usa-button--big"
+      category: secondary
+      label: Secondary Buttons (Danger)
+      classes: "usa-button--outline outline-danger"
+
+  - name: Tertiary (Light)
+    context:
+      category: Tertiary/Danger
+      label: Tertiary/Link Light Buttons
+      classes: "usa-button--unstyled"
+
+  - name: Tertiary (Dark)
+    context:
+      category: Tertiary/Link
+      label: Tertiary/Link Dark Buttons
+      classes: "usa-button--unstyled unstyled-button-dark"
+
+  - name: Tertiary (Danger) 
+    context:
+      category: Tertiary/Danger
+      label: Tertiary/Link Danger Buttons
+      classes: "usa-button--unstyled unstyled-button-danger"
