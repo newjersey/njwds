@@ -100,18 +100,18 @@ i.e.
 
 // Buttons
 .usa-button {
-  height:units(6);
+  height: units(6);
   padding: units(2) units(2.5);
   &.button-icon {
-    padding-top:units(1.5);
-    padding-bottom:0.875rem;
+    padding-top: units(1.5);
+    padding-bottom: 0.875rem;
   }
 }
 
 .button-icon svg {
-    vertical-align: sub;
-    margin-bottom: -2px;
-  }
+  vertical-align: sub;
+  margin-bottom: -2px;
+}
 
 .usa-button:focus,
 .usa-button.usa-focus {
@@ -207,10 +207,10 @@ i.e.
 
 // Unstyled buttons (light)
 .usa-button--unstyled {
-  border-radius: units(.5);
-  padding: units(.5);
+  border-radius: units(0.5);
+  padding: units(0.5);
   font-weight: $theme-font-weight-bold;
-  height:auto;
+  height: auto;
 }
 .usa-button--unstyled.usa-button--hover,
 .usa-button--unstyled:hover {
@@ -251,4 +251,3 @@ i.e.
 .usa-button--unstyled.unstyled-button-danger:active:not(:disabled) {
   color: color($theme-color-error-darker);
 }
-
