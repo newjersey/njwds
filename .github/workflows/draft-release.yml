@@ -14,6 +14,9 @@ on:
 
 jobs:
   update-version:
+    permissions:
+      contents: write # to be able to push a new branch
+      pull-requests: write # to be able to comment on released pull requests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -42,6 +45,8 @@ jobs:
       release_sha: ${{ steps.bump_version.outputs.release_sha }}
 
   draft-release:
+    permissions:
+      contents: write # to be able to publish a GitHub release
     needs: update-version
     runs-on: ubuntu-latest
     steps:
