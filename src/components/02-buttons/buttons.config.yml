@@ -15,7 +15,7 @@ variants:
       label: Primary Buttons (Danger)
       classes: "usa-button--secondary"
 
-  - name: secondary (Light)
+  - name: Secondary (Light)
     context:
       category: secondary
       label: Secondary Buttons (Light)
@@ -44,6 +44,7 @@ variants:
       category: Tertiary/Link
       label: Tertiary/Link Dark Buttons
       classes: "usa-button--unstyled unstyled-button-dark"
+
   - name: Tertiary (Danger) 
     context:
       category: Tertiary/Danger
