@@ -251,3 +251,16 @@ i.e.
 .usa-button--unstyled.unstyled-button-danger:active:not(:disabled) {
   color: color($theme-color-error-darker);
 }
+
+.usa-icon:not(
+    .usa-icon--size-3,
+    .usa-icon--size-4,
+    .usa-icon--size-5,
+    .usa-icon--size-6,
+    .usa-icon--size-7,
+    .usa-icon--size-8,
+    .usa-icon--size-9
+  ) {
+  width: 20px;
+  height: 20px;
+}
