@@ -1,0 +1,14 @@
+label: Radio Buttons
+status: ready
+
+variants:
+  - name: default
+    label: Default
+    context:
+      label: Default Radio Buttons
+      classes: ""
+  - name: tile
+    label: Tile
+    context:
+      label: Tile Radio Buttons
+      classes: "usa-radio__input--tile"
