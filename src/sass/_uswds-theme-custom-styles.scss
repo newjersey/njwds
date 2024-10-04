@@ -265,7 +265,14 @@ i.e.
   height: 20px;
 }
 
+// Radio Buttons
+.usa-radio {
+  background: none;
+}
+
 // Radio Buttons (tile)
 .usa-radio__input--tile:checked+[class*=__label] {
   background-color: color($theme-color-primary-lighter);
 }
+
+
