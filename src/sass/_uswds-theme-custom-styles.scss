@@ -270,6 +270,10 @@ i.e.
   background: none;
 }
 
+.usa-radio__label::before {
+  box-shadow: 0 0 0 2px color($theme-color-base);
+}
+
 // Radio Buttons (tile)
 .usa-radio__input--tile:checked+[class*=__label] {
   background-color: color($theme-color-primary-lighter);
