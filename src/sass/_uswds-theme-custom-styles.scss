@@ -279,4 +279,8 @@ i.e.
   background-color: color($theme-color-primary-lighter);
 }
 
+.usa-radio__input--tile+[class*=__label] {
+  border-color: color($theme-color-base-light);
+}
+
 
