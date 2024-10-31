@@ -282,4 +282,6 @@ i.e.
 .usa-radio__input--tile+[class*=__label] {
   border-color: color($theme-color-base-light);
 }
-
+.usa-radio__input.usa-radio__input--tile:checked + [class*=__label]::before{
+  box-shadow: 0 0 0 2px #005ea2,inset 0 0 0 2px #cfe8ff;
+}
