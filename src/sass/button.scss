@@ -19,8 +19,12 @@
 // First import required and global packages...
 // @forward "packages/required";
 // @forward "packages/global";
+@forward "packages/uswds-global";
+// @forward "packages/uswds-utilities";
+// @forward "packages/uswds-helpers";
 
 // Then import individual component packages...
+@forward "packages/usa-icon";
 // @forward 'packages/form-controls';
 // @forward 'packages/form-templates';
 // @forward 'packages/layout-grid';
