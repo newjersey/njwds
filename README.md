@@ -35,13 +35,15 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 - Clone this repository
 - Run `npm install`
-- [Optional] Run `npm run import-components` to important new USWDS components. This only needs to be done if new upstream components are developed
+- [Optional] Run `npm run import-components` to import new USWDS components. This only needs to be done if new upstream components are developed. This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in a `dist` directory. Note: This option may no longer work in the workflow, use caution when trying it out to check for regressions.
 
-This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in a `dist` directory.
+## Build the design system assets
+
+- Run `npm run build-uswds` to build the assets into the `dist/` directory
 
 ### Build the component library
 
-- Run `npm run build-docs` to general a [Fractal]() component gallery for reviewing the style guide
+- Run `npm run build-docs` to build the [Fractal]() component gallery for reviewing the component documentation
 
 ### View component library locally or development
 
