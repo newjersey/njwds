@@ -119,19 +119,19 @@ i.e.
 }
 
 // Primary Buttons (dark)
-.usa-button.primary-button-dark:not(:disabled) {
+.usa-button.nj-primary-button-dark:not(:disabled) {
   color: color($theme-text-color);
   background-color: color($theme-color-base-lightest);
 }
 
-.usa-button.primary-button-dark.usa-button--hover:not(:disabled),
-.usa-button.primary-button-dark:hover:not(:disabled) {
+.usa-button.nj-primary-button-dark.usa-button--hover:not(:disabled),
+.usa-button.nj-primary-button-dark:hover:not(:disabled) {
   color: color($theme-text-color);
   background-color: color($theme-color-base-lighter);
 }
 
-.usa-button.primary-button-dark.usa-button--active:not(:disabled),
-.usa-button.primary-button-dark:active:not(:disabled) {
+.usa-button.nj-primary-button-dark.usa-button--active:not(:disabled),
+.usa-button.nj-primary-button-dark:active:not(:disabled) {
   color: color($theme-text-color);
   background-color: color($theme-color-base-light);
 }
@@ -188,19 +188,19 @@ i.e.
 }
 
 // Secondary Buttons (danger)
-.usa-button--outline.outline-danger:not(:disabled) {
+.usa-button--outline.nj-outline-danger:not(:disabled) {
   color: color($theme-color-error);
   box-shadow: inset 0 0 0 2px color($theme-color-error);
 }
 
-.usa-button--hover.outline-danger:not(:disabled),
-.usa-button--outline.outline-danger:hover:not(:disabled) {
+.usa-button--hover.nj-outline-danger:not(:disabled),
+.usa-button--outline.nj-outline-danger:hover:not(:disabled) {
   color: color($theme-color-error-dark);
   box-shadow: inset 0 0 0 2px color($theme-color-error-dark);
 }
 
-.usa-button--active.outline-danger:not(:disabled),
-.usa-button--outline.outline-danger:active:not(:disabled) {
+.usa-button--active.nj-outline-danger:not(:disabled),
+.usa-button--outline.nj-outline-danger:active:not(:disabled) {
   color: color($theme-color-error-darker);
   box-shadow: inset 0 0 0 2px color($theme-color-error-darker);
 }
@@ -223,32 +223,32 @@ i.e.
 }
 
 // Unstyled Buttons (dark)
-.usa-button--unstyled.unstyled-button-dark {
+.usa-button--unstyled.nj-unstyled-button-dark {
   color: color($theme-text-reverse-color);
 }
 
-.usa-button--unstyled.unstyled-button-dark.usa-button--hover,
-.usa-button--unstyled.unstyled-button-dark:hover {
+.usa-button--unstyled.nj-unstyled-button-dark.usa-button--hover,
+.usa-button--unstyled.nj-unstyled-button-dark:hover {
   color: color($theme-color-base-lighter);
 }
 
-.usa-button--unstyled.unstyled-button-dark.usa-button--active,
-.usa-button--unstyled.unstyled-button-dark:active {
+.usa-button--unstyled.nj-unstyled-button-dark.usa-button--active,
+.usa-button--unstyled.nj-unstyled-button-dark:active {
   color: color($theme-color-base-light);
 }
 
 // Unstyled Buttons (danger)
-.usa-button--unstyled.unstyled-button-danger:not(:disabled) {
+.usa-button--unstyled.nj-unstyled-button-danger:not(:disabled) {
   color: color($theme-color-error);
 }
 
-.usa-button--hover.unstyled-button-danger:not(:disabled),
-.usa-button--unstyled.unstyled-button-danger:hover:not(:disabled) {
+.usa-button--hover.nj-unstyled-button-danger:not(:disabled),
+.usa-button--unstyled.nj-unstyled-button-danger:hover:not(:disabled) {
   color: color($theme-color-error-dark);
 }
 
-.usa-button--active.unstyled-button-danger:not(:disabled),
-.usa-button--unstyled.unstyled-button-danger:active:not(:disabled) {
+.usa-button--active.nj-unstyled-button-danger:not(:disabled),
+.usa-button--unstyled.nj-unstyled-button-danger:active:not(:disabled) {
   color: color($theme-color-error-darker);
 }
 
@@ -275,13 +275,13 @@ i.e.
 }
 
 // Radio Buttons (tile)
-.usa-radio__input--tile:checked+[class*=__label] {
+.usa-radio__input--tile:checked + [class*="__label"] {
   background-color: color($theme-color-primary-lighter);
 }
 
-.usa-radio__input--tile+[class*=__label] {
+.usa-radio__input--tile + [class*="__label"] {
   border-color: color($theme-color-base-light);
 }
-.usa-radio__input.usa-radio__input--tile:checked + [class*=__label]::before{
-  box-shadow: 0 0 0 2px #005ea2,inset 0 0 0 2px #cfe8ff;
+.usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before {
+  box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px #cfe8ff;
 }
