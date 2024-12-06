@@ -1,6 +1,6 @@
-# NJ Web Design Standards
+# New Jersey Web Design System (NJWDS)
 
-The NJ Web Design Standards are an extension of the [US Web Design Standards](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
+The NJ Web Design System is an extension of the [US Web Design System](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
 
 ## How to install and use the NJWDS
 
