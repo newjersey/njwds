@@ -2,12 +2,11 @@ label: Buttons
 status: ready
 default: Primary (Light)
 variants:
-
   - name: Primary (Dark)
     context:
       category: primary
       label: Primary Buttons (Dark)
-      classes: "primary-button-dark"
+      classes: "nj-button--primary-dark"
 
   - name: Primary (Danger)
     context:
@@ -31,7 +30,7 @@ variants:
     context:
       category: secondary
       label: Secondary Buttons (Danger)
-      classes: "usa-button--outline outline-danger"
+      classes: "usa-button--outline nj-button--outline-danger"
 
   - name: Tertiary (Light)
     context:
@@ -43,10 +42,10 @@ variants:
     context:
       category: Tertiary/Link
       label: Tertiary/Link Dark Buttons
-      classes: "usa-button--unstyled unstyled-button-dark"
+      classes: "usa-button--unstyled nj-button--unstyled-dark"
 
-  - name: Tertiary (Danger) 
+  - name: Tertiary (Danger)
     context:
       category: Tertiary/Danger
       label: Tertiary/Link Danger Buttons
-      classes: "usa-button--unstyled unstyled-button-danger"
+      classes: "usa-button--unstyled nj-button--unstyled-danger"

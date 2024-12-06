@@ -1,6 +1,6 @@
-# NJ Web Design Standards
+# New Jersey Web Design System (NJWDS)
 
-The NJ Web Design Standards are an extension of the [US Web Design Standards](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
+The NJ Web Design System is an extension of the [US Web Design System](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
 
 ## How to install and use the NJWDS
 
@@ -35,7 +35,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 - Clone this repository
 - Run `npm install`
-- [Optional] Run `npm run import-components` to import new USWDS components. This only needs to be done if new upstream components are developed. This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in a `dist` directory. Note: This option may no longer work in the workflow, use caution when trying it out to check for regressions.
+- [Optional] Run `npm run import-components` to import new USWDS components. This only needs to be done if new upstream components are developed. This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in a `dist` directory. Note: This option may no longer work, if trying it out, use caution and check for regressions.
 
 ## Build the design system assets
 
@@ -43,7 +43,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 ### Build the component library
 
-- Run `npm run build-docs` to build the [Fractal]() component gallery for reviewing the component documentation
+- Run `npm run build-docs` to build the [Fractal](https://fractal.build/) component gallery for reviewing the component documentation
 
 ### View component library locally or development
 
@@ -53,9 +53,9 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 - Run `npm run deploy`
 
-This builds USWDS styles, builds the Fractal docs, and then deploys them to the gh-pages branch.
+This builds USWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch.
 
-Note: do not push directly to the gh-pages branch.
+Note: Do not push directly to the `gh-pages` branch. This is done automatically when committing to `main`.
 
 ## Releasing a new version to NPM
 
