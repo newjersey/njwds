@@ -48,6 +48,8 @@ jobs:
   draft-release:
     needs: update-version
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
     steps:
       - uses: actions/checkout@v3
         with:
