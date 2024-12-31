@@ -290,3 +290,14 @@ i.e.
 .usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before {
   box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px #cfe8ff;
 }
+
+.nj-error-message-container {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  color: color($theme-color-error-dark);
+}
+
+.usa-error-message {
+  padding: 0;
+}
