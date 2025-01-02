@@ -292,12 +292,12 @@ i.e.
 }
 
 .nj-error-message-container {
-  margin-top: 12px;
+  margin-top: units(1.5);
   display: flex;
   align-items: center;
   color: color($theme-color-error-dark);
 }
 
 .usa-error-message {
-  padding: 0;
+  padding: units(0);
 }

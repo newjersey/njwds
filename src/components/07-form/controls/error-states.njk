@@ -1,12 +1,21 @@
 <form class="usa-form">
-  <div class="usa-form-group usa-form-group--error">
-    <label class="usa-label usa-label--error" for="input-error">Text input label</label>
-    <input class="usa-input usa-input--error" id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
-    <div class="nj-error-message-container">
-        <svg class="usa-icon margin-right-1" focusable="false" aria-hidden="true" role="img">
-          <use xlink:href="{{ uswds.path }}/img/sprite.svg#info"></use>
-        </svg>
-        <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
-    </div>
+    <div class="usa-form-group usa-form-group--error">
+      <label class="usa-label usa-label--error" for="input-error">Text input label</label>
+      <span id="with-hint-input-hint" class="usa-hint">
+        This is an input with a character counter.
+      </span>
+
+      <div class="usa-character-count">
+      <input class="usa-input usa-input--error usa-character-count__field" id="input-error" maxlength="25" name="input-error" type="text" aria-describedby="with-hint-input-hint input-error-message">
+      <span id="with-hint-input-info" class="usa-character-count__message">
+        You can enter up to 25 characters
+      </span>
+      </div>
+      <div class="nj-error-message-container">
+          <svg class="usa-icon margin-right-1" focusable="false" aria-hidden="true" role="img">
+            <use xlink:href="{{ uswds.path }}/img/sprite.svg#info"></use>
+          </svg>
+          <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
+      </div>
   </div>
 </form>
