@@ -175,13 +175,44 @@
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>Text input label<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>
+            Text input label
+            <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;required&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label--required&quot;</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-input-hint&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-hint&quot;</span>&gt;</span> Helper text <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">required</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error usa-character-count__field&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">&quot;25&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;with-hint-input-hint input-error-message&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-input-info&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count__message&quot;</span>&gt;</span>
+                You can enter up to 25 characters
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon margin-right-1&quot;</span> <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;../../dist/img/sprite.svg#info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span>Helpful error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;area-error&quot;</span>&gt;</span>
+            Text area label
+            <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;required&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label--required&quot;</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-area-hint&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-hint&quot;</span>&gt;</span> Helper text <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">required</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-textarea usa-input--error usa-character-count__field&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;area-error&quot;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">&quot;25&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;area-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;with-hint-area-hint area-error-message&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-area-info&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count__message&quot;</span>&gt;</span>
+                You can enter up to 25 characters
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon margin-right-1&quot;</span> <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;../../dist/img/sprite.svg#info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;area-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span>Helpful error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></pre>
@@ -203,13 +234,74 @@
     <code class="Code Code--lang-django hljs">
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>Text input label<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>
+      Text input label
+      <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;required&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label--required&quot;</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-input-hint&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-hint&quot;</span>&gt;</span> Helper text <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+        <span class="hljs-attr">required</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error usa-character-count__field&quot;</span>
+        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span>
+        <span class="hljs-attr">maxlength</span>=<span class="hljs-string">&quot;25&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+        <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;with-hint-input-hint input-error-message&quot;</span>
+      /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-input-info&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count__message&quot;</span>&gt;</span>
+        You can enter up to 25 characters
+      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon margin-right-1&quot;</span> <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ uswds.path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/img/sprite.svg#info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span>Helpful error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon margin-right-1&quot;</span>
+        <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span>
+        <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>
+        <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ uswds.path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/img/sprite.svg#info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>
+        &gt;</span>Helpful error message&lt;/span
+      &gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;area-error&quot;</span>&gt;</span>
+      Text area label
+      <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;required&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label--required&quot;</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-area-hint&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-hint&quot;</span>&gt;</span> Helper text <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span>
+        <span class="hljs-attr">required</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-textarea usa-input--error usa-character-count__field&quot;</span>
+        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;area-error&quot;</span>
+        <span class="hljs-attr">maxlength</span>=<span class="hljs-string">&quot;25&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;area-error&quot;</span>
+        <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+        <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;with-hint-area-hint area-error-message&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;with-hint-area-info&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count__message&quot;</span>&gt;</span>
+        You can enter up to 25 characters
+      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon margin-right-1&quot;</span>
+        <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span>
+        <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>
+        <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ uswds.path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/img/sprite.svg#info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;area-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>
+        &gt;</span>Helpful error message&lt;/span
+      &gt;
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></pre>
@@ -4591,8 +4683,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2025-01-01T04:26:43.706Z">
-                                1/1/2025
+                            <time datetime="2025-01-02T18:18:01.737Z">
+                                1/2/2025
                             </time>
                         
                     </dd>
