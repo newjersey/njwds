@@ -33,12 +33,7 @@
       </span>
     </div>
     <div class="nj-error-message-container">
-      <svg
-        class="usa-icon margin-right-1"
-        focusable="false"
-        aria-hidden="true"
-        role="img"
-      >
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
         <use xlink:href="../../dist/img/sprite.svg#info"></use>
       </svg>
       <span class="usa-error-message" id="input-error-message" role="alert"
@@ -69,15 +64,220 @@
       </span>
     </div>
     <div class="nj-error-message-container">
-      <svg
-        class="usa-icon margin-right-1"
-        focusable="false"
-        aria-hidden="true"
-        role="img"
-      >
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
         <use xlink:href="../../dist/img/sprite.svg#info"></use>
       </svg>
       <span class="usa-error-message" id="area-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  <div class="usa-form-group usa-form-group--error">
+    <label class="usa-label usa-label--error" for="options"
+      >Dropdown label
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <span id="with-hint-options-hint" class="usa-hint"> Helper text </span>
+    <select
+      class="usa-select usa-input--error"
+      name="options"
+      id="options"
+      aria-describedby="with-hint-options-hint options-error-message"
+    >
+      <option value>- Select -</option>
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="options-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  <div class="usa-form-group usa-form-group--error">
+    <label
+      class="usa-label usa-label--error"
+      id="appointment-date-label"
+      for="appointment-date"
+      >Appointment date
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker">
+      <input
+        class="usa-input usa-input--error"
+        id="appointment-date"
+        name="appointment-date"
+        aria-labelledby="appointment-date-label"
+        aria-describedby="appointment-date-hint date-error-message"
+      />
+    </div>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="date-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset
+      class="usa-fieldset"
+      aria-describedby="memorable-date-error-message"
+    >
+      <legend class="usa-legend usa-label--error">
+        Date of birth
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
+      <div class="usa-memorable-date">
+        <div
+          class="usa-form-group usa-form-group--month usa-form-group--select"
+        >
+          <label class="usa-label usa-label--error" for="date_of_birth_month"
+            >Month</label
+          >
+          <select
+            class="usa-select usa-input--error"
+            id="date_of_birth_month"
+            name="date_of_birth_month"
+            aria-describedby="mdHint"
+          >
+            <option value>- Select -</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="usa-form-group usa-form-group--day">
+          <label class="usa-label usa-label--error" for="date_of_birth_day"
+            >Day</label
+          >
+          <input
+            class="usa-input usa-input--error"
+            aria-describedby="mdHint"
+            id="date_of_birth_day"
+            name="date_of_birth_day"
+            maxlength="2"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            value=""
+          />
+        </div>
+        <div class="usa-form-group usa-form-group--year">
+          <label class="usa-label usa-label--error" for="date_of_birth_year"
+            >Year</label
+          >
+          <input
+            class="usa-input usa-input--error"
+            aria-describedby="mdHint"
+            id="date_of_birth_year"
+            name="date_of_birth_year"
+            minlength="4"
+            maxlength="4"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            value=""
+          />
+        </div>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span
+        class="usa-error-message"
+        id="memorable-date-error-message"
+        role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset
+      class="usa-fieldset"
+      aria-describedby="checkboxes-hint checkboxes-error-message"
+    >
+      <legend class="usa-legend usa-label--error">
+        Select any historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="checkboxes-hint">Helper text</span>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-truth"
+          type="checkbox"
+          name="historical-figures"
+          value="sojourner-truth"
+          checked="checked"
+        />
+        <label class="usa-checkbox__label" for="check-historical-truth"
+          >Sojourner Truth</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-douglass"
+          type="checkbox"
+          name="historical-figures"
+          value="frederick-douglass"
+        />
+        <label class="usa-checkbox__label" for="check-historical-douglass"
+          >Frederick Douglass</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-washington"
+          type="checkbox"
+          name="historical-figures"
+          value="booker-t-washington"
+        />
+        <label class="usa-checkbox__label" for="check-historical-washington"
+          >Booker T. Washington</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-carver"
+          type="checkbox"
+          name="historical-figures"
+          value="george-washington-carver"
+          disabled="disabled"
+        />
+        <label class="usa-checkbox__label" for="check-historical-carver"
+          >George Washington Carver</label
+        >
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="checkboxes-error-message" role="alert"
         >Helpful error message</span
       >
     </div>
