@@ -294,10 +294,23 @@ i.e.
 .nj-error-message-container {
   margin-top: units(1.5);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   color: color($theme-color-error-dark);
+}
+
+.nj-error-message-container > svg {
+  flex-shrink: 0;
+  margin-right: units(1);
 }
 
 .usa-error-message {
   padding: units(0);
+}
+
+.usa-form-group--error {
+  padding-left: units(2.5);
+}
+
+.nj-checkbox--error > .usa-checkbox__label::before {
+  box-shadow: 0 0 0 2px color($theme-color-error-dark);
 }
