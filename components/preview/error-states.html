@@ -11,6 +11,7 @@
     
   <div class="grid-container usa-prose" style="padding-top: 2em; padding-bottom: 2em;">
     <form class="usa-form">
+  
   <div class="usa-form-group usa-form-group--error">
     <label class="usa-label usa-label--error" for="input-error">
       Text input label
@@ -42,6 +43,7 @@
     </div>
   </div>
 
+  
   <div class="usa-form-group usa-form-group--error">
     <label class="usa-label usa-label--error" for="area-error">
       Text area label
@@ -73,6 +75,7 @@
     </div>
   </div>
 
+  
   <div class="usa-form-group usa-form-group--error">
     <label class="usa-label usa-label--error" for="options"
       >Dropdown label
@@ -100,6 +103,7 @@
     </div>
   </div>
 
+  
   <div class="usa-form-group usa-form-group--error">
     <label
       class="usa-label usa-label--error"
@@ -128,6 +132,7 @@
     </div>
   </div>
 
+  
   <div class="usa-form-group usa-form-group--error">
     <fieldset
       class="usa-fieldset"
@@ -212,6 +217,7 @@
     </div>
   </div>
 
+  
   <div class="usa-form-group usa-form-group--error">
     <fieldset
       class="usa-fieldset"
@@ -266,7 +272,6 @@
           type="checkbox"
           name="historical-figures"
           value="george-washington-carver"
-          disabled="disabled"
         />
         <label class="usa-checkbox__label" for="check-historical-carver"
           >George Washington Carver</label
@@ -280,6 +285,113 @@
       <span class="usa-error-message" id="checkboxes-error-message" role="alert"
         >Helpful error message</span
       >
+    </div>
+  </div>
+
+  
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="checkboxes-hint--tile checkboxes-error-message--tile">
+      <legend class="usa-legend usa-label--error">
+        Select any historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="checkboxes-hint--tile">Helper text</span>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-truth-2--tile" type="checkbox" name="historical-figures-2" value="sojourner-truth" checked>
+        <label class="usa-checkbox__label" for="check-historical-truth-2--tile">
+          Sojourner Truth
+        </label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-douglass-2--tile" type="checkbox" name="historical-figures-2" value="frederick-douglass">
+        <label class="usa-checkbox__label" for="check-historical-douglass-2--tile">Frederick Douglass</label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-washington-2--tile" type="checkbox" name="historical-figures-2" value="booker-t-washington">
+        <label class="usa-checkbox__label" for="check-historical-washington-2--tile">Booker T. Washington</label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2--tile" type="checkbox" name="historical-figures-2"  value="george-washington-carver">
+        <label class="usa-checkbox__label" for="check-historical-carver-2--tile">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="checkboxes-error-message--tile" role="alert">
+        Helpful error message
+      </span>
+    </div>
+  </div>
+
+  
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="radio-hint radio-error-message">
+      <legend class="usa-legend usa-label--error">
+        Select one historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="radio-hint">Helper text</span>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-truth" type="radio" name="historical-figures" value="sojourner-truth" checked>
+        <label class="usa-radio__label" for="historical-truth">Sojourner Truth</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-douglass" type="radio" name="historical-figures" value="frederick-douglass">
+        <label class="usa-radio__label" for="historical-douglass">Frederick Douglass</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-washington" type="radio" name="historical-figures" value="booker-t-washington">
+        <label class="usa-radio__label" for="historical-washington">Booker T. Washington</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-carver" type="radio" name="historical-figures" value="george-washington-carver">
+        <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="radio-error-message" role="alert">
+        Helpful error message
+      </span>
+    </div>
+  </div>
+
+  
+    <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="radio-hint--tile radio-error-message--tile">
+      <legend class="usa-legend usa-label--error">
+        Select one historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="radio-hint--tile">Helper text</span>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-truth--tile" type="radio" name="historical-figures" value="sojourner-truth" checked>
+        <label class="usa-radio__label" for="historical-truth--tile">Sojourner Truth</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-douglass--tile" type="radio" name="historical-figures" value="frederick-douglass">
+        <label class="usa-radio__label" for="historical-douglass--tile">Frederick Douglass</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-washington--tile" type="radio" name="historical-figures" value="booker-t-washington">
+        <label class="usa-radio__label" for="historical-washington--tile">Booker T. Washington</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-carver--tile" type="radio" name="historical-figures" value="george-washington-carver">
+        <label class="usa-radio__label" for="historical-carver--tile">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="../../dist/img/sprite.svg#info"></use>
+      </svg>
+      <span class="usa-error-message" id="radio-error-message--tile" role="alert">
+        Helpful error message
+      </span>
     </div>
   </div>
 </form>
