@@ -53,7 +53,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 - Run `npm run deploy`
 
-This builds USWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch.
+This builds USWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch. The deployed docs can be found [here](https://newjersey.github.io/njwds).
 
 Note: Do not push directly to the `gh-pages` branch. This is done automatically when committing to `main`.
 
