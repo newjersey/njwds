@@ -314,3 +314,7 @@ i.e.
 .nj-checkbox--error > .usa-checkbox__label::before {
   box-shadow: 0 0 0 2px color($theme-color-error-dark);
 }
+
+.nj-radio--error > .usa-radio__label::before {
+  box-shadow: 0 0 0 2px color($theme-color-error-dark);
+}
