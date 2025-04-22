@@ -1,0 +1,385 @@
+<form class="usa-form">
+  {# text input #}
+  <div class="usa-form-group usa-form-group--error">
+    <label class="usa-label usa-label--error" for="input-error">
+      Text input label
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <span id="with-hint-input-hint" class="usa-hint"> Helper text </span>
+
+    <div class="usa-character-count">
+      <input
+        required
+        class="usa-input usa-input--error usa-character-count__field"
+        id="input-error"
+        maxlength="25"
+        name="input-error"
+        type="text"
+        aria-describedby="with-hint-input-hint input-error-message"
+      />
+      <span id="with-hint-input-info" class="usa-character-count__message">
+        You can enter up to 25 characters
+      </span>
+    </div>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="input-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# text area #}
+  <div class="usa-form-group usa-form-group--error">
+    <label class="usa-label usa-label--error" for="area-error">
+      Text area label
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <span id="with-hint-area-hint" class="usa-hint"> Helper text </span>
+
+    <div class="usa-character-count">
+      <textarea
+        required
+        class="usa-textarea usa-input--error usa-character-count__field"
+        id="area-error"
+        maxlength="25"
+        name="area-error"
+        type="text"
+        aria-describedby="with-hint-area-hint area-error-message"
+      ></textarea>
+      <span id="with-hint-area-info" class="usa-character-count__message">
+        You can enter up to 25 characters
+      </span>
+    </div>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="area-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# dropdown select #}
+  <div class="usa-form-group usa-form-group--error">
+    <label class="usa-label usa-label--error" for="options"
+      >Dropdown label
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <span id="with-hint-options-hint" class="usa-hint"> Helper text </span>
+    <select
+      class="usa-select usa-input--error"
+      name="options"
+      id="options"
+      aria-describedby="with-hint-options-hint options-error-message"
+    >
+      <option value>- Select -</option>
+      <option value="value1">Option A</option>
+      <option value="value2">Option B</option>
+      <option value="value3">Option C</option>
+    </select>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="options-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# date picker #}
+  <div class="usa-form-group usa-form-group--error">
+    <label
+      class="usa-label usa-label--error"
+      id="appointment-date-label"
+      for="appointment-date"
+      >Appointment date
+      <abbr title="required" class="usa-label--required">*</abbr>
+    </label>
+    <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+    <div class="usa-date-picker">
+      <input
+        class="usa-input usa-input--error"
+        id="appointment-date"
+        name="appointment-date"
+        aria-labelledby="appointment-date-label"
+        aria-describedby="appointment-date-hint date-error-message"
+      />
+    </div>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="date-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# memorable date #}
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset
+      class="usa-fieldset"
+      aria-describedby="memorable-date-error-message"
+    >
+      <legend class="usa-legend usa-label--error">
+        Date of birth
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="mdHint">For example: January 19 2000</span>
+      <div class="usa-memorable-date">
+        <div
+          class="usa-form-group usa-form-group--month usa-form-group--select"
+        >
+          <label class="usa-label usa-label--error" for="date_of_birth_month"
+            >Month</label
+          >
+          <select
+            class="usa-select usa-input--error"
+            id="date_of_birth_month"
+            name="date_of_birth_month"
+            aria-describedby="mdHint"
+          >
+            <option value>- Select -</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="usa-form-group usa-form-group--day">
+          <label class="usa-label usa-label--error" for="date_of_birth_day"
+            >Day</label
+          >
+          <input
+            class="usa-input usa-input--error"
+            aria-describedby="mdHint"
+            id="date_of_birth_day"
+            name="date_of_birth_day"
+            maxlength="2"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            value=""
+          />
+        </div>
+        <div class="usa-form-group usa-form-group--year">
+          <label class="usa-label usa-label--error" for="date_of_birth_year"
+            >Year</label
+          >
+          <input
+            class="usa-input usa-input--error"
+            aria-describedby="mdHint"
+            id="date_of_birth_year"
+            name="date_of_birth_year"
+            minlength="4"
+            maxlength="4"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            value=""
+          />
+        </div>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span
+        class="usa-error-message"
+        id="memorable-date-error-message"
+        role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# checkboxes #}
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset
+      class="usa-fieldset"
+      aria-describedby="checkboxes-hint checkboxes-error-message"
+    >
+      <legend class="usa-legend usa-label--error">
+        Select any historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="checkboxes-hint">Helper text</span>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-truth"
+          type="checkbox"
+          name="historical-figures"
+          value="sojourner-truth"
+          checked="checked"
+        />
+        <label class="usa-checkbox__label" for="check-historical-truth"
+          >Sojourner Truth</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-douglass"
+          type="checkbox"
+          name="historical-figures"
+          value="frederick-douglass"
+        />
+        <label class="usa-checkbox__label" for="check-historical-douglass"
+          >Frederick Douglass</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-washington"
+          type="checkbox"
+          name="historical-figures"
+          value="booker-t-washington"
+        />
+        <label class="usa-checkbox__label" for="check-historical-washington"
+          >Booker T. Washington</label
+        >
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input
+          class="usa-checkbox__input"
+          id="check-historical-carver"
+          type="checkbox"
+          name="historical-figures"
+          value="george-washington-carver"
+        />
+        <label class="usa-checkbox__label" for="check-historical-carver"
+          >George Washington Carver</label
+        >
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="checkboxes-error-message" role="alert"
+        >Helpful error message</span
+      >
+    </div>
+  </div>
+
+  {# checkbox tile list #}
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="checkboxes-hint--tile checkboxes-error-message--tile">
+      <legend class="usa-legend usa-label--error">
+        Select any historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="checkboxes-hint--tile">Helper text</span>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-truth-2--tile" type="checkbox" name="historical-figures-2" value="sojourner-truth" checked>
+        <label class="usa-checkbox__label" for="check-historical-truth-2--tile">
+          Sojourner Truth
+        </label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-douglass-2--tile" type="checkbox" name="historical-figures-2" value="frederick-douglass">
+        <label class="usa-checkbox__label" for="check-historical-douglass-2--tile">Frederick Douglass</label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-washington-2--tile" type="checkbox" name="historical-figures-2" value="booker-t-washington">
+        <label class="usa-checkbox__label" for="check-historical-washington-2--tile">Booker T. Washington</label>
+      </div>
+      <div class="usa-checkbox nj-checkbox--error">
+        <input class="usa-checkbox__input usa-checkbox__input--tile" id="check-historical-carver-2--tile" type="checkbox" name="historical-figures-2"  value="george-washington-carver">
+        <label class="usa-checkbox__label" for="check-historical-carver-2--tile">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="checkboxes-error-message--tile" role="alert">
+        Helpful error message
+      </span>
+    </div>
+  </div>
+
+  {# radio buttons #}
+  <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="radio-hint radio-error-message">
+      <legend class="usa-legend usa-label--error">
+        Select one historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="radio-hint">Helper text</span>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-truth" type="radio" name="historical-figures" value="sojourner-truth" checked>
+        <label class="usa-radio__label" for="historical-truth">Sojourner Truth</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-douglass" type="radio" name="historical-figures" value="frederick-douglass">
+        <label class="usa-radio__label" for="historical-douglass">Frederick Douglass</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-washington" type="radio" name="historical-figures" value="booker-t-washington">
+        <label class="usa-radio__label" for="historical-washington">Booker T. Washington</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input" id="historical-carver" type="radio" name="historical-figures" value="george-washington-carver">
+        <label class="usa-radio__label" for="historical-carver">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="radio-error-message" role="alert">
+        Helpful error message
+      </span>
+    </div>
+  </div>
+
+  {# radio tile list #}
+    <div class="usa-form-group usa-form-group--error">
+    <fieldset class="usa-fieldset" aria-describedby="radio-hint--tile radio-error-message--tile">
+      <legend class="usa-legend usa-label--error">
+        Select one historical figure
+        <abbr title="required" class="usa-label--required">*</abbr>
+      </legend>
+      <span class="usa-hint" id="radio-hint--tile">Helper text</span>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-truth--tile" type="radio" name="historical-figures" value="sojourner-truth" checked>
+        <label class="usa-radio__label" for="historical-truth--tile">Sojourner Truth</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-douglass--tile" type="radio" name="historical-figures" value="frederick-douglass">
+        <label class="usa-radio__label" for="historical-douglass--tile">Frederick Douglass</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-washington--tile" type="radio" name="historical-figures" value="booker-t-washington">
+        <label class="usa-radio__label" for="historical-washington--tile">Booker T. Washington</label>
+      </div>
+      <div class="usa-radio nj-radio--error">
+        <input class="usa-radio__input usa-radio__input--tile" id="historical-carver--tile" type="radio" name="historical-figures" value="george-washington-carver">
+        <label class="usa-radio__label" for="historical-carver--tile">George Washington Carver</label>
+      </div>
+    </fieldset>
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="{{ uswds.path }}/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="radio-error-message--tile" role="alert">
+        Helpful error message
+      </span>
+    </div>
+  </div>
+</form>
