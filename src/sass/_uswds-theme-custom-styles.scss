@@ -279,15 +279,18 @@ i.e.
   box-shadow: 0 0 0 2px color($theme-color-base);
 }
 
-// Radio Buttons (tile)
-.usa-radio__input--tile:checked + [class*="__label"] {
+// Radio & Checkbox tile variants
+.usa-radio__input--tile:checked + [class*="__label"],
+.usa-checkbox__input--tile:checked + [class*="__label"] {
   background-color: color($theme-color-primary-lighter);
 }
 
-.usa-radio__input--tile + [class*="__label"] {
+.usa-radio__input--tile + [class*="__label"],
+.usa-checkbox__input--tile + [class*="__label"] {
   border-color: color($theme-color-base-light);
 }
-.usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before {
+.usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before, 
+.usa-checkbox__input.usa-checkbox__input--tile:checked + [class*="__label"]::before{
   box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px #cfe8ff;
 }
 
