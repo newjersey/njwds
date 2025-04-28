@@ -55,7 +55,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 This builds USWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch. The deployed docs can be found [here](https://newjersey.github.io/njwds).
 
-Note: Do not push directly to the `gh-pages` branch. This is done automatically when committing to `main`.
+Note: Do not push directly to the `gh-pages` branch. This is done automatically through the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) when a new release is published.
 
 ## Releasing a new version to NPM
 
@@ -64,4 +64,4 @@ Note: Do not push directly to the `gh-pages` branch. This is done automatically 
 3. This should create a new Pull Request bumping the `package.json` file's version according to the level you set to the release (e.g. minor release changes version from 0.1.0 to 0.2.0). Rebase & merge this PR into the `main` branch.
 4. Go to the [GitHub Releases page](https://github.com/newjersey/njwds/releases) and confirm that you see a new draft release with this version. (Note that this will automatically happen after Step 2, and is not dependent on Step 3)
 5. On the releases page, click the pencil icon on the top right to Edit the release. Document what has changed in this release; be sure to note any breaking changes. Once all looks good, click "Publish release" at the bottom.
-6. This will automatically trigger the [Publish Release GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm this action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
+6. This will automatically trigger the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) as well as the ["Publish Release" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm the "Publish Release" action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
