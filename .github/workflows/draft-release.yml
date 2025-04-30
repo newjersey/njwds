@@ -60,7 +60,7 @@ jobs:
         with:
           route: GET /repos/newjersey/njwds/releases/latest
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
