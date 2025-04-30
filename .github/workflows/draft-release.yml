@@ -65,7 +65,7 @@ jobs:
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
           --generate-notes \
-          --notes-start-tag ${{ steps.latest_release.outputs.data }} \
+          --notes-start-tag ${{ steps.latest_release.outputs.data.tag_name }} \
           --target ${{ needs.update-version.outputs.release_sha }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
