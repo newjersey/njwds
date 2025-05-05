@@ -1,0 +1,16 @@
+label: Select
+status: ready
+preview: "@uswds-framed"
+
+variants:
+  - name: default
+    label: Default
+    context:
+      select:
+        label: "Dropdown label"
+  - name: default-value
+    label: Default Value
+    context:
+      select:
+        defaultValue: "value1"
+        label: "Dropdown label"
