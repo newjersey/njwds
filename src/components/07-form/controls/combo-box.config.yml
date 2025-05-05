@@ -15,21 +15,13 @@ variants:
     context:
       comboBox:
         defaultValue: "blackberry"
-
-  - name: disabled
-    label: Disabled
-    context:
-      comboBox:
-        disabled: true
-
-  - name: placeholder
-    label: Placeholder
-    context:
-      comboBox:
-        placeholder: "Select one..."
+        label: "Select a fruit"
+        name: "fruit"
 
   - name: required
     label: Required
     context:
       comboBox:
+        label: "Select a fruit"
+        name: "fruit"
         required: true
