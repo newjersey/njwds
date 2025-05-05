@@ -61,11 +61,19 @@ jobs:
           route: GET /repos/newjersey/njwds/releases/latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract latest release tag from latest release
+        id: extract_latest_release_tag
+        run: |
+          if [ "${{ steps.latest_release.outputs.status }}" = "200" ]; then
+            echo "latest_release_tag=$(echo '${{ steps.latest_release.outputs.data }}' | jq -r '.tag_name')" >> $GITHUB_OUTPUT
+          else
+            echo "latest_release_tag=" >> $GITHUB_OUTPUT
+          fi
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
           --generate-notes \
-          --notes-start-tag ${{ steps.latest_release.outputs.data.tag_name }} \
+          --notes-start-tag ${{ steps.extract_latest_release_tag.outputs.latest_release_tag }} \
           --target ${{ needs.update-version.outputs.release_sha }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
