@@ -63,12 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract latest release tag from latest release
         id: extract_latest_release_tag
-        run: |
-          if [ "${{ steps.latest_release.outputs.status }}" = "200" ]; then
-            echo "latest_release_tag=$(echo '${{ steps.latest_release.outputs.data }}' | jq -r '.tag_name')" >> $GITHUB_OUTPUT
-          else
-            echo "latest_release_tag=" >> $GITHUB_OUTPUT
-          fi
+        run: echo "latest_release_tag=$(echo '${{ steps.latest_release.outputs.data }}' | jq -r '.tag_name')" >> $GITHUB_OUTPUT
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
