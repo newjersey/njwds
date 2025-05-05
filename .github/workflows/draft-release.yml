@@ -29,6 +29,7 @@ jobs:
         run: |
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
+          LATEST_VERSION=$(gh release list --json name,isLatest --jq '.[] | select(.isLatest)|.name')
           NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
           BRANCH_NAME=upgrade-package-$NEW_VERSION
           git checkout -b $BRANCH_NAME
@@ -37,11 +38,13 @@ jobs:
           git push -u origin $BRANCH_NAME
           gh pr create -B main -H $BRANCH_NAME --title "Upgrade NWJDS package version to $NEW_VERSION" --body "Created by Github Action"
           RELEASE_SHA=$(git rev-parse HEAD)
+          echo ::set-output name=latest_version::$LATEST_VERSION
           echo ::set-output name=new_version::$NEW_VERSION
           echo ::set-output name=release_sha::$RELEASE_SHA
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
+      latest_version: ${{ steps.bump_version.outputs.latest_version }}
       new_version: ${{ steps.bump_version.outputs.new_version }}
       release_sha: ${{ steps.bump_version.outputs.release_sha }}
 
@@ -54,21 +57,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ needs.update-version.outputs.release_sha }}
-      - name: Get latest release
-        id: latest_release
-        uses: octokit/request-action@v2.x
-        with:
-          route: GET /repos/newjersey/njwds/releases/latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract latest release tag from latest release
-        id: extract_latest_release_tag
-        run: echo "latest_release_tag=$(echo '${{ steps.latest_release.outputs.data.tag_name }}' | jq -r '.tag_name')" >> $GITHUB_OUTPUT
       - run: |
           gh release create ${{ needs.update-version.outputs.new_version }} \
           --draft \
           --generate-notes \
-          --notes-start-tag ${{ steps.extract_latest_release_tag.outputs.latest_release_tag }} \
-          --target main
+          --notes-start-tag ${{ needs.update-version.outputs.latest_version }} \
+          --target ${{ needs.update-version.outputs.release_sha }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
