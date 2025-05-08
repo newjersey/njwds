@@ -1,0 +1,14 @@
+label: Modal
+status: ready
+
+variants: 
+  - name: default
+    label: Default
+    context: 
+      openButtonText: Open default modal
+  
+  - name: large
+    label: Large
+    context:
+      openButtonText: Open large modal
+      classes: usa-modal--lg
