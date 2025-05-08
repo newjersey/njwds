@@ -1,0 +1,59 @@
+
+
+<div class="padding-1">
+  <button
+    class="usa-button"
+    aria-controls="example-modal"
+    data-open-modal
+  >
+    Open large modal
+  </button>
+  <div
+    class="usa-modal usa-modal--lg"
+    id="example-modal"
+    aria-labelledby="modal-heading"
+    aria-describedby="modal-description"
+  >
+    <div class="usa-modal__content">
+      <div class="usa-modal__main">
+        <h1 class="usa-modal__heading" id="modal-heading">
+          Are you sure you want to continue?
+        </h1>
+        <div class="usa-prose">
+          <p id="modal-description">
+            You have unsaved changes that will be lost.
+          </p>
+        </div>
+        <div class="usa-modal__footer">
+          <ul class="usa-button-group">
+            <li class="usa-button-group__item">
+              <button type="button" class="usa-button" data-close-modal>
+                Continue without saving
+              </button>
+            </li>
+            <li class="usa-button-group__item">
+              <button
+                type="button"
+                class="usa-button usa-button--unstyled padding-105 text-center"
+                data-close-modal
+              >
+                Go back
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="usa-button usa-modal__close"
+        aria-label="Close this window"
+        data-close-modal
+      >
+        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+          <use href="../../dist/img/sprite.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
