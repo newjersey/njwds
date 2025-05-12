@@ -7,10 +7,24 @@
   <label class="usa-label" for="input-focus">Text input focused</label>
   <input class="usa-input usa-focus" id="input-focus" name="input-focus" type="text">
 
-  <div class="usa-form-group usa-form-group--error">
-    <label class="usa-label usa-label--error" for="input-error">Text input error</label>
-    <span class="usa-error-message" id="input-error-message" role="alert">Helpful error message</span>
-    <input class="usa-input usa-input--error" id="input-error" name="input-error" type="text" aria-describedby="input-error-message">
+
+  <label class="usa-label" for="input-error">
+    Text input label
+  </label>
+  <div class="usa-character-count">
+    <input
+      class="usa-input usa-input--error"
+      id="input-error"
+      aria-describedby="input-error-message"
+    />
+  </div>
+  <div class="nj-error-message-container">
+    <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+      <use xlink:href="../../dist/img/sprite.svg#error"></use>
+    </svg>
+    <span class="usa-error-message" id="input-error-message" role="alert"
+      >Helpful error message</span
+    >
   </div>
 
   <label class="usa-label" for="input-success">Text input success</label>

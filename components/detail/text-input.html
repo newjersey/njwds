@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../../themes/mandelbrot/css/highlight.css?cachebust=1.10.1" type="text/css">
 
 
-<title>Text Input | NJ Web Design System (v2.5.0)</title>
+<title>Text Input | NJ Web Design System (v2.6.0)</title>
 
 </head>
 <body>
@@ -50,7 +50,7 @@
 
         </div>
     </button>
-    <a href="../../index.html" class="Header-title" data-pjax>NJ Web Design System (v2.5.0)</a>
+    <a href="../../index.html" class="Header-title" data-pjax>NJ Web Design System (v2.6.0)</a>
 </div>
 
     </div>
@@ -180,10 +180,17 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-focus&quot;</span>&gt;</span>Text input focused<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-focus&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-focus&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-focus&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>Text input error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>
+        Text input label
+    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon&quot;</span> <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;../../dist/img/sprite.svg#error&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span>Helpful error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-success&quot;</span>&gt;</span>Text input success<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
@@ -215,10 +222,24 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-focus&quot;</span>&gt;</span>Text input focused<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-focus&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-focus&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-focus&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-form-group usa-form-group--error&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label usa-label--error&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>Text input error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span>Helpful error message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input-error&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-error&quot;</span>&gt;</span>
+    Text input label
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-character-count&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-input usa-input--error&quot;</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error&quot;</span>
+      <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">&quot;input-error-message&quot;</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nj-error-message-container&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-icon&quot;</span> <span class="hljs-attr">focusable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ uswds.path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/img/sprite.svg#error&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-error-message&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;input-error-message&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>
+      &gt;</span>Helpful error message&lt;/span
+    &gt;
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;usa-label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;input-success&quot;</span>&gt;</span>Text input success<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
@@ -237,7 +258,7 @@
             
             <pre><span class="hljs-attr">package:</span>
   <span class="hljs-attr">name:</span> <span class="hljs-literal">null</span>
-  <span class="hljs-attr">version:</span> <span class="hljs-number">2.5</span><span class="hljs-number">.0</span>
+  <span class="hljs-attr">version:</span> <span class="hljs-number">2.6</span><span class="hljs-number">.0</span>
 <span class="hljs-attr">uswds:</span>
   <span class="hljs-attr">path:</span> <span class="hljs-string">../../dist</span>
 </pre>
@@ -4801,8 +4822,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2025-05-08T16:27:06.872Z">
-                                5/8/2025
+                            <time datetime="2025-05-12T20:41:02.632Z">
+                                5/12/2025
                             </time>
                         
                     </dd>
