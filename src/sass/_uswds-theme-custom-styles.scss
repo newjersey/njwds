@@ -64,6 +64,12 @@ i.e.
 }
 .nj-banner__header-seal {
   padding-right: units(1);
+  box-sizing: unset;
+}
+
+svg[role="img"].nj-banner__mail-icon {
+  height: 14px;
+  width: 14px;
 }
 // hero
 .usa-hero__callout {
