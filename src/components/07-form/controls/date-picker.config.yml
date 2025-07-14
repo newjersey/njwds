@@ -18,12 +18,6 @@ variants:
       datePicker:
         defaultValue: "2020-05-22"
 
-  - name: disabled
-    label: Disabled
-    context:
-      datePicker:
-        disabled: true
-
   - name: restricted-date
     label: Restricted Date
     context:
