@@ -43,6 +43,9 @@ i.e.
 }
 .nj-banner__header li {
   display: none;
+
+  // Set min-width so the names are hidden before the "Official Site of the
+  // State of New Jersey" wraps to 3 lines
   @media (min-width: 43rem) {
     display: inline;
   }
