@@ -1,0 +1,17 @@
+label: Banner
+
+context:
+  banner:
+    # IMPORTANT: when updating banner text, please also update the min-width of # the media query for the '.nj-banner__header li' selector in the custom
+    # styles SCSS.
+    # 
+    # This media query controls the breakpoint for hiding the gov and lt. gov's
+    # names. The intended behavior here is to hide the names before the
+    # stateOfNjText wraps to 3 lines.
+    #
+    # Since the media query's min-width is set based on text length, it has to
+    # be updated when the banner text changes in order to keep the same
+    # wrapping behavior.
+    stateOfNjText: "Official Site of the State of New Jersey"
+    governorName: "Governor Phil Murphy"
+    ltGovernorName: "Lt. Governor Tahesha Way"
