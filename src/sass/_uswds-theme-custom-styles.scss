@@ -43,7 +43,10 @@ i.e.
 }
 .nj-banner__header li {
   display: none;
-  @include at-media("tablet") {
+
+  // Set min-width so the names are hidden before the stateOfNjText wraps to
+  // 3 lines
+  @media (min-width: 43rem) {
     display: inline;
   }
   @include u-margin-right(1);
