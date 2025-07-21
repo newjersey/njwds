@@ -9,28 +9,38 @@
   </head>
   <body tabindex="0">
     <section class="nj-banner" aria-label="Official government website">
-  <header class="nj-banner__header">
+  <div class="nj-banner__header">
     <div class="grid-container">
       <div class="nj-banner__inner">
         <div class="grid-col-auto">
-          <img class="nj-banner__header-seal" src="../../dist/img/nj_state_seal.png" alt="NJ flag">
+          <img class="nj-banner__header-seal" src="../../dist/img/nj_state_seal.png" alt="NJ flag" />
         </div>
-        <div class="grid-col-fill"><a href="https://nj.gov">Official Site of the State of New Jersey</a></div>
-        <div class="grid-col-auto">
-          <div class="text-white">
-            <ul>
-              <li>Governor Phil Murphy &bull; Lt. Governor Tahesha Way</li><li><a
-                href="https://nj.gov/subscribe/" target="_blank"><svg 
-                  class="usa-icon bottom-neg-2px margin-right-05"
-                  aria-hidden="true" focusable="false" role="img">
-                  <use xlink:href="../../dist/img/sprite.svg#mail"></use>
-              </svg>Get Updates</a></li>
-            </ul>
-          </div>
+        <div class="grid-col-fill">
+          <a href="https://nj.gov">Official Site of the State of New Jersey</a>
         </div>
+        <ul class="grid-col-auto display-flex flex-align-center">
+          <li>Governor Phil Murphy &bull; Lt. Governor Tahesha Way</li>
+          <li class="grid-col-auto">
+            <a 
+              class="display-flex flex-align-center"
+              href="https://nj.gov/subscribe/" 
+              target="_blank"
+            >
+              <svg 
+                class="usa-icon usa-icon--size-3 nj-banner__mail-icon margin-right-05"
+                role="img"
+                aria-hidden="true" 
+                focusable="false" 
+              >
+                <use xlink:href="../../dist/img/sprite.svg#mail" />
+              </svg>
+              Get Updates
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </header>
+  </div>
 </section>
 
     <script src="../../dist/js/uswds.min.js"></script>
