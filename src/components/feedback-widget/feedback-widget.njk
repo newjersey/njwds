@@ -1,0 +1,20 @@
+<script
+  src="{{ uswds.path }}/js/mockFetch.js"
+></script>
+<script>
+  const feedbackApiUrl = "{{ feedbackApiUrl }}"
+  const mockResponse = {{ mockResponse | dump | safe }}
+  initMockFetch({
+    [`${feedbackApiUrl}/rating`]: mockResponse,
+    [`${feedbackApiUrl}/comment`]: mockResponse,
+    [`${feedbackApiUrl}/email`]: mockResponse
+  }, {{ mockResponseDelayInMs }})
+</script>
+
+<script
+  src="https://unpkg.com/@newjersey/feedback-widget@0.6.0/feedback-widget.min.js"
+  defer
+></script>
+<feedback-widget
+  contact-link="https://www.example.com/contact"
+></feedback-widget>
