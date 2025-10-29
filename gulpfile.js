@@ -37,6 +37,8 @@ PATHS
 // Project Sass source directory
 const PROJECT_SASS_SRC = "./src/sass";
 
+const PROJECT_JS_SRC = "./src/js";
+
 // Images destination
 const IMG_DEST = "./dist/img";
 
@@ -78,9 +80,12 @@ gulp.task("copy-src-images", () => {
   return gulp.src(`${PROJECT_SASS_SRC}/../img/**/**`).pipe(gulp.dest(`${IMG_DEST}`));
 });
 
-
 gulp.task("copy-uswds-js", () => {
   return gulp.src(`${uswds}/dist/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
+});
+
+gulp.task("copy-src-js", () => {
+  return gulp.src(`${PROJECT_JS_SRC}/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
 gulp.task("build-sass", function(done) {
@@ -132,11 +137,11 @@ gulp.task(
     "copy-uswds-fonts",
     "copy-uswds-images",
     "copy-src-images",
+    "copy-src-js",
     "copy-uswds-js",
     "build-sass"
   )
 );
-
 
 gulp.task("watch-sass", function() {
   gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass"));
