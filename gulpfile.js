@@ -51,6 +51,8 @@ const JS_DEST = "./dist/js";
 // Compiled CSS destination
 const CSS_DEST = "./dist/css";
 
+const FRACTAL_BUILD_DEST = "./build"
+
 // Site CSS destination
 // Like the _site/assets/css directory in Jekyll, if necessary.
 // If using, uncomment line 106
@@ -82,10 +84,6 @@ gulp.task("copy-src-images", () => {
 
 gulp.task("copy-uswds-js", () => {
   return gulp.src(`${uswds}/dist/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
-});
-
-gulp.task("copy-src-js", () => {
-  return gulp.src(`${PROJECT_JS_SRC}/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
 gulp.task("build-sass", function(done) {
@@ -137,7 +135,6 @@ gulp.task(
     "copy-uswds-fonts",
     "copy-uswds-images",
     "copy-src-images",
-    "copy-src-js",
     "copy-uswds-js",
     "build-sass"
   )
@@ -147,6 +144,15 @@ gulp.task("watch-sass", function() {
   gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass"));
 });
 
-gulp.task("watch", gulp.series("copy-src-images", "build-sass", "watch-sass"));
+gulp.task("copy-src-js-to-fractal-build", () => {
+  return gulp.src(`${PROJECT_JS_SRC}/**/**`).pipe(gulp.dest(`${FRACTAL_BUILD_DEST}/dist/js`));
+});
+
+gulp.task("watch", gulp.series(
+  "copy-src-images", 
+  "copy-src-js-to-fractal-build",
+  "build-sass", 
+  "watch-sass", 
+));
 
 gulp.task("default", gulp.series("watch"));
