@@ -40,13 +40,11 @@ function initMockFetch(urlToMockResponseMap, responseDelay) {
       return
     }
     console.log("mocking response:", { body, status })
-    if (typeof responseDelay === "number") {
-      return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(mockResponse);
-          }, responseDelay);
-        });
-    }
-    return mockResponse 
+    const timeout = typeof responseDelay === "number"
+      ? responseDelay
+      : 0;
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(mockResponse), timeout);
+    });
   };
 }

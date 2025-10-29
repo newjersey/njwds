@@ -7,7 +7,7 @@
     "prepare": "npm run build-uswds",
     "build-uswds": "gulp build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
-    "build-docs": "fractal build",
+    "build-docs": "npm run prepare && fractal build",
     "start": "fractal start --sync & gulp watch",
     "deploy": "npm install && npm run build-docs && gh-pages -d build"
   },
