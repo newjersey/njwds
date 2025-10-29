@@ -39,10 +39,12 @@ function initMockFetch(urlToMockResponseMap, responseDelay) {
       console.error("Could not mock fetch: mockResponse arg must be a Response object")
       return
     }
+
     console.log("mocking response:", { body, status })
     const timeout = typeof responseDelay === "number"
       ? responseDelay
       : 0;
+      
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockResponse), timeout);
     });

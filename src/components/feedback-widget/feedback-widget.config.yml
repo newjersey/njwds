@@ -2,6 +2,7 @@ label: Feedback widget
 default: success
 
 context:
+  widgetVersion: "0.7.0"
   feedbackApiUrl: "https://innovation.nj.gov/app/feedback/dev"
   mockResponse: { status: 200, body: {message: "Success", feedbackId: 1} }
   mockResponseDelayInMs: 1000
