@@ -3,13 +3,13 @@
 ></script>
 <script>
   const feedbackApiUrl = "{{ feedbackApiUrl }}"
-  const mockResponse = { 
+  const mockErrorResponse = { 
     status: 500, 
     body: { message: "example server error" }
   };
   initMockFetch({
-    [`${feedbackApiUrl}/rating`]: mockResponse,
-    [`${feedbackApiUrl}/comment`]: mockResponse
+    [`${feedbackApiUrl}/rating`]: mockErrorResponse,
+    [`${feedbackApiUrl}/comment`]: mockErrorResponse
   }, {{ mockResponseDelayInMs }})
 </script>
 

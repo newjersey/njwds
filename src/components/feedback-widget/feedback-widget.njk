@@ -3,11 +3,11 @@
 ></script>
 <script>
   const feedbackApiUrl = "{{ feedbackApiUrl }}"
-  const mockResponse = {{ mockResponse | dump | safe }}
+  const mockSuccessResponse = {{ mockSuccessResponse | dump | safe }}
   initMockFetch({
-    [`${feedbackApiUrl}/rating`]: mockResponse,
-    [`${feedbackApiUrl}/comment`]: mockResponse,
-    [`${feedbackApiUrl}/email`]: mockResponse
+    [`${feedbackApiUrl}/rating`]: mockSuccessResponse,
+    [`${feedbackApiUrl}/comment`]: mockSuccessResponse,
+    [`${feedbackApiUrl}/email`]: mockSuccessResponse
   }, {{ mockResponseDelayInMs }})
 </script>
 

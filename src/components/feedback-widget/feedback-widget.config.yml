@@ -4,11 +4,11 @@ default: success
 context:
   widgetVersion: "latest"
   feedbackApiUrl: "https://innovation.nj.gov/app/feedback/dev"
-  mockResponse: { status: 200, body: { message: "Success", feedbackId: 1 } }
+  mockSuccessResponse: { status: 200, body: { message: "Success", feedbackId: 1 } }
   mockResponseDelayInMs: 1000
   
 variants:
   - name: success
     label: Success
   - name: 500-server-error
-    label: API Error (500 statu)
+    label: API Error (500 status)
