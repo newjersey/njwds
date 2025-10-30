@@ -6,8 +6,7 @@
   const mockResponse = {{ mockResponse | dump | safe }}
   initMockFetch({
     [`${feedbackApiUrl}/rating`]: mockResponse,
-    [`${feedbackApiUrl}/comment`]: mockResponse,
-    [`${feedbackApiUrl}/email`]: mockResponse
+    [`${feedbackApiUrl}/comment`]: mockResponse
   }, {{ mockResponseDelayInMs }})
 </script>
 
