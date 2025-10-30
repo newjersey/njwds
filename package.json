@@ -9,7 +9,7 @@
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "build-docs": "fractal build",
     "start": "fractal start --sync & gulp watch",
-    "deploy": "npm install && npm run build-docs && gh-pages -d build"
+    "deploy": "npm ci && npm run build-docs && gh-pages -d build"
   },
   "repository": {
     "type": "git",
