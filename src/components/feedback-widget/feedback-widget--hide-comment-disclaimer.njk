@@ -1,8 +1,4 @@
 <script
-  src="https://unpkg.com/@newjersey/feedback-widget@{{ widgetVersion }}/feedback-widget.min.js"
-  defer
-></script>
-<script
   src="/dist/js/mockFetch.js"
 ></script>
 <script>
@@ -15,6 +11,10 @@
   }, {{ mockResponseDelayInMs }})
 </script>
 
+<script
+  src="https://unpkg.com/@newjersey/feedback-widget@{{ widgetVersion }}/feedback-widget.min.js"
+  defer
+></script>
 <feedback-widget
-  contact-link="https://www.example.com/contact"
+  show-comment-disclaimer="false"
 ></feedback-widget>
