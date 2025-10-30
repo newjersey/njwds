@@ -3,7 +3,7 @@ const { fetch: origFetch } = window;
 /**
  * Initializes a mock implementation of the `window.fetch` function that returns predefined responses.
  *
- * @param {Record<string, {status: number, body: object}>} urlToMockResponseMap - Each mock response must have a `status` property (number) and a `body` property (object).
+ * @param {Record<string, { status: number, body: any }>} urlToMockResponseMap - Each mock response must have a `status` property (number) and a `body` property (object).
  * @param {number} responseDelay - The delay in milliseconds before resolving the mock response.
  *
  * @example
@@ -19,7 +19,6 @@ const { fetch: origFetch } = window;
  * };
  * initMockFetch(mockResponses, 1000);
  *
- * @throws {Error} Will log an error if the mock response does not generate a valid Response object.
  */
 function initMockFetch(urlToMockResponseMap, responseDelay) {
   window.fetch = async (...args) => {
@@ -29,16 +28,12 @@ function initMockFetch(urlToMockResponseMap, responseDelay) {
 
     const mockResponse = new Response(
       JSON.stringify(body), {
-        status: status,  
+        status: (typeof status === "number") ? status : undefined,  
         headers: {
           'Content-Type': 'application/json'
         }
-      })
-
-    if (!(mockResponse instanceof Response)) {
-      console.error("Could not mock fetch: mockResponse arg must be a Response object")
-      return
-    }
+      }
+    )
 
     console.log("mocking response:", { body, status })
     const timeout = typeof responseDelay === "number"

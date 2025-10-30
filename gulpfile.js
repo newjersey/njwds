@@ -140,19 +140,20 @@ gulp.task(
   )
 );
 
-gulp.task("watch-sass", function() {
-  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass"));
-});
-
 gulp.task("copy-src-js-to-fractal-build", () => {
   return gulp.src(`${PROJECT_JS_SRC}/**/**`).pipe(gulp.dest(`${FRACTAL_BUILD_DEST}/dist/js`));
 });
+
+gulp.task("watch-sass-and-js", function() {
+  gulp.watch([`${PROJECT_SASS_SRC}/**/*.scss`,`${PROJECT_JS_SRC}/**/**`], gulp.series("copy-src-images", "copy-src-js-to-fractal-build", "build-sass"));
+});
+
 
 gulp.task("watch", gulp.series(
   "copy-src-images", 
   "copy-src-js-to-fractal-build",
   "build-sass", 
-  "watch-sass", 
+  "watch-sass-and-js", 
 ));
 
 gulp.task("default", gulp.series("watch"));
