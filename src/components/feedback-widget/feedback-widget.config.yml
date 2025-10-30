@@ -10,7 +10,5 @@ context:
 variants:
   - name: success
     label: Success
-  - name: server error
-    label: API error (500 status)
-    context: 
-      mockResponse: { status: 500, body: { message: "example server error" } }
+  - name: 500-server-error
+    label: API Error (500 statu)
