@@ -14,3 +14,4 @@ variants:
     label: API error (500 status)
     context: 
       mockResponse: { status: 500, body: {message: "example server error" } }
+      
