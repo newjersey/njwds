@@ -150,6 +150,7 @@ gulp.task("watch-sass", function() {
 
 
 gulp.task("watch-fractal", gulp.series(
+  "copy-src-images",
   "copy-dist-to-fractal-assets",
   "watch-sass",
 ));
