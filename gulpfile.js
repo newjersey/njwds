@@ -145,7 +145,7 @@ gulp.task("copy-dist-to-fractal-assets", () => {
 });
 
 gulp.task("watch-sass", function() {
-  gulp.watch([`${PROJECT_SASS_SRC}/**/*.scss`], gulp.series("copy-src-images", "build-sass"));
+  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass"));
 });
 
 gulp.task("build-fractal-assets", gulp.series(
