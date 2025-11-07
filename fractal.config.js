@@ -9,7 +9,7 @@ const context = {
     version: pkg.version
   },
   uswds: {
-    path: "../../dist"
+    path: "/public/dist"
   }
 };
 
@@ -45,8 +45,8 @@ web.theme(
   })
 );
 
-web.set("static.path", "./build/dist");
-web.set("static.mount", "dist");
+web.set("static.path", "public");
+web.set("static.mount", "public");
 // output files to /build
 web.set("builder.dest", "build");
 

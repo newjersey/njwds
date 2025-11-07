@@ -108,5 +108,6 @@ typings/
 
 # Fractal site
 /build
+/public/dist
 
 /.idea

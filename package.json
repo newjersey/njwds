@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prepare": "npm run build-uswds",
-    "build-uswds": "gulp build",
+    "build-uswds": "gulp build-uswds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
-    "build-docs": "fractal build",
-    "start": "fractal start --sync & gulp watch",
+    "build-docs": "gulp build-fractal-assets && fractal build",
+    "start": "fractal start --sync & gulp watch-sass",
     "deploy": "npm ci && npm run build-docs && gh-pages -d build"
   },
   "repository": {
