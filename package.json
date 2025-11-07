@@ -8,7 +8,7 @@
     "build-uswds": "gulp build-uswds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "build-docs": "gulp copy-dist-to-fractal-assets && fractal build",
-    "start": "fractal start --sync & gulp watch-sass",
+    "start": "fractal start --sync & gulp watch-fractal",
     "deploy": "npm ci && npm run build-docs && gh-pages -d build"
   },
   "repository": {
