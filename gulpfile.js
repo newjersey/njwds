@@ -130,7 +130,7 @@ gulp.task(
 );
 
 gulp.task(
-  "build-uswds",
+  "build-njwds",
   gulp.series(
     "copy-uswds-fonts",
     "copy-uswds-images",
