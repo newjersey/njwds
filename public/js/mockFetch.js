@@ -3,7 +3,7 @@ const { fetch: origFetch } = window;
 /**
  * Initializes a mock implementation of the `window.fetch` function that returns predefined responses.
  *
- * @param {Record<string, { status: number, body: any }>} urlToMockResponseMap - Each mock response must have a `status` property (number) and a `body` property (object).
+ * @param {Record<string, { status: number, body: unknown }>} urlToMockResponseMap - Each mock response must have a `status` property (number) and a `body` property (object).
  * @param {number} responseDelay - The delay in milliseconds before resolving the mock response.
  *
  * @example
