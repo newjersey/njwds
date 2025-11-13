@@ -1,8 +1,5 @@
 const { fetch: origFetch } = window;
 
-console.log("test hot reload!")
-
-
 /**
  * Initializes a mock implementation of the `window.fetch` function that returns predefined responses.
  *
