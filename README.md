@@ -43,7 +43,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 ### Build the component library
 
-- Run `npm run build-docs` to build the [Fractal](https://fractal.build/) component gallery for reviewing the component documentation. (This command alos copies the `dist` directory to `/public` to be served as static assets for the Fractal site.)
+- Run `npm run build-docs` to build the [Fractal](https://fractal.build/) component gallery for reviewing the component documentation. (This command also copies the `dist` directory to `/public` to be served as static assets for the Fractal site.)
 
 ### View component library locally or development
 
@@ -53,7 +53,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 - Run `npm run deploy`
 
-This builds USWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch. The deployed docs can be found [here](https://newjersey.github.io/njwds).
+This builds NJWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch. The deployed docs can be found [here](https://newjersey.github.io/njwds).
 
 Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages` branch. This is done automatically through the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) when a new release is published.
 
