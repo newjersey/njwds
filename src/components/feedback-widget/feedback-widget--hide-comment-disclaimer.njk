@@ -1,0 +1,20 @@
+<script
+  src="{{ mockFetchScriptSrc }}"
+></script>
+<script>
+  const feedbackApiUrl = "{{ feedbackApiUrl }}"
+  const mockSuccessResponse = {{ mockSuccessResponse | dump | safe }}
+  initMockFetch({
+    [`${feedbackApiUrl}/rating`]: mockSuccessResponse,
+    [`${feedbackApiUrl}/comment`]: mockSuccessResponse,
+    [`${feedbackApiUrl}/email`]: mockSuccessResponse
+  }, {{ mockResponseDelayInMs }})
+</script>
+
+<script
+  src="https://unpkg.com/@newjersey/feedback-widget@{{ widgetVersion }}/feedback-widget.min.js"
+  defer
+></script>
+<feedback-widget
+  show-comment-disclaimer="false"
+></feedback-widget>

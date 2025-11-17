@@ -4,12 +4,12 @@
   "description": "NJ Web Design Standards",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm run build-uswds",
-    "build-uswds": "gulp build",
+    "prepare": "npm run build-njwds",
+    "build-njwds": "gulp build-njwds",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
-    "build-docs": "fractal build",
-    "start": "fractal start --sync & gulp watch",
-    "deploy": "npm install && npm run build-docs && gh-pages -d build"
+    "build-docs": "gulp copy-dist-to-fractal-assets && fractal build",
+    "start": "fractal start --sync & gulp watch-fractal",
+    "deploy": "npm ci && npm run build-docs && gh-pages -d build"
   },
   "repository": {
     "type": "git",

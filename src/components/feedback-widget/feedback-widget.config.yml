@@ -1,0 +1,15 @@
+label: Feedback widget
+default: success
+
+context:
+  mockFetchScriptSrc: "/public/js/mockFetch.js"
+  widgetVersion: "latest"
+  feedbackApiUrl: "https://innovation.nj.gov/app/feedback/dev"
+  mockSuccessResponse: { status: 200, body: { message: "Success", feedbackId: 1 } }
+  mockResponseDelayInMs: 1000
+  
+variants:
+  - name: success
+    label: Success
+  - name: 500-server-error
+    label: API Error (500 status)
