@@ -4,17 +4,24 @@ on:
     types:
       - published
 
+permissions:
+  id-token: write  # Required for OIDC (https://docs.npmjs.com/trusted-publishers)
+  contents: read
+
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - name: Setup npm to publish to npmjs
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org'
+      
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
       - run: npm ci
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
