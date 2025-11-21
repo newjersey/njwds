@@ -12,7 +12,7 @@ jobs:
         if: ${{ github.event.label.name == 'request-code-review' }}
         uses: newjersey/innovation-shared-actions/.github/workflows/slack.yml@main
         with:
-            channel_id: C09Q36G9HMX #sandbox
+            channel_id: C06U57769NJ #design-system-internal
             message: "[ <${{ github.event.pull_request.html_url }}|PR Review> ] ${{ github.event.repository.name }} - #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
             thread_message: "Please review the above pull request." # optional
         secrets: inherit
