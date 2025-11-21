@@ -15,4 +15,4 @@ jobs:
             channel_id: C09Q36G9HMX #sandbox
             message: "[ <${{ github.event.pull_request.html_url }}|PR Review> ] ${{ github.event.repository.name }} - #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
             thread_message: "Please review the above pull request." # optional
-            SLACK_OAUTH_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        secrets: inherit
