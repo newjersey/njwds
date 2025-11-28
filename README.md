@@ -47,7 +47,11 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 ### View component library locally or development
 
+#### Start the local development server
 - Run `npm start` to build the component library, launch a web server to host it, and live reload on development changes.
+
+#### Preview the static site
+- To view the static site, start a local server within the `/build` directory (e.g. using VSCode's Live Server extension). The server won't live reload on development changes. However, **it's crucial to preview the static site before deployment in order to ensure the Fractal docs site works as expected**, as `npm start` might not catch issues with static asset paths, etc.
 
 ### Deploy the component library
 
