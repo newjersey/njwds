@@ -9,7 +9,7 @@ const context = {
     version: pkg.version
   },
   uswds: {
-    path: "/public/dist"
+    path: "../../public/dist"
   }
 };
 
