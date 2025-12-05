@@ -1,6 +1,6 @@
 {
   "name": "@newjersey/njwds",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "NJ Web Design Standards",
   "main": "index.js",
   "scripts": {
