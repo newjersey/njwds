@@ -24,22 +24,18 @@ function initMockFetch(urlToMockResponseMap, responseDelay) {
   window.fetch = async (...args) => {
     console.log("fetch called with args:", args);
     const requestUrl = args[0];
-    const { status, body } = urlToMockResponseMap[requestUrl]; 
+    const { status, body } = urlToMockResponseMap[requestUrl];
 
-    const mockResponse = new Response(
-      JSON.stringify(body), {
-        status: (typeof status === "number") ? status : undefined,  
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    )
+    const mockResponse = new Response(JSON.stringify(body), {
+      status: typeof status === "number" ? status : undefined,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    console.log("mocking response:", { body, status })
-    const timeout = typeof responseDelay === "number"
-      ? responseDelay
-      : 0;
-      
+    console.log("mocking response:", { body, status });
+    const timeout = typeof responseDelay === "number" ? responseDelay : 0;
+
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockResponse), timeout);
     });

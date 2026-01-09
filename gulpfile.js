@@ -49,9 +49,9 @@ const JS_DEST = "./dist/js";
 // Compiled CSS destination
 const CSS_DEST = "./dist/css";
 
-const DIST_DIR = "./dist"
+const DIST_DIR = "./dist";
 
-const FRACTAL_STATIC_ASSETS_DIR = "./public"
+const FRACTAL_STATIC_ASSETS_DIR = "./public";
 
 // Site CSS destination
 // Like the _site/assets/css directory in Jekyll, if necessary.
@@ -65,9 +65,7 @@ TASKS
 */
 
 gulp.task("copy-uswds-setup", () => {
-  return gulp
-    .src(`${uswds}/scss/theme/**/**`)
-    .pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
+  return gulp.src(`${uswds}/scss/theme/**/**`).pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
 });
 
 gulp.task("copy-uswds-fonts", () => {
@@ -86,12 +84,12 @@ gulp.task("copy-uswds-js", () => {
   return gulp.src(`${uswds}/dist/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
 });
 
-gulp.task("build-sass", function(done) {
+gulp.task("build-sass", function (done) {
   var plugins = [
     // Autoprefix
     autoprefixer({
       cascade: false,
-      grid: true
+      grid: true,
     }),
     // Minify
     csso({ forceMediaMerge: false }),
@@ -102,12 +100,8 @@ gulp.task("build-sass", function(done) {
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(
         sass({
-          includePaths: [
-            `${PROJECT_SASS_SRC}`,
-            `${uswds}`,
-            `${uswds}/packages`
-          ]
-        })
+          includePaths: [`${PROJECT_SASS_SRC}`, `${uswds}`, `${uswds}/packages`],
+        }),
       )
       .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
       .pipe(postcss(plugins))
@@ -125,8 +119,8 @@ gulp.task(
     "copy-uswds-fonts",
     "copy-uswds-images",
     "copy-uswds-js",
-    "build-sass"
-  )
+    "build-sass",
+  ),
 );
 
 gulp.task(
@@ -136,22 +130,22 @@ gulp.task(
     "copy-uswds-images",
     "copy-src-images",
     "copy-uswds-js",
-    "build-sass"
-  )
+    "build-sass",
+  ),
 );
 
 gulp.task("copy-dist-to-fractal-assets", () => {
   return gulp.src(`${DIST_DIR}/**/**`).pipe(gulp.dest(`${FRACTAL_STATIC_ASSETS_DIR}/dist`));
 });
 
-gulp.task("watch-sass", function() {
-  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("copy-src-images", "build-sass", "copy-dist-to-fractal-assets",));
+gulp.task("watch-sass", function () {
+  gulp.watch(
+    `${PROJECT_SASS_SRC}/**/*.scss`,
+    gulp.series("copy-src-images", "build-sass", "copy-dist-to-fractal-assets"),
+  );
 });
 
-
-gulp.task("watch-fractal", gulp.series(
-  "copy-src-images",
-  "build-sass",
-  "copy-dist-to-fractal-assets",
-  "watch-sass",
-));
+gulp.task(
+  "watch-fractal",
+  gulp.series("copy-src-images", "build-sass", "copy-dist-to-fractal-assets", "watch-sass"),
+);
