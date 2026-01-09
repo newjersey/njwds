@@ -17,9 +17,9 @@ jobs:
       - name: Setup npm to publish to npmjs
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: ".nvmrc"
           registry-url: 'https://registry.npmjs.org'
-      
+
       # Ensure npm 11.5.1 or later is installed
       - name: Update npm
         run: npm install -g npm@latest
