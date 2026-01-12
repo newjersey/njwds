@@ -9,7 +9,9 @@
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "build-docs": "gulp copy-dist-to-fractal-assets && fractal build",
     "start": "fractal start --sync & gulp watch-fractal",
-    "deploy": "npm ci && npm run build-docs && gh-pages -d build"
+    "deploy": "npm ci && npm run build-docs && gh-pages -d build",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "repository": {
     "type": "git",
@@ -36,10 +38,16 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svg-sprite": "^1.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "postcss": "^8.3.11",
     "postcss-csso": "^5.0.1",
+    "prettier": "^3.7.4",
     "sass": "^1.51.0",
     "uswds-gulp": "github:uswds/uswds-gulp"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "files": [
     "dist",

@@ -256,14 +256,14 @@ i.e.
 }
 
 .usa-icon:not(
-    .usa-icon--size-3,
-    .usa-icon--size-4,
-    .usa-icon--size-5,
-    .usa-icon--size-6,
-    .usa-icon--size-7,
-    .usa-icon--size-8,
-    .usa-icon--size-9
-  ) {
+  .usa-icon--size-3,
+  .usa-icon--size-4,
+  .usa-icon--size-5,
+  .usa-icon--size-6,
+  .usa-icon--size-7,
+  .usa-icon--size-8,
+  .usa-icon--size-9
+) {
   height: 20px;
   width: 20px;
 }
@@ -292,9 +292,11 @@ i.e.
 .usa-checkbox__input--tile + [class*="__label"] {
   border-color: color($theme-color-base-light);
 }
-.usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before, 
-.usa-checkbox__input.usa-checkbox__input--tile:checked + [class*="__label"]::before{
-  box-shadow: 0 0 0 2px #005ea2, inset 0 0 0 2px #cfe8ff;
+.usa-radio__input.usa-radio__input--tile:checked + [class*="__label"]::before,
+.usa-checkbox__input.usa-checkbox__input--tile:checked + [class*="__label"]::before {
+  box-shadow:
+    0 0 0 2px #005ea2,
+    inset 0 0 0 2px #cfe8ff;
 }
 
 .nj-error-message-container {

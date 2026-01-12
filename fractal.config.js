@@ -6,11 +6,11 @@ const fractal = require("@frctl/fractal").create();
 const context = {
   package: {
     name: pkg.name,
-    version: pkg.version
+    version: pkg.version,
   },
   uswds: {
-    path: "../../public/dist"
-  }
+    path: "../../public/dist",
+  },
 };
 
 fractal.set("project.title", `NJ Web Design System (v${pkg.version})`);
@@ -25,11 +25,11 @@ components.set("default.context", context);
 components.engine(
   require("@frctl/nunjucks")({
     filters: {
-      jsonify: d => JSON.stringify(d, null, "  "),
-      dataurl: (d, type) => `data:${type},${encodeURIComponent(d)}`
+      jsonify: (d) => JSON.stringify(d, null, "  "),
+      dataurl: (d, type) => `data:${type},${encodeURIComponent(d)}`,
     },
-    paths: ["src/components"]
-  })
+    paths: ["src/components"],
+  }),
 );
 
 const web = fractal.web;
@@ -41,8 +41,8 @@ web.theme(
     // display context data in YAML
     format: "yaml",
     // which panels to show
-    panels: ["html", "notes", "view", "context", "resources", "info"]
-  })
+    panels: ["html", "notes", "view", "context", "resources", "info"],
+  }),
 );
 
 web.set("static.path", "public");
