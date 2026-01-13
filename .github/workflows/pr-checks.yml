@@ -29,12 +29,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Test run build-docs
-        run: npm run build-docs
-
       - name: Check Prettier formatting
         run: npm run format:check
 
       - name: Check Linting
         run: npm run lint
+
+      - name: Test run build-docs
+        run: npm run build-docs
 
