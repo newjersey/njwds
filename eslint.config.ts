@@ -6,7 +6,7 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import prettierConfig from "eslint-config-prettier";
 import globals from "globals";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 // Framework Specific Plugins
 import lit from "eslint-plugin-lit";
@@ -14,18 +14,15 @@ import wc from "eslint-plugin-wc";
 import litA11y from "eslint-plugin-lit-a11y";
 
 export default defineConfig([
-  // 1. Global Ignores (Stand-alone object)
-  {
-    ignores: [
-      "node_modules/",
-      "dist/",
-      "build/",
-      "packages/**/dist/",
-      "packages/**/node_modules/",
-      "gulpfile.js",
-      "*.config.js",
-    ],
-  },
+  globalIgnores([
+    "node_modules/",
+    "dist/",
+    "build/",
+    "packages/**/dist/",
+    "packages/**/node_modules/",
+    "gulpfile.js",
+    "*.config.js",
+  ]),
 
   // 2. Base Recommendations
   eslint.configs.recommended,
