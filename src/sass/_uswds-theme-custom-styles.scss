@@ -46,7 +46,7 @@ i.e.
 
   // Set min-width so the names are hidden before the stateOfNjText wraps to
   // 3 lines
-  @media (min-width: 43rem) {
+  @media (min-width: 46rem) {
     display: inline;
   }
   @include u-margin-right(1);
