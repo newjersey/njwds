@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: ".nvmrc"
+          node-version: 24 # change this back to use the nvmrc file after node is ugraded
           cache: "npm"
 
       - name: Install dependencies
