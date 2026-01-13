@@ -12,7 +12,8 @@
     "deploy": "npm ci && npm run build-docs && gh-pages -d build",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "echo \"Warn: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
