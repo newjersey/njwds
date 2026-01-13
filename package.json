@@ -11,7 +11,8 @@
     "start": "fractal start --sync & gulp watch-fractal",
     "deploy": "npm ci && npm run build-docs && gh-pages -d build",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,17 @@
     "@uswds/uswds": "3.10.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@frctl/fractal": "^1.5.1",
     "@frctl/nunjucks": "^2.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
     "autoprefixer": "^10.4.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-lit": "^2.1.1",
     "gh-pages": "^3.1.0",
+    "globals": "^17.0.0",
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
@@ -39,11 +47,14 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "husky": "^9.1.7",
+    "jiti": "^2.6.1",
     "lint-staged": "^16.2.7",
     "postcss": "^8.3.11",
     "postcss-csso": "^5.0.1",
     "prettier": "^3.7.4",
     "sass": "^1.51.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.0",
     "uswds-gulp": "github:uswds/uswds-gulp"
   },
   "lint-staged": {

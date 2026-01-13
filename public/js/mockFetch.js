@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { fetch: origFetch } = window;
 
 /**
@@ -20,6 +21,7 @@ const { fetch: origFetch } = window;
  * initMockFetch(mockResponses, 1000);
  *
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function initMockFetch(urlToMockResponseMap, responseDelay) {
   window.fetch = async (...args) => {
     console.log("fetch called with args:", args);
