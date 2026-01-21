@@ -11,12 +11,12 @@ jobs:
     with:
       include_teams: "innovation-engineering-resx"
       number_of_reviewers: 2
-      channel_id: "C0590CD1EE8"
+      channel_id: "C0590CD1EE8" # resx-eng
     secrets: inherit
   pr-show:
     if: contains(github.event.pull_request.labels.*.name, 'pr-show')
     uses: newjersey/innovation-shared-actions/.github/workflows/pickaroo.yml@main
     with:
       show: true
-      channel_id: "C0590CD1EE8"
+      channel_id: "C0590CD1EE8" # resx-eng
     secrets: inherit
