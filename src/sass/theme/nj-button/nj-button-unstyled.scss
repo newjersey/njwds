@@ -1,0 +1,48 @@
+@use "uswds-core" as *;
+
+// Unstyled buttons (light)
+.usa-button--unstyled {
+  border-radius: units(0.5);
+  padding: units(0.5);
+  font-weight: $theme-font-weight-bold;
+  height: auto;
+}
+.usa-button--unstyled.usa-button--hover,
+.usa-button--unstyled:hover {
+  color: color($theme-color-primary-darker);
+}
+
+.usa-button--unstyled.usa-button--active,
+.usa-button--unstyled:active {
+  color: color($theme-color-primary-darkest);
+}
+
+// Unstyled Buttons (dark)
+.usa-button--unstyled.nj-button--unstyled-dark {
+  color: color($theme-text-reverse-color);
+}
+
+.usa-button--unstyled.nj-button--unstyled-dark.usa-button--hover,
+.usa-button--unstyled.nj-button--unstyled-dark:hover {
+  color: color($theme-color-base-lighter);
+}
+
+.usa-button--unstyled.nj-button--unstyled-dark.usa-button--active,
+.usa-button--unstyled.nj-button--unstyled-dark:active {
+  color: color($theme-color-base-light);
+}
+
+// Unstyled Buttons (danger)
+.usa-button--unstyled.nj-button--unstyled-danger:not(:disabled) {
+  color: color($theme-color-error);
+}
+
+.usa-button--hover.nj-button--unstyled-danger:not(:disabled),
+.usa-button--unstyled.nj-button--unstyled-danger:hover:not(:disabled) {
+  color: color($theme-color-error-dark);
+}
+
+.usa-button--active.nj-button--unstyled-danger:not(:disabled),
+.usa-button--unstyled.nj-button--unstyled-danger:active:not(:disabled) {
+  color: color($theme-color-error-darker);
+}

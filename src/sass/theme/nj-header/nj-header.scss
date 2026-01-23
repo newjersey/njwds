@@ -1,0 +1,8 @@
+@use "uswds-core" as *;
+
+// Header - prevent wrapping of logo text
+.usa-header--extended {
+  .usa-logo {
+    max-width: 50%;
+  }
+} // .usa-header--extended
