@@ -1,0 +1,64 @@
+name: Create Codespace and Comment on PR
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  create-codespace:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: 24 # change this back to use the nvmrc file after node is ugraded
+        cache: "npm"
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Create Codespace
+      id: create_codespace
+      run: |
+        # Define variables
+        REPO=${{ github.repository }}
+        BRANCH=${{ github.head_ref }}
+        OWNER=${{ github.event.pull_request.head.repo.owner.login }}
+        PR_NUMBER=${{ github.event.pull_request.number }}
+
+        # Create codespace
+        RESPONSE=$(curl -s -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/$OWNER/$REPO/codespaces \
+          -d "{\"ref\":\"$BRANCH\"}")
+
+        # Extract codespace URL
+        URL=$(echo $RESPONSE | jq -r '.web_url')
+
+        if [ "$URL" == "null" ]; then
+          echo "Error creating codespace."
+          exit 1
+        fi
+
+        echo "Codespace URL: $URL"
+        echo "::set-output name=url::$URL"
+
+    - name: Comment on PR
+      run: |
+        URL=${{ steps.create_codespace.outputs.url }}
+        PR_NUMBER=${{ github.event.pull_request.number }}
+        OWNER=${{ github.repository_owner }}
+        REPO=${{ github.event.repository.name }}
+
+        COMMENT_BODY="A Codespace has been created for this PR. [Click here to open the Codespace]($URL)."
+
+        curl -s -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/$OWNER/$REPO/issues/$PR_NUMBER/comments \
+          -d "{\"body\":\"$COMMENT_BODY\"}"

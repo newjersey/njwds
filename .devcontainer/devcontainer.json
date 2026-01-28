@@ -1,0 +1,16 @@
+{
+  "name": "NJWDS Preview Environment",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts",
+      "installPnpm": true
+    }
+  },
+  "postCreateCommand": "npm install && npm run build-njwds && npm run build-docs && npm run start",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Documentation"
+    }
+  }
+}
