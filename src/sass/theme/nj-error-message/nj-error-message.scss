@@ -1,0 +1,19 @@
+@use "uswds-core" as *;
+
+.nj-error-message-container {
+  margin-top: units(1.5);
+  display: flex;
+  align-items: flex-start;
+  color: color($theme-color-error-dark);
+}
+
+.nj-error-message-container {
+  > svg {
+    flex-shrink: 0;
+    margin-right: units(1);
+  }
+}
+
+.usa-error-message {
+  padding: units(0);
+}

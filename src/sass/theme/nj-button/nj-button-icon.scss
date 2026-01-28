@@ -1,0 +1,12 @@
+@use "uswds-core" as *;
+
+.usa-button {
+  &.nj-button--icon {
+    padding-top: units(1.5);
+    padding-bottom: 0.875rem;
+
+    svg {
+      vertical-align: sub;
+    }
+  } // .nj-button--icon
+} // .usa-button

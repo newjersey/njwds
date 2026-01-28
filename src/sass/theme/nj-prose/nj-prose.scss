@@ -1,0 +1,14 @@
+@use "uswds-core" as *;
+
+.usa-prose {
+  // Tighten letter spacing for h1 and intro text
+  > h1 {
+    letter-spacing: -0.4px;
+  }
+
+  // Wrap long links that would break page container
+  a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+} // .usa-prose
