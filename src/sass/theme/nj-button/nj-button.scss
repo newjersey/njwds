@@ -4,6 +4,7 @@
 .usa-button {
   height: units(6);
   padding: units(2) units(2.5);
+  border: 10px solid red;
 
   &:focus,
   &.usa-focus {
