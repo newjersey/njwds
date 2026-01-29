@@ -33,7 +33,7 @@ select {
   width: 100% !important;
 
   &:focus {
-    outline: 0.25rem solid #0050d8;
+    outline: 0.25rem solid #0050d8 !important;
     outline-offset: 0;
   }
 }
@@ -87,7 +87,7 @@ select {
   width: 100%;
 
   &:focus {
-    outline: 0.25rem solid #0050d8;
+    outline: 0.25rem solid #0050d8 !important;
     outline-offset: 0;
   }
 }
