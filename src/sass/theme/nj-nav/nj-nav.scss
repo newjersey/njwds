@@ -1,0 +1,7 @@
+@use "uswds-core" as *;
+
+.usa-nav__secondary-links {
+  a {
+    color: color("base-darker");
+  }
+} // .usa-nav__secondary-links

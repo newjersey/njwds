@@ -1,0 +1,12 @@
+@use "uswds-core" as *;
+
+// Buttons
+.usa-button {
+  height: units(6);
+  padding: units(2) units(2.5);
+
+  &:focus,
+  &.usa-focus {
+    outline-color: color($theme-color-primary-vivid);
+  }
+} // .usa-button

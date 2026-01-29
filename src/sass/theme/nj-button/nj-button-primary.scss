@@ -1,0 +1,22 @@
+@use "uswds-core" as *;
+
+// Buttons
+.usa-button {
+  // Primary Buttons (dark)
+  &.nj-button--primary-dark:not(:disabled) {
+    color: color($theme-text-color);
+    background-color: color($theme-color-base-lightest);
+  }
+
+  &.nj-button--primary-dark.usa-button--hover:not(:disabled),
+  &.nj-button--primary-dark:hover:not(:disabled) {
+    color: color($theme-text-color);
+    background-color: color($theme-color-base-lighter);
+  }
+
+  &.nj-button--primary-dark.usa-button--active:not(:disabled),
+  &.nj-button--primary-dark:active:not(:disabled) {
+    color: color($theme-text-color);
+    background-color: color($theme-color-base-light);
+  }
+} // .usa-button

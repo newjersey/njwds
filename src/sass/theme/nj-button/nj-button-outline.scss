@@ -1,0 +1,55 @@
+@use "uswds-core" as *;
+
+// Outline buttons (light)
+.usa-button--outline {
+  color: color($theme-color-primary-dark);
+  box-shadow: inset 0 0 0 2px color($theme-color-primary-dark);
+
+  &.usa-button--hover,
+  &:hover {
+    color: color($theme-color-primary-darker);
+    box-shadow: inset 0 0 0 2px color($theme-color-primary-darker);
+  }
+
+  &.usa-button--active,
+  &:active {
+    color: color($theme-color-primary-darkest);
+    box-shadow: inset 0 0 0 2px color($theme-color-primary-darkest);
+  }
+
+  // Secondary Buttons (dark)
+  &.usa-button--inverse:not(:disabled) {
+    color: color($theme-link-reverse-active-color);
+    box-shadow: inset 0 0 0 2px color($theme-link-reverse-active-color);
+  }
+
+  &.usa-button--inverse.usa-button--hover:not(:disabled),
+  &.usa-button--inverse:hover:not(:disabled) {
+    color: color($theme-color-base-lighter);
+    box-shadow: inset 0 0 0 2px color($theme-color-base-lighter);
+  }
+
+  &.usa-button--inverse.usa-button--active:not(:disabled),
+  &.usa-button--inverse:active:not(:disabled) {
+    color: color($theme-color-base-light);
+    box-shadow: inset 0 0 0 2px color($theme-color-base-light);
+  }
+
+  // Secondary Buttons (danger)
+  &.nj-button--outline-danger:not(:disabled) {
+    color: color($theme-color-error);
+    box-shadow: inset 0 0 0 2px color($theme-color-error);
+  }
+} // .usa-button--outline
+
+.usa-button--hover.nj-button--outline-danger:not(:disabled),
+.usa-button--outline.nj-button--outline-danger:hover:not(:disabled) {
+  color: color($theme-color-error-dark);
+  box-shadow: inset 0 0 0 2px color($theme-color-error-dark);
+}
+
+.usa-button--active.nj-button--outline-danger:not(:disabled),
+.usa-button--outline.nj-button--outline-danger:active:not(:disabled) {
+  color: color($theme-color-error-darker);
+  box-shadow: inset 0 0 0 2px color($theme-color-error-darker);
+}

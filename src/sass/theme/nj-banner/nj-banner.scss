@@ -1,0 +1,57 @@
+@use "uswds-core" as *;
+
+.nj-banner {
+  @include typeset($theme-banner-font-family);
+  @include border-box-sizing;
+  background-color: color($theme-banner-background-color);
+  font-size: font-size($theme-banner-font-family, "2xs");
+  line-height: line-height($theme-banner-font-family, 1);
+  min-height: units($size-touch-target);
+  position: relative;
+
+  &__header {
+    @include u-padding-y(1);
+    @include set-text-from-bg($theme-banner-background-color);
+    // display: flex;
+
+    a {
+      @include set-text-from-bg($theme-banner-background-color);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    } // a
+
+    li {
+      display: none;
+
+      // Set min-width so the names are hidden before the stateOfNjText wraps to
+      // 3 lines
+      @media (min-width: 46rem) {
+        display: inline;
+      }
+      @include u-margin-right(1);
+      @include u-padding-right(1);
+      @include u-border-right(1px);
+
+      &:last-child {
+        display: inline;
+        @include u-margin-right(0);
+        @include u-padding-right(0);
+        @include u-border-right(0);
+      }
+    } // li
+
+    &-seal {
+      padding-right: units(1);
+    } // .nj-banner__header-seal
+  } // .nj-banner__header
+
+  &__inner {
+    @include grid-row;
+    @include u-flex("align-center");
+    padding-right: units(0);
+  } // .nj-banner__inner
+}
