@@ -12,7 +12,7 @@
   &__header {
     @include u-padding-y(1);
     @include set-text-from-bg($theme-banner-background-color);
-    display: flex;
+    // display: flex;
 
     a {
       @include set-text-from-bg($theme-banner-background-color);
@@ -44,14 +44,14 @@
       }
     } // li
 
-    &__inner {
-      @include grid-row;
-      @include u-flex("align-center");
-      padding-right: units(0);
-    } // .nj-banner__inner
-
-    &__header-seal {
+    &-seal {
       padding-right: units(1);
     } // .nj-banner__header-seal
   } // .nj-banner__header
+
+  &__inner {
+    @include grid-row;
+    @include u-flex("align-center");
+    padding-right: units(0);
+  } // .nj-banner__inner
 }
