@@ -1,0 +1,64 @@
+@use "uswds-core" as *;
+
+// $button-context: "Button";
+
+// Buttons
+.page-content .formFieldWrapper.submit-button-wrapper > div > input {
+  @include border-box-sizing;
+  @include typeset($theme-button-font-family, null, 1);
+  @include set-text-and-bg("primary", $context: "Button");
+  appearance: none;
+  align-items: center;
+  border: 0;
+  border-radius: radius($theme-button-border-radius);
+  cursor: pointer;
+  column-gap: units($theme-button-icon-gap);
+  display: inline-flex;
+  font-weight: font-weight("bold");
+  justify-content: center;
+  margin-right: units(1);
+  padding: units(1.5) units(2.5);
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+
+  @include at-media("mobile-lg") {
+    width: auto;
+  }
+
+  &:visited {
+    color: color("white");
+  }
+
+  &:hover,
+  &.usa-button--hover {
+    @include set-text-and-bg("primary-dark", $context: "Button");
+    border-bottom: 0;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.usa-button--active {
+    @include set-text-and-bg("primary-darker", $context: "Button");
+  }
+
+  &:not([disabled]):focus,
+  &:not([disabled]).usa-focus {
+    outline-offset: units(0.5);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    @include button-disabled;
+  }
+
+  .usa-icon {
+    flex-shrink: 0; // Avoid shrinking on small screens.
+  }
+
+  @media (forced-colors: active) {
+    &:not(.usa-button--unstyled) {
+      border: $border-high-contrast;
+    }
+  }
+}

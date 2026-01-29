@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+#formHeaderDiv {
+  display: none;
+}
+
+.workflowContent .formFieldWrapper.heading-wrapper {
+  margin-top: 20px;
+}
+
+.workflowContent .formFieldWrapper.heading-wrapper h3 {
+  font-family: "Public Sans", sans-serif;
+  font-size: 1.38rem;
+  line-height: 1.2 !important;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0;
+  clear: both;
+  display: block !important;
+  border: 0;
+  padding: 0;
+}
+
+#workflow-wrapper form {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+.form-static-html {
+  line-height: 1.4 !important;
+}
+
+.formFieldWrapper span.input-text {
+  display: block;
+}

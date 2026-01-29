@@ -1,0 +1,100 @@
+@use "uswds-core" as *;
+
+.formFieldWrapper.text-box-wrapper input.input-text,
+.form-element-wrapper.text-box input.field,
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"]:not(.select2-search__field),
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  border-width: 1px;
+  border-color: #565c65;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  color: #1c1d1f;
+  display: block;
+  height: 2.5rem !important;
+  margin-top: 0.5rem;
+  max-width: 100%;
+  padding: 0.5rem;
+  width: 100% !important;
+
+  &:focus {
+    outline: 0.25rem solid #0050d8;
+    outline-offset: 0;
+  }
+}
+
+.workflowContent .formFieldWrapper.align-block {
+  vertical-align: top;
+}
+.workflowContent .formFieldWrapper .required-text {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  color: #b50909;
+  font-weight: 700;
+  margin-top: 0;
+  font-size: 16px;
+  font-style: normal;
+  position: static;
+}
+
+.tsForm label,
+.formFieldWrapper .radio-checkbox-label,
+.form-element-wrapper .radio-checkbox-label {
+  font-size: 1rem;
+  line-height: 1.4;
+  display: block;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  max-width: 30rem;
+  padding-bottom: 0 !important;
+}
+
+.formFieldWrapper .radio-checkbox-label,
+.form-element-wrapper .radio-checkbox-label {
+  margin: 0 0 0 4px;
+}
+
+.formFieldWrapper.text-area-wrapper textarea.textarea-input,
+.form-element-wrapper.text-area textarea.field {
+  border-width: 1px;
+  border-color: #565c65;
+  border-style: solid;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  color: #1c1d1f;
+  display: block;
+  height: 10rem;
+  margin-top: 0.5rem;
+  max-width: none;
+  padding: 0.5rem;
+  width: 100%;
+
+  &:focus {
+    outline: 0.25rem solid #0050d8;
+    outline-offset: 0;
+  }
+}
+
+.formFieldWrapper .sub-heading {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #71767a;
+  margin-bottom: 4px;
+}
