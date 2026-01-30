@@ -14,8 +14,9 @@
     "format:check": "prettier . --check",
     "lint": "eslint",
     "test": "echo \"Warn: no test specified\" && exit 0",
-    "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots"
+    "test:visual": "playwright test --project=visual",
+    "test:accessibility": "playwright test --project=accessibility",
+    "test:visual:update": "playwright test --project=visual --update-snapshots=all"
   },
   "repository": {
     "type": "git",

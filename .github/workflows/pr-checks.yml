@@ -15,7 +15,6 @@ jobs:
   visual-regression-tests:
     name: Visual regression tests
     runs-on: ubuntu-latest
-    needs: build
 
     steps:
       - name: Checkout repository
@@ -77,6 +76,9 @@ jobs:
 
       - name: Run Tests
         run: npm run test
+
+      - name: Run Accessibility Tests
+        run: npm run test:accessibility
 
       - name: Check Typescript
         run: npx tsc --noEmit

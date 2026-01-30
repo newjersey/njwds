@@ -8,4 +8,14 @@ export default defineConfig({
   use: {
     viewport: { width: 1280, height: 800 },
   },
+  projects: [
+    {
+      name: "visual",
+      testMatch: "**/*.visual.spec.ts",
+    },
+    {
+      name: "accessibility",
+      testMatch: "**/*.accessibility.spec.ts",
+    },
+  ],
 });
