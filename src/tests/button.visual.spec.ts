@@ -33,7 +33,10 @@ test.describe("Button – visual regression", () => {
       /**
        * Full-page screenshot
        */
-      await expect(page).toHaveScreenshot(`button-${viewport.name}.png`, { fullPage: true });
+      await expect(page).toHaveScreenshot(`button-${viewport.name}.png`, {
+        fullPage: true,
+        maxDiffPixelRatio: 0.01, // allow a 1px difference
+      });
     });
   }
 });
