@@ -30,15 +30,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build design system
-        run: npm run build-njwds
+      - name: Build design system and documenation
+        run: npm run build-njwds && npm run build-docs
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Start static server
         run: |
-          npx http-server ./build -p 3000 &
+          npm run start
           npx wait-on http://localhost:3000
 
       - name: Upload Playwright report (on failure)
@@ -48,7 +48,7 @@ jobs:
           name: playwright-report
           path: playwright-report/
 
-      - name: Run Playwright tests
+      - name: Run visual regression tests
         run: npm run test:visual
         env:
           CI: true
