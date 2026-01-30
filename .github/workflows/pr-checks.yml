@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   visual-regression-tests:
-    name: Visual regression tests
+    name: Regression tests
     runs-on: ubuntu-latest
 
     steps:
@@ -40,6 +40,14 @@ jobs:
           npx http-server ./build -p 3000 &
           npx wait-on http://localhost:3000
 
+      - name: Run accessibility tests
+        run: npm run test:accessibility
+
+      - name: Run visual regression tests
+        run: npm run test:visual
+        env:
+          CI: true
+
       - name: Upload Playwright report (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
@@ -47,10 +55,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
 
-      - name: Run visual regression tests
-        run: npm run test:visual
-        env:
-          CI: true
   build:
     name: Health checks
     runs-on: ubuntu-latest
@@ -76,9 +80,6 @@ jobs:
 
       - name: Run Tests
         run: npm run test
-
-      - name: Run Accessibility Tests
-        run: npm run test:accessibility
 
       - name: Check Typescript
         run: npx tsc --noEmit
