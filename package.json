@@ -13,7 +13,10 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint",
-    "test": "echo \"Warn: no test specified\" && exit 0"
+    "test": "echo \"Warn: no test specified\" && exit 0",
+    "test:visual": "playwright test --project=visual",
+    "test:accessibility": "playwright test --project=accessibility",
+    "test:visual:update": "playwright test --project=visual --update-snapshots=all"
   },
   "repository": {
     "type": "git",
@@ -29,10 +32,12 @@
     "@uswds/uswds": "3.10.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "@eslint/js": "^9.39.2",
     "@frctl/fractal": "^1.5.1",
     "@frctl/nunjucks": "^2.0.5",
     "@html-eslint/eslint-plugin": "^0.52.1",
+    "@playwright/test": "^1.58.0",
     "@types/node": "^22.19.6",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
