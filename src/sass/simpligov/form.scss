@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
+body,
+html {
+  min-width: 0 !important;
+}
+
+.form-section {
+  padding-left: 0 !important;
+}
+
+#StageSubmitForm:not(.recordForm) {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
 #formHeaderDiv {
   display: none;
 }
@@ -8,17 +22,22 @@
   margin-top: 20px;
 }
 
+h3,
 .workflowContent .formFieldWrapper.heading-wrapper h3 {
-  font-family: "Public Sans", sans-serif;
-  font-size: 1.38rem;
+  font-family: "Public Sans", sans-serif !important;
+  font-size: 1.38rem !important;
   line-height: 1.2 !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   margin-bottom: 0;
   margin-top: 0;
   clear: both;
   display: block !important;
   border: 0;
   padding: 0;
+
+  strong {
+    font-weight: 400 !important;
+  }
 }
 
 #workflow-wrapper form {
@@ -28,12 +47,33 @@
   font-style: normal;
   font-size: 16px !important;
   line-height: 1.4 !important;
+  margin-bottom: 200px !important;
 }
 
 .form-static-html {
   line-height: 1.4 !important;
+  margin-bottom: 1.5rem;
+}
+
+.form-static-html p,
+.form-static-html ul {
+  line-height: 1.4 !important;
+  margin-bottom: 1.5rem;
+
+  p {
+    margin: 0 !important;
+  }
 }
 
 .formFieldWrapper span.input-text {
   display: block;
+}
+
+.nj-banner ul {
+  padding: 19px 0;
+}
+
+div#workflow-wrapper {
+  max-width: 1000px;
+  margin: auto;
 }
