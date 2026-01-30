@@ -38,7 +38,7 @@ jobs:
 
       - name: Start static server
         run: |
-          npm run start
+          npx http-server ./build -p 3000 &
           npx wait-on http://localhost:3000
 
       - name: Upload Playwright report (on failure)
