@@ -69,3 +69,13 @@ Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages`
 4. Go to the [GitHub Releases page](https://github.com/newjersey/njwds/releases) and confirm that you see a new draft release with this version. (Note that this will automatically happen after Step 2, and is not dependent on Step 3)
 5. On the releases page, click the pencil icon on the top right to Edit the release. Document what has changed in this release; be sure to note any breaking changes. Once all looks good, click "Publish release" at the bottom.
 6. This will automatically trigger the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) as well as the ["Publish Release" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm the "Publish Release" action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
+
+## Automated testing
+
+### Visual regresstion tests
+
+Visual regression tests are setup to run against the Fractal documentation in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update` to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updates. These tests also run CI
+
+### Accessibility tests
+
+Components also have basic accessibility tests. To run these tests, run: `npm run test:accessibility`. These tests also run in CI.
