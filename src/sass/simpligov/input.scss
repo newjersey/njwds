@@ -31,6 +31,7 @@ select {
   max-width: 100%;
   padding: 0.5rem;
   width: 100% !important;
+  font-size: 16px;
 
   &:focus {
     outline: 0.25rem solid #0050d8 !important;
@@ -86,6 +87,7 @@ select {
   max-width: none;
   padding: 0.5rem;
   width: 100%;
+  font-size: 16px;
 
   &:focus {
     outline: 0.25rem solid #0050d8 !important;
