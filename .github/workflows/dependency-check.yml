@@ -2,11 +2,9 @@ name: Dependency Security Check
 
 on:
   pull_request:
-    branches:
-      - "main"
+    branches: ["main"]
   push:
-    branches:
-      - "main"
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -24,7 +22,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24 # change this back to use the nvmrc file after node is upgraded
-          cache: "npm"
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -32,16 +30,16 @@ jobs:
       - name: Run npm audit (fail on critical)
         run: npm audit --audit-level=critical
 
-  notify-slack:
+  slack:
     name: Notify Slack on failure
-    runs-on: ubuntu-latest
     needs: npm-audit
-    if: failure()
-
-    steps:
-      - name: Send failure notification to Slack
-        uses: newjersey/innovation-shared-actions/.github/workflows/slack.yml@main
-        with:
-            channel_id: C09Q36G9HMX #sandbox
-            message: "Dependency security check failed :warning: Please review the npm audit report."
-        secrets: inherit
+    if: ${{ needs.npm-audit.result == 'failure' }}
+    uses: newjersey/innovation-shared-actions/.github/workflows/slack.yml@main
+    with:
+      channel_id: C09Q36G9HMX # sandbox
+      message: >
+        :rotating_light: Dependency security check failed
+        Repository: ${{ github.repository }}
+        Branch: ${{ github.ref_name }}
+        <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View failed workflow run>
+    secrets: inherit
