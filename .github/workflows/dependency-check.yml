@@ -33,7 +33,7 @@ jobs:
   slack:
     name: Notify Slack on failure
     needs: npm-audit
-    if: ${{ needs.npm-audit.result == 'success'}}
+    if: ${{ always() && needs.npm-audit.result == 'failure' }}
     uses: newjersey/innovation-shared-actions/.github/workflows/slack.yml@main
     with:
       channel_id: C09Q36G9HMX # sandbox
