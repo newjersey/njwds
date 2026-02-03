@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   npm-audit:
-    name: Check for critical vulnerabilities
+    name: Critical vulnerabilities
     runs-on: ubuntu-latest
 
     steps:
