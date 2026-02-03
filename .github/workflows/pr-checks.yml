@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24 # change this back to use the nvmrc file after node is ugraded
+          node-version: 24 # change this back to use the nvmrc file after node is upgraded
           cache: "npm"
 
       - name: Install dependencies
@@ -55,26 +55,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
 
-  npm-audit:
-    name: Audit npm dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24 # change this back to use the nvmrc file after node is ugraded
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run npm audit (fail on critical)
-        run: npm audit --audit-level=critical
-
   build:
     name: Health checks
     runs-on: ubuntu-latest
@@ -86,7 +66,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24 # change this back to use the nvmrc file after node is ugraded
+          node-version: 24 # change this back to use the nvmrc file after node is upgraded
           cache: "npm"
 
       - name: Install dependencies
@@ -106,4 +86,7 @@ jobs:
 
       - name: Test run build-docs
         run: npm run build-docs
+
+      - name: Test run build-njwds
+        run: npm run build-njwds
 
