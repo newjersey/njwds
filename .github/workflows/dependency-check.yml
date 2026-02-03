@@ -1,4 +1,4 @@
-name: Dependency Security Check
+name: Dependency Check
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # change this back to use the nvmrc file after node is upgraded
+          node-version: 24 # change this back to use the nvmrc file after node is upgraded
           cache: npm
 
       - name: Install dependencies
@@ -36,10 +36,8 @@ jobs:
     if: ${{ needs.npm-audit.result == 'failure' && github.ref == 'refs/heads/main' && github.event_name == 'push' }}
     uses: newjersey/innovation-shared-actions/.github/workflows/slack.yml@main
     with:
-      channel_id: C09Q36G9HMX # sandbox
+      channel_id: C09Q36G9HMX # sandbox (will update later)
       message: >
-        :rotating_light: Dependency security check failed
-        Repository: ${{ github.repository }}
-        Branch: ${{ github.ref_name }}
+        Critial vulnerability detected in ${{ github.repository }} -
         <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View failed workflow run>
     secrets: inherit
