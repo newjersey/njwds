@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 const BASE_URL = "http://localhost:3000";
-const PAGE_URL = `${BASE_URL}/components/preview/buttons--primary-(danger)`;
+const PAGE_URL = `${BASE_URL}/components/preview/buttons--primary-(dark)`;
 
 const viewports = [
   { name: "narrow", width: 375, height: 800 },
   { name: "wide", width: 1280, height: 800 },
 ];
 
-test.describe("Button - visual regression", () => {
+test.describe("Button, dark - visual regression", () => {
   for (const viewport of viewports) {
     test(`renders correctly (${viewport.name})`, async ({ page }) => {
       await page.setViewportSize({
@@ -26,7 +26,7 @@ test.describe("Button - visual regression", () => {
       await page.waitForLoadState("networkidle");
 
       // Full-page screenshot
-      await expect(page).toHaveScreenshot(`button-${viewport.name}.png`, {
+      await expect(page).toHaveScreenshot(`button-dark-${viewport.name}.png`, {
         fullPage: true,
         maxDiffPixelRatio: 0.01, // allow a 1px difference
       });

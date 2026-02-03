@@ -5,10 +5,10 @@ import AxeBuilder from "@axe-core/playwright";
 const BASE_URL = "http://localhost:3000";
 
 // The specific page URL for the Button component preview.
-const PAGE_URL = `${BASE_URL}/components/preview/buttons--primary-(light)`;
+const PAGE_URL = `${BASE_URL}/components/preview/buttons--secondary-(danger)`;
 
 // Group all accessibility tests for the Button component under a single describe block.
-test.describe("Button - accessibility", () => {
+test.describe("Button, secondary danger - accessibility", () => {
   // Primary axe-core scan for this component.
   test("has no detectable a11y violations", async ({ page }) => {
     // Open the page at the URL defined above.
