@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   npm-audit:
-    name: Audit npm dependencies
+    name: Check for critical vulnerabilities
     runs-on: ubuntu-latest
 
     steps:
