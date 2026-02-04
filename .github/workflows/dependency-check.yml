@@ -14,4 +14,4 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/npm-audit.yml@feat/dependency-checker
     with:
       node-version: ".nvmrc"      # Can be a file path or a literal version like "20"
-      audit-level: "critical"     # Optional, defaults to "critical"
+      audit-level: "high"     # Optional, defaults to "critical"
