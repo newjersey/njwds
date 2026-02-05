@@ -74,7 +74,7 @@ Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages`
 
 ### Visual regresstion tests
 
-Visual regression tests are setup to run against the Fractal documentation in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update` to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updates. These tests also run CI
+Visual regression tests are setup to run against the Fractal documentation in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update` to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updates. These tests also run CI. Make sure the documentation is running locally (`npm start`) or the tests will fail.
 
 ### Accessibility tests
 
