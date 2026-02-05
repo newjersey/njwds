@@ -71,11 +71,18 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "overrides": {
+    "braces": "^3.0.3",
     "uswds-gulp": {
       "gulp-svg-sprite": "$gulp-svg-sprite"
     },
     "inquirer": {
       "lodash": "^4.17.19"
+    },
+    "@frctl/fractal": {
+      "axios": "^1.8.2",
+      "marked": "^3.0.8",
+      "send": "^0.19.0",
+      "tmp": "^0.2.4"
     }
   },
   "files": [
