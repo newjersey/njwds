@@ -48,7 +48,7 @@ jobs:
         env:
           CI: true
 
-      - name: Upload Playwright report (on failure)
+      - name: Upload Playwright report (if failure)
         if: failure()
         uses: actions/upload-artifact@v4
         with:
