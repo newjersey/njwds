@@ -16,7 +16,12 @@
     "test": "echo \"Warn: no test specified\" && exit 0",
     "test:visual": "playwright test --project=visual",
     "test:accessibility": "playwright test --project=accessibility",
-    "test:visual:update": "playwright test --project=visual --update-snapshots=all"
+    "test:visual:update": "playwright test --project=visual --update-snapshots=all",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -29,7 +34,8 @@
   },
   "homepage": "https://github.com/newjersey/njwds#readme",
   "dependencies": {
-    "@uswds/uswds": "3.10.0"
+    "@uswds/uswds": "3.10.0",
+    "lit": "^3.3.2"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
@@ -38,9 +44,15 @@
     "@frctl/nunjucks": "^2.0.5",
     "@html-eslint/eslint-plugin": "^0.52.1",
     "@playwright/test": "^1.58.0",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "@storybook/addon-vitest": "^10.2.8",
+    "@storybook/web-components-vite": "^10.2.8",
     "@types/node": "^22.19.6",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
@@ -59,13 +71,17 @@
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
     "lint-staged": "^16.2.7",
+    "playwright": "^1.58.2",
     "postcss": "^8.3.11",
     "postcss-csso": "^5.0.1",
     "prettier": "^3.7.4",
-    "sass": "^1.51.0",
+    "sass": "^1.97.3",
+    "storybook": "^10.2.8",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.0",
-    "uswds-gulp": "github:uswds/uswds-gulp"
+    "uswds-gulp": "github:uswds/uswds-gulp",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
