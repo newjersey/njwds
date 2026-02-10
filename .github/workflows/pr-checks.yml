@@ -14,7 +14,7 @@ permissions:
 jobs:
   visual-regression-tests:
     name: Regression tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
       - name: Checkout repository
@@ -57,7 +57,7 @@ jobs:
 
   build:
     name: Health checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
       - name: Checkout repository
