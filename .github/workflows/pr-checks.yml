@@ -84,12 +84,12 @@ jobs:
       - name: Check Typescript
         run: npx tsc --noEmit
 
-      - name: Test run build-docs
+      - name: Test run build-docs (deprecated)
         run: npm run build-docs
 
       - name: Test run storybook:build
         run: npm run storybook:build
 
-      - name: Test run build-njwds (deprecated)
+      - name: Test run build-njwds
         run: npm run build-njwds
 
