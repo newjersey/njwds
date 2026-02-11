@@ -5,20 +5,13 @@ type ButtonType = "primary" | "outline" | "unstyled";
 type NonLightTheme = Exclude<ButtonTheme, "light">;
 
 export interface ButtonProps {
-  disabled?: boolean;
-  icon?: boolean;
-  theme?: ButtonTheme;
-  type?: ButtonType;
   label: string;
+  type?: ButtonType;
+  theme?: ButtonTheme;
+  icon?: boolean;
 }
 
-export const Button = ({
-  theme = "light",
-  label,
-  icon = false,
-  type = "primary",
-  disabled = false,
-}: ButtonProps) => {
+export const Button = ({ label, type = "primary", theme = "light", icon = false }: ButtonProps) => {
   const typeClasses: Record<ButtonType, string> = {
     primary: "",
     outline: "usa-button--outline",
@@ -48,7 +41,6 @@ export const Button = ({
       class=${["usa-button", buttonType, icon && "nj-button--icon", buttonTheme]
         .filter(Boolean)
         .join(" ")}
-      ?disabled=${disabled}
     >
       ${label}
       ${icon

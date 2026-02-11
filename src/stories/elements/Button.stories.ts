@@ -13,12 +13,7 @@ const meta = {
       options: ["light", "dark", "danger"],
     },
     type: {
-      control: { type: "select" },
-      options: ["primary", "outline", "unstyled"],
       table: { disable: true },
-    },
-    disabled: {
-      control: { type: "boolean" },
     },
   },
 } satisfies Meta<ButtonProps>;
@@ -32,7 +27,6 @@ export const Primary: Story = {
     type: "primary",
     theme: "light",
     icon: false,
-    disabled: false,
   },
 };
 
@@ -42,7 +36,6 @@ export const Secondary: Story = {
     type: "outline",
     theme: "light",
     icon: false,
-    disabled: false,
   },
 };
 
@@ -52,6 +45,5 @@ export const Tertiary: Story = {
     type: "unstyled",
     theme: "light",
     icon: false,
-    disabled: false,
   },
 };
