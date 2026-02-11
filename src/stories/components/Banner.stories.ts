@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import type { BannerProps } from "./Banner";
-import { BannerComponent } from "./Banner";
+import { BannerComponent, type BannerProps } from "./Banner";
 
 const meta = {
   title: "Components/Banner",
