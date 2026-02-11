@@ -90,6 +90,6 @@ jobs:
       - name: Test run storybook:build
         run: npm run storybook:build
 
-      - name: Test run build-njwds
+      - name: Test run build-njwds (deprecated)
         run: npm run build-njwds
 

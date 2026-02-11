@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-const BASE_URL = "http://localhost:3000";
-const PAGE_URL = `${BASE_URL}/components/preview/buttons--tertiary-(danger)`;
+const BASE_URL = "http://localhost:6006";
+const PAGE_URL = `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adanger`;
 
 const viewports = [
   { name: "narrow", width: 375, height: 800 },
