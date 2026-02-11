@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 const BASE_URL = "http://localhost:6006";
-const PAGE_URL = `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story`;
+const PAGE_URL = `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adark`;
 
 // Group all accessibility tests for the Button component under a single describe block.
 test.describe("Button, tertiary - accessibility", () => {
