@@ -8,9 +8,9 @@ frontend:
     build:
       commands:
         - npm run build-njwds
-        - npm run storybook:build
+        - npm run build-docs
   artifacts:
-    baseDirectory: storybook-static
+    baseDirectory: build
     files:
       - "**/*"
   cache:
