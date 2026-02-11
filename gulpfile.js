@@ -64,6 +64,8 @@ TASKS
 ----------------------------------------
 */
 
+process.env.NODE_NO_WARNINGS = "1";
+
 gulp.task("copy-uswds-setup", () => {
   return gulp.src(`${uswds}/scss/theme/**/**`).pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
 });
@@ -101,6 +103,12 @@ gulp.task("build-sass", function (done) {
       .pipe(
         sass({
           includePaths: [`${PROJECT_SASS_SRC}`, `${uswds}`, `${uswds}/packages`],
+          silenceDeprecations: [
+            "color-functions",
+            "global-builtin",
+            "legacy-js-api",
+            "if-function",
+          ],
         }),
       )
       .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
