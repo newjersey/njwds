@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
   ],
   framework: "@storybook/web-components-vite",
-  staticDirs: ["../public"],
+  staticDirs: ["../public", "../dist"],
 
   async viteFinal(config) {
     // Make sure css.preprocessorOptions.scss.quietDeps is applied

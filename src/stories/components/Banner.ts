@@ -14,7 +14,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
             <div class="grid-col-auto">
               <img
                 class="nj-banner__header-seal"
-                src="/dist/img/nj_state_seal.png"
+                src="./img/nj_state_seal.png"
                 alt="New Jersey State Seal"
               />
             </div>
@@ -39,7 +39,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
                     aria-hidden="true"
                     focusable="false"
                   >
-                    <use xlink:href="/dist/img/sprite.svg#mail" />
+                    <use xlink:href="./img/sprite.svg#mail" />
                   </svg>
                   Get Updates
                 </a>

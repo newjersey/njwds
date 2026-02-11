@@ -46,7 +46,7 @@ export const Button = ({ label, type = "primary", theme = "light", icon = false 
       ${icon
         ? html`
             <svg class="usa-icon usa-icon--size-3" aria-hidden="true" focusable="false">
-              <use href="/dist/img/sprite.svg#accessibility_new"></use>
+              <use href="./img/sprite.svg#accessibility_new"></use>
             </svg>
           `
         : null}
