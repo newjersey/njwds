@@ -1,19 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
+import type { BannerProps } from "./Banner";
 import { BannerComponent } from "./Banner";
 
 const meta = {
   title: "Components/Banner",
   tags: ["autodocs"],
-  render: () => BannerComponent(),
-};
+  render: BannerComponent,
+} satisfies Meta<BannerProps>;
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<BannerProps>;
 
-export const Banner: Story = {
+export const Basic: Story = {
   args: {
-    primary: true,
-    label: "Button",
+    governor: "Mikie Sherrill",
+    ltgovernor: "Dr. Dale G. Caldwell",
   },
 };

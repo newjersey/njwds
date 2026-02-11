@@ -3,15 +3,22 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { ButtonProps } from "./Button";
 import { Button } from "./Button";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
   title: "Elements/Button",
   tags: ["autodocs"],
   render: (args) => Button(args),
   argTypes: {
+    theme: {
+      control: { type: "select" },
+      options: ["light", "dark", "danger"],
+    },
     type: {
       control: { type: "select" },
-      options: ["light", "dark"],
+      options: ["primary", "outline", "unstyled"],
+      table: { disable: true },
+    },
+    disabled: {
+      control: { type: "boolean" },
     },
   },
 } satisfies Meta<ButtonProps>;
@@ -19,22 +26,32 @@ const meta = {
 export default meta;
 type Story = StoryObj<ButtonProps>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
     label: "Button",
+    type: "primary",
+    theme: "light",
+    icon: false,
+    disabled: false,
   },
 };
 
 export const Secondary: Story = {
   args: {
     label: "Button",
+    type: "outline",
+    theme: "light",
+    icon: false,
+    disabled: false,
   },
 };
 
 export const Tertiary: Story = {
   args: {
     label: "Button",
+    type: "unstyled",
+    theme: "light",
+    icon: false,
+    disabled: false,
   },
 };

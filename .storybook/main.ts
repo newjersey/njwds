@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
   ],
   framework: "@storybook/web-components-vite",
-  // Merge your custom Vite config here
+
   async viteFinal(config) {
     // Make sure css.preprocessorOptions.scss.quietDeps is applied
     config.css ??= {};

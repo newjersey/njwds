@@ -1,14 +1,19 @@
 import type { Preview } from "@storybook/web-components-vite";
+import { html } from "lit";
 
 const preview: Preview = {
   parameters: {
+    layout: "fullscreen",
+    backgrounds: {
+      disable: true,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
       options: {
-        showPanel: true, // Hides the panel globally by default
+        showPanel: false, // Shows the panel globally by default
       },
     },
 
@@ -19,6 +24,18 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story, context) => {
+      const theme = context.args.theme;
+      let className = "";
+
+      if (theme === "dark") {
+        className = "bg-base-darkest";
+      }
+
+      return html`<div class="${className} padding-2 display-block">${Story()}</div> `;
+    },
+  ],
 };
 
 export default preview;

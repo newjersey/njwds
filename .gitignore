@@ -111,4 +111,7 @@ typings/
 /build
 /public/dist
 
+# Storybook build output
+storybook-static
+
 /.idea
