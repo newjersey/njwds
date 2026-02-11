@@ -3,11 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm use
+        - nvm use 24
         - npm ci
     build:
       commands:
-        - npm run build-njwds && npm run storybook:build
+        - npm run build-njwds
+        - npm run storybook:build
   artifacts:
     baseDirectory: storybook-static
     files:
