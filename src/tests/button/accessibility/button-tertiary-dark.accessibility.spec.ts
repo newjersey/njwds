@@ -1,11 +1,8 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-// The base URL for your locally served components.
-const BASE_URL = "http://localhost:3000";
-
-// The specific page URL for the Button component preview.
-const PAGE_URL = `${BASE_URL}/components/preview/buttons--tertiary-(dark)`;
+const BASE_URL = "http://localhost:6006";
+const PAGE_URL = `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adark`;
 
 // Group all accessibility tests for the Button component under a single describe block.
 test.describe("Button, tertiary dark - accessibility", () => {

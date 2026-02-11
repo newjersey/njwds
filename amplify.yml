@@ -3,10 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - nvm use
+        - npm ci
     build:
       commands:
-        - npm run build-njwds && npm run build-docs
+        - npm run build-njwds
+        - npm run build-docs
   artifacts:
     baseDirectory: build
     files:

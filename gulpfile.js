@@ -101,6 +101,12 @@ gulp.task("build-sass", function (done) {
       .pipe(
         sass({
           includePaths: [`${PROJECT_SASS_SRC}`, `${uswds}`, `${uswds}/packages`],
+          silenceDeprecations: [
+            "color-functions",
+            "global-builtin",
+            "legacy-js-api",
+            "if-function",
+          ],
         }),
       )
       .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
