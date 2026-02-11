@@ -3,7 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - nvm use
+        - npm ci
     build:
       commands:
         - npm run build-njwds && npm run storybook:build
