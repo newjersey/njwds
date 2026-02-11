@@ -64,8 +64,6 @@ TASKS
 ----------------------------------------
 */
 
-process.env.NODE_NO_WARNINGS = "1";
-
 gulp.task("copy-uswds-setup", () => {
   return gulp.src(`${uswds}/scss/theme/**/**`).pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
 });
