@@ -9,6 +9,9 @@ frontend:
       commands:
         - npm run build-njwds
         - npm run storybook:build
+        - ls -la storybook-static
+        - ls -la storybook-static/dist/
+        - ls -la storybook-static/dist/css/
   artifacts:
     baseDirectory: storybook-static
     files:
