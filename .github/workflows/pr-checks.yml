@@ -30,15 +30,15 @@ jobs:
         run: npm ci
 
       - name: Build design system and documenation
-        run: npm run build-njwds && npm run build-docs
+        run: npm run build-njwds && npm run storybook:build
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Start static server
         run: |
-          npx http-server ./build -p 3000 &
-          npx wait-on http://localhost:3000
+          npx http-server ./storybook-static -p 6006 &
+          npx wait-on http://localhost:6006
 
       - name: Run accessibility tests
         run: npm run test:accessibility
@@ -86,6 +86,9 @@ jobs:
 
       - name: Test run build-docs
         run: npm run build-docs
+
+      - name: Test run storybook:build
+        run: npm run storybook:build
 
       - name: Test run build-njwds
         run: npm run build-njwds
