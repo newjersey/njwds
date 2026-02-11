@@ -1,5 +1,18 @@
 import type { Preview } from "@storybook/web-components-vite";
 import { html } from "lit";
+import type { StoryFn, StoryContext, Args } from "@storybook/web-components-vite";
+
+// A decorator to wrap stories in a div that applies padding and background color based on theme
+const storyWrapperDecorator = <TArgs extends Args>(
+  Story: StoryFn<TArgs>,
+  context: StoryContext<TArgs>,
+) => {
+  const className = context.args.theme === "dark" ? "bg-base-darkest" : "";
+
+  return html`
+    <div class="display-block padding-2 ${className}">${Story(context.args, context)}</div>
+  `;
+};
 
 const preview: Preview = {
   parameters: {
@@ -24,18 +37,7 @@ const preview: Preview = {
       test: "todo",
     },
   },
-  decorators: [
-    (Story, context) => {
-      const theme = context.args.theme;
-      let className = "";
-
-      if (theme === "dark") {
-        className = "bg-base-darkest";
-      }
-
-      return html`<div class="${className} padding-2 display-block">${Story()}</div> `;
-    },
-  ],
+  decorators: [storyWrapperDecorator],
 };
 
 export default preview;

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import type { ButtonProps } from "./Button";
-import { Button } from "./Button";
+import { Button, type ButtonProps } from "./Button";
 
 const meta = {
   title: "Elements/Button",
@@ -13,7 +12,8 @@ const meta = {
       options: ["light", "dark", "danger"],
     },
     type: {
-      table: { disable: true },
+      control: { type: "select" },
+      options: ["primary", "secondary", "tertiary"],
     },
   },
 } satisfies Meta<ButtonProps>;
@@ -33,7 +33,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     label: "Button",
-    type: "outline",
+    type: "secondary",
     theme: "light",
     icon: false,
   },
@@ -42,7 +42,7 @@ export const Secondary: Story = {
 export const Tertiary: Story = {
   args: {
     label: "Button",
-    type: "unstyled",
+    type: "tertiary",
     theme: "light",
     icon: false,
   },

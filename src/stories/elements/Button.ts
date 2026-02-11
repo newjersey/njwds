@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 type ButtonTheme = "light" | "dark" | "danger";
-type ButtonType = "primary" | "outline" | "unstyled";
+type ButtonType = "primary" | "secondary" | "tertiary";
 type NonLightTheme = Exclude<ButtonTheme, "light">;
 
 export interface ButtonProps {
@@ -14,20 +14,20 @@ export interface ButtonProps {
 export const Button = ({ label, type = "primary", theme = "light", icon = false }: ButtonProps) => {
   const typeClasses: Record<ButtonType, string> = {
     primary: "",
-    outline: "usa-button--outline",
-    unstyled: "usa-button--unstyled",
+    secondary: "usa-button--outline",
+    tertiary: "usa-button--unstyled",
   };
 
   const themeClasses: Record<NonLightTheme, Record<ButtonType, string>> = {
     dark: {
       primary: "nj-button--primary-dark",
-      outline: "usa-button--inverse",
-      unstyled: "nj-button--unstyled-dark",
+      secondary: "usa-button--inverse",
+      tertiary: "nj-button--unstyled-dark",
     },
     danger: {
       primary: "usa-button--secondary",
-      outline: "nj-button--outline-danger",
-      unstyled: "nj-button--unstyled-danger",
+      secondary: "nj-button--outline-danger",
+      tertiary: "nj-button--unstyled-danger",
     },
   };
 
