@@ -2,8 +2,13 @@
 
 // $button-context: "Button";
 
+.form-section-buttons {
+  padding: 10px;
+}
+
 // Buttons
-.page-content .formFieldWrapper.submit-button-wrapper > div > input {
+.page-content .formFieldWrapper.submit-button-wrapper > div > input,
+.form-section-buttons input.form-change-section {
   @include border-box-sizing;
   @include typeset($theme-button-font-family, null, 1);
   @include set-text-and-bg("primary", $context: "Button");
@@ -21,6 +26,7 @@
   text-align: center;
   text-decoration: none;
   width: 100%;
+  margin-bottom: 10px;
 
   @include at-media("mobile-lg") {
     width: auto;
@@ -60,5 +66,28 @@
     &:not(.usa-button--unstyled) {
       border: $border-high-contrast;
     }
+  }
+}
+
+// file upload button
+#divWorkflowContent .buttonPopup.blue {
+  background-color: #0076d6 !important;
+  border-color: #0076d6 !important;
+  font-weight: 700 !important;
+  font-family: "Public Sans", sans-serif !important;
+  font-size: 16px !important;
+}
+
+// secondary button
+.form-section-buttons input.form-section-prev.form-change-section,
+.page-content .submit-button-wrapper > div > input.form-section-prev.form-change-section {
+  background-color: transparent;
+  color: #005ea2;
+  box-shadow: inset 0 0 0 2px #005ea2;
+
+  &:hover {
+    background-color: transparent;
+    color: #0b4778;
+    box-shadow: inset 0 0 0 2px #0b4778;
   }
 }

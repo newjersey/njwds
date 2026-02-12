@@ -3,9 +3,6 @@
 body,
 html {
   min-width: 0 !important;
-  // height: 100%;
-  // overflow: auto;
-  // -webkit-overflow-scrolling: touch;
 }
 
 .form-section {
@@ -17,9 +14,20 @@ html {
   padding-left: 0 !important;
 }
 
-// #formHeaderDiv {
-//   display: none;
-// }
+#print-preview {
+  display: none;
+}
+
+@media (max-width: 30rem) {
+  #section-breadcrumbs {
+    padding: 0 10px;
+  }
+
+  .section-breadcrumb-item {
+    padding: 10px;
+    width: 47%;
+  }
+}
 
 .workflowContent .formFieldWrapper.heading-wrapper {
   margin-top: 20px;
