@@ -21,6 +21,6 @@ export const Basic: Story = {
   args: {
     label: "List text",
     type: "Unordered List",
-    styled: true,
+    unstyled: false,
   },
 };
