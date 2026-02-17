@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Tag, type TagProps } from "./Tag";
 
 const meta = {
-  title: "Elements/Tag",
+  title: "Components/Tag",
   tags: ["autodocs"],
   render: (args) => Tag(args),
   argTypes: {
