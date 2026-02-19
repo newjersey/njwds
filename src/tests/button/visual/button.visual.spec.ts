@@ -40,6 +40,10 @@ const TEST_CASES = [
     name: "tertiary",
     url: `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story`,
   },
+  {
+    name: "icon",
+    url: `${BASE_URL}/iframe.html?id=elements-button--primary&viewMode=story&globals=&args=icon%3A!true`,
+  },
 ];
 
 for (const { name, url } of TEST_CASES) {
