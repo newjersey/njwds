@@ -8,7 +8,7 @@ const BASE_URL = "http://localhost:6006";
 const PAGE_URL = `${BASE_URL}/iframe.html?id=components-banner&viewMode=story`;
 
 // Group all accessibility tests for the Banner component under a single describe block.
-test.describe("Banner – accessibility", () => {
+test.describe("Banner - accessibility", () => {
   // Primary axe-core scan for this component.
   test("has no detectable a11y violations", async ({ page }) => {
     // Open the page at the URL defined above.

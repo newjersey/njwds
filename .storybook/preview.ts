@@ -7,7 +7,7 @@ const storyWrapperDecorator = <TArgs extends Args>(
   Story: StoryFn<TArgs>,
   context: StoryContext<TArgs>,
 ) => {
-  const className = context.args.theme === "dark" ? "bg-base-darkest" : "";
+  const className = context.args.theme === "dark" ? "usa-dark-background" : "";
 
   return html`
     <div class="display-block padding-2 ${className}">${Story(context.args, context)}</div>
