@@ -3,29 +3,34 @@ import AxeBuilder from "@axe-core/playwright";
 
 const BASE_URL = "http://localhost:6006";
 
-const URLS = {
-  ordered: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList`,
-  unordered: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AUnOrdered%2BList`,
-  unstyled: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList%3Bunstyled%3A!true&globals=`,
-};
+// Define all the story URLs and friendly names for reporting
+const TEST_CASES = [
+  {
+    name: "Ordered List",
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList`,
+  },
+  {
+    name: "Unordered List",
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AUnordered%2BList`,
+  },
+  {
+    name: "Unstyled Ordered List",
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList%3Bstyled%3A!true`,
+  },
+];
 
-for (const [key, value] of Object.entries(URLS)) {
-  if (value) {
-    const PAGE_URL = value;
+for (const { name, url } of TEST_CASES) {
+  test.describe.parallel(`List component - ${name}`, () => {
+    test(`should have no detectable a11y violations`, async ({ page }) => {
+      // Load the storybook iframe
+      await page.goto(url);
+      await page.waitForLoadState("networkidle");
 
-    test.describe(`List, ${key} - accessibility`, () => {
-      // Primary axe-core scan for this component.
-      test("has no detectable a11y violations", async ({ page }) => {
-        await page.goto(PAGE_URL);
-        await page.waitForLoadState("networkidle");
+      // Scope the accessibility scan to the list component
+      const results = await new AxeBuilder({ page }).include(".usa-list").analyze();
 
-        // .include(".usa-link") ensures the scan is scoped to the Link itself.
-        const accessibilityScanResults = await new AxeBuilder({ page })
-          .include(".usa-list")
-          .analyze();
-
-        expect(accessibilityScanResults.violations).toEqual([]);
-      });
+      // Fail if there are violations
+      expect(results.violations).toEqual([]);
     });
-  }
+  });
 }
