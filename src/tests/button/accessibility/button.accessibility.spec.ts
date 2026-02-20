@@ -49,7 +49,7 @@ const TEST_CASES = [
 
 for (const { name, url } of TEST_CASES) {
   test.describe.parallel(`Button - ${name}`, () => {
-    // Primary axe-core scan for this component.
+    // Primary axe-core scan for this component
     test("has no detectable a11y violations", async ({ page }) => {
       await page.goto(url);
       await page.waitForLoadState("networkidle");
