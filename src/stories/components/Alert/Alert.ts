@@ -10,7 +10,7 @@ export interface AlertProps {
 }
 
 export const Alert = ({ heading, text, type, header, slim, icon }: AlertProps) => {
-  return html` <div
+  return html`<div
     class=${[
       "usa-alert",
       type !== "default" && `usa-alert--${type}`,

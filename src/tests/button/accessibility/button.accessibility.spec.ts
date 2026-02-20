@@ -1,9 +1,7 @@
-import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { runA11ySuite } from "../../utils/runA11ySuite";
 
 const BASE_URL = "http://localhost:6006";
 
-// Define all the story URLs and friendly names for reporting
 const TEST_CASES = [
   {
     name: "default",
@@ -47,19 +45,8 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Button - ${name}`, () => {
-    // Primary axe-core scan for this component.
-    test("has no detectable a11y violations", async ({ page }) => {
-      await page.goto(url);
-      await page.waitForLoadState("networkidle");
-
-      // .include(".usa-button") ensures the scan is scoped to the Button itself.
-      const accessibilityScanResults = await new AxeBuilder({ page })
-        .include(".usa-button")
-        .analyze();
-
-      expect(accessibilityScanResults.violations).toEqual([]);
-    });
-  });
-}
+runA11ySuite({
+  suiteName: "Button component",
+  include: ".usa-button",
+  cases: TEST_CASES,
+});
