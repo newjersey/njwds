@@ -1,5 +1,4 @@
-import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { runA11ySuite } from "../../utils/runA11ySuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -15,19 +14,8 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Link component - ${name}`, () => {
-    // Primary axe-core scan for this component.
-    test("has no detectable a11y violations", async ({ page }) => {
-      await page.goto(url);
-      await page.waitForLoadState("networkidle");
-
-      // .include(".usa-link") ensures the scan is scoped to the Link itself.
-      const accessibilityScanResults = await new AxeBuilder({ page })
-        .include(".usa-link")
-        .analyze();
-
-      expect(accessibilityScanResults.violations).toEqual([]);
-    });
-  });
-}
+runA11ySuite({
+  suiteName: "Link component",
+  include: ".usa-link",
+  cases: TEST_CASES,
+});
