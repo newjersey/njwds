@@ -1,5 +1,4 @@
-import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { runA11ySuite } from "../../utils/runA11ySuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -15,19 +14,8 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Table - ${name}`, () => {
-    // Primary axe-core scan for this component.
-    test("has no detectable a11y violations", async ({ page }) => {
-      await page.goto(url);
-      await page.waitForLoadState("networkidle");
-
-      // .include(".usa-table") ensures the scan is scoped to the Table itself.
-      const accessibilityScanResults = await new AxeBuilder({ page })
-        .include(".usa-table")
-        .analyze();
-
-      expect(accessibilityScanResults.violations).toEqual([]);
-    });
-  });
-}
+runA11ySuite({
+  suiteName: "Table component",
+  include: ".usa-table",
+  cases: TEST_CASES,
+});

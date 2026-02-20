@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { runVisualSuite } from "../../utils/runVisualSuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -46,20 +46,7 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Button - ${name}`, () => {
-    test(`renders correctly (${name})`, async ({ page }) => {
-      // Stabilize rendering:
-      await page.emulateMedia({ reducedMotion: "reduce" });
-
-      await page.goto(url);
-      await page.waitForLoadState("networkidle");
-
-      // Full-page screenshot
-      await expect(page).toHaveScreenshot(`button-${name}.png`, {
-        fullPage: true,
-        maxDiffPixelRatio: 0.01, // allow a 1px difference
-      });
-    });
-  });
-}
+runVisualSuite({
+  suiteName: "Button",
+  cases: TEST_CASES,
+});

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { runVisualSuite } from "../../utils/runVisualSuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -13,23 +13,7 @@ const TEST_CASES = [
     url: `${BASE_URL}/iframe.html?id=components-tag--basic&viewMode=story&args=size%3Abig`,
   },
 ];
-
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Tag - ${name}`, () => {
-    test.describe("Tag - visual regression", () => {
-      test(`renders correctly (${name})`, async ({ page }) => {
-        // Stabilize rendering:
-        await page.emulateMedia({ reducedMotion: "reduce" });
-
-        await page.goto(url);
-        await page.waitForLoadState("networkidle");
-
-        // Full-page screenshot
-        await expect(page).toHaveScreenshot(`tag-${name}.png`, {
-          fullPage: true,
-          maxDiffPixelRatio: 0.01, // allow a 1px difference
-        });
-      });
-    });
-  });
-}
+runVisualSuite({
+  suiteName: "Tag",
+  cases: TEST_CASES,
+});

@@ -20,7 +20,7 @@ export interface A11yTestCase {
   /** Friendly name used in test reporting */
   name: string;
 
-  /** Fully qualified URL (usually Storybook iframe) */
+  /** Fully qualified URL */
   url: string;
 }
 
