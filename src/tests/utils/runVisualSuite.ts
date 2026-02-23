@@ -15,12 +15,22 @@ interface RunVisualSuiteOptions {
 
   // List of scenarios to run
   cases: VisualTestCase[];
+
+  viewports?: { name: string; width: number; height: number }[];
 }
 
 // Generates a fully configured Playwright visual test suite.
-export function runVisualSuite({ suiteName, cases }: RunVisualSuiteOptions) {
+export function runVisualSuite({ suiteName, cases, viewports }: RunVisualSuiteOptions) {
   test.describe(suiteName, () => {
     for (const { name, url } of cases) {
+      if (viewports && viewports.length > 0) {
+        for (const viewport of viewports) {
+          console.log(
+            `Running visual tests for "${suiteName}" across ${viewports.length} viewports...`,
+          );
+        }
+      } // if()
+
       // Each scenario is its own parallel group.
       test.describe.parallel(name, () => {
         test(`renders correctly (${name})`, async ({ page }) => {

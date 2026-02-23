@@ -46,7 +46,13 @@ const TEST_CASES = [
   },
 ];
 
+const VIEWPORTS = [
+  { name: "narrow", width: 393, height: 800 },
+  { name: "wide", width: 1280, height: 800 },
+];
+
 runVisualSuite({
   suiteName: "Button",
   cases: TEST_CASES,
+  viewports: VIEWPORTS,
 });
