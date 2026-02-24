@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/web-components-vite";
 import { html } from "lit";
 import type { StoryFn, StoryContext, Args } from "@storybook/web-components-vite";
+import "@uswds/uswds";
 
 // A decorator to wrap stories in a div that applies padding and background color based on theme
 const storyWrapperDecorator = <TArgs extends Args>(

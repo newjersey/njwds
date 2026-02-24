@@ -115,3 +115,7 @@ typings/
 storybook-static
 
 /.idea
+
+.claude/
+CLAUDE.md
+AGENTS.md
