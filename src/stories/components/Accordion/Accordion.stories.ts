@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-
 import { Accordion, type AccordionProps } from "./Accordion";
 
 const meta = {
   title: "Components/Accordion",
   tags: ["autodocs"],
-  render: (args) => Accordion(args),
+  render: (args, context) =>
+    Accordion({
+      ...args,
+      toggleValue: context.viewMode === "docs" ? undefined : context.id,
+    }),
   argTypes: {
-    bordered: {
-      control: { type: "boolean" },
-    },
+    bordered: { control: { type: "boolean" } },
   },
 } satisfies Meta<AccordionProps>;
 

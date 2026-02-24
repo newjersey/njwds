@@ -3,33 +3,38 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
 export interface AccordionProps {
   bordered: boolean;
+  toggleValue?: string;
 }
 
 const items = [
   {
-    title: "First Amendment",
+    title: "First",
     id: "a1",
     expanded: true,
-    content: `<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>`,
+    content: `<p>Accordion content for the first item.</p>`,
   },
   {
-    title: "Second Amendment",
+    title: "Second",
     id: "a2",
     expanded: false,
-    content: `<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p> <ul><li>This is a list item</li><li>Another list item</li></ul>`,
+    content: `<p>Accordion content for the second item.</p>`,
   },
   {
-    title: "Third Amendment",
+    title: "Third",
     id: "a3",
     expanded: false,
-    content: `<p>No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.</p>`,
+    content: `<p>Accordion content for the third item.</p>`,
   },
 ];
 
-export const Accordion = ({ bordered }: AccordionProps) => {
+export const Accordion = ({ bordered, toggleValue }: AccordionProps) => {
   const classes = ["usa-accordion", bordered && "usa-accordion--bordered"]
     .filter(Boolean)
     .join(" ");
+
+  // Unique per call to Accordion needed because the `id` of the content divs
+  // must be unique to ensure correct aria-controls behavior inside Storybook.
+  const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
 
   return html`
     <div class=${classes}>
@@ -40,12 +45,16 @@ export const Accordion = ({ bordered }: AccordionProps) => {
               type="button"
               class="usa-accordion__button"
               aria-expanded=${item.expanded ? "true" : "false"}
-              aria-controls=${item.id}
+              aria-controls="${item.id}-${instanceId}"
             >
               ${item.title}
             </button>
           </h2>
-          <div id=${item.id} class="usa-accordion__content usa-prose" ?hidden=${!item.expanded}>
+          <div
+            id="${item.id}-${instanceId}"
+            class="usa-accordion__content usa-prose"
+            ?hidden=${!item.expanded}
+          >
             ${unsafeHTML(item.content)}
           </div>
         `,
