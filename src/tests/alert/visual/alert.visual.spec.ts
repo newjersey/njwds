@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { runVisualSuite } from "../../utils/runVisualSuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -26,22 +26,7 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Alert - ${name}`, () => {
-    test.describe("Alert - visual regression", () => {
-      test(`renders correctly (${name})`, async ({ page }) => {
-        // Stabilize rendering:
-        await page.emulateMedia({ reducedMotion: "reduce" });
-
-        await page.goto(url);
-        await page.waitForLoadState("networkidle");
-
-        // Full-page screenshot
-        await expect(page).toHaveScreenshot(`alert-${name}.png`, {
-          fullPage: true,
-          maxDiffPixelRatio: 0.01, // allow a 1px difference
-        });
-      });
-    });
-  });
-}
+runVisualSuite({
+  suiteName: "Alert",
+  cases: TEST_CASES,
+});

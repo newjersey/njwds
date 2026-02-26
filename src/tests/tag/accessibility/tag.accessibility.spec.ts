@@ -1,5 +1,4 @@
-import { test, expect } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
+import { runA11ySuite } from "../../utils/runA11ySuite";
 
 const BASE_URL = "http://localhost:6006";
 
@@ -15,18 +14,8 @@ const TEST_CASES = [
   },
 ];
 
-for (const { name, url } of TEST_CASES) {
-  test.describe.parallel(`Tag - ${name}`, () => {
-    test(`should have no detectable a11y violations`, async ({ page }) => {
-      // Load the storybook iframe
-      await page.goto(url);
-      await page.waitForLoadState("networkidle");
-
-      // Scope the accessibility scan to the tag component
-      const results = await new AxeBuilder({ page }).include(".usa-tag").analyze();
-
-      // Fail if there are violations
-      expect(results.violations).toEqual([]);
-    });
-  });
-}
+runA11ySuite({
+  suiteName: "Tag component",
+  include: ".usa-tag",
+  cases: TEST_CASES,
+});
