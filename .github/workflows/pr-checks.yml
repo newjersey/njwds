@@ -84,11 +84,15 @@ jobs:
       - name: Check Typescript
         run: npx tsc --noEmit
 
-      - name: Test run build-docs (deprecated)
+      - name: Test run build-docs (soon deprecated)
         run: npm run build-docs
 
-      - name: Test run storybook:build
-        run: npm run storybook:build
+      - name: Test run storybook:build (with retry)
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 5
+          max_attempts: 3
+          command: npm run storybook:build
 
       - name: Test run build-njwds
         run: npm run build-njwds
