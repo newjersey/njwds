@@ -1,4 +1,4 @@
-name: PR Checks
+name: Code Checks
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 jobs:
-  visual-regression-tests:
+  playwright-tests:
     name: Playwright tests
     runs-on: ubuntu-latest
     timeout-minutes: 20 # prevents long-running tests
@@ -87,7 +87,7 @@ jobs:
         run: kill $(cat server.pid)
 
   build:
-    name: Health checks
+    name: Health tests
     runs-on: ubuntu-latest
 
     steps:
@@ -118,6 +118,7 @@ jobs:
       - name: Test run build-docs (soon deprecated)
         run: npm run build-docs
 
+      # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)
         uses: nick-fields/retry@v3
         with:
@@ -125,6 +126,7 @@ jobs:
           max_attempts: 3
           command: npm run storybook:build
 
+      # Make sure the build-njwds command runs successfully
       - name: Test run build-njwds
         run: npm run build-njwds
 
