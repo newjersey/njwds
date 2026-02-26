@@ -1,6 +1,12 @@
 import { runVisualSuite } from "../../utils/runVisualSuite";
+import { DEFAULT_VIEWPORT, NARROW_VIEWPORT } from "../../utils/config";
 
 const BASE_URL = "http://localhost:6006";
+
+const viewports = [
+  { name: "narrow", ...NARROW_VIEWPORT },
+  { name: "wide", ...DEFAULT_VIEWPORT },
+];
 
 // Define all the story URLs and friendly names for reporting
 const TEST_CASES = [
@@ -49,4 +55,5 @@ const TEST_CASES = [
 runVisualSuite({
   suiteName: "Button",
   cases: TEST_CASES,
+  viewport: viewports,
 });

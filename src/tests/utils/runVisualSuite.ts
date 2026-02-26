@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { DEFAULT_VIEWPORT } from "../utils/config";
 
 export interface VisualTestCase {
   /** Friendly name used in test reporting */
@@ -8,38 +9,56 @@ export interface VisualTestCase {
   url: string;
 }
 
+export interface Viewport {
+  name: string;
+  width: number;
+  height: number;
+}
+
 // Options for generating a visual test suite.
 interface RunVisualSuiteOptions {
-  // Top-level suite name used in test reporting.
   suiteName: string;
-
-  // List of scenarios to run
   cases: VisualTestCase[];
+  viewport?: Viewport[];
 }
 
 // Generates a fully configured Playwright visual test suite.
-export function runVisualSuite({ suiteName, cases }: RunVisualSuiteOptions) {
+export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOptions) {
   test.describe(suiteName, () => {
     for (const { name, url } of cases) {
-      // Each scenario is its own parallel group.
+      // If viewports exist → run matrix, otherwise run once
+      const viewportsToRun =
+        viewport && viewport.length > 0
+          ? viewport
+          : [
+              {
+                name: "default",
+                ...DEFAULT_VIEWPORT,
+              },
+            ];
+
       test.describe.parallel(name, () => {
-        test(`renders correctly (${name})`, async ({ page }) => {
-          // Stabilize rendering:
-          await page.emulateMedia({ reducedMotion: "reduce" });
+        for (const vp of viewportsToRun) {
+          test(`renders correctly (${name} • ${vp.name})`, async ({ page }) => {
+            // Stabilize rendering
+            await page.emulateMedia({ reducedMotion: "reduce" });
 
-          // Navigate directly to the Storybook iframe URL
-          await page.goto(url);
+            // Apply viewport (only matters if user passed them)
+            await page.setViewportSize({
+              width: vp.width,
+              height: vp.height,
+            });
 
-          // Wait for network to chill.
-          await page.waitForLoadState("networkidle");
+            await page.goto(url);
+            await page.waitForLoadState("networkidle");
 
-          // Full-page screenshot
-          await expect(page).toHaveScreenshot(`${suiteName}-${name}.png`, {
-            fullPage: true,
-            maxDiffPixelRatio: 0.01, // allow a 1% difference for wiggles
+            await expect(page).toHaveScreenshot(`${suiteName}-${name}-${vp.name}.png`, {
+              fullPage: true,
+              maxDiffPixelRatio: 0.01,
+            });
           });
-        });
-      }); // test.describe.parallel
-    } // for
-  }); // test.describe
-} // export function
+        }
+      });
+    }
+  });
+}

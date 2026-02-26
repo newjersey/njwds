@@ -1,35 +1,25 @@
-import { test, expect } from "@playwright/test";
+import { runVisualSuite } from "../utils/runVisualSuite";
+import { DEFAULT_VIEWPORT, NARROW_VIEWPORT } from "../utils/config";
 
 const BASE_URL = "http://localhost:6006";
-const PAGE_URL = `${BASE_URL}/iframe.html?id=components-banner--basic&viewMode=story`;
 
-const viewports = [
-  { name: "narrow", width: 393, height: 800 },
-  { name: "wide", width: 1280, height: 800 },
+// Define all the story URLs and friendly names for reporting
+const TEST_CASES = [
+  {
+    name: "default",
+    url: `${BASE_URL}/iframe.html?id=components-banner--basic&viewMode=story`,
+  },
 ];
 
-test.describe("Banner - visual regression", () => {
-  for (const viewport of viewports) {
-    test(`renders correctly (${viewport.name})`, async ({ page }) => {
-      await page.setViewportSize({
-        width: viewport.width,
-        height: viewport.height,
-      });
+// This component is tested over multiple viewports to ensure it is responsive and accessible on all devices.
+const viewports = [
+  { name: "narrow", ...NARROW_VIEWPORT },
+  { name: "wide", ...DEFAULT_VIEWPORT },
+];
 
-      // Stabilize rendering:
-      await page.emulateMedia({ reducedMotion: "reduce" });
-
-      // Open the page at the URL defined above.
-      // Using `networkidle` ensures that all network requests (CSS, fonts, JS) have
-      // finished before running the test.
-      await page.goto(PAGE_URL);
-      await page.waitForLoadState("networkidle");
-
-      // Full-page screenshot
-      await expect(page).toHaveScreenshot(`banner-${viewport.name}.png`, {
-        fullPage: true,
-        maxDiffPixelRatio: 0.01, // allow a 1px difference
-      });
-    });
-  }
+// Run the tests
+runVisualSuite({
+  suiteName: "Banner",
+  cases: TEST_CASES,
+  viewport: viewports,
 });
