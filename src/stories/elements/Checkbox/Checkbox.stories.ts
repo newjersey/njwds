@@ -11,6 +11,9 @@ const meta = {
       control: { type: "boolean" },
       options: [true, false],
     },
+    label: {
+      control: { type: "text" },
+    },
   },
 } satisfies Meta<CheckboxProps>;
 
