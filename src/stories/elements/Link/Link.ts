@@ -14,7 +14,7 @@ export const Link = ({ label, theme = "light", external = false }: LinkProps) =>
 
   return html`
     <a
-      href="!"
+      href="!#"
       class=${["usa-link", external && "usa-link--external", linkTheme].filter(Boolean).join(" ")}
       >${label}</a
     >
