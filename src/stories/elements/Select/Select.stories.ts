@@ -18,5 +18,8 @@ type Story = StoryObj<SelectProps>;
 export const Default: Story = {
   args: {
     label: "Select label",
+    error: false,
+    required: false,
+    helperText: false,
   },
 };

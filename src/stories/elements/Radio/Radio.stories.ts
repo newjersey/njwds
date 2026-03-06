@@ -24,12 +24,18 @@ export const Default: Story = {
   args: {
     label: "Radio Label",
     tile: false,
+    error: false,
+    required: false,
+    helperText: false,
   },
 };
 
 export const Tile: Story = {
   args: {
-    label: "Tile Checkbox Label",
+    label: "Tile Radio Label",
     tile: true,
+    error: false,
+    required: false,
+    helperText: false,
   },
 };

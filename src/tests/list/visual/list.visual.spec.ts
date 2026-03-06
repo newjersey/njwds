@@ -6,15 +6,15 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "ordered",
-    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList`,
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type:Ordered%2BList`,
   },
   {
     name: "unordered",
-    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AUnordered%2BList`,
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type:Unordered%2BList`,
   },
   {
     name: "unstyled",
-    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type%3AOrdered%2BList%3Bstyled%3A!true`,
+    url: `${BASE_URL}/iframe.html?id=elements-list--basic&viewMode=story&args=type:Ordered%2BList;styled:true`,
   },
 ];
 
