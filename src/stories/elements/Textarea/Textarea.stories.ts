@@ -29,6 +29,8 @@ type Story = StoryObj<TextareaProps>;
 export const Default: Story = {
   args: {
     label: "Textarea label",
+    helperText: false,
+    required: false,
     error: false,
     success: false,
   },

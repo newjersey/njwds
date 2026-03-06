@@ -10,7 +10,7 @@ const TEST_CASES = [
   },
   {
     name: "borderless",
-    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story&args=border%3A!false`,
+    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story&args=border:false`,
   },
 ];
 

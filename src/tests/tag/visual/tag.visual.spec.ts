@@ -10,7 +10,7 @@ const TEST_CASES = [
   },
   {
     name: "Big",
-    url: `${BASE_URL}/iframe.html?id=components-tag--basic&viewMode=story&args=size%3Abig`,
+    url: `${BASE_URL}/iframe.html?id=components-tag--basic&viewMode=story&args=size:big`,
   },
 ];
 runVisualSuite({

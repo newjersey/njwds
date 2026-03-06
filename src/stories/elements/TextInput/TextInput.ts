@@ -4,14 +4,22 @@ export interface InputProps {
   label: string;
   error: boolean;
   success: boolean;
+  required: boolean;
+  helperText: boolean;
 }
 
-export const Input = ({ label, error, success }: InputProps) => {
+export const Input = ({ label, error, success, required, helperText }: InputProps) => {
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
-
+  const classesLabel = error ? "usa-label--error" : "";
+  const requiredHtml = required
+    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
+    : "";
   return html`
     <form class="usa-form">
-      <label class="usa-label" for="input-type-text">${label}</label>
+      <label class="usa-label ${classesLabel}" for="input-type-text">
+        ${label} ${requiredHtml}
+      </label>
+      ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
       <input
         class="usa-input ${classes}"
         id="input-type-text"
