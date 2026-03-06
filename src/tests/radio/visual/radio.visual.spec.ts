@@ -6,15 +6,15 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=elements-checkbox--default&viewMode=story&globals=&args=`,
+    url: `${BASE_URL}/iframe.html?id=elements-radio--default&viewMode=story&globals=&args=`,
   },
   {
     name: "tile",
-    url: `${BASE_URL}/iframe.html?id=elements-checkbox--tile&viewMode=story&globals=&args=`,
+    url: `${BASE_URL}/iframe.html?id=elements-radio--tile&viewMode=story&globals=&args=`,
   },
 ];
 
 runVisualSuite({
-  suiteName: "Checkbox",
+  suiteName: "Radio",
   cases: TEST_CASES,
 });
