@@ -15,7 +15,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Link component",
+  suiteName: "Link",
   include: ".usa-link",
   cases: TEST_CASES,
 });

@@ -6,15 +6,11 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=components-file--default&viewMode=docs&args=error%3A!false`,
-  },
-  {
-    name: "error",
-    url: `${BASE_URL}/iframe.html?id=components-file--default&viewMode=docs&args=error%3A!true`,
+    url: `${BASE_URL}/iframe.html?id=components-combobox--default&viewMode=story`,
   },
 ];
 
 runVisualSuite({
-  suiteName: "File (component)",
+  suiteName: "Combobox",
   cases: TEST_CASES,
 });
