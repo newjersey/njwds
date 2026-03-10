@@ -1,20 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import { Password } from "./Password";
+import { DatePicker } from "./DatePicker";
 // @ts-expect-error - no types for uswds subpath
-import passwordToggle from "@uswds/uswds/js/_usa-password";
+import datePicker from "@uswds/uswds/js/usa-date-picker";
 
 const meta = {
-  title: "Patterns/Password reset",
+  title: "Components/Date Picker",
   tags: ["autodocs"],
-  render: Password,
+  render: DatePicker,
   decorators: [
     (story) => {
       const result = story();
       setTimeout(() => {
-        // Call the behavior to attach event listeners
-        passwordToggle.on();
-      }, 500);
+        datePicker.init(document.body); // initialize date picker first
+      }, 0);
       return result;
     },
   ],
