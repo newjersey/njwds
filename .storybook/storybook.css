@@ -1,0 +1,4 @@
+/* The combobox iframe collapses, so we have to force it larger */
+#story--components-combobox--default--primary-inner {
+  min-height: 300px;
+}
