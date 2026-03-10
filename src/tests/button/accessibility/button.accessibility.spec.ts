@@ -46,7 +46,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Button component",
+  suiteName: "Button",
   include: ".usa-button",
   cases: TEST_CASES,
 });

@@ -6,16 +6,12 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story`,
-  },
-  {
-    name: "borderless",
-    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story&args=border:false`,
+    url: `${BASE_URL}/iframe.html?id=components-date-range-picker--default&viewMode=story`,
   },
 ];
 
 runA11ySuite({
-  suiteName: "Table",
-  include: ".usa-table",
+  suiteName: "Date Range Picker",
+  include: ".usa-form",
   cases: TEST_CASES,
 });

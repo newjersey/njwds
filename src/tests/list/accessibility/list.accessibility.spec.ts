@@ -19,7 +19,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "List component",
+  suiteName: "List",
   include: ".usa-list",
   cases: TEST_CASES,
 });
