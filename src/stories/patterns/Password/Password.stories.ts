@@ -14,7 +14,7 @@ const meta = {
       setTimeout(() => {
         // Call the behavior to attach event listeners
         passwordToggle.on();
-      }, 500);
+      }, 100);
       return result;
     },
   ],

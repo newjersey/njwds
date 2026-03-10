@@ -1,6 +1,7 @@
 /* The combobox iframe collapses, so we have to force it larger */
 #story--components-combobox--default--primary-inner,
-#story--components-date-picker--default--primary-inner {
+#story--components-date-picker--default--primary-inner,
+#story--patterns-time-picker--default--primary-inner {
   min-height: 450px;
 }
 
