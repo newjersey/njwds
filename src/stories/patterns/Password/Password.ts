@@ -29,11 +29,11 @@ export const Password = () => {
             class="margin-top-0 usa-button usa-button--unstyled usa-show-password"
             aria-controls="password-reset confirmPassword"
           >
-            Show my typing
+            Show password
           </button>
         </p>
 
-        <input class="usa-button" type="submit" value="Reset password" />
+        <button class="usa-button" type="submit">Reset password</button>
       </fieldset>
     </form>
   `;
