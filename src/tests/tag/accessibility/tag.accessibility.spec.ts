@@ -15,7 +15,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Tag component",
+  suiteName: "Tag",
   include: ".usa-tag",
   cases: TEST_CASES,
 });

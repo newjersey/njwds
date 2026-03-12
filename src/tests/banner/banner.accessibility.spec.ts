@@ -10,7 +10,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Banner component",
+  suiteName: "Banner",
   include: ".nj-banner",
   cases: TEST_CASES,
 });

@@ -14,7 +14,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Accordion component",
+  suiteName: "Accordion",
   include: ".usa-accordion",
   cases: TEST_CASES,
 });

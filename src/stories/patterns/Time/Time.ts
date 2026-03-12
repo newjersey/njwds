@@ -1,0 +1,23 @@
+import { html } from "lit";
+
+export const Time = () => {
+  return html`
+    <form class="usa-form">
+      <div class="usa-form-group">
+        <label class="usa-label" id="appointment-time-label" for="appointment-time"
+          >Appointment time</label
+        >
+        <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
+        <div class="usa-time-picker">
+          <input
+            class="usa-input"
+            id="appointment-time"
+            name="appointment-time"
+            type="text"
+            aria-describedby="appointment-time-label appointment-time-hint"
+          />
+        </div>
+      </div>
+    </form>
+  `;
+};
