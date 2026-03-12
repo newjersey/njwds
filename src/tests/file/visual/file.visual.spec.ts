@@ -15,6 +15,6 @@ const TEST_CASES = [
 ];
 
 runVisualSuite({
-  suiteName: "File (component)",
+  suiteName: "File component",
   cases: TEST_CASES,
 });
