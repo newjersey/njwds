@@ -16,6 +16,8 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
                 class="nj-banner__header-seal"
                 src="./img/nj_state_seal.svg"
                 alt="New Jersey State Seal"
+                width="30"
+                height="30"
               />
             </div>
             <div class="grid-col-fill">
