@@ -3,11 +3,7 @@ import { html } from "lit";
 export const GraphicList = () => {
   const GraphicListSection = html`
     <div class="usa-media-block tablet:grid-col">
-      <img
-        class="usa-media-block__img"
-        src="../../public/dist/img/circle-124.png"
-        alt="placeholder image"
-      />
+      <img class="usa-media-block__img" src="./img/circle-124.png" alt="placeholder image" />
       <div class="usa-media-block__body">
         <h2 class="usa-graphic-list__heading">Graphic headings can vary</h2>
         <p>
