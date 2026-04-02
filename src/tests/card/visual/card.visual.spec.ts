@@ -10,11 +10,11 @@ const TEST_CASES = [
   },
   {
     name: "Flag",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;`,
+    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:false`,
   },
   {
     name: "Flag: Right",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;`,
+    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:true`,
   },
   {
     name: "Media: False",
