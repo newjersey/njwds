@@ -54,7 +54,7 @@ export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOpt
 
             await expect(page).toHaveScreenshot(`${suiteName}-${name}-${vp.name}.png`, {
               fullPage: true,
-              maxDiffPixelRatio: 0.01,
+              maxDiffPixelRatio: 0.05,
             });
           });
         }

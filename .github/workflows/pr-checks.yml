@@ -48,7 +48,7 @@ jobs:
       # cache playwright browsers to speed up workflow
       - name: Cache Playwright browsers
         id: cache-playwright
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -120,7 +120,7 @@ jobs:
 
       # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 5
           max_attempts: 3
