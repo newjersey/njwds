@@ -9,7 +9,7 @@ export const GraphicList = () => {
         alt="placeholder image"
       />
       <div class="usa-media-block__body">
-        <h2 class="usa-graphic-list__heading">Graphic headings can vary.</h2>
+        <h2 class="usa-graphic-list__heading">Graphic headings can vary</h2>
         <p>
           Graphic headings can be used a few different ways, depending on what your landing page is
           for. Highlight your values, specific program areas, or results.
