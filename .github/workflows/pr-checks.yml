@@ -120,7 +120,7 @@ jobs:
 
       # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 5
           max_attempts: 3
