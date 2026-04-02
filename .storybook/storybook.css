@@ -2,9 +2,14 @@
 #story--components-combobox--default--primary-inner,
 #story--components-date-picker--default--primary-inner,
 #story--patterns-time-picker--default--primary-inner {
-  min-height: 450px;
+  min-height: 1050px;
 }
 
 .margin-top-0 {
   margin-top: 0 !important;
+}
+
+.docs-story,
+#storybook-root {
+  padding: 1rem;
 }
