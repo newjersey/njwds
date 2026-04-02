@@ -1,0 +1,18 @@
+{
+  "masthead": {
+    "ariaLabel": "Agency identifier",
+    "descriptionLabel": "Agency description",
+    "text": "An official website of the",
+    "parentName": "the State of New Jersey",
+    "parentLogoAlt": "the State of New Jersey logo",
+    "agencyLogoAlt": "agency logo",
+    "taxpayerDisclaimer": "Produced and published at taxpayer expense."
+  },
+  "requiredLinks": {
+    "ariaLabel": "Important links"
+  },
+  "copyright": {
+    "ariaLabel": "U.S. government information and services",
+    "description": "Copyright © 2026 State of New Jersey"
+  }
+}
