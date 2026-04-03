@@ -33,6 +33,9 @@
     "url": "https://github.com/newjersey/njwds/issues"
   },
   "homepage": "https://github.com/newjersey/njwds#readme",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "dependencies": {
     "@uswds/uswds": "3.10.0",
     "lit": "^3.3.2"
