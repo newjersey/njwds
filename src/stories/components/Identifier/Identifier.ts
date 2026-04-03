@@ -1,6 +1,7 @@
 import { html } from "lit";
 import enContent from "./translations/en.json";
 import esContent from "./translations/es.json";
+import commonData from "../../../data/common.json";
 
 export interface IdentifierProps {
   language: "English" | "Spanish";
@@ -82,12 +83,12 @@ export const Identifier = ({ language, logos, showTaxpayerDisclaimer }: Identifi
           <ul class="usa-identifier__required-links-list">
             <li class="usa-identifier__required-links-item">
               <a href="https://nj.gov/governor/admin/about/" class="usa-identifier__required-link">
-                Governor Mikie Sherrill
+                Governor ${commonData.gov}
               </a>
             </li>
             <li class="usa-identifier__required-links-item">
               <a href="https://nj.gov/governor/admin/lt/" class="usa-identifier__required-link">
-                Lt. Governor Dr. Dale G. Caldwell
+                Lt. Governor ${commonData.govlt}
               </a>
             </li>
             <li class="usa-identifier__required-links-item">

@@ -1,4 +1,5 @@
 import { html } from "lit";
+import commonData from "../../../data/common.json";
 
 export const LandingLayout = () => {
   return html`
@@ -17,7 +18,7 @@ export const LandingLayout = () => {
             <ul class="grid-col-auto display-flex flex-align-center">
               <li>
                 <a href="https://nj.gov/governor/" target="_blank">
-                  Governor Mikie Sherrill &bull; Lt. Governor Dr. Dale G. Caldwell
+                  Governor ${commonData.gov} &bull; Lt. Governor ${commonData.govlt}
                 </a>
               </li>
               <li class="grid-col-auto">
@@ -360,12 +361,12 @@ export const LandingLayout = () => {
           <ul class="usa-identifier__required-links-list">
             <li class="usa-identifier__required-links-item">
               <a href="https://nj.gov/governor/admin/about/" class="usa-identifier__required-link">
-                Governor Mikie Sherrill
+                Governor ${commonData.gov}
               </a>
             </li>
             <li class="usa-identifier__required-links-item">
               <a href="https://nj.gov/governor/admin/lt/" class="usa-identifier__required-link">
-                Lt. Governor Dr. Dale G. Caldwell
+                Lt. Governor ${commonData.govlt}
               </a>
             </li>
             <li class="usa-identifier__required-links-item">
