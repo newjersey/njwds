@@ -37,6 +37,7 @@
     "**/*.css"
   ],
   "dependencies": {
+    "@newjersey/feedback-widget": "^0.7.1",
     "@uswds/uswds": "3.10.0",
     "lit": "^3.3.2"
   },
