@@ -5,7 +5,7 @@ context:
     # IMPORTANT: when updating banner text, please also update the min-width of
     # the media query for the '.nj-banner__header li' selector in the custom
     # styles SCSS.
-    # 
+    #
     # This media query controls the breakpoint for hiding the gov and lt. gov's
     # names. The intended behavior here is to hide the names before the
     # stateOfNjText wraps to 3 lines.
