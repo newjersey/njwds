@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Textarea, type TextareaProps } from "./Textarea";
+import "@uswds/uswds";
 
 const meta = {
   title: "Elements/Textarea",
@@ -29,9 +30,10 @@ type Story = StoryObj<TextareaProps>;
 export const Default: Story = {
   args: {
     label: "Textarea label",
-    helperText: false,
+    helperText: true,
     required: false,
     error: false,
     success: false,
+    characterCounter: true,
   },
 };
