@@ -20,7 +20,15 @@ export const Textarea = ({
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const classCharacterCounter = characterCounter ? "usa-character-count__field" : "";
-  const classCharacterAriaDescribedBy = characterCounter ? "with-hint-textarea-info" : "";
+
+  // Build aria-describedby with only the IDs that exist
+  const ariaDescribedBy = [
+    helperText ? "with-hint-textarea-hint" : "",
+    characterCounter ? "with-hint-textarea-info" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const requiredHtml = required
     ? html`<abbr title="required" class="usa-label--required">*</abbr>`
     : "";
@@ -28,13 +36,15 @@ export const Textarea = ({
   const coreFieldHtml = html` <label class="usa-label ${classesLabel}" for="input-type-text">
       ${label} ${requiredHtml}
     </label>
-    ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
+    ${helperText
+      ? html`<span id="with-hint-textarea-hint" class="usa-hint">Helper text</span>`
+      : ""}
     <textarea
       class="usa-textarea ${classes} ${classCharacterCounter}"
       id="input-type-text"
       name="input-type-text"
       maxlength="50"
-      aria-describedby="${classCharacterAriaDescribedBy} with-hint-textarea-hint"
+      aria-describedby="${ariaDescribedBy}"
     >
     </textarea>`;
 
@@ -57,7 +67,7 @@ export const Textarea = ({
               <div class="usa-form-group">${coreFieldHtml}</div>
 
               <span
-                id="${classCharacterAriaDescribedBy}"
+                id="with-hint-textarea-info"
                 class="usa-hint usa-character-count__message"
                 aria-live="polite"
               >
