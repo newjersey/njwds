@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Textarea, type TextareaProps } from "./Textarea";
+// @ts-expect-error - no types for uswds subpath
+import characterCount from "@uswds/uswds/js/usa-character-count";
 
 const meta = {
   title: "Elements/Textarea",
@@ -10,6 +12,16 @@ const meta = {
       error: args.error && !args.success,
       success: args.success && !args.error,
     }),
+  decorators: [
+    (story) => {
+      const result = story();
+      setTimeout(() => {
+        characterCount.off(document.body);
+        characterCount.on(document.body);
+      }, 0);
+      return result;
+    },
+  ],
   argTypes: {
     label: {
       control: { type: "text" },
@@ -29,9 +41,10 @@ type Story = StoryObj<TextareaProps>;
 export const Default: Story = {
   args: {
     label: "Textarea label",
-    helperText: false,
+    helperText: true,
     required: false,
     error: false,
     success: false,
+    characterCounter: true,
   },
 };

@@ -13,10 +13,26 @@ export const Link = ({ label, theme = "light", external = false }: LinkProps) =>
   const linkTheme = theme !== "light" ? "" : "";
 
   return html`
-    <a
-      href="!#"
-      class=${["usa-link", external && "usa-link--external", linkTheme].filter(Boolean).join(" ")}
-      >${label}</a
-    >
+    <p>
+      <a
+        href="!#"
+        class=${["usa-link", external && "usa-link--external", linkTheme].filter(Boolean).join(" ")}
+      >
+        ${label}
+      </a>
+    </p>
+
+    <div class="usa-dark-background">
+      <p>
+        <a
+          href="!#"
+          class=${["usa-link", external && "usa-link--external", linkTheme]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          ${label}
+        </a>
+      </p>
+    </div>
   `;
 };

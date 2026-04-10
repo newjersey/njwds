@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
 import { BannerComponent, type BannerProps } from "./Banner";
 
+import commonData from "../../../data/common.json";
+
 const meta = {
   title: "Components/Banner",
   tags: ["autodocs"],
@@ -13,7 +15,7 @@ type Story = StoryObj<BannerProps>;
 
 export const Basic: Story = {
   args: {
-    governor: "Mikie Sherrill",
-    ltgovernor: "Dr. Dale G. Caldwell",
+    governor: commonData.gov,
+    ltgovernor: commonData.govlt,
   },
 };

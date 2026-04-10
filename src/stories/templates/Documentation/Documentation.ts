@@ -1,0 +1,496 @@
+import { html } from "lit";
+import commonData from "../../../data/common.json";
+
+export const DocumentationLayout = () => {
+  return html`
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+    <section class="nj-banner" aria-label="Official government website">
+      <div class="nj-banner__header">
+        <div class="grid-container">
+          <div class="nj-banner__inner">
+            <div class="grid-col-auto">
+              <img class="nj-banner__header-seal" src="./img/nj_state_seal.png" alt="NJ flag" />
+            </div>
+            <div class="grid-col-fill">
+              <a href="https://nj.gov">Official Site of the State of New Jersey</a>
+            </div>
+            <ul class="grid-col-auto display-flex flex-align-center">
+              <li>
+                <a href="https://nj.gov/governor/" target="_blank">
+                  Governor ${commonData.gov} &bull; Lt. Governor ${commonData.govlt}
+                </a>
+              </li>
+              <li class="grid-col-auto">
+                <a
+                  class="display-flex flex-align-center"
+                  href="https://nj.gov/subscribe/"
+                  target="_blank"
+                >
+                  <svg
+                    class="usa-icon usa-icon--size-3 nj-banner__mail-icon margin-right-05"
+                    role="img"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use xlink:href="./img/sprite.svg#mail" />
+                  </svg>
+                  Get Updates
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="usa-overlay"></div>
+    <header class="usa-header usa-header--basic usa-header--megamenu">
+      <div class="usa-nav-container">
+        <div class="usa-navbar">
+          <div class="usa-logo" id="basic-mega-logo">
+            <em class="usa-logo__text"
+              ><a href="/" title="Home" aria-label="Home">Project title</a></em
+            >
+          </div>
+          <button class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+          <button class="usa-nav__close">
+            <img src="./img/close.svg" role="img" alt="close" />
+          </button>
+          <ul class="usa-nav__primary usa-accordion">
+            <li class="usa-nav__primary-item">
+              <button
+                class="usa-accordion__button usa-nav__link  usa-current"
+                aria-expanded="false"
+                aria-controls="basic-mega-nav-section-one"
+              >
+                <span>Current section</span>
+              </button>
+              <div id="basic-mega-nav-section-one" class="usa-nav__submenu usa-megamenu">
+                <div class="grid-row grid-gap-4">
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class=""
+                          >A very long navigation link that goes onto two lines</a
+                        >
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="usa-nav__primary-item">
+              <button
+                class="usa-accordion__button usa-nav__link"
+                aria-expanded="false"
+                aria-controls="basic-mega-nav-section-two"
+              >
+                <span>Section</span>
+              </button>
+              <div id="basic-mega-nav-section-two" class="usa-nav__submenu usa-megamenu">
+                <div class="grid-row grid-gap-4">
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class=""
+                          >A very long navigation link that goes onto two lines</a
+                        >
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="usa-col">
+                    <ul class="usa-nav__submenu-list">
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                      <li class="usa-nav__submenu-item">
+                        <a href="#" class="">Navigation link</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="usa-nav__primary-item">
+              <a class="usa-nav__link" href="#!"><span>Simple link</span></a>
+            </li>
+          </ul>
+          <form class="usa-search usa-search--small " role="search">
+            <label class="usa-sr-only" for="basic-mega-search-field-small">Search small</label>
+            <input
+              class="usa-input"
+              id="basic-mega-search-field-small"
+              type="search"
+              name="search"
+            />
+            <button class="usa-button" type="submit">
+              <img
+                src="./img/usa-icons-bg/search--white.svg"
+                class="usa-search__submit-icon"
+                alt="Search"
+              />
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
+
+    <div class="usa-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <div class="usa-layout-docs__sidenav desktop:grid-col-3">
+            <nav aria-label="Secondary navigation">
+              <ul class="usa-sidenav">
+                <li class="usa-sidenav__item">
+                  <a href="#!">Parent link</a>
+                </li>
+                <li class="usa-sidenav__item">
+                  <a href="#!" class="usa-current">Current page</a>
+                  <ul class="usa-sidenav__sublist">
+                    <li class="usa-sidenav__item">
+                      <a href="#!">Child link</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                      <a href="#!" class="usa-current">Child link</a>
+                      <ul class="usa-sidenav__sublist">
+                        <li class="usa-sidenav__item">
+                          <a href="#!">Grandchild link</a>
+                        </li>
+                        <li class="usa-sidenav__item">
+                          <a href="#!">Grandchild link</a>
+                        </li>
+                        <li class="usa-sidenav__item">
+                          <a href="#!" class="usa-current">Grandchild link</a>
+                        </li>
+                        <li class="usa-sidenav__item">
+                          <a href="#!">Grandchild link</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="usa-sidenav__item">
+                      <a href="#!">Child link</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                      <a href="#!">Child link</a>
+                    </li>
+                    <li class="usa-sidenav__item">
+                      <a href="#!">Child link</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="usa-sidenav__item">
+                  <a href="#!">Parent link</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <main
+            class="usa-layout-docs__main desktop:grid-col-9 usa-prose usa-layout-docs"
+            id="main-content"
+          >
+            <h1>Page heading (h1)</h1>
+
+            <p class="usa-intro">
+              The page heading communicates the main focus of the page. Make your page heading
+              descriptive and keep it succinct.
+            </p>
+
+            <h2 id="section-heading-h2">Section heading (h2)</h2>
+
+            <p>
+              These headings introduce, respectively, sections and subsections within your body
+              copy. As you create these headings, follow the same guidelines that you use when
+              writing section headings: Be succinct, descriptive, and precise.
+            </p>
+
+            <h3 id="section-heading-h3">Subsection heading (h3)</h3>
+
+            <p>
+              The particulars of your body copy will be determined by the topic of your page.
+              Regardless of topic, it’s a good practice to follow the inverted pyramid structure
+              when writing copy: Begin with the information that’s most important to your users and
+              then present information of less importance.
+            </p>
+
+            <p>
+              Keep each section and subsection focused — a good approach is to include one theme
+              (topic) per section.
+            </p>
+
+            <h4 id="section-heading-h4">Subsection heading (h4)</h4>
+
+            <p>
+              Use the side navigation menu to help your users quickly skip to different sections of
+              your page. The menu is best suited to displaying a hierarchy with one to three levels
+              and, as we mentioned, to display the sub-navigation of a given page.
+            </p>
+
+            <p>Read the full documentation on our side navigation on the component page.</p>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <footer class="usa-footer">
+      <div class="grid-container usa-footer__return-to-top">
+        <a href="#">Return to top</a>
+      </div>
+      <div class="usa-footer__primary-section">
+        <nav class="usa-footer__nav" aria-label="Footer navigation">
+          <ul class="grid-row grid-gap">
+            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+              <a class="usa-footer__primary-link" href="#!">Primary link</a>
+            </li>
+            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+              <a class="usa-footer__primary-link" href="#!">Primary link</a>
+            </li>
+            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+              <a class="usa-footer__primary-link" href="#!">Primary link</a>
+            </li>
+            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+              <a class="usa-footer__primary-link" href="#!">Primary link</a>
+            </li>
+            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+              <a class="usa-footer__primary-link" href="#!">Primary link</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="usa-footer__secondary-section">
+        <div class="grid-container">
+          <div class="grid-row grid-gap">
+            <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+              <div class="mobile-lg:grid-col-auto">
+                <img class="usa-footer__logo-img" src="./img/logo-img.png" alt="" />
+              </div>
+              <div class="mobile-lg:grid-col-auto">
+                <h3 class="usa-footer__logo-heading">Name of Agency</h3>
+              </div>
+            </div>
+            <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+              <div class="usa-footer__social-links grid-row grid-gap-1">
+                <div class="grid-col-auto">
+                  <a class="usa-social-link usa-social-link--facebook" href="#!">
+                    <img
+                      class="usa-social-link__icon"
+                      src="./img/usa-icons/facebook.svg"
+                      alt="Facebook"
+                    />
+                  </a>
+                </div>
+                <div class="grid-col-auto">
+                  <a class="usa-social-link usa-social-link--twitter" href="#!">
+                    <img
+                      class="usa-social-link__icon"
+                      src="./img/usa-icons/twitter.svg"
+                      alt="Twitter"
+                    />
+                  </a>
+                </div>
+                <div class="grid-col-auto">
+                  <a class="usa-social-link usa-social-link--youtube" href="#!">
+                    <img
+                      class="usa-social-link__icon"
+                      src="./img/usa-icons/youtube.svg"
+                      alt="YouTube"
+                    />
+                  </a>
+                </div>
+                <div class="grid-col-auto">
+                  <a class="usa-social-link usa-social-link--rss" href="#!">
+                    <img
+                      class="usa-social-link__icon"
+                      src="./img/usa-icons/rss_feed.svg"
+                      alt="RSS"
+                    />
+                  </a>
+                </div>
+              </div>
+              <h3 class="usa-footer__contact-heading">Agency Contact Center</h3>
+              <address class="usa-footer__address">
+                <div class="usa-footer__contact-info grid-row grid-gap">
+                  <div class="grid-col-auto">
+                    <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
+                  </div>
+                  <div class="grid-col-auto">
+                    <a href="mailto:info@agency.gov">info@agency.gov</a>
+                  </div>
+                </div>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="usa-identifier">
+      <section
+        class="usa-identifier__section usa-identifier__section--masthead"
+        aria-label="Agency identifier"
+      >
+        <div class="usa-identifier__container">
+          <div class="usa-identifier__logos">
+            <a href="https://nj.gov" class="usa-identifier__logo">
+              <img
+                class="usa-identifier__logo-img"
+                src="./img/nj-logo-gray-20.png"
+                alt="the State of New Jersey logo"
+                role="img"
+              />
+            </a>
+          </div>
+          <div class="usa-identifier__identity" aria-label="Agency description">
+            <p class="usa-identifier__identity-domain"></p>
+            <p class="usa-identifier__identity-disclaimer">
+              An official website of the <a href="https://nj.gov">the State of New Jersey</a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <nav
+        class="usa-identifier__section usa-identifier__section--required-links"
+        aria-label="Important links"
+      >
+        <div class="usa-identifier__container">
+          <ul class="usa-identifier__required-links-list">
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/governor/admin/about/" class="usa-identifier__required-link">
+                Governor ${commonData.gov}
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/governor/admin/lt/" class="usa-identifier__required-link">
+                Lt. Governor ${commonData.govlt}
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/" class="usa-identifier__required-link usa-link"> NJ Home </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a
+                href="https://nj.gov/nj/gov/njgov/alphaserv.html"
+                class="usa-identifier__required-link usa-link"
+              >
+                Services A to Z
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a
+                href="https://nj.gov/nj/gov/deptserv/"
+                class="usa-identifier__required-link usa-link"
+              >
+                Departments/Agencies
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/faqs/" class="usa-identifier__required-link usa-link">
+                FAQs
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a
+                href="https://nj.gov/nj/feedback.html"
+                class="usa-identifier__required-link usa-link"
+              >
+                Contact Us
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a
+                href="https://nj.gov/nj/privacy.html"
+                class="usa-identifier__required-link usa-link"
+              >
+                Privacy Notice
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/nj/legal.html" class="usa-identifier__required-link usa-link">
+                Legal Statement & Disclaimers
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a
+                href="https://nj.gov/nj/accessibility.html"
+                class="usa-identifier__required-link usa-link"
+              >
+                Accessibility
+              </a>
+            </li>
+            <li class="usa-identifier__required-links-item">
+              <a href="https://nj.gov/opra/" class="usa-identifier__required-link usa-link">
+                Open Public Records Act (OPRA)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section
+        class="usa-identifier__section usa-identifier__section--usagov"
+        aria-label="U.S. government information and services"
+      >
+        <div class="usa-identifier__container">
+          <div class="usa-identifier__usagov-description">Copyright © 2020 State of New Jersey</div>
+        </div>
+      </section>
+    </div>
+  `;
+};

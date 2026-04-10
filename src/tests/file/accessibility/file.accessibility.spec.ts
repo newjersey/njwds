@@ -15,7 +15,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "File (Component)",
+  suiteName: "File (component)",
   include: ".usa-form-group",
   cases: TEST_CASES,
 });

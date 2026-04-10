@@ -26,7 +26,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Alert component",
+  suiteName: "Alert",
   include: ".usa-alert",
   cases: TEST_CASES,
 });

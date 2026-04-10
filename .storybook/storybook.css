@@ -1,0 +1,33 @@
+/* The combobox iframe collapses, so we have to force it larger */
+#story--components-combobox--default--primary-inner,
+#story--components-date-picker--default--primary-inner,
+#story--patterns-time-picker--default--primary-inner {
+  min-height: 450px;
+}
+
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+.docs-story,
+#storybook-root {
+  padding: 1rem;
+}
+
+.aspect-example__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45.7px;
+  font-family:
+    Roboto Mono Web,
+    Bitstream Vera Sans Mono,
+    Consolas,
+    Courier,
+    monospace;
+}

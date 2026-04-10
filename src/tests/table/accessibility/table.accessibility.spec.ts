@@ -15,7 +15,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "Table component",
+  suiteName: "Table",
   include: ".usa-table",
   cases: TEST_CASES,
 });

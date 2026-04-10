@@ -1,0 +1,18 @@
+{
+  "masthead": {
+    "ariaLabel": "Identificador de la agencia",
+    "descriptionLabel": "Descripción de la agencia",
+    "text": "Un sitio web oficial de",
+    "parentName": "el Estado de Nueva Jersey",
+    "parentLogoAlt": "Logo de la el Estado de Nueva Jersey",
+    "agencyLogoAlt": "Logo de la agencia",
+    "taxpayerDisclaimer": "Producido y publicado con dinero de los contribuyentes de impuestos."
+  },
+  "requiredLinks": {
+    "ariaLabel": "Enlaces importantes"
+  },
+  "copyright": {
+    "ariaLabel": "Información y servicios del Gobierno de EE. UU.",
+    "description": "¿Necesita información y servicios del Gobierno?"
+  }
+}
