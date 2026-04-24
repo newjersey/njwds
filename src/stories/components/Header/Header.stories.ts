@@ -5,7 +5,11 @@ import { Header, type HeaderProps } from "./Header";
 const meta = {
   title: "Components/Header",
   tags: ["autodocs"],
-  render: (args) => Header(args),
+  render: (args, context) =>
+    Header({
+      ...args,
+      toggleValue: context.viewMode === "docs" ? undefined : context.id,
+    }),
   argTypes: {
     variant: {
       control: { type: "select" },

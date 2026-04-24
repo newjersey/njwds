@@ -1,10 +1,17 @@
-/* The combobox iframe collapses, so we have to force it larger */
+/* Some iframes are too short so we need to make them larger */
 #story--components-combobox--default--primary-inner,
 #story--components-date-picker--default--primary-inner,
 #story--patterns-time-picker--default--primary-inner {
   min-height: 450px;
 }
 
+#story--components-header--default--primary,
+#story--components-header--default,
+#story--components-header--extended {
+  min-height: 275px;
+}
+
+/* Casacade organization messed this class up in USWDS */
 .margin-top-0 {
   margin-top: 0 !important;
 }
