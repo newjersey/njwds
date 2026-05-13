@@ -19,6 +19,10 @@
 .docs-story,
 #storybook-root {
   padding: 1rem;
+
+  > div:first-child {
+    padding: 4px; /* focus ring was being blocked */
+  }
 }
 
 .aspect-example__inner {
@@ -30,11 +34,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 45.7px;
-  font-family:
-    Roboto Mono Web,
-    Bitstream Vera Sans Mono,
-    Consolas,
-    Courier,
-    monospace;
+  font-size: 2.85rem;
+  font-family: monospace;
 }
