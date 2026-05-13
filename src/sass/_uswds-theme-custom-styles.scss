@@ -12,3 +12,8 @@
 @forward "theme/nj-nav";
 @forward "theme/nj-prose";
 @forward "theme/nj-section";
+
+// Needs official integration
+.usa-collection__meta-item.usa-tag {
+  background-color: #c6cace;
+}

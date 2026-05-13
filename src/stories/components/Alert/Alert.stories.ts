@@ -5,7 +5,13 @@ import { Alert, type AlertProps } from "./Alert";
 const meta = {
   title: "Components/Alert",
   tags: ["autodocs"],
-  render: (args) => Alert(args),
+  render: (args) => {
+    // When slim is true, force header to false
+    if (args.slim) {
+      args.header = false;
+    }
+    return Alert(args);
+  },
   argTypes: {
     type: {
       control: { type: "select" },
@@ -16,6 +22,7 @@ const meta = {
     },
     header: {
       control: { type: "boolean" },
+      if: { arg: "slim", truthy: false },
     },
     icon: {
       control: { type: "boolean" },
@@ -55,7 +62,7 @@ export const Success: Story = {
     type: "success",
     slim: false,
     icon: false,
-    header: true,
+    header: false,
   },
 };
 

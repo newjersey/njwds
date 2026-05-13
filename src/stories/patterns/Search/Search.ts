@@ -30,13 +30,7 @@ export const Search = ({ size }: SearchProps) => {
   return html`
     <form class="${searchClass}" role="search">
       <label class="usa-sr-only" for="${inputId}">Search</label>
-      <input
-        class="usa-input"
-        id="${inputId}"
-        type="search"
-        name="search"
-        placeholder="e.g. healthcare services"
-      />
+      <input class="usa-input" id="${inputId}" type="search" name="search" />
       <button class="usa-button" type="submit">${buttonContent}</button>
     </form>
   `;

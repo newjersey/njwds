@@ -20,13 +20,7 @@ export const Input = ({ label, error, success, required, helperText }: InputProp
         ${label} ${requiredHtml}
       </label>
       ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
-      <input
-        class="usa-input ${classes}"
-        id="input-type-text"
-        name="input-type-text"
-        type="text"
-        placeholder="e.g. content"
-      />
+      <input class="usa-input ${classes}" id="input-type-text" name="input-type-text" type="text" />
 
       ${error
         ? html` <div class="nj-error-message-container">

@@ -69,7 +69,7 @@ export const Identifier = ({ language, logos, showTaxpayerDisclaimer }: Identifi
             <p class="usa-identifier__identity-disclaimer">
               ${content.masthead.text}
               <a href="https://nj.gov">${content.masthead.parentName}</a>.${taxpayerDisclaimer
-                ? html` ${taxpayerDisclaimer}.`
+                ? html` ${taxpayerDisclaimer}`
                 : null}
             </p>
           </div>

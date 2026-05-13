@@ -10,6 +10,9 @@ export interface AlertProps {
 }
 
 export const Alert = ({ heading, text, type, header, slim, icon }: AlertProps) => {
+  // When slim is true, header must be false
+  const showHeader = slim ? false : header;
+
   return html`<div
     class=${[
       "usa-alert",
@@ -23,7 +26,7 @@ export const Alert = ({ heading, text, type, header, slim, icon }: AlertProps) =
     role="alert"
   >
     <div class="usa-alert__body">
-      ${header ? html` <h3 class="usa-alert__heading">${heading}</h3> ` : null}
+      ${showHeader ? html` <h3 class="usa-alert__heading">${heading}</h3> ` : null}
 
       <p class="usa-alert__text">${text}</p>
     </div>
