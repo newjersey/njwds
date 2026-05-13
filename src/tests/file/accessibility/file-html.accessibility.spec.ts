@@ -6,7 +6,7 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=elements-file--default&viewMode=story`,
+    url: `${BASE_URL}/iframe.html?id=elements-file-input--default&viewMode=story`,
   },
 ];
 
