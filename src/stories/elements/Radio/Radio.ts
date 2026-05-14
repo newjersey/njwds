@@ -59,27 +59,29 @@ export const Radio = ({ tile = false, label, error, helperText, required }: Radi
   `;
 
   return html`
-    <form class="usa-form">
-      <div class="usa-form-group ${errorGroupClass}">
-        <fieldset class="usa-fieldset">
-          <legend class="usa-legend ${errorLabelClass}">Select ${requiredHtml}</legend>
-          ${helperText
-            ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
-            : ""}
-          ${content}
-        </fieldset>
+    <div class="grid-container">
+      <form class="usa-form">
+        <div class="usa-form-group ${errorGroupClass}">
+          <fieldset class="usa-fieldset">
+            <legend class="usa-legend ${errorLabelClass}">Select ${requiredHtml}</legend>
+            ${helperText
+              ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
+              : ""}
+            ${content}
+          </fieldset>
 
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="../../public/dist/img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="input-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
-      </div>
-    </form>
+          ${error
+            ? html` <div class="nj-error-message-container">
+                <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+                  <use xlink:href="../../public/dist/img/sprite.svg#error"></use>
+                </svg>
+                <span class="usa-error-message" id="input-error-message" role="alert"
+                  >Helpful error message</span
+                >
+              </div>`
+            : ""}
+        </div>
+      </form>
+    </div>
   `;
 };

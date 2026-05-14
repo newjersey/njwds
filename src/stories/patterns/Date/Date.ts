@@ -1,10 +1,18 @@
 import { html } from "lit";
 
-export const Date = () => {
+export interface DateProps {
+  required: boolean;
+}
+
+export const Date = ({ required }: DateProps) => {
+  const requiredHtml = required
+    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
+    : "";
+
   return html`
     <form class="usa-form">
       <fieldset class="usa-fieldset">
-        <legend class="usa-legend">Date of birth</legend>
+        <legend class="usa-legend">Date of birth ${requiredHtml}</legend>
         <span class="usa-hint" id="dobHint">For example: 4 28 1986</span>
         <div class="usa-memorable-date">
           <div class="usa-form-group usa-form-group--month">

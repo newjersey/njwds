@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { useEffect } from "storybook/internal/preview-api";
 
 import { DateRange, type DateRangeProps } from "./DateRange";
 // @ts-expect-error - no types for uswds subpath
@@ -12,12 +13,12 @@ const meta = {
   render: DateRange,
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
+      useEffect(() => {
         datePicker.init(document.body); // initialize date picker first
         dateRangePicker.init(document.body); // then initialize date range picker
-      }, 0);
-      return result;
+      }, []);
+
+      return story();
     },
   ],
 } satisfies Meta<DateRangeProps>;
@@ -25,4 +26,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<DateRangeProps>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    required: false,
+  },
+};
