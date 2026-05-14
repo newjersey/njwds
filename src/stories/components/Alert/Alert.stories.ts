@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     type: {
       control: { type: "select" },
-      options: ["default", "info", "success", "warning", "error"],
+      options: ["info", "success", "warning", "error"],
     },
     slim: {
       control: { type: "boolean" },
@@ -32,17 +32,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<AlertProps>;
-
-export const Basic: Story = {
-  args: {
-    heading: "Alert heading",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    type: "default",
-    slim: false,
-    icon: false,
-    header: true,
-  },
-};
 
 export const Info: Story = {
   args: {
@@ -62,7 +51,7 @@ export const Success: Story = {
     type: "success",
     slim: false,
     icon: false,
-    header: false,
+    header: true,
   },
 };
 
