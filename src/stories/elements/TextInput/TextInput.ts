@@ -6,12 +6,14 @@ export interface InputProps {
   success: boolean;
   required: boolean;
   helperText: boolean;
+  width: string;
 }
 
-export const Input = ({ label, error, success, required, helperText }: InputProps) => {
+export const Input = ({ label, error, success, required, helperText, width }: InputProps) => {
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
+  const widthClass = `usa-input--${width}`;
   const requiredHtml = required
     ? html`<abbr title="required" class="usa-label--required">*</abbr>`
     : "";
@@ -23,7 +25,7 @@ export const Input = ({ label, error, success, required, helperText }: InputProp
         </label>
         ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
         <input
-          class="usa-input ${classes}"
+          class="usa-input ${classes} ${widthClass}"
           id="input-type-text"
           name="input-type-text"
           type="text"

@@ -4,7 +4,7 @@ export const Name = () => {
   return html`
     <form class="usa-form">
       <fieldset class="usa-fieldset">
-        <legend class="usa-legend">Name</legend>
+        <legend class="usa-legend font-heading-xl text-bold">Name</legend>
         <label class="usa-label" for="title">Title <span class="usa-hint">(optional)</span></label>
         <input class="usa-input usa-input--small" id="title" name="title" type="text" />
 

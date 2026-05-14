@@ -4,7 +4,7 @@ export const Password = () => {
   return html`
     <form class="usa-form">
       <fieldset class="usa-fieldset">
-        <legend class="usa-legend">Reset password</legend>
+        <legend class="usa-legend font-heading-xl text-bold">Reset password</legend>
         <span>Please enter your new password</span>
 
         <div class="usa-alert usa-alert--info usa-alert--validation">
