@@ -1,32 +1,26 @@
 import { html } from "lit";
 
-type LinkTheme = "light" | "dark";
-
 export interface LinkProps {
   label: string;
+  mode: string;
   external?: boolean;
-  theme?: LinkTheme;
+  forceVisited: boolean;
 }
 
-export const Link = ({ label, theme = "light", external = false }: LinkProps) => {
+export const Link = ({ label, external, mode, forceVisited }: LinkProps) => {
   // Just need something to trigger the theme change, nothing really to output
-  const linkTheme = theme !== "light" ? "" : "";
+  const modeSetting = mode === "dark" ? "usa-dark-background" : "";
 
   return html`
-    <p>
-      <a
-        href="!#"
-        class=${["usa-link", external && "usa-link--external", linkTheme].filter(Boolean).join(" ")}
-      >
-        ${label}
-      </a>
-    </p>
-
-    <div class="usa-dark-background">
+    <div class="${modeSetting}">
       <p>
         <a
           href="!#"
-          class=${["usa-link", external && "usa-link--external", linkTheme]
+          class=${[
+            "usa-link",
+            external && "usa-link--external",
+            forceVisited && "usa-color-text-visited",
+          ]
             .filter(Boolean)
             .join(" ")}
         >
