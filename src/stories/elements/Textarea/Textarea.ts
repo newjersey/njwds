@@ -20,6 +20,7 @@ export const Textarea = ({
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const classCharacterCounter = characterCounter ? "usa-character-count__field" : "";
+  const errorGroupClass = error ? "usa-form-group--error" : "";
 
   // Build aria-describedby with only the IDs that exist
   const ariaDescribedBy = [
@@ -60,24 +61,26 @@ export const Textarea = ({
     : ""}`;
 
   return html`
-    <form class="usa-form">
-      ${characterCounter
-        ? html`
-            <div class="usa-character-count">
-              <div class="usa-form-group">${coreFieldHtml}</div>
+    <div class="grid-container">
+      <form class="usa-form ${errorGroupClass}">
+        ${characterCounter
+          ? html`
+              <div class="usa-character-count">
+                <div class="usa-form-group">${coreFieldHtml}</div>
 
-              <span
-                id="with-hint-textarea-info"
-                class="usa-hint usa-character-count__message"
-                aria-live="polite"
-              >
-                You can enter up to 50 characters
-              </span>
+                <span
+                  id="with-hint-textarea-info"
+                  class="usa-hint usa-character-count__message"
+                  aria-live="polite"
+                >
+                  You can enter up to 50 characters
+                </span>
 
-              ${secondaryFieldHtml}
-            </div>
-          `
-        : html` ${coreFieldHtml} ${secondaryFieldHtml} `}
-    </form>
+                ${secondaryFieldHtml}
+              </div>
+            `
+          : html` ${coreFieldHtml} ${secondaryFieldHtml} `}
+      </form>
+    </div>
   `;
 };

@@ -4,7 +4,7 @@ export const Signin = () => {
   return html`
     <form class="usa-form">
       <fieldset class="usa-fieldset">
-        <legend class="usa-legend">Sign in</legend>
+        <legend class="usa-legend font-heading-xl text-bold">Sign in</legend>
         <span>or <a href="#!">create an account</a></span>
 
         <label class="usa-label" for="username">Username or email address</label>

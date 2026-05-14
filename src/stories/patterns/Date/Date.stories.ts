@@ -1,15 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import { Date } from "./Date";
+import { Date, type DateProps } from "./Date";
 
 const meta = {
   title: "Patterns/Date",
   tags: ["autodocs"],
-  render: () => Date(),
+  render: (args) => Date(args),
   argTypes: {},
-} satisfies Meta;
+} satisfies Meta<DateProps>;
 
 export default meta;
 type Story = StoryObj;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    required: false,
+  },
+};

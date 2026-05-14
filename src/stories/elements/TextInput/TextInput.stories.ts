@@ -14,6 +14,10 @@ const meta = {
     label: {
       control: { type: "text" },
     },
+    width: {
+      control: { type: "select" },
+      options: ["xs", "sm", "md", "lg", "xl"],
+    },
     error: {
       if: { arg: "success", truthy: false },
     },
@@ -33,5 +37,6 @@ export const Default: Story = {
     required: false,
     error: false,
     success: false,
+    width: "xl",
   },
 };
