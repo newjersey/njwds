@@ -4,10 +4,6 @@ const BASE_URL = "http://localhost:6006";
 
 const TEST_CASES = [
   {
-    name: "Default",
-    url: `${BASE_URL}/iframe.html?id=components-alert--basic&viewMode=story&args=icon%3A!true`,
-  },
-  {
     name: "Info",
     url: `${BASE_URL}/iframe.html?id=components-alert--info&viewMode=story&args=icon%3A!true`,
   },
