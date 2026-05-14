@@ -1,17 +1,24 @@
 import { html } from "lit";
 
 export interface CollectionProps {
-  media: string;
+  type: string;
+  externalLinks: boolean;
   showTags: boolean;
-  showContent: boolean;
+  showDescription: boolean;
   showMeta: boolean;
 }
 
-export const Collection = ({ media, showTags, showContent, showMeta }: CollectionProps) => {
+export const Collection = ({
+  type,
+  externalLinks,
+  showTags,
+  showDescription,
+  showMeta,
+}: CollectionProps) => {
   return html`
     <ul class="usa-collection">
       <li class="usa-collection__item">
-        ${media === "thumbnail"
+        ${type === "media"
           ? html`
               <img
                 class="usa-collection__img"
@@ -20,7 +27,7 @@ export const Collection = ({ media, showTags, showContent, showMeta }: Collectio
               />
             `
           : null}
-        ${media === "calendar"
+        ${type === "calendar"
           ? html`
               <div class="usa-collection__calendar-date">
                 <time datetime="2020-09-30T12:00:00+01:00"
@@ -33,9 +40,16 @@ export const Collection = ({ media, showTags, showContent, showMeta }: Collectio
 
         <div class="usa-collection__body">
           <h4 class="usa-collection__heading">
-            <a class="usa-link" href="#!">Duis sit amet nulla interdum</a>
+            ${externalLinks
+              ? html`
+                  <a href="#!" class="usa-link usa-link--external" target="_blank" rel="noreferrer">
+                    Ipsum quam malesuada velit
+                    <span class="usa-sr-only">(opens in a new window)</span>
+                  </a>
+                `
+              : html`<a href="#!">Ipsum quam malesuada velit</a>`}
           </h4>
-          ${showContent
+          ${showDescription
             ? html`
                 <p class="usa-collection__description">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet nulla

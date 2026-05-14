@@ -4,9 +4,10 @@ export interface FileComponentProps {
   error: boolean;
   multipleFiles: boolean;
   fileTypes: string;
+  required: boolean;
 }
 
-export const FileComponent = ({ error = false, fileTypes }: FileComponentProps) => {
+export const FileComponent = ({ error = false, fileTypes, required }: FileComponentProps) => {
   const errorMsg = error
     ? html`<span class="usa-error-message" id="file-error" role="alert"
         >Display a helpful error message</span
@@ -14,23 +15,28 @@ export const FileComponent = ({ error = false, fileTypes }: FileComponentProps) 
     : nothing;
   const errorGroupClasses = error ? `usa-form-group--error` : "";
   const errorLabelClasses = error ? `usa-label--error` : "";
+  const requiredHtml = required
+    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
+    : "";
 
   return html`
-    <div class="usa-form-group ${errorGroupClasses}">
-      <label class="usa-label ${errorLabelClasses}" for="file">
-        File input label
+    <form class="usa-form">
+      <div class="usa-form-group ${errorGroupClasses}">
+        <label class="usa-label ${errorLabelClasses}" for="file">
+          File input label ${requiredHtml}
+        </label>
         <div class="usa-hint" id="file-hint">Select any valid file</div>
-      </label>
 
-      ${errorMsg}
-      <input
-        class="usa-file-input"
-        id="file"
-        name="input-type-file"
-        type="file"
-        accept=${fileTypes || nothing}
-        aria-describedby=${error ? "file-error" : nothing}
-      />
-    </div>
+        ${errorMsg}
+        <input
+          class="usa-file-input"
+          id="file"
+          name="input-type-file"
+          type="file"
+          accept=${fileTypes || nothing}
+          aria-describedby=${error ? "file-error" : nothing}
+        />
+      </div>
+    </form>
   `;
 };

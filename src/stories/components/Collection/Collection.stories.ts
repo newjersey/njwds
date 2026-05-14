@@ -6,9 +6,9 @@ const meta = {
   title: "Components/Collection",
   tags: ["autodocs"],
   argTypes: {
-    media: {
+    type: {
       control: { type: "select" },
-      options: ["default", "thumbnail", "calendar"],
+      options: ["default", "media", "calendar"],
     },
   },
   render: (args) => Collection(args),
@@ -19,9 +19,10 @@ type Story = StoryObj<CollectionProps>;
 
 export const Default: Story = {
   args: {
-    showTags: true,
-    showContent: true,
-    media: "default",
+    externalLinks: false,
+    showDescription: true,
+    type: "default",
     showMeta: true,
+    showTags: true,
   },
 };

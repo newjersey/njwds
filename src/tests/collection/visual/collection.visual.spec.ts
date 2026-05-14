@@ -13,16 +13,16 @@ const TEST_CASES = [
     url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=showTags:false`,
   },
   {
-    name: "Collection content hidden",
-    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=showContent:false`,
+    name: "Collection description hidden",
+    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=showDescription:false`,
   },
   {
-    name: "Collection media thumbnail",
-    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=media:thumbnail`,
+    name: "Collection type to thumbnail",
+    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=type:media`,
   },
   {
-    name: "Collection media calendar",
-    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=media:calendar`,
+    name: "Collection type to calendar",
+    url: `${BASE_URL}/iframe.html?id=components-collection--default&viewMode=story&args=type:calendar`,
   },
 ];
 
