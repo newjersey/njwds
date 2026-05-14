@@ -63,7 +63,7 @@ export const Radio = ({ tile = false, label, error, helperText, required }: Radi
       <form class="usa-form">
         <div class="usa-form-group ${errorGroupClass}">
           <fieldset class="usa-fieldset">
-            <legend class="usa-legend ${errorLabelClass}">Select ${requiredHtml}</legend>
+            <legend class="usa-legend ${errorLabelClass}">Select one option ${requiredHtml}</legend>
             ${helperText
               ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
               : ""}

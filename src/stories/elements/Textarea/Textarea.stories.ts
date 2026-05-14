@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { useEffect } from "storybook/internal/preview-api";
 import { Textarea, type TextareaProps } from "./Textarea";
 // @ts-expect-error - no types for uswds subpath
 import characterCount from "@uswds/uswds/js/usa-character-count";
@@ -14,12 +15,12 @@ const meta = {
     }),
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
+      useEffect(() => {
         characterCount.off(document.body);
         characterCount.on(document.body);
-      }, 0);
-      return result;
+      }, []);
+
+      return story();
     },
   ],
   argTypes: {

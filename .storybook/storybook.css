@@ -7,7 +7,8 @@
 
 #story--components-header--default--primary,
 #story--components-header--default,
-#story--components-header--extended {
+#story--components-header--extended,
+#story--elements-textarea--default--primary-inner {
   min-height: 275px;
 }
 
