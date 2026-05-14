@@ -1,3 +1,4 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { ComboboxComponent, type ComboboxProps } from "./Combobox";
 // @ts-expect-error - no types for uswds subpath
@@ -9,11 +10,11 @@ const meta = {
   render: ComboboxComponent,
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
-        combobox.init(document.body); // call combobox.init() after the story has rendered
-      }, 0);
-      return result;
+      useEffect(() => {
+        combobox.init(document.body);
+      }, []);
+
+      return story();
     },
   ],
 } satisfies Meta<ComboboxProps>;

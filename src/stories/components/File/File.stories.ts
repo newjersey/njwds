@@ -1,3 +1,4 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { FileComponent, type FileComponentProps } from "./File";
 // @ts-expect-error - no types for uswds subpath
@@ -9,12 +10,12 @@ const meta = {
   render: (args) => FileComponent(args),
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
+      useEffect(() => {
         fileInput.teardown(document.body);
         fileInput.init(document.body);
-      }, 0);
-      return result;
+      }, []);
+
+      return story();
     },
   ],
 } satisfies Meta<FileComponentProps>;

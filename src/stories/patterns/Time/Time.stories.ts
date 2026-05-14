@@ -1,3 +1,4 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
 import { Time } from "./Time";
@@ -10,11 +11,11 @@ const meta = {
   render: Time,
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
-        timePicker.init(document.body); // call timePicker.init() after the story has rendered
-      }, 0);
-      return result;
+      useEffect(() => {
+        timePicker.init(document.body);
+      }, []);
+
+      return story();
     },
   ],
 } satisfies Meta;
