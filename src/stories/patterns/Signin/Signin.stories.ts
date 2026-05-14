@@ -1,3 +1,4 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
 import { Signin } from "./Signin";
@@ -10,12 +11,11 @@ const meta = {
   render: Signin,
   decorators: [
     (story) => {
-      const result = story();
-      setTimeout(() => {
-        // Call the behavior to attach event listeners
+      useEffect(() => {
         passwordToggle.on();
-      }, 100);
-      return result;
+      }, []);
+
+      return story();
     },
   ],
 } satisfies Meta;

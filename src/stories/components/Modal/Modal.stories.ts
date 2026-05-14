@@ -1,3 +1,4 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Modal, type ModalProps } from "./Modal";
 // @ts-expect-error - no types for uswds subpath
@@ -16,8 +17,7 @@ const meta = {
   },
   decorators: [
     (story, context) => {
-      const result = story();
-      setTimeout(() => {
+      useEffect(() => {
         const storyId = `modal-${context.name.toLowerCase().replace(/\s+/g, "-")}`;
 
         // Check if this specific modal already has a wrapper (already initialized)
@@ -34,8 +34,9 @@ const meta = {
           // This modal needs initialization
           modal.init(newModal.parentElement || document.body);
         }
-      }, 0);
-      return result;
+      }, []);
+
+      return story();
     },
   ],
   argTypes: {
