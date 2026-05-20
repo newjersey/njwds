@@ -21,8 +21,8 @@ const TEST_CASES = [
     url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=media:false`,
   },
   {
-    name: "Media: Inset",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=mediaInset:true;media:true`,
+    name: "Media: Extend, false",
+    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=mediaExtend:false;media:true`,
   },
 ];
 runVisualSuite({

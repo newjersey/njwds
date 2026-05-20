@@ -11,13 +11,20 @@ const meta = {
       control: { type: "select" },
       options: ["Default", "Flag"],
     },
+    mediaSize: {
+      control: { type: "select" },
+      options: ["xs", "sm", "md", "lg", "lg-flag"],
+    },
     media: {
       control: { type: "boolean" },
     },
     flagPositionRight: {
       control: { type: "boolean" },
     },
-    mediaInset: {
+    mediaExtend: {
+      control: { type: "boolean" },
+    },
+    mediaFirst: {
       control: { type: "boolean" },
     },
   },
@@ -31,6 +38,8 @@ export const Default: Story = {
     layout: "Default",
     media: true,
     flagPositionRight: true,
-    mediaInset: false,
+    mediaExtend: true,
+    mediaFirst: true,
+    mediaSize: "md",
   },
 };
