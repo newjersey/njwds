@@ -15,8 +15,8 @@ export const Collection = ({
   showDescription,
   showMeta,
 }: CollectionProps) => {
-  return html`
-    <ul class="usa-collection">
+  const collectionHtml = [1, 2, 3].map(() => {
+    return html`
       <li class="usa-collection__item">
         ${type === "media"
           ? html`
@@ -79,6 +79,12 @@ export const Collection = ({
             : null}
         </div>
       </li>
+    `;
+  });
+
+  return html`
+    <ul class="usa-collection">
+      ${collectionHtml}
     </ul>
   `;
 };
