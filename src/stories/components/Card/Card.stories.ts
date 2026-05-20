@@ -40,6 +40,6 @@ export const Default: Story = {
     flagPositionRight: true,
     mediaExtend: true,
     mediaFirst: true,
-    mediaSize: "lg",
+    mediaSize: "md",
   },
 };
