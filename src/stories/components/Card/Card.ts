@@ -21,18 +21,20 @@ export const Card = ({
   const mediaFirstClass = mediaFirst ? "" : "usa-card--header-first";
   const flagPositionClass = flagPositionRight ? "usa-card--media-right" : "";
 
-  const mediaSizeHtml =
-    mediaSize === "xs"
-      ? html` <img src="./img/card-media-xs.png" alt="A placeholder image" /> `
-      : mediaSize === "sm"
-        ? html` <img src="./img/card-media-sm.png" alt="A placeholder image" /> `
-        : mediaSize === "md"
-          ? html` <img src="./img/card-media-md.png" alt="A placeholder image" /> `
-          : mediaSize === "lg"
-            ? html` <img src="./img/card-media-lg.png" alt="A placeholder image" /> `
-            : mediaSize === "lg-flag"
-              ? html` <img src="./img/card-media-lg-flag.png" alt="A placeholder image" /> `
-              : ``;
+  const getMediaImage = (size: string) => {
+    const sizeMap: Record<string, string> = {
+      xs: "./img/card-media-xs.png",
+      sm: "./img/card-media-sm.png",
+      md: "./img/card-media-md.png",
+      lg: "./img/card-media-lg.png",
+      "lg-flag": "./img/card-media-lg-flag.png",
+    };
+
+    const imageSrc = sizeMap[size];
+    return imageSrc ? html`<img src="${imageSrc}" alt="A placeholder image" />` : "";
+  };
+
+  const mediaSizeHtml = getMediaImage(mediaSize);
 
   const mediaContent = media
     ? html`<div class="usa-card__media ${mediaExtendOption}">

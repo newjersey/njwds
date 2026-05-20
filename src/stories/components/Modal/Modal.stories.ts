@@ -42,7 +42,7 @@ const meta = {
   argTypes: {
     size: {
       control: { type: "select" },
-      options: ["default", "large"],
+      options: ["small", "large"],
     },
   },
 } satisfies Meta<ModalProps>;
@@ -52,7 +52,7 @@ type Story = StoryObj<ModalProps>;
 
 export const Default: Story = {
   args: {
-    size: "default",
+    size: "small",
     forceAction: false,
   },
 };

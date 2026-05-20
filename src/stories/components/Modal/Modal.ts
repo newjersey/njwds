@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 export interface ModalProps {
-  size: "default" | "large";
+  size: "small" | "large";
   forceAction: boolean;
   modalId?: string;
 }
