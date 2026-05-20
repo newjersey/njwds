@@ -26,5 +26,7 @@ export const Default: Story = {
   args: {
     label: "Select an option",
     defaultValue: "2",
+    required: false,
+    error: false,
   },
 };
