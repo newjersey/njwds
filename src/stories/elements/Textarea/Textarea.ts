@@ -7,6 +7,7 @@ export interface TextareaProps {
   required: boolean;
   helperText: boolean;
   characterCounter: boolean;
+  width: string;
 }
 
 export const Textarea = ({
@@ -16,11 +17,13 @@ export const Textarea = ({
   required,
   helperText,
   characterCounter,
+  width,
 }: TextareaProps) => {
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const classCharacterCounter = characterCounter ? "usa-character-count__field" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
+  const widthClass = `usa-input--${width}`;
 
   // Build aria-describedby with only the IDs that exist
   const ariaDescribedBy = [
@@ -41,7 +44,7 @@ export const Textarea = ({
       ? html`<span id="with-hint-textarea-hint" class="usa-hint">Helper text</span>`
       : ""}
     <textarea
-      class="usa-textarea ${classes} ${classCharacterCounter}"
+      class="usa-textarea ${classes} ${classCharacterCounter} ${widthClass}"
       id="input-type-text"
       name="input-type-text"
       maxlength="50"
@@ -52,7 +55,7 @@ export const Textarea = ({
   const secondaryFieldHtml = html` ${error
     ? html` <div class="nj-error-message-container">
         <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-          <use xlink:href="../../public/dist/img/sprite.svg#error"></use>
+          <use xlink:href="./public/dist/img/sprite.svg#error"></use>
         </svg>
         <span class="usa-error-message" id="input-error-message" role="alert">
           Helpful error message
@@ -62,7 +65,7 @@ export const Textarea = ({
 
   return html`
     <div class="grid-container">
-      <form class="usa-form ${errorGroupClass}">
+      <form class="usa-form maxw-none ${errorGroupClass}">
         ${characterCounter
           ? html`
               <div class="usa-character-count">

@@ -33,6 +33,10 @@ const meta = {
     success: {
       if: { arg: "error", truthy: false },
     },
+    width: {
+      control: { type: "select" },
+      options: ["xs", "sm", "md", "lg", "xl", "2xl"],
+    },
   },
 } satisfies Meta<TextareaProps>;
 
@@ -45,7 +49,7 @@ export const Default: Story = {
     helperText: true,
     required: false,
     error: false,
-    success: false,
     characterCounter: true,
+    width: "xl",
   },
 };

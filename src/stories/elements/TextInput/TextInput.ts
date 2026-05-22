@@ -19,7 +19,7 @@ export const Input = ({ label, error, success, required, helperText, width }: In
     : "";
   return html`
     <div class="grid-container">
-      <form class="usa-form ${errorGroupClass}">
+      <form class="usa-form maxw-none ${errorGroupClass}">
         <label class="usa-label ${classesLabel}" for="input-type-text">
           ${label} ${requiredHtml}
         </label>
@@ -34,7 +34,7 @@ export const Input = ({ label, error, success, required, helperText, width }: In
         ${error
           ? html` <div class="nj-error-message-container">
               <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="../../public/dist/img/sprite.svg#error"></use>
+                <use xlink:href="./public/dist/img/sprite.svg#error"></use>
               </svg>
               <span class="usa-error-message" id="input-error-message" role="alert"
                 >Helpful error message</span

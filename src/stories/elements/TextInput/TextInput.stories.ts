@@ -16,7 +16,7 @@ const meta = {
     },
     width: {
       control: { type: "select" },
-      options: ["xs", "sm", "md", "lg", "xl"],
+      options: ["sm", "md", "lg", "xl", "2xl"],
     },
     error: {
       if: { arg: "success", truthy: false },
@@ -36,7 +36,6 @@ export const Default: Story = {
     helperText: false,
     required: false,
     error: false,
-    success: false,
     width: "xl",
   },
 };
