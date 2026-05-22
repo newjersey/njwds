@@ -19,7 +19,7 @@ export const Input = ({ label, error, success, required, helperText, width }: In
     : "";
   return html`
     <div class="grid-container">
-      <form class="usa-form ${errorGroupClass}">
+      <form class="usa-form maxw-none ${errorGroupClass}">
         <label class="usa-label ${classesLabel}" for="input-type-text">
           ${label} ${requiredHtml}
         </label>

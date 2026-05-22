@@ -41,6 +41,5 @@ export const Default: Story = {
   args: {
     required: false,
     error: false,
-    success: false,
   },
 };
