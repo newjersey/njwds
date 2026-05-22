@@ -8,16 +8,30 @@ import datePicker from "@uswds/uswds/js/usa-date-picker";
 const meta = {
   title: "Components/Date Picker",
   tags: ["autodocs"],
-  render: (args) => DatePicker(args),
-  decorators: [
-    (story) => {
-      useEffect(() => {
-        datePicker.init(document.body);
-      }, []);
+  render: (args) => {
+    // Initialize date picker only once
+    useEffect(() => {
+      const datePickerElement = document.querySelector(".usa-date-picker");
+      if (datePickerElement) {
+        datePicker.init(datePickerElement);
+      }
+    }, []);
 
-      return story();
-    },
-  ],
+    // Apply validation classes when args change
+    useEffect(() => {
+      const input = document.querySelector("#appointment-date");
+      if (input) {
+        input.classList.remove("usa-input--error", "usa-input--success");
+        if (args.error) {
+          input.classList.add("usa-input--error");
+        } else if (args.success) {
+          input.classList.add("usa-input--success");
+        }
+      }
+    }, [args.error, args.success]);
+
+    return DatePicker(args);
+  },
 } satisfies Meta<DatePickerProps>;
 
 export default meta;
@@ -26,5 +40,7 @@ type Story = StoryObj;
 export const Default: Story = {
   args: {
     required: false,
+    error: false,
+    success: false,
   },
 };
