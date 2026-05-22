@@ -5,9 +5,15 @@ export interface FileComponentProps {
   multipleFiles: boolean;
   fileTypes: string;
   required: boolean;
+  helperText: boolean;
 }
 
-export const FileComponent = ({ error = false, fileTypes, required }: FileComponentProps) => {
+export const FileComponent = ({
+  error = false,
+  fileTypes,
+  required,
+  helperText,
+}: FileComponentProps) => {
   const errorMsg = error
     ? html`<span class="usa-error-message" id="file-error" role="alert"
         >Display a helpful error message</span
@@ -25,8 +31,7 @@ export const FileComponent = ({ error = false, fileTypes, required }: FileCompon
         <label class="usa-label ${errorLabelClasses}" for="file">
           File input label ${requiredHtml}
         </label>
-        <div class="usa-hint" id="file-hint">Select any valid file</div>
-
+        ${helperText ? html`<div id="file-hint" class="usa-hint">Select any valid file</div>` : ""}
         ${errorMsg}
         <input
           class="usa-file-input"

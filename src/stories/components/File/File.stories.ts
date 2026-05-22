@@ -26,7 +26,8 @@ type Story = StoryObj<FileComponentProps>;
 export const Default: Story = {
   args: {
     fileTypes: ".pdf,.txt,.doc,.docx,.jpg,.png,.gif",
-    error: false,
     required: false,
+    error: false,
+    helperText: true,
   },
 };

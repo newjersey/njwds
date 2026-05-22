@@ -21,14 +21,12 @@ const meta = {
     useEffect(() => {
       const input = document.querySelector("#appointment-date");
       if (input) {
-        input.classList.remove("usa-input--error", "usa-input--success");
+        input.classList.remove("usa-input--error");
         if (args.error) {
           input.classList.add("usa-input--error");
-        } else if (args.success) {
-          input.classList.add("usa-input--success");
         }
       }
-    }, [args.error, args.success]);
+    }, [args.error]);
 
     return DatePicker(args);
   },
@@ -41,5 +39,6 @@ export const Default: Story = {
   args: {
     required: false,
     error: false,
+    helperText: true,
   },
 };
