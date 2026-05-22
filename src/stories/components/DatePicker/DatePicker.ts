@@ -3,11 +3,11 @@ import { html } from "lit";
 export interface DatePickerProps {
   required: boolean;
   error: boolean;
-  success: boolean;
+  helperText: boolean;
 }
 
-export const DatePicker = ({ required, error, success }: DatePickerProps) => {
-  const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
+export const DatePicker = ({ required, error, helperText }: DatePickerProps) => {
+  const classes = error ? "usa-input--error" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const requiredHtml = required
@@ -20,7 +20,7 @@ export const DatePicker = ({ required, error, success }: DatePickerProps) => {
         <label class="usa-label ${classesLabel}" id="appointment-date-label" for="appointment-date"
           >Appointment date ${requiredHtml}</label
         >
-        <div class="usa-hint" id="appointment-date-hint">mm/dd/yyyy</div>
+        ${helperText ? html`<div id="appointment-date-hint" class="usa-hint">mm/dd/yyyy</div>` : ""}
 
         <div class="usa-date-picker">
           <input

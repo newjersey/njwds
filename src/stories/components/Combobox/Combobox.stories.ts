@@ -28,5 +28,6 @@ export const Default: Story = {
     defaultValue: "2",
     required: false,
     error: false,
+    helperText: false,
   },
 };

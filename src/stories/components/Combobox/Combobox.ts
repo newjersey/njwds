@@ -5,9 +5,16 @@ export interface ComboboxProps {
   defaultValue: string;
   required: boolean;
   error: boolean;
+  helperText: boolean;
 }
 
-export const ComboboxComponent = ({ label, defaultValue, required, error }: ComboboxProps) => {
+export const ComboboxComponent = ({
+  label,
+  defaultValue,
+  required,
+  error,
+  helperText,
+}: ComboboxProps) => {
   const requiredHtml = required
     ? html`<abbr title="required" class="usa-label--required">*</abbr>`
     : "";
@@ -17,6 +24,7 @@ export const ComboboxComponent = ({ label, defaultValue, required, error }: Comb
       <label class="usa-label ${error ? "usa-label--error" : ""}" for="nj-options"
         >${label} ${requiredHtml}</label
       >
+      ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
       <div class="usa-combo-box" data-default-value="${defaultValue}">
         <select class="usa-select" name="options" id="nj-options">
           <option value="" disabled>Select an option</option>
