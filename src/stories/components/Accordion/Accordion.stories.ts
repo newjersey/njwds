@@ -20,11 +20,13 @@ type Story = StoryObj<AccordionProps>;
 export const Default: Story = {
   args: {
     bordered: false,
+    allowMultiple: false,
   },
 };
 
 export const Bordered: Story = {
   args: {
     bordered: true,
+    allowMultiple: false,
   },
 };

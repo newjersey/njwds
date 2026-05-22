@@ -4,6 +4,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 export interface AccordionProps {
   bordered: boolean;
   toggleValue?: string;
+  allowMultiple: boolean;
 }
 
 const items = [
@@ -27,7 +28,7 @@ const items = [
   },
 ];
 
-export const Accordion = ({ bordered, toggleValue }: AccordionProps) => {
+export const Accordion = ({ bordered, toggleValue, allowMultiple }: AccordionProps) => {
   const classes = ["usa-accordion", bordered && "usa-accordion--bordered"]
     .filter(Boolean)
     .join(" ");
@@ -37,7 +38,7 @@ export const Accordion = ({ bordered, toggleValue }: AccordionProps) => {
   const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
 
   return html`
-    <div class=${classes}>
+    <div ?data-allow-multiple=${allowMultiple} class=${classes}>
       ${items.map(
         (item) => html`
           <h2 class="usa-accordion__heading">
