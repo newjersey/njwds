@@ -10,24 +10,28 @@ export const Date = ({ required }: DateProps) => {
     : "";
 
   return html`
-    <form class="usa-form">
+    <form class="usa-form maxw-none">
       <fieldset class="usa-fieldset">
         <legend class="usa-legend">Date of birth ${requiredHtml}</legend>
         <span class="usa-hint" id="dobHint">For example: 4 28 1986</span>
         <div class="usa-memorable-date">
           <div class="usa-form-group usa-form-group--month">
-            <label class="usa-label" for="date_of_birth_1">Month</label>
-            <input
-              class="usa-input usa-input--inline"
-              aria-describedby="dobHint"
-              id="date_of_birth_1"
-              name="date_of_birth_1"
-              type="text"
-              maxlength="2"
-              pattern="[0-9]*"
-              inputmode="numeric"
-              value=""
-            />
+            <label class="usa-label" for="month">Month</label>
+            <select class="usa-select" name="options" id="month" aria-describedby="dobHint">
+              <option value="" selected disabled>Choose an option</option>
+              <option value="value1">January</option>
+              <option value="value2">February</option>
+              <option value="value3">March</option>
+              <option value="value4">April</option>
+              <option value="value5">May</option>
+              <option value="value6">June</option>
+              <option value="value7">July</option>
+              <option value="value8">August</option>
+              <option value="value9">September</option>
+              <option value="value10">October</option>
+              <option value="value11">November</option>
+              <option value="value12">December</option>
+            </select>
           </div>
           <div class="usa-form-group usa-form-group--day">
             <label class="usa-label" for="date_of_birth_2">Day</label>
