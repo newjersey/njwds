@@ -1,14 +1,13 @@
-import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-
-import { Signin } from "./Signin";
+import { useEffect } from "storybook/internal/preview-api";
+import { Signin, type SigninProps } from "./Signin";
 // @ts-expect-error - no types for uswds subpath
 import passwordToggle from "@uswds/uswds/js/_usa-password";
 
 const meta = {
-  title: "Patterns/Sign in form",
+  title: "Patterns/Sign in",
   tags: ["autodocs"],
-  render: Signin,
+  render: (args) => Signin(args),
   decorators: [
     (story) => {
       useEffect(() => {
@@ -18,9 +17,15 @@ const meta = {
       return story();
     },
   ],
-} satisfies Meta;
+} satisfies Meta<SigninProps>;
 
 export default meta;
 type Story = StoryObj;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    required: false,
+    helperText: false,
+    error: false,
+  },
+};

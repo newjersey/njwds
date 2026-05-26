@@ -1,5 +1,4 @@
 import { html } from "lit";
-import { ifDefined } from "lit/directives/if-defined.js";
 export interface NameProps {
   error: boolean;
   required: boolean;
@@ -10,9 +9,6 @@ export const Name = ({ error, required, helperText }: NameProps) => {
   const errorFormClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "usa-input--error" : "";
   const errorLabelClass = error ? "usa-label--error margin-top-3" : "";
-
-  // Helper to create aria-describedby values conditionally
-  const errorAriaDescribedBy = (errorId: string) => ifDefined(error ? errorId : undefined);
 
   const errorMessage = (errorId: string, message: string) => html`
     <div class="nj-error-message-container">
