@@ -29,7 +29,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
               class="usa-select ${classes}"
               name="options"
               id="month"
-              aria-describedby="dobHint"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
+                ? "group-error-message"
+                : undefined}"
             >
               <option value="" selected disabled>Choose an option</option>
               <option value="value1">January</option>
@@ -50,7 +52,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
             <label class="usa-label" for="date_of_birth_2">Day</label>
             <input
               class="usa-input usa-input--inline ${classes}"
-              aria-describedby="dobHint"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
+                ? "group-error-message"
+                : undefined}"
               id="date_of_birth_2"
               name="date_of_birth_2"
               type="text"
@@ -64,7 +68,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
             <label class="usa-label" for="date_of_birth_3">Year</label>
             <input
               class="usa-input usa-input--inline ${classes}"
-              aria-describedby="dobHint"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
+                ? "group-error-message"
+                : undefined}"
               id="date_of_birth_3"
               name="date_of_birth_3"
               type="text"

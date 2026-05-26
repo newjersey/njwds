@@ -1,14 +1,13 @@
-import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-
-import { Password } from "./Password";
+import { useEffect } from "storybook/internal/preview-api";
+import { Password, type PasswordProps } from "./Password";
 // @ts-expect-error - no types for uswds subpath
 import passwordToggle from "@uswds/uswds/js/_usa-password";
 
 const meta = {
   title: "Patterns/Password reset",
   tags: ["autodocs"],
-  render: Password,
+  render: (args) => Password(args),
   decorators: [
     (story) => {
       useEffect(() => {
@@ -18,9 +17,15 @@ const meta = {
       return story();
     },
   ],
-} satisfies Meta;
+} satisfies Meta<PasswordProps>;
 
 export default meta;
 type Story = StoryObj;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    required: false,
+    helperText: false,
+    error: false,
+  },
+};

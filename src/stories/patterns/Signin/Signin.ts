@@ -1,15 +1,40 @@
 import { html } from "lit";
+export interface SigninProps {
+  error: boolean;
+  required: boolean;
+  helperText: boolean;
+}
 
-export const Signin = () => {
+export const Signin = ({ error, required, helperText }: SigninProps) => {
+  const errorFormClass = error ? "usa-form-group--error" : "";
+  const errorInputClass = error ? "usa-input--error" : "";
+  const errorLabelClass = error ? "usa-label--error margin-top-3" : "";
+
+  const errorMessage = (errorId: string, message: string) => html`
+    <div class="nj-error-message-container">
+      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
+        <use xlink:href="./public/dist/img/sprite.svg#error"></use>
+      </svg>
+      <span class="usa-error-message" id="${errorId}" role="alert">${message}</span>
+    </div>
+  `;
+
   return html`
-    <form class="usa-form">
+    <form class="usa-form ${errorFormClass}">
       <fieldset class="usa-fieldset">
         <legend class="usa-legend font-heading-xl text-bold">Sign in</legend>
         <span>or <a href="#!">create an account</a></span>
 
-        <label class="usa-label" for="username">Username or email address</label>
+        <label class="usa-label ${errorLabelClass}" for="username">
+          Username or email address
+          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+        </label>
+        ${helperText ? html`<div id="hint-0" class="usa-hint">Helper text</div>` : ""}
         <input
-          class="usa-input"
+          class="usa-input ${errorInputClass}"
+          aria-describedby="${helperText ? "hint-0" : undefined} ${error
+            ? "input-error-0"
+            : undefined}"
           id="username"
           name="username"
           type="text"
@@ -17,8 +42,25 @@ export const Signin = () => {
           autocorrect="off"
         />
 
-        <label class="usa-label" for="password-sign-in">Password</label>
-        <input class="usa-input" id="password-sign-in" name="password" type="password" />
+        ${error ? errorMessage("input-error-0", "Helpful error message") : ""}
+
+        <label class="usa-label ${errorLabelClass}" for="password-sign-in">
+          Password
+          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+        </label>
+        ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
+        <input
+          class="usa-input ${errorInputClass}"
+          aria-describedby="${helperText ? "hint-1" : undefined} ${error
+            ? "input-error-1"
+            : undefined}"
+          id="password-sign-in"
+          name="password"
+          type="password"
+        />
+
+        ${error ? errorMessage("input-error-1", "Helpful error message") : ""}
+
         <p class="usa-form__note">
           <button
             type="button"
