@@ -5,7 +5,7 @@ import { Signin, type SigninProps } from "./Signin";
 import passwordToggle from "@uswds/uswds/js/_usa-password";
 
 const meta = {
-  title: "Patterns/Sign in",
+  title: "Patterns/Sign in form",
   tags: ["autodocs"],
   render: (args) => Signin(args),
   decorators: [
