@@ -36,6 +36,7 @@ export const Default: Story = {
   args: {
     label: "Appointment time",
     required: false,
+    helperText: true,
     error: false,
   },
 };

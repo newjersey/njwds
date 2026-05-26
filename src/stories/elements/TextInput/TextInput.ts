@@ -10,22 +10,21 @@ export interface InputProps {
 }
 
 export const Input = ({ label, error, success, required, helperText, width }: InputProps) => {
-  const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
+  const inputClasses = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const widthClass = `usa-input--${width}`;
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
+
   return html`
     <div class="grid-container">
       <form class="usa-form maxw-none ${errorGroupClass}">
         <label class="usa-label ${classesLabel}" for="input-type-text">
-          ${label} ${requiredHtml}
+          ${label}
+          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
         </label>
         ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
         <input
-          class="usa-input ${classes} ${widthClass}"
+          class="usa-input ${inputClasses} ${widthClass}"
           id="input-type-text"
           name="input-type-text"
           type="text"

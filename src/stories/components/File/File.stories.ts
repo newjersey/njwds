@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     fileTypes: ".pdf,.txt,.doc,.docx,.jpg,.png,.gif",
     required: false,
-    error: false,
     helperText: true,
+    error: false,
   },
 };
