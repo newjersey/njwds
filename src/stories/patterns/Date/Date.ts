@@ -1,5 +1,4 @@
 import { html } from "lit";
-import { ifDefined } from "lit/directives/if-defined.js";
 
 export interface DateProps {
   required: boolean;
