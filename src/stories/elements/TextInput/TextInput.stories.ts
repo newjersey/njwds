@@ -33,8 +33,8 @@ type Story = StoryObj<InputProps>;
 export const Default: Story = {
   args: {
     label: "Input label",
-    helperText: false,
     required: false,
+    helperText: true,
     error: false,
     width: "xl",
   },

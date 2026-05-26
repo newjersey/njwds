@@ -5,9 +5,10 @@ export interface TimePickerProps {
   error: boolean;
   label: string;
   success: boolean;
+  helperText: boolean;
 }
 
-export const TimePicker = ({ required, error, label }: TimePickerProps) => {
+export const TimePicker = ({ required, error, label, helperText }: TimePickerProps) => {
   const classes = error ? "usa-input--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
 
@@ -21,7 +22,7 @@ export const TimePicker = ({ required, error, label }: TimePickerProps) => {
         <label class="usa-label" id="appointment-time-label" for="appointment-time"
           >${label} ${requiredHtml}</label
         >
-        <div class="usa-hint" id="appointment-time-hint">hh:mm</div>
+        ${helperText ? html`<div id="appointment-time-hint" class="usa-hint">hh:mm</div>` : ""}
         <div class="usa-time-picker">
           <input
             class="usa-input ${classes}"

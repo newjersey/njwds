@@ -15,6 +15,7 @@ type Story = StoryObj;
 export const Default: Story = {
   args: {
     required: false,
+    helperText: true,
     error: false,
   },
 };

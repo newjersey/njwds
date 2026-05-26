@@ -1,6 +1,5 @@
 /* Some iframes are too short so we need to make them larger */
 #story--components-date-picker--default--primary-inner,
-#story--patterns-time-picker--default--primary-inner,
 #story--components-date-range-picker--default--primary-inner {
   min-height: 450px;
 }
@@ -9,6 +8,7 @@
 #story--components-header--default--primary,
 #story--components-header--default,
 #story--components-header--extended,
+#story--patterns-time-picker--default--primary-inner,
 #story--elements-textarea--default--primary-inner {
   min-height: 275px;
 }

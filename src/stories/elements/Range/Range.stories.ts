@@ -30,6 +30,9 @@ type Story = StoryObj<RangeProps>;
 export const Default: Story = {
   args: {
     label: "Range slider label",
+    required: false,
+    helperText: true,
+    error: false,
     min: 0,
     max: 100,
     step: 1,

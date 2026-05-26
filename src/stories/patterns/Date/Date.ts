@@ -4,9 +4,10 @@ export interface DateProps {
   required: boolean;
   error: boolean;
   success: boolean;
+  helperText: boolean;
 }
 
-export const Date = ({ required, error, success }: DateProps) => {
+export const Date = ({ required, error, success, helperText }: DateProps) => {
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
 
@@ -18,7 +19,9 @@ export const Date = ({ required, error, success }: DateProps) => {
     <form class="usa-form maxw-none ${errorGroupClass}">
       <fieldset class="usa-fieldset">
         <legend class="usa-legend">Date of birth ${requiredHtml}</legend>
-        <span class="usa-hint" id="dobHint">For example: 4 28 1986</span>
+        ${helperText
+          ? html`<div id="with-hint-input-hint" class="usa-hint">Example: April 28 1986</div>`
+          : ""}
         <div class="usa-memorable-date">
           <div class="usa-form-group usa-form-group--month">
             <label class="usa-label" for="month">Month</label>
