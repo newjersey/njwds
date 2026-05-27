@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface RadioProps {
   tile: boolean;
@@ -13,9 +15,6 @@ export const Radio = ({ tile = false, label, error, helperText, required }: Radi
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "nj-radio--error" : "";
   const errorLabelClass = error ? "usa-label--error" : "";
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
 
   const classes = tile ? "usa-radio__input usa-radio__input--tile" : "usa-radio__input";
   const tileLabel = tile
@@ -63,23 +62,16 @@ export const Radio = ({ tile = false, label, error, helperText, required }: Radi
       <form class="usa-form">
         <div class="usa-form-group ${errorGroupClass}">
           <fieldset class="usa-fieldset">
-            <legend class="usa-legend ${errorLabelClass}">Select one option ${requiredHtml}</legend>
+            <legend class="usa-legend ${errorLabelClass}">
+              Select one option ${renderRequired(required)}
+            </legend>
             ${helperText
               ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
               : ""}
             ${content}
           </fieldset>
 
-          ${error
-            ? html` <div class="nj-error-message-container">
-                <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                  <use xlink:href="./img/sprite.svg#error"></use>
-                </svg>
-                <span class="usa-error-message" id="input-error-message" role="alert"
-                  >Helpful error message</span
-                >
-              </div>`
-            : ""}
+          ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
         </div>
       </form>
     </div>

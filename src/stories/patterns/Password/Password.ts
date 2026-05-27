@@ -1,4 +1,7 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
+
 export interface PasswordProps {
   error: boolean;
   required: boolean;
@@ -9,15 +12,6 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
   const errorFormClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "usa-input--error" : "";
   const errorLabelClass = error ? "usa-label--error margin-top-3" : "";
-
-  const errorMessage = (errorId: string, message: string) => html`
-    <div class="nj-error-message-container">
-      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-        <use xlink:href="./img/sprite.svg#error"></use>
-      </svg>
-      <span class="usa-error-message" id="${errorId}" role="alert">${message}</span>
-    </div>
-  `;
 
   return html`
     <form class="usa-form usa-form--large ${errorFormClass}">
@@ -33,8 +27,7 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
         </div>
 
         <label class="usa-label ${errorLabelClass}" for="password-reset">
-          New password
-          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+          New password ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="hint-0" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -46,11 +39,10 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
           name="password"
           type="password"
         />
-        ${error ? errorMessage("input-error-0", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-0", "Helpful error message") : ""}
 
         <label class="usa-label ${errorLabelClass}" for="confirmPassword">
-          Confirm password
-          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+          Confirm password ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -63,7 +55,7 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
           type="password"
         />
 
-        ${error ? errorMessage("input-error-1", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-1", "Helpful error message") : ""}
 
         <p class="usa-form__note">
           <button

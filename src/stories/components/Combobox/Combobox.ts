@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface ComboboxProps {
   label: string;
@@ -15,14 +17,10 @@ export const ComboboxComponent = ({
   error,
   helperText,
 }: ComboboxProps) => {
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
-
   return html`
     <form class="usa-form ${error ? "usa-form-group--error" : ""}">
       <label class="usa-label ${error ? "usa-label--error" : ""}" for="nj-options"
-        >${label} ${requiredHtml}</label
+        >${label} ${renderRequired(required)}</label
       >
       ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
       <div class="usa-combo-box" data-default-value="${defaultValue}">
@@ -34,16 +32,7 @@ export const ComboboxComponent = ({
           <option value="4">Option 4</option>
         </select>
       </div>
-      ${error
-        ? html` <div class="nj-error-message-container">
-            <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-              <use xlink:href="./img/sprite.svg#error"></use>
-            </svg>
-            <span class="usa-error-message" id="nj-input-error-message" role="alert"
-              >Helpful error message</span
-            >
-          </div>`
-        : ""}
+      ${error ? renderErrorMessage("nj-input-error-message", "Helpful error message") : ""}
     </form>
   `;
 };

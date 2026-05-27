@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface DateProps {
   required: boolean;
@@ -11,14 +13,10 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
   const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
 
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
-
   return html`
     <form class="usa-form maxw-none ${errorGroupClass}">
       <fieldset class="usa-fieldset">
-        <legend class="usa-legend">Date of birth ${requiredHtml}</legend>
+        <legend class="usa-legend">Date of birth ${renderRequired(required)}</legend>
         ${helperText
           ? html`<div id="with-hint-input-hint" class="usa-hint">Example: April 28 1986</div>`
           : ""}
@@ -82,16 +80,7 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
             />
           </div>
         </div>
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="group-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("group-error-message", "Helpful error message") : ""}
       </fieldset>
     </form>
   `;

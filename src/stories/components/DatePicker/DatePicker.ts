@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface DatePickerProps {
   required: boolean;
@@ -10,15 +12,12 @@ export const DatePicker = ({ required, error, helperText }: DatePickerProps) => 
   const classes = error ? "usa-input--error" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
 
   return html`
     <form class="usa-form ${errorGroupClass}">
       <div class="usa-form-group">
         <label class="usa-label ${classesLabel}" id="appointment-date-label" for="appointment-date"
-          >Appointment date ${requiredHtml}</label
+          >Appointment date ${renderRequired(required)}</label
         >
         ${helperText ? html`<div id="appointment-date-hint" class="usa-hint">mm/dd/yyyy</div>` : ""}
 
@@ -32,16 +31,7 @@ export const DatePicker = ({ required, error, helperText }: DatePickerProps) => 
           />
         </div>
 
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="input-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
       </div>
     </form>
   `;

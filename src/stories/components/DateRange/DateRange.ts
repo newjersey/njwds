@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface DateRangeProps {
   class: string;
@@ -12,10 +14,6 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
 
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
-
   return html`
     <form class="usa-form ${className} ${errorGroupClass}">
       <div class="usa-date-range-picker">
@@ -24,7 +22,7 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
             class="usa-label ${classesLabel}"
             id="event-date-start-label"
             for="event-date-start"
-            >Event start date ${requiredHtml}</label
+            >Event start date ${renderRequired(required)}</label
           >
           ${helperText
             ? html`<div id="event-date-start-hint" class="usa-hint">mm/dd/yyyy</div>`
@@ -39,21 +37,12 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
             />
           </div>
 
-          ${error
-            ? html` <div class="nj-error-message-container">
-                <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                  <use xlink:href="./img/sprite.svg#error"></use>
-                </svg>
-                <span class="usa-error-message" id="input-error-message" role="alert"
-                  >Helpful error message</span
-                >
-              </div>`
-            : ""}
+          ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
         </div>
 
         <div class="usa-form-group">
           <label class="usa-label ${classesLabel}" id="event-date-end-label" for="event-date-end"
-            >Event end date ${requiredHtml}</label
+            >Event end date ${renderRequired(required)}</label
           >
           ${helperText ? html`<div id="event-date-end-hint" class="usa-hint">mm/dd/yyyy</div>` : ""}
           <div class="usa-date-picker">
@@ -66,16 +55,7 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
             />
           </div>
         </div>
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="input2-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("input2-error-message", "Helpful error message") : ""}
       </div>
     </form>
   `;

@@ -1,4 +1,7 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
+
 export interface NameProps {
   error: boolean;
   required: boolean;
@@ -9,15 +12,6 @@ export const Name = ({ error, required, helperText }: NameProps) => {
   const errorFormClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "usa-input--error" : "";
   const errorLabelClass = error ? "usa-label--error margin-top-3" : "";
-
-  const errorMessage = (errorId: string, message: string) => html`
-    <div class="nj-error-message-container">
-      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-        <use xlink:href="./img/sprite.svg#error"></use>
-      </svg>
-      <span class="usa-error-message" id="${errorId}" role="alert">${message}</span>
-    </div>
-  `;
 
   return html`
     <form class="usa-form ${errorFormClass}">
@@ -31,9 +25,7 @@ export const Name = ({ error, required, helperText }: NameProps) => {
           for="title"
         >
           Title
-          ${required
-            ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-            : html`<span class="usa-hint">(optional)</span>`}
+          ${required ? renderRequired(required) : html`<span class="usa-hint">(optional)</span>`}
         </label>
         ${helperText ? html`<div id="hint-0" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -42,13 +34,11 @@ export const Name = ({ error, required, helperText }: NameProps) => {
           name="title"
           type="text"
         />
-        ${error ? errorMessage("input-error-0", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-0", "Helpful error message") : ""}
 
         <label class="usa-label ${errorLabelClass}" for="first-name">
           First name
-          ${required
-            ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-            : html`<span class="usa-hint">(optional)</span>`}
+          ${required ? renderRequired(required) : html`<span class="usa-hint">(optional)</span>`}
         </label>
         ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -63,13 +53,11 @@ export const Name = ({ error, required, helperText }: NameProps) => {
           aria-required="true"
         />
 
-        ${error ? errorMessage("input-error-1", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-1", "Helpful error message") : ""}
 
         <label class="usa-label ${errorLabelClass}" for="middle-name">
           Middle name
-          ${required
-            ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-            : html`<span class="usa-hint">(optional)</span>`}
+          ${required ? renderRequired(required) : html`<span class="usa-hint">(optional)</span>`}
         </label>
         ${helperText ? html`<div id="hint-2" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -82,13 +70,11 @@ export const Name = ({ error, required, helperText }: NameProps) => {
           type="text"
         />
 
-        ${error ? errorMessage("input-error-2", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-2", "Helpful error message") : ""}
 
         <label class="usa-label ${errorLabelClass}" for="last-name">
           Last name
-          ${required
-            ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-            : html`<span class="usa-hint">(optional)</span>`}
+          ${required ? renderRequired(required) : html`<span class="usa-hint">(optional)</span>`}
         </label>
         ${helperText ? html`<div id="hint-3" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -102,7 +88,7 @@ export const Name = ({ error, required, helperText }: NameProps) => {
           required
           aria-required="true"
         />
-        ${error ? errorMessage("input-error-3", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-3", "Helpful error message") : ""}
       </fieldset>
     </form>
   `;

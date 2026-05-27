@@ -1,5 +1,7 @@
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface AddressProps {
   error: boolean;
@@ -15,22 +17,12 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
   // Helper to create aria-describedby values conditionally
   const errorAriaDescribedBy = (errorId: string) => ifDefined(error ? errorId : undefined);
 
-  const errorMessage = (errorId: string, message: string) => html`
-    <div class="nj-error-message-container">
-      <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-        <use xlink:href="./img/sprite.svg#error"></use>
-      </svg>
-      <span class="usa-error-message" id="${errorId}" role="alert">${message}</span>
-    </div>
-  `;
-
   return html`
     <form class="usa-form usa-form--large ${errorFormClass}">
       <fieldset class="usa-fieldset">
         <legend class="usa-legend font-heading-xl text-bold">Mailing address</legend>
         <label class="usa-label ${errorLabelClass}" for="mailing-address-1">
-          Street address 1
-          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+          Street address 1 ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="hint-street" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -41,13 +33,11 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
           type="text"
         />
 
-        ${error ? errorMessage("input-error-1", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-1", "Helpful error message") : ""}
 
         <label class="usa-label ${errorLabelClass}" for="mailing-address-2">
           Street address 2
-          ${required
-            ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-            : html`<span class="usa-hint">(optional)</span>`}
+          ${required ? renderRequired(required) : html`<span class="usa-hint">(optional)</span>`}
         </label>
         ${helperText ? html`<div id="hint-street-2" class="usa-hint">Helper text</div>` : ""}
 
@@ -59,13 +49,12 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
           type="text"
         />
 
-        ${error ? errorMessage("input-error-2", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-2", "Helpful error message") : ""}
 
         <div class="grid-row grid-gap">
           <div class="mobile-lg:grid-col-8">
             <label class="usa-label ${errorLabelClass}" for="city">
-              City
-              ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+              City ${renderRequired(required)}
             </label>
             ${helperText ? html`<div id="hint-city" class="usa-hint">Helper text</div>` : ""}
             <input
@@ -76,12 +65,11 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
               type="text"
             />
 
-            ${error ? errorMessage("input-error-3", "Helpful error message") : ""}
+            ${error ? renderErrorMessage("input-error-3", "Helpful error message") : ""}
           </div>
           <div class="mobile-lg:grid-col-4">
             <label class="usa-label ${errorLabelClass}" for="state">
-              State
-              ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+              State ${renderRequired(required)}
             </label>
             ${helperText ? html`<div id="hint-state" class="usa-hint">NJ</div>` : ""}
             <select
@@ -97,12 +85,12 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
               <option value="AR">Arkansas</option>
             </select>
 
-            ${error ? errorMessage("input-error-4", "Helpful error message") : ""}
+            ${error ? renderErrorMessage("input-error-4", "Helpful error message") : ""}
           </div>
         </div>
 
         <label class="usa-label ${errorLabelClass}" for="zip">
-          ZIP ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+          ZIP ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="hint-street" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -114,7 +102,7 @@ export const Address = ({ error, required, helperText }: AddressProps) => {
           pattern="[0-9]{5}(-[0-9]{4})?"
         />
 
-        ${error ? errorMessage("input-error-5", "Helpful error message") : ""}
+        ${error ? renderErrorMessage("input-error-5", "Helpful error message") : ""}
       </fieldset>
     </form>
   `;
