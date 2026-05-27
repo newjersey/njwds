@@ -18,7 +18,7 @@ export const Icon = ({ size = 1 }: IconProps) => {
   };
 
   return html`
-    <svg class="usa-icon ${iconSizeClasses[size]}" focusable="false" aria-hidden="true" role="img">
+    <svg class="usa-icon ${iconSizeClasses[size]}" aria-hidden="true" focusable="false" role="img">
       <use xlink:href="./img/sprite.svg#accessibility_new"></use>
     </svg>
   `;

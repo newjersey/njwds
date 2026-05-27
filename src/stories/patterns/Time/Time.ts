@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface TimePickerProps {
   required: boolean;
@@ -12,15 +14,11 @@ export const TimePicker = ({ required, error, label, helperText }: TimePickerPro
   const classes = error ? "usa-input--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
 
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
-
   return html`
     <form class="usa-form">
       <div class="usa-form-group ${errorGroupClass}">
         <label class="usa-label" id="appointment-time-label" for="appointment-time"
-          >${label} ${requiredHtml}</label
+          >${label} ${renderRequired(required)}</label
         >
         ${helperText ? html`<div id="appointment-time-hint" class="usa-hint">hh:mm</div>` : ""}
         <div class="usa-time-picker">
@@ -32,16 +30,7 @@ export const TimePicker = ({ required, error, label, helperText }: TimePickerPro
             aria-describedby="appointment-time-label appointment-time-hint"
           />
         </div>
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="group-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("group-error-message", "Helpful error message") : ""}
       </div>
     </form>
   `;

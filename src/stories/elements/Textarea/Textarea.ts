@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface TextareaProps {
   label: string;
@@ -33,12 +35,8 @@ export const Textarea = ({
     .filter(Boolean)
     .join(" ");
 
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
-
   const coreFieldHtml = html` <label class="usa-label ${classesLabel}" for="input-type-text">
-      ${label} ${requiredHtml}
+      ${label} ${renderRequired(required)}
     </label>
     ${helperText
       ? html`<span id="with-hint-textarea-hint" class="usa-hint">Helper text</span>`
@@ -53,14 +51,7 @@ export const Textarea = ({
     </textarea>`;
 
   const secondaryFieldHtml = html` ${error
-    ? html` <div class="nj-error-message-container">
-        <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-          <use xlink:href="./img/sprite.svg#error"></use>
-        </svg>
-        <span class="usa-error-message" id="input-error-message" role="alert">
-          Helpful error message
-        </span>
-      </div>`
+    ? renderErrorMessage("input-error-message", "Helpful error message")
     : ""}`;
 
   return html`

@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface SelectProps {
   label: string;
@@ -11,14 +13,13 @@ export const Select = ({ label, error, required, helperText }: SelectProps) => {
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const errorLabelClass = error ? "usa-label--error" : "";
   const errorInputClass = error ? "usa-input--error" : "";
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
 
   return html`
     <div class="grid-container">
       <form class="usa-form ${errorGroupClass}">
-        <label class="usa-label ${errorLabelClass}" for="options">${label} ${requiredHtml}</label>
+        <label class="usa-label ${errorLabelClass}" for="options"
+          >${label} ${renderRequired(required)}</label
+        >
         ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
         <select class="usa-select ${errorInputClass}" name="options" id="options">
           <option value="" selected disabled>Choose an option</option>
@@ -27,16 +28,7 @@ export const Select = ({ label, error, required, helperText }: SelectProps) => {
           <option value="value3">Option C</option>
         </select>
 
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="input-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
       </form>
     </div>
   `;

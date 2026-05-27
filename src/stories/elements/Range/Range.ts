@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface RangeProps {
   label: string;
@@ -28,8 +30,7 @@ export const Range = ({
   return html`
     <form class="usa-form ${errorFormClass}">
       <label class="usa-label ${errorLabelClass}" for="range-slider">
-        ${label}
-        ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+        ${label} ${renderRequired(required)}
       </label>
       ${helperText ? html`<div id="with-hint-range-hint" class="usa-hint">Example: 50</div>` : ""}
       <input
@@ -42,16 +43,7 @@ export const Range = ({
         value="${value}"
       />
 
-      ${error
-        ? html` <div class="nj-error-message-container">
-            <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-              <use xlink:href="./img/sprite.svg#error"></use>
-            </svg>
-            <span class="usa-error-message" id="input-error-message" role="alert"
-              >Helpful error message</span
-            >
-          </div>`
-        : ""}
+      ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
     </form>
   `;
 };

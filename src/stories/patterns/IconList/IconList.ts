@@ -23,7 +23,7 @@ export const IconList = ({ richContent, size }: IconListProps) => {
         () => html`
           <li class="usa-icon-list__item">
             <div class="usa-icon-list__icon">
-              <svg class="usa-icon" aria-hidden="true" role="img">
+              <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
                 <use href="./img/sprite.svg#arrow_forward"></use>
               </svg>
             </div>

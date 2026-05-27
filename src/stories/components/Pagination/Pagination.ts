@@ -38,7 +38,7 @@ export const PaginationComponent = ({ unbounded }: PaginationComponentProps) => 
             class="usa-pagination__link usa-pagination__previous-page"
             aria-label="Previous page"
           >
-            <svg class="usa-icon" aria-hidden="true" role="img">
+            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
               <use href="./img/sprite.svg#navigate_before"></use>
             </svg>
             <span class="usa-pagination__link-text">Previous</span></a
@@ -76,7 +76,7 @@ export const PaginationComponent = ({ unbounded }: PaginationComponentProps) => 
             aria-label="Next page"
           >
             <span class="usa-pagination__link-text">Next</span>
-            <svg class="usa-icon" aria-hidden="true" role="img">
+            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
               <use href="./img/sprite.svg#navigate_next"></use>
             </svg>
           </a>

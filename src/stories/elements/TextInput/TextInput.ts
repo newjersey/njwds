@@ -1,4 +1,6 @@
 import { html } from "lit";
+import { renderErrorMessage } from "../../../utils/errorMessage";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface InputProps {
   label: string;
@@ -19,8 +21,7 @@ export const Input = ({ label, error, success, required, helperText, width }: In
     <div class="grid-container">
       <form class="usa-form maxw-none ${errorGroupClass}">
         <label class="usa-label ${classesLabel}" for="input-type-text">
-          ${label}
-          ${required ? html`<abbr title="required" class="usa-label--required">*</abbr>` : ""}
+          ${label} ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>` : ""}
         <input
@@ -30,16 +31,7 @@ export const Input = ({ label, error, success, required, helperText, width }: In
           type="text"
         />
 
-        ${error
-          ? html` <div class="nj-error-message-container">
-              <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span class="usa-error-message" id="input-error-message" role="alert"
-                >Helpful error message</span
-              >
-            </div>`
-          : ""}
+        ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
       </form>
     </div>
   `;

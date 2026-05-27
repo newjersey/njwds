@@ -1,4 +1,5 @@
 import { html, nothing } from "lit";
+import { renderRequired } from "../../../utils/requiredIndicator";
 
 export interface FileComponentProps {
   error: boolean;
@@ -21,15 +22,12 @@ export const FileComponent = ({
     : nothing;
   const errorGroupClasses = error ? `usa-form-group--error` : "";
   const errorLabelClasses = error ? `usa-label--error` : "";
-  const requiredHtml = required
-    ? html`<abbr title="required" class="usa-label--required">*</abbr>`
-    : "";
 
   return html`
     <form class="usa-form">
       <div class="usa-form-group ${errorGroupClasses}">
         <label class="usa-label ${errorLabelClasses}" for="file">
-          File input label ${requiredHtml}
+          File input label ${renderRequired(required)}
         </label>
         ${helperText ? html`<div id="file-hint" class="usa-hint">Select any valid file</div>` : ""}
         ${errorMsg}
