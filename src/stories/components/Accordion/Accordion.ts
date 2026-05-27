@@ -3,7 +3,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
 export interface AccordionProps {
   bordered: boolean;
-  toggleValue: string;
+  toggleValue?: string;
   allowMultiple: boolean;
 }
 
