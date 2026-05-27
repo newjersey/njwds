@@ -22,7 +22,6 @@ export const Alert = ({ heading, text, type, header, slim, icon }: AlertProps) =
     ]
       .filter(Boolean)
       .join(" ")}
-    class="usa-alert"
     role="alert"
   >
     <div class="usa-alert__body">
