@@ -15,6 +15,9 @@ const meta = {
     noLabels: {
       if: { arg: "centered", truthy: false },
     },
+    smallCounters: {
+      if: { arg: "counters", truthy: true },
+    },
   },
 } satisfies Meta<StepIndicatorComponentProps>;
 
