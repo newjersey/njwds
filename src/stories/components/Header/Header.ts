@@ -2,8 +2,8 @@ import { html } from "lit";
 
 export interface HeaderProps {
   variant: "Default" | "Extended";
-  megamenu?: boolean;
-  toggleValue?: string;
+  megamenu: boolean;
+  toggleValue: string;
 }
 
 export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {

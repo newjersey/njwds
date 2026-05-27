@@ -1,8 +1,11 @@
 import { html } from "lit";
 
 export interface StepIndicatorComponentProps {
-  error: boolean;
   label: string;
+  noLabels: boolean;
+  centered: boolean;
+  counters: boolean;
+  smallCounters: boolean;
 }
 
 export const StepIndicatorComponent = ({ label }: StepIndicatorComponentProps) => {

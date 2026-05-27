@@ -4,8 +4,8 @@ type ListType = "Unordered List" | "Ordered List";
 
 export interface ListProps {
   label: string;
-  unstyled?: boolean;
-  type?: ListType;
+  unstyled: boolean;
+  type: ListType;
 }
 
 export const List = ({ label, type = "Unordered List", unstyled = false }: ListProps) => {
