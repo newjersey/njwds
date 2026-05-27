@@ -42,7 +42,7 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
           ${error
             ? html` <div class="nj-error-message-container">
                 <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                  <use xlink:href="./public/dist/img/sprite.svg#error"></use>
+                  <use xlink:href="./img/sprite.svg#error"></use>
                 </svg>
                 <span class="usa-error-message" id="input-error-message" role="alert"
                   >Helpful error message</span
@@ -69,7 +69,7 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
         ${error
           ? html` <div class="nj-error-message-container">
               <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-                <use xlink:href="./public/dist/img/sprite.svg#error"></use>
+                <use xlink:href="./img/sprite.svg#error"></use>
               </svg>
               <span class="usa-error-message" id="input2-error-message" role="alert"
                 >Helpful error message</span
