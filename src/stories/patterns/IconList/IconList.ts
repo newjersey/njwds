@@ -1,51 +1,36 @@
 import { html } from "lit";
 
 export interface IconListProps {
-  richtext: boolean;
-  largeSize: boolean;
+  richContent: boolean;
+  size: "default" | "md" | "lg" | "xl" | "2xl";
 }
 
-export const IconList = ({ richtext, largeSize }: IconListProps) => {
-  const sizeClass = largeSize ? "usa-icon-list--size-lg" : "";
+export const IconList = ({ richContent, size }: IconListProps) => {
+  const sizeClass = size !== "default" ? `usa-icon-list--size-${size}` : "";
 
-  const $listItemContent = richtext
+  const listItemContent = richContent
     ? html`
-        <h4 class="usa-icon-list__title">Donate cash when possible.</h4>
-        <p>
-          Financial contributions to recognized disaster relief organizations are the fastest, most
-          flexible and most effective method of donating. Organizations on the ground know what
-          items and quantities are needed, often buy in bulk with discounts and, if possible,
-          purchase through businesses local to the disaster, which supports economic recovery.
-        </p>
+        <p class="usa-icon-list__title text-bold">Icon list item text</p>
+        <p>Item description.</p>
       `
-    : html`This is example text for an icon list item.`;
+    : html`Icon list item text`;
+
+  const items = Array(3).fill(null);
 
   return html`
     <ul class="usa-icon-list ${sizeClass}">
-      <li class="usa-icon-list__item">
-        <div class="usa-icon-list__icon text-green">
-          <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-            <use href="./img/sprite.svg#check_circle"></use>
-          </svg>
-        </div>
-        <div class="usa-icon-list__content">${$listItemContent}</div>
-      </li>
-      <li class="usa-icon-list__item">
-        <div class="usa-icon-list__icon">
-          <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-            <use href="./img/sprite.svg#thumb_up_alt"></use>
-          </svg>
-        </div>
-        <div class="usa-icon-list__content">${$listItemContent}</div>
-      </li>
-      <li class="usa-icon-list__item">
-        <div class="usa-icon-list__icon text-red">
-          <svg class="usa-icon usa-icon--size-4" aria-hidden="true" role="img">
-            <use href="./img/sprite.svg#cancel"></use>
-          </svg>
-        </div>
-        <div class="usa-icon-list__content">${$listItemContent}</div>
-      </li>
+      ${items.map(
+        () => html`
+          <li class="usa-icon-list__item">
+            <div class="usa-icon-list__icon">
+              <svg class="usa-icon" aria-hidden="true" role="img">
+                <use href="./img/sprite.svg#arrow_forward"></use>
+              </svg>
+            </div>
+            <div class="usa-icon-list__content">${listItemContent}</div>
+          </li>
+        `,
+      )}
     </ul>
   `;
 };
