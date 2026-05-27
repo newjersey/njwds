@@ -7,8 +7,12 @@ const meta = {
   tags: ["autodocs"],
   render: (args) => IconList(args),
   argTypes: {
-    richtext: {
+    richContent: {
       control: { type: "boolean" },
+    },
+    size: {
+      control: { type: "select" },
+      options: ["default", "md", "lg", "xl", "2xl"],
     },
   },
 } satisfies Meta<IconListProps>;
@@ -18,7 +22,7 @@ type Story = StoryObj<IconListProps>;
 
 export const Default: Story = {
   args: {
-    richtext: false,
-    largeSize: false,
+    richContent: false,
+    size: "default",
   },
 };
