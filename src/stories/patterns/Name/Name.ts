@@ -13,7 +13,7 @@ export const Name = ({ error, required, helperText }: NameProps) => {
   const errorMessage = (errorId: string, message: string) => html`
     <div class="nj-error-message-container">
       <svg class="usa-icon" focusable="false" aria-hidden="true" role="img">
-        <use xlink:href="./public/dist/img/sprite.svg#error"></use>
+        <use xlink:href="./img/sprite.svg#error"></use>
       </svg>
       <span class="usa-error-message" id="${errorId}" role="alert">${message}</span>
     </div>
