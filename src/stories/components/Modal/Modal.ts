@@ -3,7 +3,7 @@ import { html } from "lit";
 export interface ModalProps {
   size: "small" | "large";
   forceAction: boolean;
-  modalId?: string;
+  modalId: string;
 }
 
 export const Modal = ({ size, forceAction, modalId }: ModalProps) => {

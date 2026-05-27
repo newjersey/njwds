@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 export interface IconProps {
-  size?: number;
+  size: number;
 }
 
 export const Icon = ({ size = 1 }: IconProps) => {

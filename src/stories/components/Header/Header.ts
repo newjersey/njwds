@@ -2,7 +2,7 @@ import { html } from "lit";
 
 export interface HeaderProps {
   variant: "Default" | "Extended";
-  megamenu?: boolean;
+  megamenu: boolean;
   toggleValue?: string;
 }
 

@@ -1,8 +1,8 @@
 import { html } from "lit";
 
 export interface IconListProps {
-  richtext?: boolean;
-  largeSize?: boolean;
+  richtext: boolean;
+  largeSize: boolean;
 }
 
 export const IconList = ({ richtext, largeSize }: IconListProps) => {

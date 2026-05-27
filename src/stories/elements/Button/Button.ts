@@ -6,9 +6,9 @@ type NonLightTheme = Exclude<ButtonTheme, "light">;
 
 export interface ButtonProps {
   label: string;
-  type?: ButtonType;
-  theme?: ButtonTheme;
-  icon?: boolean;
+  type: ButtonType;
+  theme: ButtonTheme;
+  icon: boolean;
 }
 
 export const Button = ({ label, type = "primary", theme = "light", icon = false }: ButtonProps) => {

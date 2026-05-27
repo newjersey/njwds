@@ -3,7 +3,7 @@ import { html } from "lit";
 type borderType = boolean;
 
 export interface TableProps {
-  border?: borderType;
+  border: borderType;
 }
 
 export const Table = ({ border = true }: TableProps) => {

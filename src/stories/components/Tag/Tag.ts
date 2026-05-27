@@ -4,7 +4,7 @@ type sizeType = "small" | "big";
 
 export interface TagProps {
   label: string;
-  size?: sizeType;
+  size: sizeType;
 }
 
 export const Tag = ({ label, size = "small" }: TagProps) => {

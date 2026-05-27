@@ -3,7 +3,7 @@ import { html } from "lit";
 export interface LinkProps {
   label: string;
   mode: string;
-  external?: boolean;
+  external: boolean;
   forceVisited: boolean;
 }
 

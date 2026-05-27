@@ -1,7 +1,7 @@
 import { html } from "lit";
 
 export interface DateRangeProps {
-  class?: string;
+  class: string;
   required: boolean;
   helperText: boolean;
   error: boolean;

@@ -1,38 +1,58 @@
 import { html } from "lit";
 
 export interface StepIndicatorComponentProps {
-  error: boolean;
   label: string;
+  title: string;
+  noLabels: boolean;
+  centered: boolean;
+  counters: boolean;
+  smallCounters: boolean;
 }
 
-export const StepIndicatorComponent = ({ label }: StepIndicatorComponentProps) => {
+export const StepIndicatorComponent = ({
+  label,
+  title,
+  noLabels,
+  centered,
+  counters,
+  smallCounters,
+}: StepIndicatorComponentProps) => {
+  const stepIndicatorClass = noLabels ? "usa-sr-only" : "usa-step-indicator__segment-label";
+  const stepIndicatorClassCentered = centered ? "usa-step-indicator--center" : "";
+
+  const stepIndicatorCounters = counters ? "usa-step-indicator--counters" : "";
+  const stepIndicatorCountersSmall = smallCounters ? "usa-step-indicator--counters-sm" : "";
+
   return html`
-    <div class="usa-step-indicator" aria-label="progress">
+    <div
+      class="usa-step-indicator ${stepIndicatorClassCentered} ${stepIndicatorCounters} ${stepIndicatorCountersSmall}"
+      aria-label="progress"
+    >
       <ol class="usa-step-indicator__segments">
         <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
-          <span class="usa-step-indicator__segment-label"
-            >Personal information <span class="usa-sr-only">completed</span></span
+          <span class="${stepIndicatorClass}"
+            >${label} <span class="usa-sr-only">completed</span></span
           >
         </li>
         <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
-          <span class="usa-step-indicator__segment-label"
-            >Household status <span class="usa-sr-only">completed</span></span
+          <span class="${stepIndicatorClass}"
+            >${label} <span class="usa-sr-only">completed</span></span
           >
         </li>
         <li
           class="usa-step-indicator__segment usa-step-indicator__segment--current"
           aria-current="true"
         >
-          <span class="usa-step-indicator__segment-label">${label} </span>
+          <span class="${stepIndicatorClass}">${label} </span>
         </li>
         <li class="usa-step-indicator__segment">
-          <span class="usa-step-indicator__segment-label"
-            >Signature <span class="usa-sr-only">not completed</span></span
+          <span class="${stepIndicatorClass}"
+            >${label} <span class="usa-sr-only">not completed</span></span
           >
         </li>
         <li class="usa-step-indicator__segment">
-          <span class="usa-step-indicator__segment-label"
-            >Review and submit <span class="usa-sr-only">not completed</span></span
+          <span class="${stepIndicatorClass}"
+            >${label} <span class="usa-sr-only">not completed</span></span
           >
         </li>
       </ol>
@@ -43,7 +63,7 @@ export const StepIndicatorComponent = ({ label }: StepIndicatorComponentProps) =
             <span class="usa-step-indicator__current-step">3</span>
             <span class="usa-step-indicator__total-steps">of 5</span>
           </span>
-          <span class="usa-step-indicator__heading-text">${label}</span>
+          <span class="usa-step-indicator__heading-text">${title}</span>
         </h2>
       </div>
     </div>

@@ -7,7 +7,7 @@ export const LINK_DISPLAY_TYPES = {
 
 export interface HeroProps {
   heading: string;
-  subheading?: string;
+  subheading: string;
   explainerText: string;
 }
 
