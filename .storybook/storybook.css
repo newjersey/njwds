@@ -39,3 +39,7 @@
   font-size: 2.85rem;
   font-family: monospace;
 }
+
+.sb-hide-ui {
+  display: none;
+}

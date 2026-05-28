@@ -6,11 +6,11 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story`,
+    url: `${BASE_URL}/iframe.html?id=elements-table--default&viewMode=story`,
   },
   {
     name: "borderless",
-    url: `${BASE_URL}/iframe.html?id=elements-table--basic&viewMode=story&args=border:false`,
+    url: `${BASE_URL}/iframe.html?id=elements-table--default&viewMode=story&args=border:false`,
   },
 ];
 

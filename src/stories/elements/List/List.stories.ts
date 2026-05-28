@@ -17,7 +17,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<ListProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     label: "List text",
     type: "Unordered List",

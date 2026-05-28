@@ -11,7 +11,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<HeroProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     heading: "Hero callout",
     subheading: "Bring attention to a project priority",

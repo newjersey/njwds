@@ -6,11 +6,11 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "Default",
-    url: `${BASE_URL}/iframe.html?id=components-tag--basic&viewMode=story`,
+    url: `${BASE_URL}/iframe.html?id=components-tag--default&viewMode=story`,
   },
   {
     name: "Big",
-    url: `${BASE_URL}/iframe.html?id=components-tag--basic&viewMode=story&args=size:big`,
+    url: `${BASE_URL}/iframe.html?id=components-tag--default&viewMode=story&args=size:big`,
   },
 ];
 runVisualSuite({

@@ -17,7 +17,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<TagProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     label: "New",
     size: "small",

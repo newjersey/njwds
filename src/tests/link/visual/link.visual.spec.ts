@@ -6,11 +6,11 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "light",
-    url: `${BASE_URL}/iframe.html?id=elements-link--basic&viewMode=story&globals=&args=theme%3Alight%3Bexternal%3A!true`,
+    url: `${BASE_URL}/iframe.html?id=elements-link--default&viewMode=story&globals=&args=theme%3Alight%3Bexternal%3A!true`,
   },
   {
     name: "dark",
-    url: `${BASE_URL}/iframe.html?id=elements-link--basic&viewMode=story&globals=&args=theme%3Adark%3Bexternal%3A!true`,
+    url: `${BASE_URL}/iframe.html?id=elements-link--default&viewMode=story&globals=&args=theme%3Adark%3Bexternal%3A!true`,
   },
 ];
 
