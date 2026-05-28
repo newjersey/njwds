@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<BannerProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     governor: commonData.gov,
     ltgovernor: commonData.govlt,

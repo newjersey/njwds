@@ -6,19 +6,19 @@ const BASE_URL = "http://localhost:6006";
 const TEST_CASES = [
   {
     name: "Default",
-    url: `${BASE_URL}/iframe.html?id=components-icon--basic&viewMode=story`,
+    url: `${BASE_URL}/iframe.html?id=components-icon--default&viewMode=story`,
   },
   {
     name: "Size 1",
-    url: `${BASE_URL}/iframe.html?id=components-icon--basic&viewMode=story&args=size:1`,
+    url: `${BASE_URL}/iframe.html?id=components-icon--default&viewMode=story&args=size:1`,
   },
   {
     name: "Size 5",
-    url: `${BASE_URL}/iframe.html?id=components-icon--basic&viewMode=story&args=size:5`,
+    url: `${BASE_URL}/iframe.html?id=components-icon--default&viewMode=story&args=size:5`,
   },
   {
     name: "Size 9",
-    url: `${BASE_URL}/iframe.html?id=components-icon--basic&viewMode=story&args=size:9`,
+    url: `${BASE_URL}/iframe.html?id=components-icon--default&viewMode=story&args=size:9`,
   },
 ];
 

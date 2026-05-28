@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<TableProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     border: true,
   },

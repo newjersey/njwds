@@ -20,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<LinkProps>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     label: "Link text",
     mode: "light",
