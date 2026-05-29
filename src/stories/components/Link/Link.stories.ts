@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Link, type LinkProps } from "./Link";
 
 const meta = {
-  title: "Elements/Link",
+  title: "Components/Link",
   tags: ["autodocs"],
   argTypes: {
     mode: {

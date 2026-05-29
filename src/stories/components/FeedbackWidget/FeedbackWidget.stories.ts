@@ -4,7 +4,7 @@ import "@newjersey/feedback-widget/feedback-widget.min.js";
 import { initFeedbackMocks } from "./feedbackApiMock.js";
 
 const meta = {
-  title: "Components/Feedback Widget",
+  title: "Components/Feedback widget",
   tags: ["autodocs"],
   render: () => FeedbackWidget(),
   decorators: [

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Input, type InputProps } from "./TextInput";
 
 const meta = {
-  title: "Elements/Text Input",
+  title: "Components/Text Input",
   tags: ["autodocs"],
   render: (args) =>
     Input({

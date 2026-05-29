@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Button, type ButtonProps } from "./Button";
 
 const meta = {
-  title: "Elements/Button",
+  title: "Components/Button",
   tags: ["autodocs"],
   render: (args) => Button(args),
   argTypes: {

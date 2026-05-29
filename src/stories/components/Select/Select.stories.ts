@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Select, type SelectProps } from "./Select";
 
 const meta = {
-  title: "Elements/Select",
+  title: "Components/Select",
   tags: ["autodocs"],
   render: (args) => Select(args),
   argTypes: {

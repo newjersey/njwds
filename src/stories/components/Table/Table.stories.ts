@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Table, type TableProps } from "./Table";
 
 const meta = {
-  title: "Elements/Table",
+  title: "Components/Table",
   tags: ["autodocs"],
   render: (args) => Table(args),
   argTypes: {

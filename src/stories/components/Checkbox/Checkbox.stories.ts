@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import { Radio, type RadioProps } from "./Radio";
+import { Checkbox, type CheckboxProps } from "./Checkbox";
 
 const meta = {
-  title: "Elements/Radio",
+  title: "Components/Checkbox",
   tags: ["autodocs"],
-  render: (args) => Radio(args),
+  render: (args) => Checkbox(args),
   argTypes: {
     tile: {
       control: { type: "boolean" },
@@ -15,14 +15,14 @@ const meta = {
       control: { type: "text" },
     },
   },
-} satisfies Meta<RadioProps>;
+} satisfies Meta<CheckboxProps>;
 
 export default meta;
-type Story = StoryObj<RadioProps>;
+type Story = StoryObj<CheckboxProps>;
 
 export const Default: Story = {
   args: {
-    label: "Radio Label",
+    label: "Checkbox Label",
     tile: false,
     required: false,
     helperText: true,
@@ -32,7 +32,7 @@ export const Default: Story = {
 
 export const Tile: Story = {
   args: {
-    label: "Tile Radio Label",
+    label: "Tile Checkbox Label",
     tile: true,
     required: false,
     helperText: true,

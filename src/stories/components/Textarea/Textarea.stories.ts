@@ -5,7 +5,7 @@ import { Textarea, type TextareaProps } from "./Textarea";
 import characterCount from "@uswds/uswds/js/usa-character-count";
 
 const meta = {
-  title: "Elements/Textarea",
+  title: "Components/Textarea",
   tags: ["autodocs"],
   render: (args) =>
     Textarea({

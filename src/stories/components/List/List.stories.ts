@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { List, type ListProps } from "./List";
 
 const meta = {
-  title: "Elements/List",
+  title: "Components/List",
   tags: ["autodocs"],
   render: (args) => List(args),
   argTypes: {
