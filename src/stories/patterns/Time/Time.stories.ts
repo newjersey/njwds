@@ -6,7 +6,7 @@ import { TimePicker, type TimePickerProps } from "./Time";
 import timePicker from "@uswds/uswds/js/usa-time-picker";
 
 const meta = {
-  title: "Patterns/Time Picker",
+  title: "Patterns/Time picker",
   tags: ["autodocs"],
   render: (args) => {
     // Initialize time picker only once

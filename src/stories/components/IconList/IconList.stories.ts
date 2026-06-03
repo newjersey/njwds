@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { IconList, type IconListProps } from "./IconList";
 
 const meta = {
-  title: "Components/Icon List",
+  title: "Components/Icon list",
   tags: ["autodocs"],
   render: (args) => IconList(args),
   argTypes: {

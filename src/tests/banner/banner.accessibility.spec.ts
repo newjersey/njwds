@@ -1,11 +1,9 @@
 import { runA11ySuite } from "../utils/runA11ySuite";
 
-const BASE_URL = "http://localhost:6006";
-
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=components-banner--default&viewMode=story`,
+    url: `/iframe.html?id=components-banner--default&viewMode=story`,
   },
 ];
 

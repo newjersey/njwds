@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { DEFAULT_VIEWPORT } from "../utils/config";
+import { STORYBOOK_URL } from "./config";
 
 export interface VisualTestCase {
   /** Friendly name used in test reporting */
@@ -49,7 +50,7 @@ export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOpt
               height: vp.height,
             });
 
-            await page.goto(url);
+            await page.goto(`${STORYBOOK_URL}${url}`);
             await page.waitForLoadState("networkidle");
 
             await expect(page).toHaveScreenshot(`${suiteName}-${name}-${vp.name}.png`, {

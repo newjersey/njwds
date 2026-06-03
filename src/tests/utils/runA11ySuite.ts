@@ -15,6 +15,7 @@
 
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { STORYBOOK_URL } from "./config";
 
 export interface A11yTestCase {
   /** Friendly name used in test reporting */
@@ -44,7 +45,7 @@ export function runA11ySuite({ suiteName, cases, include }: RunA11ySuiteOptions)
       test.describe.parallel(name, () => {
         test("has no detectable a11y violations", async ({ page }) => {
           // Navigate directly to the Storybook iframe URL
-          await page.goto(url);
+          await page.goto(`${STORYBOOK_URL}${url}`);
 
           // Wait for network to chill.
           await page.waitForLoadState("networkidle");

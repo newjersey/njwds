@@ -11,3 +11,5 @@ export const NARROW_VIEWPORT = {
   width: 393,
   height: 800,
 };
+
+export const STORYBOOK_URL = "http://localhost:6006";

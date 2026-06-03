@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { ButtonGroup, type ButtonGroupProps } from "./ButtonGroup";
 
 const meta = {
-  title: "Patterns/Button Group",
+  title: "Patterns/Button group",
   tags: ["autodocs"],
   render: (args) => ButtonGroup(args),
 } satisfies Meta<ButtonGroupProps>;

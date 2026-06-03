@@ -1,28 +1,26 @@
 import { runVisualSuite } from "../../utils/runVisualSuite";
 
-const BASE_URL = "http://localhost:6006";
-
 // Define all the story URLs and friendly names for reporting
 const TEST_CASES = [
   {
     name: "Default",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story`,
+    url: `/iframe.html?id=components-card--default&viewMode=story`,
   },
   {
     name: "Flag",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:false`,
+    url: `/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:false`,
   },
   {
     name: "Flag: Right",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:true`,
+    url: `/iframe.html?id=components-card--default&viewMode=story&args=layout:Flag;flagPositionRight:true`,
   },
   {
     name: "Media: False",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=media:false`,
+    url: `/iframe.html?id=components-card--default&viewMode=story&args=media:false`,
   },
   {
     name: "Media: Extend, false",
-    url: `${BASE_URL}/iframe.html?id=components-card--default&viewMode=story&args=mediaExtend:false;media:true`,
+    url: `/iframe.html?id=components-card--default&viewMode=story&args=mediaExtend:false;media:true`,
   },
 ];
 runVisualSuite({

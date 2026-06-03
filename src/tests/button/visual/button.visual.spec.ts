@@ -1,8 +1,6 @@
 import { runVisualSuite } from "../../utils/runVisualSuite";
 import { DEFAULT_VIEWPORT, NARROW_VIEWPORT } from "../../utils/config";
 
-const BASE_URL = "http://localhost:6006";
-
 const viewports = [
   { name: "narrow", ...NARROW_VIEWPORT },
   { name: "wide", ...DEFAULT_VIEWPORT },
@@ -12,43 +10,43 @@ const viewports = [
 const TEST_CASES = [
   {
     name: "default",
-    url: `${BASE_URL}/iframe.html?id=elements-button--primary&viewMode=story`,
+    url: `/iframe.html?id=elements-button--primary&viewMode=story`,
   },
   {
     name: "dark",
-    url: `${BASE_URL}/iframe.html?id=elements-button--primary&viewMode=story&args=theme%3Adark`,
+    url: `/iframe.html?id=elements-button--primary&viewMode=story&args=theme%3Adark`,
   },
   {
     name: "danger",
-    url: `${BASE_URL}/iframe.html?id=elements-button--primary&viewMode=story&args=theme%3Adanger`,
+    url: `/iframe.html?id=elements-button--primary&viewMode=story&args=theme%3Adanger`,
   },
   {
     name: "secondary - dark",
-    url: `${BASE_URL}/iframe.html?id=elements-button--secondary&viewMode=story&args=theme%3Adark`,
+    url: `/iframe.html?id=elements-button--secondary&viewMode=story&args=theme%3Adark`,
   },
   {
     name: "secondary - danger",
-    url: `${BASE_URL}/iframe.html?id=elements-button--secondary&viewMode=story&args=theme%3Adanger`,
+    url: `/iframe.html?id=elements-button--secondary&viewMode=story&args=theme%3Adanger`,
   },
   {
     name: "secondary",
-    url: `${BASE_URL}/iframe.html?id=elements-button--secondary&viewMode=story`,
+    url: `/iframe.html?id=elements-button--secondary&viewMode=story`,
   },
   {
     name: "tertiary - dark",
-    url: `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adark`,
+    url: `/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adark`,
   },
   {
     name: "tertiary - danger",
-    url: `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adanger`,
+    url: `/iframe.html?id=elements-button--tertiary&viewMode=story&args=theme%3Adanger`,
   },
   {
     name: "tertiary",
-    url: `${BASE_URL}/iframe.html?id=elements-button--tertiary&viewMode=story`,
+    url: `/iframe.html?id=elements-button--tertiary&viewMode=story`,
   },
   {
     name: "icon",
-    url: `${BASE_URL}/iframe.html?id=elements-button--primary&viewMode=story&globals=&args=icon%3A!true`,
+    url: `/iframe.html?id=elements-button--primary&viewMode=story&globals=&args=icon%3A!true`,
   },
 ];
 

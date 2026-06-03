@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { GraphicList } from "./GraphicList";
 
 const meta = {
-  title: "Patterns/GraphicList",
+  title: "Patterns/Graphic list",
   tags: ["autodocs"],
   render: () => GraphicList(),
 } satisfies Meta;

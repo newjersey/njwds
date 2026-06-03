@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { File, type FileProps } from "./File";
 
 const meta = {
-  title: "Components/File Input",
+  title: "Components/File input",
   tags: ["autodocs"],
   render: (args) => File(args),
   argTypes: {

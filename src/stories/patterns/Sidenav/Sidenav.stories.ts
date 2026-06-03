@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Sidenav } from "./Sidenav";
 
 const meta = {
-  title: "Patterns/Side Navigation",
+  title: "Patterns/Side navigation",
   tags: ["autodocs"],
   render: () => Sidenav(),
 } satisfies Meta;
