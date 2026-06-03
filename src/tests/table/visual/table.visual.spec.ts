@@ -4,11 +4,11 @@ import { runVisualSuite } from "../../utils/runVisualSuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=elements-table--default&viewMode=story`,
+    url: `/iframe.html?id=components-table--default&viewMode=story`,
   },
   {
     name: "borderless",
-    url: `/iframe.html?id=elements-table--default&viewMode=story&args=border:false`,
+    url: `/iframe.html?id=components-table--default&viewMode=story&args=border:false`,
   },
 ];
 

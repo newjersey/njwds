@@ -4,7 +4,7 @@ import { runA11ySuite } from "../../utils/runA11ySuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=elements-file-input--default&viewMode=story`,
+    url: `/iframe.html?id=components-file-input--default&viewMode=story`,
   },
 ];
 

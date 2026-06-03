@@ -4,15 +4,15 @@ import { runA11ySuite } from "../../utils/runA11ySuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=elements-text-input--default&viewMode=docs&args=helperText:true;required:true`,
+    url: `/iframe.html?id=components-text-input--default&viewMode=docs&args=helperText:true;required:true`,
   },
   {
     name: "error",
-    url: `/iframe.html?id=elements-text-input--default&viewMode=docs&args=error:true`,
+    url: `/iframe.html?id=components-text-input--default&viewMode=docs&args=error:true`,
   },
   {
     name: "success",
-    url: `/iframe.html?id=elements-text-input--default&viewMode=docs&args=success:true`,
+    url: `/iframe.html?id=components-text-input--default&viewMode=docs&args=success:true`,
   },
 ];
 

@@ -4,11 +4,11 @@ import { runA11ySuite } from "../../utils/runA11ySuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=elements-select--default&viewMode=story&args=helperText:true;required:true`,
+    url: `/iframe.html?id=components-select--default&viewMode=story&args=helperText:true;required:true`,
   },
   {
     name: "error",
-    url: `/iframe.html?id=elements-select--default&viewMode=story&args=error:true;`,
+    url: `/iframe.html?id=components-select--default&viewMode=story&args=error:true;`,
   },
 ];
 

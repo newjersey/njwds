@@ -4,7 +4,7 @@ import { runVisualSuite } from "../../utils/runVisualSuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=elements-range-slider--default&viewMode=story`,
+    url: `/iframe.html?id=components-range-slider--default&viewMode=story`,
   },
 ];
 

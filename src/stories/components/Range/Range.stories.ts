@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Range, type RangeProps } from "./Range";
 
 const meta = {
-  title: "Components/Range Slider",
+  title: "Components/Range slider",
   tags: ["autodocs"],
   render: (args) => Range(args),
   argTypes: {
