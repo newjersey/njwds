@@ -1,6 +1,6 @@
 // playwright.config.ts
 import { defineConfig } from "@playwright/test";
-import { DEFAULT_VIEWPORT } from "./src/tests/utils/config";
+import { DEFAULT_VIEWPORT } from "./src/utils/config";
 
 export default defineConfig({
   testDir: "./src/tests",
