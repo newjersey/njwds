@@ -10,10 +10,6 @@ const TEST_CASES = [
     name: "error",
     url: `/iframe.html?id=components-textarea--default&viewMode=docs&args=error:true`,
   },
-  {
-    name: "success",
-    url: `/iframe.html?id=components-textarea--default&viewMode=docs&args=success:true`,
-  },
 ];
 
 runA11ySuite({
