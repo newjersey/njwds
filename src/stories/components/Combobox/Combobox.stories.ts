@@ -5,7 +5,7 @@ import { ComboboxComponent, type ComboboxProps } from "./Combobox";
 import combobox from "@uswds/uswds/js/usa-combo-box";
 
 const meta = {
-  title: "Components/Combobox",
+  title: "Components/Combo box",
   tags: ["autodocs"],
   render: ComboboxComponent,
   decorators: [

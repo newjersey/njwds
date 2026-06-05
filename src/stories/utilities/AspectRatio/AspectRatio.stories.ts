@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { AspectRatio } from "./AspectRatio";
 
 const meta = {
-  title: "Utilities/Aspect Ratio",
+  title: "Utilities/Aspect ratio",
   tags: ["autodocs"],
   render: () => AspectRatio(),
 } satisfies Meta;

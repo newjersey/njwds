@@ -6,7 +6,7 @@ import { DatePicker, type DatePickerProps } from "./DatePicker";
 import datePicker from "@uswds/uswds/js/usa-date-picker";
 
 const meta = {
-  title: "Components/Date Picker",
+  title: "Components/Date picker",
   tags: ["autodocs"],
   render: (args) => {
     // Initialize date picker only once

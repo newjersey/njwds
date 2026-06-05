@@ -4,13 +4,13 @@
   min-height: 450px;
 }
 
-#story--components-combobox--default--primary-inner,
+#story--components-combo-box--default--primary-inner,
 #story--components-header--default--primary,
 #story--components-header--default,
 #story--components-header--extended,
-#story--patterns-time-picker--default--primary-inner,
-#story--elements-textarea--default--primary-inner {
-  min-height: 275px;
+#story--components-time-picker--default--primary-inner,
+#story--components-textarea--default--primary-inner {
+  min-height: 300px;
 }
 
 /* Casacade organization messed this class up in USWDS */

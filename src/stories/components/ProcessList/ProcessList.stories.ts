@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { ProcessListComponent, type ProcessListComponentProps } from "./ProcessList";
 
 const meta = {
-  title: "Components/ProcessList",
+  title: "Components/Process list",
   tags: ["autodocs"],
   render: (args) => ProcessListComponent(args),
 } satisfies Meta<ProcessListComponentProps>;

@@ -8,7 +8,7 @@ import datePicker from "@uswds/uswds/js/usa-date-picker";
 import dateRangePicker from "@uswds/uswds/js/usa-date-range-picker";
 
 const meta = {
-  title: "Components/Date Range Picker",
+  title: "Components/Date range picker",
   tags: ["autodocs"],
   render: (args) => {
     // Initialize date picker only once

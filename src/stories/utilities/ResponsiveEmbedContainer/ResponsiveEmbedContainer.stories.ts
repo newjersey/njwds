@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { ResponsiveEmbedContainer } from "./ResponsiveEmbedContainer";
 
 const meta = {
-  title: "Utilities/Responsive Embed Container",
+  title: "Utilities/Responsive embed container",
   tags: ["autodocs"],
   render: () => ResponsiveEmbedContainer(),
 } satisfies Meta;
