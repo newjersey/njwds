@@ -5,7 +5,6 @@ import { renderRequired } from "../../../utils/requiredIndicator";
 export interface TextareaProps {
   label: string;
   error: boolean;
-  success: boolean;
   required: boolean;
   helperText: boolean;
   characterCounter: boolean;
@@ -15,13 +14,12 @@ export interface TextareaProps {
 export const Textarea = ({
   label,
   error,
-  success,
   required,
   helperText,
   characterCounter,
   width,
 }: TextareaProps) => {
-  const classes = error ? "usa-input--error" : success ? "usa-input--success" : "";
+  const classes = error ? "usa-input--error" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const classCharacterCounter = characterCounter ? "usa-character-count__field" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";

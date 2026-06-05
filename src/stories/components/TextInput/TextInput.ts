@@ -5,14 +5,13 @@ import { renderRequired } from "../../../utils/requiredIndicator";
 export interface InputProps {
   label: string;
   error: boolean;
-  success: boolean;
   required: boolean;
   helperText: boolean;
   width: string;
 }
 
-export const Input = ({ label, error, success, required, helperText, width }: InputProps) => {
-  const inputClasses = error ? "usa-input--error" : success ? "usa-input--success" : "";
+export const Input = ({ label, error, required, helperText, width }: InputProps) => {
+  const inputClasses = error ? "usa-input--error" : "";
   const classesLabel = error ? "usa-label--error" : "";
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const widthClass = `usa-input--${width}`;

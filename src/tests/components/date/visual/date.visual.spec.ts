@@ -4,7 +4,7 @@ import { runVisualSuite } from "../../../../utils/runVisualSuite";
 const TEST_CASES = [
   {
     name: "default",
-    url: `/iframe.html?id=components-date-picker--default&viewMode=story`,
+    url: `/iframe.html?id=components-memorable-date-picker--default&viewMode=story`,
   },
 ];
 

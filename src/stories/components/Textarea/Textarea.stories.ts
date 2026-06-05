@@ -7,12 +7,7 @@ import characterCount from "@uswds/uswds/js/usa-character-count";
 const meta = {
   title: "Components/Textarea",
   tags: ["autodocs"],
-  render: (args) =>
-    Textarea({
-      ...args,
-      error: args.error && !args.success,
-      success: args.success && !args.error,
-    }),
+  render: (args) => Textarea(args),
   decorators: [
     (story) => {
       useEffect(() => {
@@ -26,12 +21,6 @@ const meta = {
   argTypes: {
     label: {
       control: { type: "text" },
-    },
-    error: {
-      if: { arg: "success", truthy: false },
-    },
-    success: {
-      if: { arg: "error", truthy: false },
     },
     width: {
       control: { type: "select" },

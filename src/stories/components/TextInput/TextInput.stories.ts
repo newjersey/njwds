@@ -4,12 +4,7 @@ import { Input, type InputProps } from "./TextInput";
 const meta = {
   title: "Components/Text input",
   tags: ["autodocs"],
-  render: (args) =>
-    Input({
-      ...args,
-      error: args.error && !args.success,
-      success: args.success && !args.error,
-    }),
+  render: (args) => Input(args),
   argTypes: {
     label: {
       control: { type: "text" },
@@ -17,12 +12,6 @@ const meta = {
     width: {
       control: { type: "select" },
       options: ["sm", "md", "lg", "xl", "2xl"],
-    },
-    error: {
-      if: { arg: "success", truthy: false },
-    },
-    success: {
-      if: { arg: "error", truthy: false },
     },
   },
 } satisfies Meta<InputProps>;
