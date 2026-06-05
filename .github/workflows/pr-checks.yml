@@ -56,7 +56,11 @@ jobs:
       # install playwright browsers if cache is not hit
       - name: Install Playwright browsers
         if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+        run: npx playwright install chromium
+
+      # install system dependencies (always run, even on cache hit)
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps chromium
 
       # start a static server to serve the built storybook
       - name: Start static server
