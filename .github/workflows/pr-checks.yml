@@ -45,18 +45,23 @@ jobs:
       - name: Build design system and documentation
         run: npm run build-njwds && npm run storybook:build
 
+      # get playwright version from package.json for cache key
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('./package.json').devDependencies['@playwright/test']")" >> $GITHUB_OUTPUT
+
       # cache playwright browsers to speed up workflow
       - name: Cache Playwright browsers
         id: cache-playwright
         uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          key: playwright-browsers-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
       # install playwright browsers if cache is not hit
       - name: Install Playwright browsers
         if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install chromium
+        run: npx playwright install chromium --force
 
       # install system dependencies (always run, even on cache hit)
       - name: Install Playwright system dependencies
