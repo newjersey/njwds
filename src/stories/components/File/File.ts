@@ -32,19 +32,16 @@ export const FileComponent = ({
         </label>
         ${helperText ? html`<div id="file-hint" class="usa-hint">Select any valid file</div>` : ""}
         ${errorMsg}
-        ${multipleFiles
-          ? html` true `
-          : html`
-              <input
-                class="usa-file-input"
-                id="file"
-                name="input-type-file"
-                type="file"
-                multiple
-                accept=${fileTypes || nothing}
-                aria-describedby=${error ? "file-error" : nothing}
-              />
-            `}
+
+        <input
+          class="usa-file-input"
+          id="file"
+          name="input-type-file"
+          type="file"
+          ?multiple=${multipleFiles}
+          accept=${fileTypes || nothing}
+          aria-describedby=${error ? "file-error" : nothing}
+        />
       </div>
     </form>
   `;

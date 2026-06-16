@@ -7,17 +7,14 @@ import fileInput from "@uswds/uswds/js/usa-file-input";
 const meta = {
   title: "Components/File",
   tags: ["autodocs"],
-  render: (args) => FileComponent(args),
-  decorators: [
-    (story) => {
-      useEffect(() => {
-        fileInput.teardown(document.body);
-        fileInput.init(document.body);
-      }, []);
+  render: (args) => {
+    useEffect(() => {
+      fileInput.teardown(document.body);
+      fileInput.init(document.body);
+    }, [args.multipleFiles]);
 
-      return story();
-    },
-  ],
+    return FileComponent(args);
+  },
 } satisfies Meta<FileComponentProps>;
 
 export default meta;
