@@ -23,24 +23,13 @@ export const File = ({ label, error, required, helperText, multipleFiles }: File
       ${helperText
         ? html`<div id="with-hint-input-hint" class="usa-hint">Example: document.pdf</div>`
         : ""}
-      ${multipleFiles
-        ? html`
-            <input
-              class="usa-input ${errorInputClass}"
-              id="file-html"
-              name="input-type-file"
-              multiple
-              type="file"
-            />
-          `
-        : html`
-            <input
-              class="usa-input ${errorInputClass}"
-              id="file-html"
-              name="input-type-file"
-              type="file"
-            />
-          `}
+      <input
+        class="usa-input ${errorInputClass}"
+        id="file-html"
+        name="input-type-file"
+        ?multiple=${multipleFiles}
+        type="file"
+      />
       ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
     </form>
   `;
