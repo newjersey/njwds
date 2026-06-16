@@ -29,5 +29,6 @@ export const Default: Story = {
     required: false,
     helperText: true,
     error: false,
+    multipleFiles: false,
   },
 };
