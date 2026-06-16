@@ -7,9 +7,10 @@ export interface FileProps {
   error: boolean;
   required: boolean;
   helperText: boolean;
+  multipleFiles: boolean;
 }
 
-export const File = ({ label, error, required, helperText }: FileProps) => {
+export const File = ({ label, error, required, helperText, multipleFiles }: FileProps) => {
   const errorFormClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "usa-input--error" : "";
   const errorLabelClass = error ? "usa-label--error" : "";
@@ -26,9 +27,9 @@ export const File = ({ label, error, required, helperText }: FileProps) => {
         class="usa-input ${errorInputClass}"
         id="file-html"
         name="input-type-file"
+        ?multiple=${multipleFiles}
         type="file"
       />
-
       ${error ? renderErrorMessage("input-error-message", "Helpful error message") : ""}
     </form>
   `;

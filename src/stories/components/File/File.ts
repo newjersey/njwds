@@ -11,6 +11,7 @@ export interface FileComponentProps {
 
 export const FileComponent = ({
   error = false,
+  multipleFiles,
   fileTypes,
   required,
   helperText,
@@ -31,11 +32,13 @@ export const FileComponent = ({
         </label>
         ${helperText ? html`<div id="file-hint" class="usa-hint">Select any valid file</div>` : ""}
         ${errorMsg}
+
         <input
           class="usa-file-input"
           id="file"
           name="input-type-file"
           type="file"
+          ?multiple=${multipleFiles}
           accept=${fileTypes || nothing}
           aria-describedby=${error ? "file-error" : nothing}
         />
