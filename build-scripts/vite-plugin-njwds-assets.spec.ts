@@ -2,8 +2,8 @@
  * Smoke tests for njwdsAssetsPlugin
  *
  * These tests validate the plugin structure and interface.
- * Behavioral testing (actual asset copying and version replacement)
- * happens via integration tests in Task 5.
+ * The plugin uses buildStart hook for asset copying (runs at build start)
+ * and writeBundle hook for version string replacement (runs after files are written).
  */
 
 import { describe, test, expect } from "vitest";
@@ -32,12 +32,12 @@ describe("njwdsAssetsPlugin", () => {
     expect(typeof plugin.buildStart).toBe("function");
   });
 
-  test("plugin has generateBundle hook", async () => {
+  test("plugin has writeBundle hook", async () => {
     const { njwdsAssetsPlugin } = await import("./vite-plugin-njwds-assets.js");
     const plugin = njwdsAssetsPlugin();
 
-    expect(plugin.generateBundle).toBeDefined();
-    expect(typeof plugin.generateBundle).toBe("function");
+    expect(plugin.writeBundle).toBeDefined();
+    expect(typeof plugin.writeBundle).toBe("function");
   });
 
   test("plugin conforms to Vite Plugin type", async () => {
