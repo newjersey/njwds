@@ -41,6 +41,8 @@ export default defineConfig({
     // Exclude Playwright tests from Vitest
     exclude: [
       "**/node_modules/**",
+      "**/.superpowers/**",
+      "**/.claude/**",
       "**/dist/**",
       "**/.{idea,git,cache,output,temp}/**",
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
