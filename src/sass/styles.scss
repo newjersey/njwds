@@ -1,4 +1,4 @@
 // Sass index file that imports all necessary USWDS styles and themes
 @forward "uswds-theme";
-@forward "uswds";
+@forward "../../node_modules/@uswds/uswds/packages/uswds/index";
 @forward "uswds-theme-custom-styles";

@@ -43,7 +43,7 @@ jobs:
         run: npm ci
 
       - name: Build design system and documentation
-        run: npm run build-njwds && npm run storybook:build
+        run: npm run grove:build && npm run storybook:build
 
       # get playwright version from package.json for cache key
       - name: Get Playwright version
@@ -135,7 +135,7 @@ jobs:
           max_attempts: 3
           command: npm run storybook:build
 
-      # Make sure the build-njwds command runs successfully
-      - name: Test run build-njwds
-        run: npm run build-njwds
+      # Make sure the grove:build command runs successfully
+      - name: Test run grove:build
+        run: npm run grove:build
 

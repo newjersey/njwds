@@ -32,6 +32,12 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "packages/**/*.ts", "eslint.config.ts", "types/declarations.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "packages/**/*.ts",
+    "eslint.config.ts",
+    "vite.config.grove.ts",
+    "types/declarations.d.ts"
+  ],
   "exclude": ["node_modules", "**/dist/**", "**/build/**"]
 }

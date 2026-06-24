@@ -118,5 +118,6 @@ storybook-static
 /.idea
 
 .claude/
+.superpowers/
 CLAUDE.md
 AGENTS.md

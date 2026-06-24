@@ -39,7 +39,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 ## Build the design system assets
 
-- Run `npm run build-njwds` to build the assets into the `dist/` directory
+- Run `npm run grove:build` to build the assets into the `dist/` directory
 
 ### Build the component library
 

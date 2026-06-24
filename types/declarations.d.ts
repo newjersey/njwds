@@ -1,4 +1,5 @@
 declare module "*.css";
+declare module "postcss-csso";
 
 declare module "eslint-plugin-lit-a11y" {
   import type { ESLint } from "eslint";
