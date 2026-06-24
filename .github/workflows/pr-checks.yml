@@ -124,9 +124,6 @@ jobs:
       - name: Check Typescript
         run: npx tsc --noEmit
 
-      - name: Test run build-docs (soon deprecated)
-        run: npm run build-docs
-
       # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)
         uses: nick-fields/retry@v4
