@@ -30,6 +30,9 @@ test.describe("Tooltip", () => {
           timeout: 5000,
         });
 
+        // Wait for tooltip CSS to fully render (prevents intermittent color contrast failures)
+        await page.waitForTimeout(100);
+
         // Run accessibility analysis with the tooltip visible
         // Scope to #root-inner to avoid Storybook chrome violations
         const results = await new AxeBuilder({ page }).include("#root-inner").analyze();
