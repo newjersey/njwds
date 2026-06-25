@@ -124,6 +124,10 @@ jobs:
       - name: Check Typescript
         run: npx tsc --noEmit
 
+      # Make sure the grove:build command runs successfully
+      - name: Test run grove:build
+        run: npm run grove:build
+
       # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)
         uses: nick-fields/retry@v4
@@ -131,8 +135,3 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           command: npm run storybook:build
-
-      # Make sure the grove:build command runs successfully
-      - name: Test run grove:build
-        run: npm run grove:build
-
