@@ -39,11 +39,7 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 
 ## Build the design system assets
 
-- Run `npm run build-njwds` to build the assets into the `dist/` directory
-
-### Build the component library
-
-- Run `npm run build-docs` to build the [Fractal](https://fractal.build/) component gallery for reviewing the component documentation. (This command also copies the `dist` directory to `/public` to be served as static assets for the Fractal site.)
+- Run `npm run grove:build` to build the assets into the `dist/` directory
 
 ### View component library locally or development
 

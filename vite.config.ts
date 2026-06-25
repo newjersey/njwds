@@ -30,10 +30,24 @@ export default defineConfig({
     // Add Lit or other dependencies here if Vite fails to pre-bundle them
     include: ["lit", "lit/decorators.js"],
   },
-  // Vitest can pick up this config automatically
+  // Vitest configuration (unit tests only)
+  // Note: build-scripts/ has its own vitest.config.ts for Node environment
+  // Note: Playwright tests (visual/accessibility) are run via separate commands
+  // @ts-expect-error - Vitest extends Vite's config, types don't reflect this
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["vitest.setup.ts"], // points to your Storybook setup
+    setupFiles: ["vitest.setup.ts"],
+    // Exclude Playwright tests from Vitest
+    exclude: [
+      "**/node_modules/**",
+      "**/.superpowers/**",
+      "**/.claude/**",
+      "**/dist/**",
+      "**/.{idea,git,cache,output,temp}/**",
+      "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
+      "**/src/tests/**/*.visual.spec.ts", // Exclude Playwright visual tests
+      "**/src/tests/**/*.accessibility.spec.ts", // Exclude Playwright accessibility tests
+    ],
   },
 });

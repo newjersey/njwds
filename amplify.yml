@@ -7,7 +7,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build-njwds
+        - npm run grove:build
         - npm run storybook:build
   artifacts:
     baseDirectory: storybook-static
