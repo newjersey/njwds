@@ -19,12 +19,12 @@ type Story = StoryObj<GraphicListProps>;
 
 export const Default: Story = {
   args: {
-    mode: "dark",
+    mode: "light",
   },
 };
 
-export const Light: Story = {
+export const Dark: Story = {
   args: {
-    mode: "light",
+    mode: "dark",
   },
 };

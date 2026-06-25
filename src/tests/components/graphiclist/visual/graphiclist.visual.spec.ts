@@ -6,6 +6,10 @@ const TEST_CASES = [
     name: "default",
     url: `/iframe.html?id=components-graphic-list--default&viewMode=story`,
   },
+  {
+    name: "dark",
+    url: `/iframe.html?id=components-graphic-list--default&viewMode=story&args=mode:dark`,
+  },
 ];
 
 runVisualSuite({
