@@ -1,0 +1,21 @@
+.usa-language__submenu {
+  background-color: #112f4e;
+
+  .usa-language__submenu-item a {
+    padding: 0.55rem;
+    margin-bottom: 0.5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.usa-language__submenu-item {
+  border: 0;
+}
+
+.usa-language__primary-item:last-of-type .usa-language__submenu {
+  max-height: 290px; /* scroll after 6 items */
+  overflow: auto;
+}
