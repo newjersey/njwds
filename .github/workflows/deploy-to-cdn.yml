@@ -1,0 +1,93 @@
+name: Deploy to CDN
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  id-token: write  # Required for AWS OIDC
+  contents: read
+
+jobs:
+  deploy-cdn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run grove:build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Get release version
+        id: version
+        run: |
+          # Extract version from package.json (e.g., "2.9.1")
+          VERSION=$(node -p "require('./package.json').version")
+
+          # Validate semver format (prevents path traversal)
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.-]+)?(\+[a-zA-Z0-9.-]+)?$ ]]; then
+            echo "❌ Invalid version format: $VERSION"
+            echo "Version must be valid semver (e.g., 2.9.1 or 2.9.1-beta.1)"
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "✅ Deploying version: $VERSION"
+
+      - name: Upload versioned assets to S3
+        run: |
+          aws s3 sync ./dist/ s3://nj-grove-cdn/v${{ steps.version.outputs.version }}/ \
+            --cache-control "public, max-age=31536000, immutable" \
+            --metadata-directive REPLACE
+
+      - name: Update 'latest' alias
+        run: |
+          aws s3 sync ./dist/ s3://nj-grove-cdn/latest/ \
+            --cache-control "public, max-age=300" \
+            --metadata-directive REPLACE
+
+      - name: Get CloudFront distribution ID
+        id: cloudfront
+        run: |
+          DIST_ID=$(aws cloudformation describe-stacks \
+            --stack-name GroveCdnStack \
+            --query 'Stacks[0].Outputs[?OutputKey==`DistributionId`].OutputValue' \
+            --output text)
+          echo "distribution_id=$DIST_ID" >> $GITHUB_OUTPUT
+
+      - name: Invalidate CloudFront cache for 'latest'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.cloudfront.outputs.distribution_id }} \
+            --paths "/latest/*"
+
+      - name: Summary
+        run: |
+          echo "## CDN Deployment Successful ✅" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Asset URLs" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Versioned (immutable):**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "https://cdn.grove.nj.gov/v${{ steps.version.outputs.version }}/css/styles.css" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Latest (floating):**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "https://cdn.grove.nj.gov/latest/css/styles.css" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY

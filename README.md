@@ -14,12 +14,32 @@ npm install @newjersey/njwds --save
 
 Once installed, the NJWDS package name would affect the file path used in `node_modules` as well (i.e. `node_modules/@newjersey/njwds/dist/` instead of `node_modules/@uswds/uswds/dist/`).
 
+### Via CDN (Recommended for Quick Start)
+
+Link directly to NJWDS assets hosted on our CloudFront CDN:
+
+```html
+<!-- Use a specific version for production (recommended) -->
+<link rel="stylesheet" href="https://cdn.grove.nj.gov/v2.9.1/css/styles.css">
+
+<!-- Or use 'latest' for prototyping (always gets newest release) -->
+<link rel="stylesheet" href="https://cdn.grove.nj.gov/latest/css/styles.css">
+```
+
+**Benefits:**
+- No build process required
+- Automatic caching and global CDN performance
+- Version-pinned URLs are immutable and cacheable for 1 year
+- `latest` URL always points to newest release (5 minute cache)
+
+See [CDN documentation](./docs/cdn/README.md) for details.
+
 ### Without Node and NPM
 
 1. On our [GitHub Releases page](https://github.com/newjersey/njwds/releases), on the latest release (at the top of the list), you will see an "Assets" section at the bottom of the release information. Click on the "Source codede (zip)" link to download our package.
 2. Follow the instructions on the [USWDS Documentation - Installation](https://designsystem.digital.gov/documentation/developers/#installation) page, starting with Step 2 of "Install the package directly from GitHub." Note that in our case, you would want to replace the `uswds` folder name with `njwds`.
 
-### Using NJWDS files in your project
+### Using Grove files in your project
 
 Follow the instructions on the [USWDS Documentation - Using USWDS](https://designsystem.digital.gov/documentation/developers/#using-uswds-css-and-javascript-in-your-project) page. Note that instead of `uswds.css` or `uswds.min.css`, you will refer to `styles.css` in the `/dist/css` directory. Also, the filepath should have `njwds` instead of `uswds` (i.e. `assets/njwds/dist/js/uswds.min.js` instead of `assets/uswds/dist/js/uswds.min.js`).
 
@@ -64,7 +84,17 @@ Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages`
 3. This should create a new Pull Request bumping the `package.json` file's version according to the level you set to the release (e.g. minor release changes version from 0.1.0 to 0.2.0). Rebase & merge this PR into the `main` branch.
 4. Go to the [GitHub Releases page](https://github.com/newjersey/njwds/releases) and confirm that you see a new draft release with this version. (Note that this will automatically happen after Step 2, and is not dependent on Step 3)
 5. On the releases page, click the pencil icon on the top right to Edit the release. Document what has changed in this release; be sure to note any breaking changes. Once all looks good, click "Publish release" at the bottom.
-6. This will automatically trigger the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) as well as the ["Publish Release" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm the "Publish Release" action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
+6. This will automatically trigger three GitHub Actions:
+   - ["Deploy to GitHub Pages"](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) - Updates component documentation
+   - ["Publish Release"](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml) - Publishes to NPM registry
+   - ["Deploy to CDN"](https://github.com/newjersey/njwds/actions/workflows/deploy-to-cdn.yml) - Uploads assets to CloudFront CDN at versioned and `latest` URLs
+
+**That's it!** All deployment is automated. Verify success by checking:
+- [NJWDS package on NPM](https://www.npmjs.com/package/@newjersey/njwds) (should show new version)
+- CDN versioned URL: `https://cdn.grove.nj.gov/v{VERSION}/css/styles.css`
+- CDN latest URL: `https://cdn.grove.nj.gov/latest/css/styles.css` (should serve new version after ~5 min cache expiry)
+
+> **Note:** You never need to manually deploy to the CDN. The `infrastructure/` directory is only for one-time CDN setup (see [CDN documentation](./docs/cdn/README.md) for initial deployment).
 
 ## Automated testing
 

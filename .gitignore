@@ -120,3 +120,14 @@ storybook-static
 .superpowers/
 CLAUDE.md
 AGENTS.md
+
+# CDK build artifacts
+infrastructure/cdk.out/
+infrastructure/*.js
+infrastructure/*.d.ts
+infrastructure/bin/*.js
+infrastructure/bin/*.d.ts
+infrastructure/lib/*.js
+infrastructure/lib/*.d.ts
+infrastructure/test/*.js
+infrastructure/test/*.d.ts
