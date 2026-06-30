@@ -13,8 +13,9 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
   if (pattern === "simple") {
     return html`
       <div class="usa-language-container padding-2">
-        <!-- The button label says "Change language to Spanish" -->
-        <button
+        <!-- The aria label says "Change language to Spanish" -->
+        <a
+          href="#"
           class="usa-button ${buttonTypeClass}"
           aria-label="Cambiar el idioma a español"
           lang="es"
@@ -25,7 +26,7 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
                 <use xlink:href="./img/sprite.svg#language"></use>
               </svg>`
             : ""}
-        </button>
+        </a>
       </div>
     `;
   }
