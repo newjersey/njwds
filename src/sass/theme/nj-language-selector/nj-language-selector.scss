@@ -1,0 +1,27 @@
+.usa-language__link[aria-expanded="true"] {
+  color: #112f4e;
+  box-shadow: inset 0 0 0 2px #112f4e;
+}
+
+.usa-language__submenu {
+  background-color: #112f4e;
+}
+
+.usa-language__submenu-item {
+  border: 0;
+
+  a {
+    padding: 0.55rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &:last-of-type a {
+    margin-bottom: 0;
+  }
+}
+
+.usa-language__primary-item:last-of-type .usa-language__submenu {
+  margin-top: 1px;
+  max-height: 290px; /* scroll after 6 items */
+  overflow: auto;
+}
