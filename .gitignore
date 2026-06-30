@@ -108,7 +108,6 @@ typings/
 # Mac files
 .DS_Store
 
-# Fractal site
 /build
 /public/dist
 
