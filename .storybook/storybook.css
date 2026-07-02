@@ -9,7 +9,9 @@
 #story--components-header--default,
 #story--components-header--extended,
 #story--components-time-picker--default--primary-inner,
-#story--components-textarea--default--primary-inner {
+#story--components-textarea--default--primary-inner,
+#story--components-language-selector--simple-toggle--primary,
+#story--components-language-selector--dropdown-menu {
   min-height: 300px;
 }
 
