@@ -1,6 +1,7 @@
 # New Jersey Web Design System (NJWDS)
 
-The NJ Web Design System is an extension of the [US Web Design System](https://github.com/uswds/uswds/) with a specific theme and components for State of New Jersey digital properties and services.
+Grove (aka NJWDS) is the design system for the State of New Jersey, built to extend the [U.S. Web Design System (USWDS)](https://github.com/uswds/uswds/). It provides components and guidance specific to New Jersey's needs, with accessibility built in by default. Grove is published as `@newjersey/njwds` on npm for installation (see below)
+
 
 ## How to install and use the NJWDS
 
@@ -23,7 +24,7 @@ Once installed, the NJWDS package name would affect the file path used in `node_
 
 Follow the instructions on the [USWDS Documentation - Using USWDS](https://designsystem.digital.gov/documentation/developers/#using-uswds-css-and-javascript-in-your-project) page. Note that instead of `uswds.css` or `uswds.min.css`, you will refer to `styles.css` in the `/dist/css` directory. Also, the filepath should have `njwds` instead of `uswds` (i.e. `assets/njwds/dist/js/uswds.min.js` instead of `assets/uswds/dist/js/uswds.min.js`).
 
-For a full list of examples of NJWDS components and their corresponding code, see our [NJWDS Component Gallery](https://newjersey.github.io/njwds/components/detail/layout--docs.html). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
+For a full list of examples of Grove (NJWDS) components and their corresponding code, see our [Storybook Component Examples](https://storybook.grove.nj.gov/?path=/docs/getting-started--docs) and our [Grove (NJWDS) Documentation Site](https://grove.nj.gov/). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
 
 ### Customizing NJWDS or compiling your own assets
 
