@@ -15,6 +15,10 @@
   min-height: 300px;
 }
 
+#story--components-table--default--primary {
+  max-height: 300px; /* making sure the stick headers can scroll */
+}
+
 /* Casacade organization messed this class up in USWDS */
 .margin-top-0 {
   margin-top: 0 !important;

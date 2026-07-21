@@ -16,7 +16,7 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
       <input class="usa-input" id="basic-search-field-small" type="search" name="search" />
       <button class="usa-button" type="submit">
         <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-          <use xlink:href="./img/sprite.svg#search"></use>
+          <use href="./img/sprite.svg#search"></use>
         </svg>
         <span class="usa-sr-only">Submit search</span>
       </button>
@@ -26,7 +26,7 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
   const closeButton = html`
     <button class="usa-nav__close" aria-label="Close navigation">
       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-        <use xlink:href="./img/sprite.svg#close"></use>
+        <use href="./img/sprite.svg#close"></use>
       </svg>
     </button>
   `;

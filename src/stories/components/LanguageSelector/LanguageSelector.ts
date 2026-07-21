@@ -23,7 +23,7 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
           <span lang="es">Español</span>
           ${icon
             ? html`<svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
-                <use xlink:href="./img/sprite.svg#language"></use>
+                <use href="./img/sprite.svg#language"></use>
               </svg>`
             : ""}
         </a>
@@ -46,7 +46,7 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
             ${icon
               ? html`
                   <svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
-                    <use xlink:href="./img/sprite.svg#language"></use>
+                    <use href="./img/sprite.svg#language"></use>
                   </svg>
                 `
               : ""}
