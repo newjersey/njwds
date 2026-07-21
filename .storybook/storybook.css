@@ -22,11 +22,15 @@
 
 .docs-story,
 #storybook-root {
-  padding: 1rem;
+  padding: 0;
 
   > div:first-child {
     padding: 4px; /* focus ring was being blocked */
   }
+}
+
+.sb-story {
+  padding: 1rem;
 }
 
 .aspect-example__inner {
