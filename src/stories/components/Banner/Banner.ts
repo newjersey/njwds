@@ -39,7 +39,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
                     aria-hidden="true"
                     focusable="false"
                   >
-                    <use xlink:href="./img/sprite.svg#mail" />
+                    <use href="./img/sprite.svg#mail" />
                   </svg>
                   Get Updates
                 </a>

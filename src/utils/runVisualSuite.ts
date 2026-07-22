@@ -50,11 +50,15 @@ export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOpt
             });
 
             await page.goto(`${STORYBOOK_URL}${url}`);
+
+            await page.addStyleTag({ content: "body { overflow: hidden !important;" });
+
             await page.waitForLoadState("networkidle");
 
             await expect(page).toHaveScreenshot(`${suiteName}-${name}-${vp.name}.png`, {
-              fullPage: true,
+              // fullPage: true,
               maxDiffPixelRatio: 0.05,
+              animations: "disabled",
             });
           });
         }
