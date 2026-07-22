@@ -1,4 +1,4 @@
-import { html } from "lit";
+import { html, nothing } from "lit";
 
 export interface TableProps {
   border: boolean;
@@ -28,17 +28,21 @@ export const Table = ({
   const isStriped = striped === true ? "usa-table--striped" : "";
   const isSticky = stickyHeaders === true ? "usa-table--sticky-header" : "";
   const isResponsive = responsiveStack === true ? "usa-table--stacked" : "";
-  console.log(sortable);
+
   const tableCellContent = scrollable === true ? LONG_CELL_CONTENT : SHORT_CELL_CONTENT;
 
   const stickyHeaderHtml = html`
     <tr>
       <th scope="row">Lacinia imperdiet</th>
-      <td>${tableCellContent}</td>
-      <td>Platea habitasse</td>
-      <td>Habitasse platea</td>
+      <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
+      <td data-sort-value=${sortable ? "Platea habitasse" : nothing}>Grack habitasse</td>
+      <td data-sort-value=${sortable ? "Habitasse platea" : nothing}>Habitasse platea</td>
     </tr>
   `;
+
+  const liveRegion = sortable
+    ? html`<div class="usa-sr-only usa-table__announcement-region" aria-live="polite"></div>`
+    : "";
 
   const baseTableHtml = html`
     <table class="usa-table ${isBorderless} ${isCompact} ${isStriped} ${isSticky} ${isResponsive}">
@@ -47,40 +51,43 @@ export const Table = ({
       </caption>
       <thead>
         <tr>
-          <th scope="col">Maecenas tempor</th>
-          <th scope="col">Condimentum sodales</th>
-          <th scope="col">Tortor nec eros</th>
-          <th scope="col">Nec eros tortor</th>
+          <th scope="col" ?data-sortable=${sortable} role="columnheader">Maecenas tempor</th>
+          <th scope="col" ?data-sortable=${sortable} role="columnheader">Condimentum sodales</th>
+          <th scope="col" ?data-sortable=${sortable} role="columnheader">Tortor nec eros</th>
+          <th scope="col" ?data-sortable=${sortable} role="columnheader">Nec eros tortor</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">Pellen tesque fermentum</th>
-          <td>${tableCellContent}</td>
-          <td>Habitasse platea</td>
-          <td>Habi tasse platea</td>
+          <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
+          <td data-sort-value=${sortable ? "Habitasse platea" : nothing}>Habitasse platea</td>
+          <td data-sort-value=${sortable ? "Zid tasse platea" : nothing}>Habi tasse platea</td>
         </tr>
         <tr>
           <th scope="row">Lacinia imperdiet</th>
-          <td>${tableCellContent}</td>
-          <td>Platea habitasse</td>
-          <td>Ha bitasse platea</td>
+          <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
+          <td data-sort-value=${sortable ? "Papa habitasse" : nothing}>Papa habitasse</td>
+          <td data-sort-value=${sortable ? "Hagnis bitasse platea" : nothing}>
+            Hagnis bitasse platea
+          </td>
         </tr>
         <tr>
           <th scope="row">Imperdiet lacinia</th>
-          <td>${tableCellContent}</td>
-          <td>Lipsum habitasse</td>
-          <td>Habi tasse pl atea</td>
+          <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
+          <td data-sort-value=${sortable ? "Sum habitasse" : nothing}>Sum habitasse</td>
+          <td data-sort-value=${sortable ? "Incid tasse pl atea" : nothing}>Incid tasse pl atea</td>
         </tr>
         <tr>
           <th scope="row">Imperdiet lacinia</th>
-          <td>${tableCellContent}</td>
-          <td>Lipsum hab itasse</td>
-          <td>Habi tasse platea</td>
+          <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
+          <td data-sort-value=${sortable ? "Lipsum hab itasse" : nothing}>Lipsum hab itasse</td>
+          <td data-sort-value=${sortable ? "Dolor tasse platea" : nothing}>Dolor tasse platea</td>
         </tr>
         ${stickyHeaders ? Array(6).fill(stickyHeaderHtml) : ""}
       </tbody>
     </table>
+    ${liveRegion}
   `;
 
   const tableHtmlOutput =
@@ -94,7 +101,7 @@ export const Table = ({
             ${baseTableHtml}
           </div>
         `
-      : html`${baseTableHtml}`;
+      : baseTableHtml;
 
   return tableHtmlOutput;
 };
