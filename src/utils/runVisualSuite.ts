@@ -51,8 +51,7 @@ export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOpt
 
             await page.goto(`${STORYBOOK_URL}${url}`);
 
-            // Force clean pixel alignment by snapping fractional rendering
-            await page.addStyleTag({ content: "body { transform: translateZ(0); }" });
+            await page.addStyleTag({ content: "body { overflow: hidden !important;" });
 
             await page.waitForLoadState("networkidle");
 
