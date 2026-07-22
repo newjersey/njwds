@@ -50,12 +50,15 @@ export function runVisualSuite({ suiteName, cases, viewport }: RunVisualSuiteOpt
             });
 
             await page.goto(`${STORYBOOK_URL}${url}`);
+
+            // Force clean pixel alignment by snapping fractional rendering
+            await page.addStyleTag({ content: "body { transform: translateZ(0); }" });
+
             await page.waitForLoadState("networkidle");
 
             await expect(page).toHaveScreenshot(`${suiteName}-${name}-${vp.name}.png`, {
               fullPage: true,
               maxDiffPixelRatio: 0.05,
-              threshold: 0.2, // More forgiving comparison that handles dimension differences
             });
           });
         }
