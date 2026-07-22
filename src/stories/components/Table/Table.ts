@@ -36,7 +36,7 @@ export const Table = ({
       <th scope="row">Lacinia imperdiet</th>
       <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
       <td data-sort-value=${sortable ? "Platea habitasse" : nothing}>Grack habitasse</td>
-      <td data-sort-value=${sortable ? "Habitasse platea" : nothing}>Habitasse platea</td>
+      <td data-sort-value=${sortable ? "Gabitasse platea" : nothing}>Gabitasse platea</td>
     </tr>
   `;
 
@@ -47,21 +47,29 @@ export const Table = ({
   const baseTableHtml = html`
     <table class="usa-table ${isBorderless} ${isCompact} ${isStriped} ${isSticky} ${isResponsive}">
       <caption>
-        Table caption
+        ${sortable ? "Sortable table caption" : "Table caption"}
       </caption>
       <thead>
         <tr>
-          <th scope="col" ?data-sortable=${sortable} role="columnheader">Maecenas tempor</th>
-          <th scope="col" ?data-sortable=${sortable} role="columnheader">Condimentum sodales</th>
-          <th scope="col" ?data-sortable=${sortable} role="columnheader">Tortor nec eros</th>
-          <th scope="col" ?data-sortable=${sortable} role="columnheader">Nec eros tortor</th>
+          <th scope="col" ?data-sortable=${sortable} role="${sortable ? "columnheader" : nothing}">
+            Maecenas tempor
+          </th>
+          <th scope="col" ?data-sortable=${sortable} role="${sortable ? "columnheader" : nothing}">
+            Condimentum sodales
+          </th>
+          <th scope="col" ?data-sortable=${sortable} role="${sortable ? "columnheader" : nothing}">
+            Tortor nec eros
+          </th>
+          <th scope="col" ?data-sortable=${sortable} role="${sortable ? "columnheader" : nothing}">
+            Nec eros tortor
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">Pellen tesque fermentum</th>
           <td data-sort-value=${sortable ? tableCellContent : nothing}>${tableCellContent}</td>
-          <td data-sort-value=${sortable ? "Habitasse platea" : nothing}>Habitasse platea</td>
+          <td data-sort-value=${sortable ? "Tabitasse platea" : nothing}>Tabitasse platea</td>
           <td data-sort-value=${sortable ? "Zid tasse platea" : nothing}>Habi tasse platea</td>
         </tr>
         <tr>
