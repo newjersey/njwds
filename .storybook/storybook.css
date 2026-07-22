@@ -16,7 +16,7 @@
 }
 
 #story--components-table--default--primary {
-  max-height: 300px; /* making sure the stick headers can scroll */
+  max-height: 300px; /* making sure the sticky headers can scroll */
 }
 
 /* Casacade organization messed this class up in USWDS */
