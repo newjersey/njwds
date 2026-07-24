@@ -53,3 +53,11 @@
 .sb-hide-ui {
   display: none;
 }
+
+.sb-set-prose-container {
+  max-width: 68ex;
+}
+
+.sb-show-spacing * {
+  background: #fff;
+}
