@@ -117,8 +117,10 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
               ><a href="/" title="Home" aria-label="Home">Project title</a></em
             >
           </div>
+          <!--usa-logo-->
           <button class="usa-menu-btn">Menu</button>
         </div>
+        <!--/.usa-navbar-->
         <nav aria-label="Primary navigation" class="usa-nav">
           ${closeButton}
           <ul class="usa-nav__primary usa-accordion">
@@ -132,46 +134,59 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
           </ul>
           ${searchform}
         </nav>
+        <!--/.usa-nav-->
       </div>
+      <!--/.usa-nav-container-->
     </header>
+    <!--/.usa-header-->
   `;
 
-  const extendedHTML = html`<div class="usa-overlay"></div>
+  const extendedHTML = html` <div class="usa-overlay"></div>
     <header class="usa-header usa-header--extended">
-      <div class="usa-navbar">
-        <div class="usa-logo" id="extended-logo">
-          <em class="usa-logo__text"
-            ><a href="/" title="Home" aria-label="Home">Project title</a></em
-          >
+      <div class="usa-nav-container">
+        <div class="usa-navbar">
+          <div class="usa-logo" id="extended-logo">
+            <em class="usa-logo__text"
+              ><a href="/" title="Home" aria-label="Home">Project title</a></em
+            >
+          </div>
+          <!--/.usa-logo-->
+          <button class="usa-menu-btn">Menu</button>
         </div>
-        <button class="usa-menu-btn">Menu</button>
-      </div>
-      <nav aria-label="Primary navigation" class="usa-nav">
-        <div class="usa-nav__inner">
-          ${closeButton}
-          <ul class="usa-nav__primary usa-accordion">
-            <li class="usa-nav__primary-item">${menuHtml}</li>
-            <li class="usa-nav__primary-item">
-              <a class="usa-nav__link" href="#!"><span>Link</span></a>
-            </li>
-            <li class="usa-nav__primary-item">
-              <a class="usa-nav__link" href="#!"><span>Link</span></a>
-            </li>
-          </ul>
-          <div class="usa-nav__secondary">
-            <ul class="usa-nav__secondary-links">
-              <li class="usa-nav__secondary-item">
-                <a href="#!">Secondary link</a>
+        <!--/.usa-navbar-->
+        <nav aria-label="Primary navigation" class="usa-nav">
+          <div class="usa-nav__inner">
+            ${closeButton}
+            <ul class="usa-nav__primary usa-accordion">
+              <li class="usa-nav__primary-item">${menuHtml}</li>
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="#!"><span>Link</span></a>
               </li>
-              <li class="usa-nav__secondary-item">
-                <a href="#!">Another secondary link</a>
+              <li class="usa-nav__primary-item">
+                <a class="usa-nav__link" href="#!"><span>Link</span></a>
               </li>
             </ul>
-            ${searchform}
+            <!--/.usa-nav__primary -->
+            <div class="usa-nav__secondary">
+              <ul class="usa-nav__secondary-links">
+                <li class="usa-nav__secondary-item">
+                  <a href="#!">Secondary link</a>
+                </li>
+                <li class="usa-nav__secondary-item">
+                  <a href="#!">Another secondary link</a>
+                </li>
+              </ul>
+              ${searchform}
+            </div>
+            <!--/.usa-nav__secondary-->
           </div>
-        </div>
-      </nav>
-    </header>`;
+          <!--/.usa-nav__inner-->
+        </nav>
+        <!--/.usa-nav-->
+      </div>
+      <!--/.usa-nav-container-->
+    </header>
+    <!--/.usa-header-->`;
 
   return html` ${variant === "Default" ? defaultHTML : extendedHTML} `;
 };
