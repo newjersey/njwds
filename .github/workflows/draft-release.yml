@@ -21,7 +21,7 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
       - name: Bump and commit new version
