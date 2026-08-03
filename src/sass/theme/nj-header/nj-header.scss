@@ -2,7 +2,8 @@
 
 // Header - prevent wrapping of logo text
 .usa-header--extended {
-  .usa-logo {
-    max-width: 50%;
-  }
+  // Removed because of a bug: https://github.com/newjersey/njwds-project/issues/213
+  // .usa-logo {
+  //   max-width: 50%;
+  // }
 } // .usa-header--extended

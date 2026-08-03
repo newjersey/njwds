@@ -1,4 +1,4 @@
-# New Jersey Web Design System (NJWDS)
+# Grove: Garden State Design System (fka NJWDS)
 
 Grove (aka NJWDS) is the design system for the State of New Jersey, built to extend the [U.S. Web Design System (USWDS)](https://github.com/uswds/uswds/). It provides components and guidance specific to New Jersey's needs, with accessibility built in by default. Grove is published as `@newjersey/njwds` on npm for installation (see below)
 
@@ -13,20 +13,20 @@ Follow the instructions on the [USWDS Documentation - Installation](https://desi
 npm install @newjersey/njwds --save
 ```
 
-Once installed, the NJWDS package name would affect the file path used in `node_modules` as well (i.e. `node_modules/@newjersey/njwds/dist/` instead of `node_modules/@uswds/uswds/dist/`).
+Once installed, the Grove/NJWDS npm package name would affect the file path used in `node_modules` as well (i.e. `node_modules/@newjersey/njwds/dist/` instead of `node_modules/@uswds/uswds/dist/`).
 
 ### Without Node and NPM
 
 1. On our [GitHub Releases page](https://github.com/newjersey/njwds/releases), on the latest release (at the top of the list), you will see an "Assets" section at the bottom of the release information. Click on the "Source codede (zip)" link to download our package.
 2. Follow the instructions on the [USWDS Documentation - Installation](https://designsystem.digital.gov/documentation/developers/#installation) page, starting with Step 2 of "Install the package directly from GitHub." Note that in our case, you would want to replace the `uswds` folder name with `njwds`.
 
-### Using NJWDS files in your project
+### Using Grove files in your project
 
 Follow the instructions on the [USWDS Documentation - Using USWDS](https://designsystem.digital.gov/documentation/developers/#using-uswds-css-and-javascript-in-your-project) page. Note that instead of `uswds.css` or `uswds.min.css`, you will refer to `styles.css` in the `/dist/css` directory. Also, the filepath should have `njwds` instead of `uswds` (i.e. `assets/njwds/dist/js/uswds.min.js` instead of `assets/uswds/dist/js/uswds.min.js`).
 
 For a full list of examples of Grove (NJWDS) components and their corresponding code, see our [Storybook Component Examples](https://storybook.grove.nj.gov/?path=/docs/getting-started--docs) and our [Grove (NJWDS) Documentation Site](https://grove.nj.gov/). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
 
-### Customizing NJWDS or compiling your own assets
+### Customizing Grove or compiling your own assets
 
 The NJWDS package also includes pre-compiled files in the `src/` directory. Specifically, we add custom styles to USWDS on `_uswds-theme-custom-styles.scss` and custom theme on `_uswds-theme.scss`. Follow the instructions on the [USWDS Documentation - Compiling SASS into CSS](https://designsystem.digital.gov/documentation/developers/#compiling-uswds-sass-into-css) page to compile your own CSS using SASS.
 
@@ -45,18 +45,8 @@ The NJWDS package also includes pre-compiled files in the `src/` directory. Spec
 ### View component library locally or development
 
 #### Start the local development server
-- Run `npm start` to build the component library, launch a web server to host it, and live reload on development changes.
 
-#### Preview the static site
-- To view the static site, start a local server within the `/build` directory (e.g. using VSCode's Live Server extension). The server won't live reload on development changes. However, **it's crucial to preview the static site before deployment in order to ensure the Fractal docs site works as expected**, as `npm start` might not catch issues with static asset paths, etc.
-
-### Deploy the component library
-
-- Run `npm run deploy`
-
-This builds NJWDS styles, builds the Fractal docs, and then deploys them to the `gh-pages` branch. The deployed docs can be found [here](https://newjersey.github.io/njwds).
-
-Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages` branch. This is done automatically through the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) when a new release is published.
+- Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run grove:dev` to work on the design system itself.
 
 ## Releasing a new version to NPM
 
@@ -69,7 +59,7 @@ Note: **Do not run `npm run deploy` locally** or push directly to the `gh-pages`
 
 ## Automated testing
 
-### Visual regresstion tests
+### Visual regression tests
 
 Visual regression tests are setup to run against the Fractal documentation in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update` to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updates. These tests also run CI. Make sure the documentation is running locally (`npm start`) or the tests will fail.
 
