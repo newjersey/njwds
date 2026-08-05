@@ -30,3 +30,10 @@ export const Bordered: Story = {
     allowMultiple: false,
   },
 };
+
+export const Multiple: Story = {
+  args: {
+    bordered: false,
+    allowMultiple: true,
+  },
+};
