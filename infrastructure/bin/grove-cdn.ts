@@ -29,6 +29,5 @@ new GroveCdnStack(app, "GroveCdnStack", {
     Project: "Grove-CDN",
     Environment: "Production",
     ManagedBy: "CDK",
-    Account: "Innov-Platform-Prod",
   },
 });
