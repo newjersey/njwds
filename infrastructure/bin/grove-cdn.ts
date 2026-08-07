@@ -9,7 +9,7 @@ const app = new cdk.App();
 // To enable custom domain:
 // 1. Request ACM certificate for cdn.grove.nj.gov in us-east-1
 // 2. Validate certificate via DNS
-// 3. Uncomment and set CERTIFICATE_ARN below
+// 3. Set CDK_CERTIFICATE_ARN (and CDK_CUSTOM_DOMAIN) env vars before running cdk deploy
 // 4. Add CNAME record in grove.nj.gov DNS: cdn -> CloudFront domain
 
 const CUSTOM_DOMAIN = process.env.CDK_CUSTOM_DOMAIN; // e.g., 'cdn.grove.nj.gov'
