@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "aws-cdk-lib": "^2.263.0",
