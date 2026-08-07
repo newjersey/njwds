@@ -4,6 +4,7 @@ import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
+import * as cloudwatch from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 
 export interface GroveCdnStackProps extends cdk.StackProps {
@@ -246,6 +247,87 @@ function handler(event) {
         resources: ["*"],
       }),
     );
+
+    // CloudWatch alarms for error rates
+    const distributionMetricDimensions = {
+      DistributionId: this.distribution.distributionId,
+      Region: "Global",
+    };
+
+    const fourXxErrorRateMetric = new cloudwatch.Metric({
+      namespace: "AWS/CloudFront",
+      metricName: "4xxErrorRate",
+      dimensionsMap: distributionMetricDimensions,
+      statistic: "Average",
+      period: cdk.Duration.minutes(5),
+    });
+
+    const fiveXxErrorRateMetric = new cloudwatch.Metric({
+      namespace: "AWS/CloudFront",
+      metricName: "5xxErrorRate",
+      dimensionsMap: distributionMetricDimensions,
+      statistic: "Average",
+      period: cdk.Duration.minutes(5),
+    });
+
+    new cloudwatch.Alarm(this, "GroveCdn4xxErrorAlarm", {
+      alarmName: "grove-cdn-4xx-errors",
+      alarmDescription: "Alert on high 4xx error rate",
+      metric: fourXxErrorRateMetric,
+      threshold: 5,
+      evaluationPeriods: 2,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+    });
+
+    new cloudwatch.Alarm(this, "GroveCdn5xxErrorAlarm", {
+      alarmName: "grove-cdn-5xx-errors",
+      alarmDescription: "Alert on high 5xx error rate",
+      metric: fiveXxErrorRateMetric,
+      threshold: 1,
+      evaluationPeriods: 2,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+    });
+
+    // CloudWatch dashboard for CDN health monitoring
+    new cloudwatch.Dashboard(this, "GroveCdnDashboard", {
+      dashboardName: "grove-cdn-dashboard",
+      widgets: [
+        [
+          new cloudwatch.GraphWidget({
+            title: "CloudFront Requests",
+            left: [
+              new cloudwatch.Metric({
+                namespace: "AWS/CloudFront",
+                metricName: "Requests",
+                dimensionsMap: distributionMetricDimensions,
+                statistic: "Sum",
+                period: cdk.Duration.minutes(5),
+                label: "Total Requests",
+              }),
+            ],
+          }),
+          new cloudwatch.GraphWidget({
+            title: "Bytes Downloaded",
+            left: [
+              new cloudwatch.Metric({
+                namespace: "AWS/CloudFront",
+                metricName: "BytesDownloaded",
+                dimensionsMap: distributionMetricDimensions,
+                statistic: "Sum",
+                period: cdk.Duration.minutes(5),
+              }),
+            ],
+          }),
+        ],
+        [
+          new cloudwatch.GraphWidget({
+            title: "Error Rates",
+            left: [fourXxErrorRateMetric, fiveXxErrorRateMetric],
+            leftYAxis: { label: "Percent" },
+          }),
+        ],
+      ],
+    });
 
     // CloudFormation Outputs
     new cdk.CfnOutput(this, "BucketName", {
