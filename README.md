@@ -43,6 +43,9 @@ Two path structures are available:
         href="(CDN-URL-TBD)/2.9.2/css/styles.css"
         integrity="sha384-<hash>"
         crossorigin="anonymous">
+  <script src="(CDN-URL-TBD)/2.9.2/js/uswds-init.min.js"
+          integrity="sha384-<hash>"
+          crossorigin="anonymous"></script>
   <script src="(CDN-URL-TBD)/2.9.2/js/uswds.min.js"
           integrity="sha384-<hash>"
           crossorigin="anonymous"></script>
@@ -54,6 +57,7 @@ Two path structures are available:
 
   ```html
   <link rel="stylesheet" href="(CDN-URL-TBD)/latest/css/styles.css">
+  <script src="(CDN-URL-TBD)/latest/js/uswds-init.min.js"></script>
   <script src="(CDN-URL-TBD)/latest/js/uswds.min.js"></script>
   ```
 
