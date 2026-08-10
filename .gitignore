@@ -120,3 +120,11 @@ storybook-static
 .superpowers/
 CLAUDE.md
 AGENTS.md
+
+# CDK synthesized output (infrastructure/)
+infrastructure/cdk.out/
+infrastructure/.cdk.staging/
+
+# Compiled JS from tsc (tsconfig has no outDir, so .js/.d.ts land next to .ts sources)
+infrastructure/**/*.js
+infrastructure/**/*.d.ts
