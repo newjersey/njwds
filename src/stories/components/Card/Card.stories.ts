@@ -5,7 +5,12 @@ import { Card, type CardProps } from "./Card";
 const meta = {
   title: "Components/Card",
   tags: ["autodocs"],
-  render: (args) => Card(args),
+  render: (args) => {
+    if (args.layout === "Default") {
+      args.flagPositionRight = false;
+    }
+    return Card(args);
+  },
   argTypes: {
     layout: {
       control: { type: "select" },
@@ -20,12 +25,14 @@ const meta = {
     },
     flagPositionRight: {
       control: { type: "boolean" },
+      if: { arg: "layout", eq: "Flag" },
     },
     mediaExtend: {
       control: { type: "boolean" },
     },
     mediaFirst: {
       control: { type: "boolean" },
+      if: { arg: "layout", eq: "Default" },
     },
   },
 } satisfies Meta<CardProps>;
@@ -37,7 +44,7 @@ export const Default: Story = {
   args: {
     layout: "Default",
     media: true,
-    flagPositionRight: true,
+    flagPositionRight: false,
     mediaExtend: true,
     mediaFirst: true,
     mediaSize: "md",
