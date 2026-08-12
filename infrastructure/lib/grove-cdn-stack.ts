@@ -217,12 +217,17 @@ function handler(event) {
       }),
     );
 
-    // CloudFront invalidation permissions
+    // CloudFront invalidation + read-only distribution config permissions
+    // (GetDistribution is needed by the CDN domain lookup step in publish-release.yml)
     this.githubActionsRole.addToPolicy(
       new iam.PolicyStatement({
-        sid: "CloudFrontInvalidateOnly",
+        sid: "CloudFrontInvalidateAndRead",
         effect: iam.Effect.ALLOW,
-        actions: ["cloudfront:CreateInvalidation", "cloudfront:GetInvalidation"],
+        actions: [
+          "cloudfront:CreateInvalidation",
+          "cloudfront:GetInvalidation",
+          "cloudfront:GetDistribution",
+        ],
         resources: [
           `arn:aws:cloudfront::${this.account}:distribution/${this.distribution.distributionId}`,
         ],

@@ -36,29 +36,29 @@ Grove assets are also distributed via a CloudFront CDN, for projects that don't 
 
 Two path structures are available:
 
-- **Versioned (recommended for production):** `(CDN-URL-TBD)/<version>/...` (e.g. `/2.9.2/css/styles.css`). Immutable — the same version number always serves the same content, cached for 1 year. Use with [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) to verify asset integrity:
+- **Versioned (recommended for production):** `https://cdn.grove.nj.gov/<version>/...` (e.g. `/2.9.2/css/styles.css`). Immutable — the same version number always serves the same content, cached for 1 year. Use with [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) to verify asset integrity:
 
   ```html
   <link rel="stylesheet"
-        href="(CDN-URL-TBD)/2.9.2/css/styles.css"
+        href="https://cdn.grove.nj.gov/2.9.2/css/styles.css"
         integrity="sha384-<hash>"
         crossorigin="anonymous">
-  <script src="(CDN-URL-TBD)/2.9.2/js/uswds-init.min.js"
+  <script src="https://cdn.grove.nj.gov/2.9.2/js/uswds-init.min.js"
           integrity="sha384-<hash>"
           crossorigin="anonymous"></script>
-  <script src="(CDN-URL-TBD)/2.9.2/js/uswds.min.js"
+  <script src="https://cdn.grove.nj.gov/2.9.2/js/uswds.min.js"
           integrity="sha384-<hash>"
           crossorigin="anonymous"></script>
   ```
 
   SRI hashes for each release are published as a `sri-hashes.txt` asset on the corresponding [GitHub release](https://github.com/newjersey/njwds/releases).
 
-- **`latest`:** `(CDN-URL-TBD)/latest/...`. Always points to the most recently published version, cached for 1 hour. Convenient for prototyping, but not recommended for production — since the content changes on every release, it cannot be paired with a fixed SRI hash:
+- **`latest`:** `https://cdn.grove.nj.gov/latest/...`. Always points to the most recently published version, cached for 1 hour. Convenient for prototyping, but not recommended for production — since the content changes on every release, it cannot be paired with a fixed SRI hash:
 
   ```html
-  <link rel="stylesheet" href="(CDN-URL-TBD)/latest/css/styles.css">
-  <script src="(CDN-URL-TBD)/latest/js/uswds-init.min.js"></script>
-  <script src="(CDN-URL-TBD)/latest/js/uswds.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.grove.nj.gov/latest/css/styles.css">
+  <script src="https://cdn.grove.nj.gov/latest/js/uswds-init.min.js"></script>
+  <script src="https://cdn.grove.nj.gov/latest/js/uswds.min.js"></script>
   ```
 
 CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, gated behind a manual approval step.
