@@ -1,0 +1,28 @@
+{
+  "name": "grove-cdn-infrastructure",
+  "version": "1.0.0",
+  "description": "CDK infrastructure for Grove CDN distribution via AWS CloudFront",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "aws-cdk-lib": "^2.263.0",
+    "constructs": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "aws-cdk": "^2.1135.1",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

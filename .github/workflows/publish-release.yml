@@ -5,12 +5,15 @@ on:
       - published
 
 permissions:
-  id-token: write  # Required for OIDC (https://docs.npmjs.com/trusted-publishers)
-  contents: read
+  id-token: write  # Required for OIDC (npm trusted publishing + AWS)
+  contents: write  # Required to update release notes and upload release assets
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v7
 
@@ -25,3 +28,152 @@ jobs:
         run: npm install -g npm@latest
       - run: npm ci
       - run: npm publish --access public
+
+  publish-cdn:
+    needs: publish-npm
+    runs-on: ubuntu-latest
+    environment: production-cdn  # SECURITY: Requires manual approval before CDN deploys
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+
+      - run: npm ci
+
+      - name: Extract version
+        id: extract_version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Build Grove assets
+        run: npm run grove:build
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "./dist" ]; then
+            echo "Error: ./dist directory not found"
+            exit 1
+          fi
+          ls -lah ./dist
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: GitHubActions-Grove-CDN-Publish
+
+      - name: Upload versioned assets to S3
+        run: |
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          aws s3 sync ./dist "s3://${{ secrets.S3_BUCKET_NAME }}/${VERSION}/" \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude ".DS_Store" \
+            --delete
+
+      - name: Upload latest assets to S3
+        run: |
+          aws s3 sync ./dist "s3://${{ secrets.S3_BUCKET_NAME }}/latest/" \
+            --cache-control "public, max-age=3600" \
+            --exclude ".DS_Store" \
+            --delete
+
+      - name: Invalidate CloudFront cache
+        id: invalidate_cache
+        run: |
+          INVALIDATION_ID=$(aws cloudfront create-invalidation \
+            --distribution-id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --paths "/latest/*" \
+            --query 'Invalidation.Id' \
+            --output text)
+          echo "invalidation_id=${INVALIDATION_ID}" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for cache invalidation
+        run: |
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --id "${{ steps.invalidate_cache.outputs.invalidation_id }}"
+
+      - name: Get CDN domain
+        id: get_cdn_domain
+        run: |
+          CUSTOM_DOMAIN=$(aws cloudfront get-distribution \
+            --id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --query 'Distribution.DistributionConfig.Aliases.Items[0]' \
+            --output text 2>/dev/null || echo "")
+
+          if [ -n "$CUSTOM_DOMAIN" ] && [ "$CUSTOM_DOMAIN" != "None" ]; then
+            echo "cdn_domain=${CUSTOM_DOMAIN}" >> "$GITHUB_OUTPUT"
+          else
+            CLOUDFRONT_DOMAIN=$(aws cloudfront get-distribution \
+              --id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
+              --query 'Distribution.DomainName' \
+              --output text)
+            echo "cdn_domain=${CLOUDFRONT_DOMAIN}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate SRI hashes
+        run: |
+          cd dist
+          echo "# Subresource Integrity (SRI) Hashes" > ../sri-hashes.txt
+          echo "" >> ../sri-hashes.txt
+          echo "Use these hashes to verify asset integrity when loading from CDN:" >> ../sri-hashes.txt
+          echo "" >> ../sri-hashes.txt
+
+          for file in css/*.css js/*.js; do
+            if [ -f "$file" ]; then
+              HASH=$(openssl dgst -sha384 -binary "$file" | openssl base64 -A)
+              echo "**$file**" >> ../sri-hashes.txt
+              echo '```' >> ../sri-hashes.txt
+              echo "integrity=\"sha384-$HASH\"" >> ../sri-hashes.txt
+              echo '```' >> ../sri-hashes.txt
+              echo "" >> ../sri-hashes.txt
+            fi
+          done
+
+      - name: Upload SRI hashes to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          gh release upload "$TAG_NAME" sri-hashes.txt --clobber
+
+      - name: Update release notes with CDN info
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          VERSION: ${{ steps.extract_version.outputs.version }}
+          CDN_DOMAIN: ${{ steps.get_cdn_domain.outputs.cdn_domain }}
+        run: |
+          VERSIONED_URL="https://${CDN_DOMAIN}/${VERSION}"
+          LATEST_URL="https://${CDN_DOMAIN}/latest"
+
+          gh release view "$TAG_NAME" --json body --jq .body > release_body.md
+
+          cat >> release_body.md << EOF
+
+          ---
+
+          ## CDN Distribution
+
+          This release is available via CDN at:
+
+          **Versioned (immutable, recommended for production):**
+          - \`${VERSIONED_URL}/css/styles.css\`
+          - \`${VERSIONED_URL}/js/uswds.min.js\`
+
+          **Latest (always points to newest version):**
+          - \`${LATEST_URL}/css/styles.css\`
+          - \`${LATEST_URL}/js/uswds.min.js\`
+
+          SRI hashes are included in the release assets (\`sri-hashes.txt\`). Use them to verify asset integrity.
+          EOF
+
+          gh release edit "$TAG_NAME" --notes-file release_body.md
