@@ -32,26 +32,30 @@
       @media (min-width: 46rem) {
         display: inline;
       }
-      @include u-margin-right(1);
-      @include u-padding-right(1);
-      @include u-border-right(1px);
+      margin-inline-end: units(1);
+      padding-inline-end: units(1);
+      border-inline-end: 1px solid;
 
       &:last-child {
         display: inline;
-        @include u-margin-right(0);
-        @include u-padding-right(0);
-        @include u-border-right(0);
+        margin-inline-end: 0;
+        padding-inline-end: 0;
+        border-inline-end: 0;
       }
     } // li
 
     &-seal {
-      padding-right: units(1);
+      padding-inline-end: units(1);
     } // .nj-banner__header-seal
   } // .nj-banner__header
 
   &__inner {
     @include grid-row;
     @include u-flex("align-center");
-    padding-right: units(0);
+    padding-inline-end: 0;
   } // .nj-banner__inner
+
+  &__mail-icon {
+    margin-inline-end: units(0.5);
+  }
 }
