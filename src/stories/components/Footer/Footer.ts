@@ -25,16 +25,18 @@ export const Footer = ({ variant }: FooterProps) => {
   if (variant === "Default") {
     primarySection = html`
       <div class="usa-footer__primary-section">
-        <nav class="usa-footer__nav" aria-label="Footer navigation">
-          <ul class="grid-row grid-gap">
-            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="#!">Primary link</a>
-            </li>
-            <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
-              <a class="usa-footer__primary-link" href="#!">Primary link</a>
-            </li>
-          </ul>
-        </nav>
+        <div class="grid-container">
+          <nav class="usa-footer__nav" aria-label="Footer navigation">
+            <ul class="grid-row grid-gap">
+              <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+                <a class="usa-footer__primary-link" href="#!">Primary link</a>
+              </li>
+              <li class="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
+                <a class="usa-footer__primary-link" href="#!">Primary link</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     `;
   } else if (variant === "Big") {
@@ -44,7 +46,7 @@ export const Footer = ({ variant }: FooterProps) => {
           <div class="grid-row grid-gap">
             <div class="tablet:grid-col-8">
               <nav class="usa-footer__nav" aria-label="Footer navigation">
-                <div class="grid-row grid-gap-4">
+                <div class="grid-row mobile-lg:grid-gap-4">
                   <div class="mobile-lg:grid-col-6 desktop:grid-col-3">
                     <section
                       class="usa-footer__primary-content usa-footer__primary-content--collapsible"
@@ -115,7 +117,7 @@ export const Footer = ({ variant }: FooterProps) => {
         <div class="usa-footer__primary-container grid-row">
           <div class="mobile-lg:grid-col-8">
             <nav class="usa-footer__nav" aria-label="Footer navigation">
-              <ul class="grid-row grid-gap">
+              <ul class="grid-row mobile-lg:grid-gap">
                 <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content">
                   <a class="usa-footer__primary-link" href="#!">Primary link</a>
                 </li>
@@ -127,7 +129,7 @@ export const Footer = ({ variant }: FooterProps) => {
           </div>
           <div class="mobile-lg:grid-col-4">
             <address class="usa-footer__address">
-              <div class="grid-row grid-gap">
+              <div class="grid-row mobile-lg:grid-gap">
                 <div class="grid-col-auto mobile-lg:grid-col-12 desktop:grid-col-auto">
                   <div class="usa-footer__contact-info">
                     <a href="tel:1-800-555-5555">(800) CALL-GOVT</a>
