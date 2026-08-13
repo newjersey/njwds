@@ -18,6 +18,44 @@ const TEST_CASES = [
   },
 ];
 
+const LANGUAGE_CASES = [
+  {
+    nativeName: "English",
+    translation: null,
+    language: "en",
+    direction: "ltr",
+    isCurrent: true,
+  },
+  {
+    nativeName: "Español",
+    translation: "(Spanish)",
+    language: "es",
+    direction: "ltr",
+    isCurrent: false,
+  },
+  {
+    nativeName: "Français",
+    translation: "(French)",
+    language: "fr",
+    direction: "ltr",
+    isCurrent: false,
+  },
+  {
+    nativeName: "Italiano",
+    translation: "(Italian)",
+    language: "it",
+    direction: "ltr",
+    isCurrent: false,
+  },
+  {
+    nativeName: "العربية",
+    translation: "(Arabic)",
+    language: "ar",
+    direction: "rtl",
+    isCurrent: false,
+  },
+] as const;
+
 runA11ySuite({
   suiteName: "Language selector",
   include: ".usa-language-container",
@@ -51,15 +89,31 @@ test.describe("Language selector semantics", () => {
     const languageLinks = page.locator(".usa-language__submenu a");
 
     await expect(languageLinks).toHaveCount(5);
-    await expect(languageLinks.filter({ hasText: "English" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
-    await expect(languageLinks.filter({ hasText: "العربية" })).toHaveAttribute("hreflang", "ar");
-    await expect(page.locator('span[lang="ar"]')).toHaveAttribute("dir", "rtl");
-    await expect(page.locator('span[lang="en"]', { hasText: "(Arabic)" })).toHaveAttribute(
-      "lang",
-      "en",
-    );
+
+    for (const languageCase of LANGUAGE_CASES) {
+      const languageLink = languageLinks.filter({ hasText: languageCase.nativeName });
+      const nativeName = languageLink.locator("span").first();
+      const translation = languageLink.locator("span").nth(1);
+
+      await expect(languageLink).toHaveCount(1);
+      await expect(languageLink).toHaveAttribute("hreflang", languageCase.language);
+      await expect(nativeName).toHaveText(languageCase.nativeName);
+      await expect(nativeName).toHaveAttribute("lang", languageCase.language);
+      await expect(nativeName).toHaveAttribute("dir", languageCase.direction);
+
+      if (languageCase.translation === null) {
+        await expect(translation).toHaveCount(0);
+      } else {
+        await expect(translation).toHaveText(languageCase.translation);
+        await expect(translation).toHaveAttribute("lang", "en");
+        await expect(translation).toHaveAttribute("dir", "ltr");
+      }
+
+      if (languageCase.isCurrent) {
+        await expect(languageLink).toHaveAttribute("aria-current", "page");
+      } else {
+        await expect(languageLink).not.toHaveAttribute("aria-current", "page");
+      }
+    }
   });
 });
