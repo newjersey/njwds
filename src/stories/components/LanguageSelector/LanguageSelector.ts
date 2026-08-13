@@ -4,11 +4,18 @@ export interface LanguageSelectorProps {
   pattern: "simple" | "dropdown";
   buttonType: string;
   icon: boolean;
+  instanceId?: string;
 }
 
-export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelectorProps) => {
+export const LanguageSelector = ({
+  pattern,
+  buttonType,
+  icon,
+  instanceId = crypto.randomUUID(),
+}: LanguageSelectorProps) => {
   const buttonTypeClass =
     buttonType === "secondary" ? "usa-button--outline" : "usa-button--unstyled";
+  const languageOptionsId = `language-options-${instanceId}`;
 
   if (pattern === "simple") {
     return html`
@@ -19,6 +26,7 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
           class="usa-button ${buttonTypeClass}"
           aria-label="Cambiar el idioma a español"
           lang="es"
+          hreflang="es"
         >
           <span lang="es">Español</span>
           ${icon
@@ -39,7 +47,7 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
           <button
             class="usa-button usa-language__link ${buttonTypeClass}"
             aria-expanded="false"
-            aria-controls="language-options"
+            aria-controls="${languageOptionsId}"
             aria-label="Change the language of this page"
           >
             Languages
@@ -51,26 +59,35 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
                 `
               : ""}
           </button>
-          <ul id="language-options" class="usa-language__submenu" hidden>
+          <ul id="${languageOptionsId}" class="usa-language__submenu" hidden>
             <li class="usa-language__submenu-item">
-              <a href="#!"
-                ><span lang="en"><strong>English</strong></span></a
-              >
-            </li>
-            <li class="usa-language__submenu-item">
-              <a href="#!"
-                ><span lang="es"><strong>Español</strong> (Spanish)</span>
+              <a href="#!" hreflang="en" aria-current="page">
+                <span lang="en" dir="ltr"><strong>English</strong></span>
               </a>
             </li>
             <li class="usa-language__submenu-item">
-              <a href="#!"
-                ><span lang="fr"><strong>Français</strong> (French)</span>
+              <a href="#!" hreflang="es">
+                <span lang="es" dir="ltr"><strong>Español</strong></span>
+                <span lang="en" dir="ltr">(Spanish)</span>
               </a>
             </li>
             <li class="usa-language__submenu-item">
-              <a href="#!"
-                ><span lang="it"><strong>Italiano</strong> (Italian)</span></a
-              >
+              <a href="#!" hreflang="fr">
+                <span lang="fr" dir="ltr"><strong>Français</strong></span>
+                <span lang="en" dir="ltr">(French)</span>
+              </a>
+            </li>
+            <li class="usa-language__submenu-item">
+              <a href="#!" hreflang="it">
+                <span lang="it" dir="ltr"><strong>Italiano</strong></span>
+                <span lang="en" dir="ltr">(Italian)</span>
+              </a>
+            </li>
+            <li class="usa-language__submenu-item">
+              <a href="#!" hreflang="ar">
+                <span lang="ar" dir="rtl"><strong>العربية</strong></span>
+                <span lang="en" dir="ltr">(Arabic)</span>
+              </a>
             </li>
           </ul>
           <!--/.language__submenu-->
