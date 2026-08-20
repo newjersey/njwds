@@ -1,12 +1,28 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
+import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Locate @uswds/uswds via Node's node_modules search order rather than a
+// fixed relative depth, since npm workspaces hoists it to the repo-root
+// node_modules. Uses resolve.paths (not require.resolve("@uswds/uswds/package.json"))
+// because @uswds/uswds's "exports" map doesn't expose "./package.json" as a subpath.
+const require = createRequire(import.meta.url);
+const uswdsSearchPaths = require.resolve.paths("@uswds/uswds") ?? [];
+const uswdsRoot = uswdsSearchPaths
+  .map((searchPath) => path.join(searchPath, "@uswds/uswds"))
+  .find((candidate) => existsSync(candidate));
+if (!uswdsRoot) {
+  throw new Error("Could not locate @uswds/uswds in any node_modules directory");
+}
+const uswdsPackagesDir = path.join(uswdsRoot, "packages");
 
 /**
  * Vite configuration for Grove CSS build
@@ -111,10 +127,7 @@ export default defineConfig({
          * Note: Changed @forward "uswds" to @forward "uswds/index" in styles.scss
          * to avoid Vite's package resolution treating it as an npm package import
          */
-        loadPaths: [
-          path.resolve(__dirname, "src/sass"),
-          path.resolve(__dirname, "node_modules/@uswds/uswds/packages"),
-        ],
+        loadPaths: [path.resolve(__dirname, "src/sass"), uswdsPackagesDir],
 
         /**
          * Silence SASS deprecation warnings from upstream dependencies
