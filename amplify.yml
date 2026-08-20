@@ -10,7 +10,7 @@ frontend:
         - npm run grove:build
         - npm run storybook:build
   artifacts:
-    baseDirectory: storybook-static
+    baseDirectory: packages/njwds/storybook-static
     files:
       - "**/*"
   cache:
