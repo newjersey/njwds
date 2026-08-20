@@ -47,7 +47,6 @@ export default defineConfig({
       "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
       "**/src/tests/**/*.visual.spec.ts", // Exclude Playwright visual tests
       "**/src/tests/**/*.accessibility.spec.ts", // Exclude Playwright accessibility tests
-      "infrastructure/**", // Separate npm project with its own test runner/CI step
     ],
   },
 });
