@@ -33,7 +33,6 @@ export default defineConfig({
   // Vitest configuration (unit tests only)
   // Note: build-scripts/ has its own vitest.config.ts for Node environment
   // Note: Playwright tests (visual/accessibility) are run via separate commands
-  // @ts-expect-error - Vitest extends Vite's config, types don't reflect this
   test: {
     globals: true,
     environment: "jsdom",
