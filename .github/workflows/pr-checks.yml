@@ -78,7 +78,7 @@ jobs:
         run: npx wait-on http://localhost:6006
 
       - name: Run ${{ matrix.project }} tests
-        run: npx playwright test --project=${{ matrix.project }}
+        run: npx playwright test --config packages/njwds/playwright.config.ts --project=${{ matrix.project }}
 
       # if the tests fail, upload the Playwright artifacts for debugging
       - name: Upload Playwright artifacts
@@ -87,8 +87,8 @@ jobs:
         with:
           name: playwright-artifacts-${{ matrix.project }}
           path: |
-            playwright-report/
-            test-results/
+            packages/njwds/playwright-report/
+            packages/njwds/test-results/
 
       # cleanup step to stop the server after tests are done, regardless of success or failure
       - name: Stop server
