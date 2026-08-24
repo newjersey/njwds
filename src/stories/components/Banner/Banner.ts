@@ -34,7 +34,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
                   rel="noopener"
                 >
                   <svg
-                    class="usa-icon usa-icon--size-3 nj-banner__mail-icon margin-right-05"
+                    class="usa-icon usa-icon--size-3 nj-banner__mail-icon"
                     role="img"
                     aria-hidden="true"
                     focusable="false"
