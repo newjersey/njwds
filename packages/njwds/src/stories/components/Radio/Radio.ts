@@ -6,18 +6,26 @@ export interface RadioProps {
   tile: boolean;
   label: string;
   error: boolean;
+  labelDescription: boolean;
   helperText: boolean;
   required: boolean;
 }
 
-export const Radio = ({ tile = false, label, error, helperText, required }: RadioProps) => {
+export const Radio = ({
+  tile = false,
+  label,
+  error,
+  labelDescription,
+  helperText,
+  required,
+}: RadioProps) => {
   const instanceId = `${crypto.randomUUID()}`; // for storybook, to ensure unique ids for each radio instance
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "nj-radio--error" : "";
   const errorLabelClass = error ? "usa-label--error" : "";
 
   const classes = tile ? "usa-radio__input usa-radio__input--tile" : "usa-radio__input";
-  const tileLabel = tile
+  const tileLabel = labelDescription
     ? html`<span class="usa-radio__label-description"
         >This is optional text that can be used to describe the label in moredetail.</span
       >`
