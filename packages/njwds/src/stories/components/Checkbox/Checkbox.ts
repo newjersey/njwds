@@ -6,18 +6,26 @@ export interface CheckboxProps {
   tile: boolean;
   label: string;
   error: boolean;
+  labelDescription: boolean;
   helperText: boolean;
   required: boolean;
 }
 
-export const Checkbox = ({ tile = false, label, error, helperText, required }: CheckboxProps) => {
+export const Checkbox = ({
+  tile = false,
+  label,
+  error,
+  labelDescription,
+  helperText,
+  required,
+}: CheckboxProps) => {
   const instanceId = `${crypto.randomUUID()}`; // for storybook, to ensure unique ids for each checkbox instance
   const errorGroupClass = error ? "usa-form-group--error" : "";
   const errorInputClass = error ? "nj-checkbox--error" : "";
   const errorLabelClass = error ? "usa-label--error" : "";
 
   const classes = tile ? "usa-checkbox__input usa-checkbox__input--tile" : "usa-checkbox__input";
-  const tileLabel = tile
+  const tileLabel = labelDescription
     ? html`<span class="usa-checkbox__label-description"
         >This is optional text that can be used to describe the label in moredetail.</span
       >`
