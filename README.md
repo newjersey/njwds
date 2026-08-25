@@ -69,11 +69,11 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 - Clone this repository
 - Run `npm install`
-- [Optional] Run `npm run import-components` to import new USWDS components. This only needs to be done if new upstream components are developed. This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in a `dist` directory. Note: This option may no longer work, if trying it out, use caution and check for regressions.
+- [Optional] Run `npm run import-components` to import new USWDS components. This only needs to be done if new upstream components are developed. This imports the USWDS, pulls in the NJ-specific components and styles, and saves them in the `packages/njwds/src/` directory. Note: This option may no longer work, if trying it out, use caution and check for regressions.
 
 ## Build the design system assets
 
-- Run `npm run grove:build` to build the assets into the `dist/` directory
+- Run `npm run grove:build` to build the assets into the `packages/njwds/dist/` directory
 
 ### View component library locally or development
 
@@ -85,7 +85,7 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 1. Go to the [Draft Release GitHub Action](https://github.com/newjersey/njwds/actions/workflows/draft-release.yml)
 2. Click the "Run workflow" dropdown, keep the branch set to `main`, and update the Semver Level based on what has changed since the previous release ([semver documentation](https://semver.org/)). Click the green button to "Run workflow".
-3. This should create a new Pull Request bumping the `package.json` file's version according to the level you set to the release (e.g. minor release changes version from 0.1.0 to 0.2.0). Rebase & merge this PR into the `main` branch.
+3. This should create a new Pull Request bumping the `packages/njwds/package.json` file's version according to the level you set to the release (e.g. minor release changes version from 0.1.0 to 0.2.0). Rebase & merge this PR into the `main` branch.
 4. Go to the [GitHub Releases page](https://github.com/newjersey/njwds/releases) and confirm that you see a new draft release with this version. (Note that this will automatically happen after Step 2, and is not dependent on Step 3)
 5. On the releases page, click the pencil icon on the top right to Edit the release. Document what has changed in this release; be sure to note any breaking changes. Once all looks good, click "Publish release" at the bottom.
 6. This will automatically trigger the ["Deploy to GitHub Pages" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/deploy-to-gh-pages.yml) as well as the ["Publish Release" GitHub Action](https://github.com/newjersey/njwds/actions/workflows/publish-release.yml). Confirm the "Publish Release" action succeeded by checking the the [NJWDS package](https://www.npmjs.com/package/@newjersey/njwds) on the NPM registry.
@@ -94,7 +94,7 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 ### Visual regression tests
 
-Visual regression tests are setup to run against the Fractal documentation in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update` to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updates. These tests also run CI. Make sure the documentation is running locally (`npm start`) or the tests will fail.
+Visual regression tests are set up to run against Storybook in order to catch any simple regressions as we rebuild the CSS. To set the initial screenshots run `npm run test:visual:update`; to run tests against those screenshots run `npm run test:visual`. Whenever visual updates are made to components, the screenshots will need to be updated. These tests also run in CI. Make sure Storybook is running locally (`npm run storybook`) or the tests will fail.
 
 ### Accessibility tests
 

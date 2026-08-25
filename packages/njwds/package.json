@@ -1,0 +1,61 @@
+{
+  "name": "@newjersey/njwds",
+  "version": "2.9.2",
+  "description": "NJ Web Design Standards",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "npm run grove:build",
+    "import-components": "cp -nr node_modules/uswds/src/components ./src/",
+    "test": "vitest run",
+    "test:visual": "playwright test --project=visual",
+    "test:accessibility": "playwright test --project=accessibility",
+    "test:visual:update": "playwright test --project=visual --update-snapshots=all",
+    "grove:dev": "vite build --config vite.config.grove.ts --watch",
+    "grove:build": "vite build --config vite.config.grove.ts",
+    "preview": "npx serve storybook-static",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newjersey/njwds.git"
+  },
+  "author": "dhcole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newjersey/njwds/issues"
+  },
+  "homepage": "https://github.com/newjersey/njwds#readme",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "dependencies": {
+    "@newjersey/feedback-widget": "^0.7.1",
+    "@uswds/uswds": "3.13.0",
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.60.0",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "@storybook/addon-vitest": "^10.2.8",
+    "@storybook/web-components-vite": "^10.2.8",
+    "autoprefixer": "^10.4.0",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^30.0.1",
+    "playwright": "^1.58.2",
+    "postcss": "^8.3.11",
+    "postcss-csso": "^5.0.1",
+    "sass": "^1.97.3",
+    "storybook": "^10.2.13",
+    "vite": "^8.1.0",
+    "vitest": "^4.1.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    ".browserslistrc"
+  ]
+}

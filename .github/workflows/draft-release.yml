@@ -30,10 +30,10 @@ jobs:
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           LATEST_VERSION=$(gh release list --json name,isLatest --jq '.[] | select(.isLatest)|.name')
-          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version)
+          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version -w packages/njwds)
           BRANCH_NAME=upgrade-package-$NEW_VERSION
           git checkout -b $BRANCH_NAME
-          git add package.json package-lock.json
+          git add packages/njwds/package.json package-lock.json
           git commit -m "Bump version to $NEW_VERSION"
           git push -u origin $BRANCH_NAME
           gh pr create -B main -H $BRANCH_NAME --title "Upgrade NWJDS package version to $NEW_VERSION" --body "Created by Github Action"

@@ -48,7 +48,7 @@ jobs:
       # get playwright version from package.json for cache key
       - name: Get Playwright version
         id: playwright-version
-        run: echo "version=$(node -p "require('./package.json').devDependencies['@playwright/test']")" >> $GITHUB_OUTPUT
+        run: echo "version=$(node -p "require('./packages/njwds/package.json').devDependencies['@playwright/test']")" >> $GITHUB_OUTPUT
 
       # cache playwright browsers to speed up workflow
       - name: Cache Playwright browsers
@@ -70,7 +70,7 @@ jobs:
       # start a static server to serve the built storybook
       - name: Start static server
         run: |
-          npx http-server ./storybook-static -p 6006 &
+          npx http-server ./packages/njwds/storybook-static -p 6006 &
           echo $! > server.pid
 
       # separate step to wait for the server to be ready before running tests
@@ -78,7 +78,7 @@ jobs:
         run: npx wait-on http://localhost:6006
 
       - name: Run ${{ matrix.project }} tests
-        run: npx playwright test --project=${{ matrix.project }}
+        run: npx playwright test --config packages/njwds/playwright.config.ts --project=${{ matrix.project }}
 
       # if the tests fail, upload the Playwright artifacts for debugging
       - name: Upload Playwright artifacts
@@ -87,8 +87,8 @@ jobs:
         with:
           name: playwright-artifacts-${{ matrix.project }}
           path: |
-            playwright-report/
-            test-results/
+            packages/njwds/playwright-report/
+            packages/njwds/test-results/
 
       # cleanup step to stop the server after tests are done, regardless of success or failure
       - name: Stop server

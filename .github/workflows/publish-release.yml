@@ -27,7 +27,7 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
       - run: npm ci
-      - run: npm publish --access public
+      - run: npm publish --workspace=packages/njwds --access public
 
   publish-cdn:
     needs: publish-npm
@@ -49,7 +49,7 @@ jobs:
       - name: Extract version
         id: extract_version
         run: |
-          VERSION=$(node -p "require('./package.json').version")
+          VERSION=$(node -p "require('./packages/njwds/package.json').version")
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build Grove assets
@@ -57,11 +57,11 @@ jobs:
 
       - name: Verify build output
         run: |
-          if [ ! -d "./dist" ]; then
-            echo "Error: ./dist directory not found"
+          if [ ! -d "./packages/njwds/dist" ]; then
+            echo "Error: ./packages/njwds/dist directory not found"
             exit 1
           fi
-          ls -lah ./dist
+          ls -lah ./packages/njwds/dist
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -73,14 +73,14 @@ jobs:
       - name: Upload versioned assets to S3
         run: |
           VERSION="${{ steps.extract_version.outputs.version }}"
-          aws s3 sync ./dist "s3://${{ secrets.S3_BUCKET_NAME }}/${VERSION}/" \
+          aws s3 sync ./packages/njwds/dist "s3://${{ secrets.S3_BUCKET_NAME }}/${VERSION}/" \
             --cache-control "public, max-age=31536000, immutable" \
             --exclude ".DS_Store" \
             --delete
 
       - name: Upload latest assets to S3
         run: |
-          aws s3 sync ./dist "s3://${{ secrets.S3_BUCKET_NAME }}/latest/" \
+          aws s3 sync ./packages/njwds/dist "s3://${{ secrets.S3_BUCKET_NAME }}/latest/" \
             --cache-control "public, max-age=3600" \
             --exclude ".DS_Store" \
             --delete
@@ -121,20 +121,20 @@ jobs:
 
       - name: Generate SRI hashes
         run: |
-          cd dist
-          echo "# Subresource Integrity (SRI) Hashes" > ../sri-hashes.txt
-          echo "" >> ../sri-hashes.txt
-          echo "Use these hashes to verify asset integrity when loading from CDN:" >> ../sri-hashes.txt
-          echo "" >> ../sri-hashes.txt
+          cd packages/njwds/dist
+          echo "# Subresource Integrity (SRI) Hashes" > ../../../sri-hashes.txt
+          echo "" >> ../../../sri-hashes.txt
+          echo "Use these hashes to verify asset integrity when loading from CDN:" >> ../../../sri-hashes.txt
+          echo "" >> ../../../sri-hashes.txt
 
           for file in css/*.css js/*.js; do
             if [ -f "$file" ]; then
               HASH=$(openssl dgst -sha384 -binary "$file" | openssl base64 -A)
-              echo "**$file**" >> ../sri-hashes.txt
-              echo '```' >> ../sri-hashes.txt
-              echo "integrity=\"sha384-$HASH\"" >> ../sri-hashes.txt
-              echo '```' >> ../sri-hashes.txt
-              echo "" >> ../sri-hashes.txt
+              echo "**$file**" >> ../../../sri-hashes.txt
+              echo '```' >> ../../../sri-hashes.txt
+              echo "integrity=\"sha384-$HASH\"" >> ../../../sri-hashes.txt
+              echo '```' >> ../../../sri-hashes.txt
+              echo "" >> ../../../sri-hashes.txt
             fi
           done
 

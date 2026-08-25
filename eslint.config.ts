@@ -22,6 +22,7 @@ export default defineConfig([
       "public/dist/",
       "build/",
       "packages/**/dist/",
+      "packages/**/storybook-static/",
       "packages/**/node_modules/",
       "gulpfile.js",
       "*.config.js",
