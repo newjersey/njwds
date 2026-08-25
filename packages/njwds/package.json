@@ -37,20 +37,20 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
     "@playwright/test": "^1.60.0",
-    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-a11y": "^10.5.10",
     "@storybook/addon-docs": "^10.2.8",
-    "@storybook/addon-vitest": "^10.2.8",
+    "@storybook/addon-vitest": "^10.5.10",
     "@storybook/web-components-vite": "^10.2.8",
     "autoprefixer": "^10.4.0",
     "gh-pages": "^6.3.0",
     "jsdom": "^30.0.1",
     "playwright": "^1.58.2",
-    "postcss": "^8.3.11",
+    "postcss": "^8.5.26",
     "postcss-csso": "^5.0.1",
     "sass": "^1.97.3",
     "storybook": "^10.2.13",
-    "vite": "^8.1.0",
-    "vitest": "^4.1.0"
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
   },
   "files": [
     "dist",
