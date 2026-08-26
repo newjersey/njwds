@@ -46,7 +46,7 @@
     "jsdom": "^30.0.1",
     "playwright": "^1.58.2",
     "postcss": "^8.5.26",
-    "postcss-csso": "^5.0.1",
+    "postcss-csso": "^6.0.1",
     "sass": "^1.97.3",
     "storybook": "^10.2.13",
     "vite": "^8.2.2",
