@@ -114,6 +114,25 @@
   // Global Styles
   $theme-global-paragraph-styles: true,
   $theme-global-link-styles: true,
+  // Custom typeface tokens
+  $theme-typeface-tokens: (
+      "plus-jakarta-sans": (
+        display-name: "Plus Jakarta Sans",
+        cap-height: 745,
+        stack: (
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif,
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+        ),
+      )
+    ),
   // Type Based Font Settings
   $theme-font-type-sans: "public-sans",
   // Role Based Font Settings
