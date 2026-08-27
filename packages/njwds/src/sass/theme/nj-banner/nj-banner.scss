@@ -21,6 +21,8 @@
       &:hover,
       &:focus {
         text-decoration: underline;
+        outline: 4px solid color("white");
+        box-shadow: 0 0 0 8px color($theme-focus-color);
       }
     } // a
 
