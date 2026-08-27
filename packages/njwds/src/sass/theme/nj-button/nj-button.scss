@@ -6,7 +6,9 @@
   padding: units(2) units(2.5);
 
   &:focus,
-  &.usa-focus {
+  &.usa-focus,
+  &.usa-button:not([disabled]):focus,
+  &.usa-button:not([disabled]).usa-focus {
     outline: 4px solid color("white");
     outline-offset: 0;
     box-shadow:
