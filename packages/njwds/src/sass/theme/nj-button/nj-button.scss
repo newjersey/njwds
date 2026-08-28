@@ -10,14 +10,14 @@
   &.usa-focus,
   &.usa-button:not([disabled]):focus,
   &.usa-button:not([disabled]).usa-focus {
-    outline: 4px solid color("white");
+    outline: 0.25rem solid color("white");
 
     &::after {
       content: "";
       position: absolute;
-      inset: -8px;
-      border-radius: inherit;
-      box-shadow: 0 0 0 4px color($theme-focus-color);
+      inset: -0.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 0 0.25rem color($theme-focus-color);
       pointer-events: none;
     }
   }
