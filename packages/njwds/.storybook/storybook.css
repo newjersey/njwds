@@ -29,7 +29,7 @@
   padding: 0;
 
   > div:first-child {
-    padding: 8px; /* focus ring was being blocked */
+    padding: 4px; /* focus ring was being blocked */
   }
 }
 
