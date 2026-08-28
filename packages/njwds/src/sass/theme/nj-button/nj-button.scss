@@ -11,12 +11,11 @@
   &.usa-button:not([disabled]):focus,
   &.usa-button:not([disabled]).usa-focus {
     outline: 4px solid color("white");
-    outline-offset: 0;
 
     &::after {
       content: "";
       position: absolute;
-      inset: -4px;
+      inset: -8px;
       border-radius: inherit;
       box-shadow: 0 0 0 4px color($theme-focus-color);
       pointer-events: none;
