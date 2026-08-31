@@ -40,7 +40,7 @@
     "@storybook/addon-a11y": "^10.5.10",
     "@storybook/addon-docs": "^10.2.8",
     "@storybook/addon-vitest": "^10.5.10",
-    "@storybook/web-components-vite": "^10.2.8",
+    "@storybook/web-components-vite": "^10.5.10",
     "autoprefixer": "^10.4.0",
     "gh-pages": "^6.3.0",
     "jsdom": "^30.0.1",
