@@ -5,12 +5,12 @@
   &.usa-focus {
     outline: 0.25rem solid color($theme-focus-color);
     background-color: color("white");
-    color: color($theme-link-active-color);
-    &:hover {
-      color: color($theme-link-active-color);
-    }
+    color: color($theme-link-color);
     &:visited {
       color: color($theme-link-visited-color);
+    }
+    &:hover {
+      color: color($theme-link-active-color);
     }
   }
 }
