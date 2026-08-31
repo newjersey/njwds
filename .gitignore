@@ -84,6 +84,7 @@ typings/
 .nuxt
 /dist
 packages/*/dist
+packages/*/build
 
 # Gatsby files
 .cache/
