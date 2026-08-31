@@ -3,7 +3,11 @@
 .usa-link {
   &:focus,
   &.usa-focus {
-    outline: 0.25rem solid color("white");
-    box-shadow: 0 0 0 0.5rem color($theme-focus-color);
+    outline: 0.25rem solid color($theme-focus-color);
+    background-color: color("white");
+    color: color($theme-link-active-color);
+    &:visited {
+      color: color($theme-link-visited-color);
+    }
   }
 }

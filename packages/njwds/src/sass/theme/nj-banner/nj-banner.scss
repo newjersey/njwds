@@ -21,8 +21,9 @@
       &:hover,
       &:focus {
         text-decoration: underline;
-        outline: 0.25rem solid color("white");
-        box-shadow: 0 0 0 0.5rem color($theme-focus-color);
+        outline: 0.25rem solid color($theme-focus-color);
+        color: color($theme-link-active-color);
+        background-color: color("white");
       }
     } // a
 
