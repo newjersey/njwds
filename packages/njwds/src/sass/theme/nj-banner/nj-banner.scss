@@ -20,10 +20,10 @@
 
       &:hover,
       &:focus {
-        text-decoration: underline;
         outline: 0.25rem solid color($theme-focus-color);
-        color: color($theme-link-color);
         background-color: color("white");
+        text-decoration: underline;
+        color: color($theme-link-color);
         &:hover {
           color: color($theme-link-active-color);
         }

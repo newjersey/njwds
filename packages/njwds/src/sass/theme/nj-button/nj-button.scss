@@ -16,8 +16,8 @@
       content: "";
       position: absolute;
       inset: -0.5rem;
-      border-radius: 0.75rem;
       box-shadow: 0 0 0 0.25rem color($theme-focus-color);
+      border-radius: 0.75rem;
       pointer-events: none;
     }
   }
