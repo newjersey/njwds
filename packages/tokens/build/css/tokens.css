@@ -1,0 +1,74 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root,
+:host {
+  --grove-color-black: #000000;
+  --grove-color-white: #ffffff;
+  --grove-font-family-system:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --grove-font-family-georgia: Georgia, Cambria, "Times New Roman", Times, serif;
+  --grove-font-family-helvetica: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  --grove-font-family-merriweather: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
+  --grove-font-family-roboto-mono:
+    "Roboto Mono Web", "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  --grove-font-size-1: 0.75rem;
+  --grove-font-size-2: 0.81rem;
+  --grove-font-size-3: 0.875rem;
+  --grove-font-size-4: 0.9375rem;
+  --grove-font-size-5: 1rem;
+  --grove-font-size-6: 1.0625rem;
+  --grove-font-size-7: 1.125rem;
+  --grove-font-size-8: 1.25rem;
+  --grove-font-size-9: 1.375rem;
+  --grove-font-size-10: 1.5rem;
+  --grove-font-size-11: 1.75rem;
+  --grove-font-size-12: 2rem;
+  --grove-font-size-13: 2.25rem;
+  --grove-font-size-14: 2.5rem;
+  --grove-font-size-15: 3rem;
+  --grove-font-size-16: 3.5rem;
+  --grove-font-size-17: 4rem;
+  --grove-font-size-18: 5rem;
+  --grove-font-size-19: 7.5rem;
+  --grove-font-size-20: 8.75rem;
+  --grove-font-size-micro: 0.625rem;
+  --grove-font-weight-thin: 100;
+  --grove-font-weight-extralight: 200;
+  --grove-font-weight-light: 300;
+  --grove-font-weight-regular: 400;
+  --grove-font-weight-normal: 400;
+  --grove-font-weight-medium: 500;
+  --grove-font-weight-semi-bold: 600;
+  --grove-font-weight-bold: 700;
+  --grove-font-weight-heavy: 800;
+  --grove-line-height-1: 1;
+  --grove-line-height-2: 1.15;
+  --grove-line-height-3: 1.35;
+  --grove-line-height-4: 1.5;
+  --grove-line-height-5: 1.62;
+  --grove-line-height-6: 1.75;
+  --grove-measure-1: 44ex;
+  --grove-measure-2: 60ex;
+  --grove-measure-3: 64ex;
+  --grove-measure-4: 68ex;
+  --grove-measure-5: 72ex;
+  --grove-measure-6: 88ex;
+  --grove-font-family-open-sans: Open Sans, var(--grove-font-family-system);
+  --grove-font-family-public-sans: Public Sans, var(--grove-font-family-system);
+  --grove-font-family-source-sans-pro: Source Sans Pro, var(--grove-font-family-system);
+  --grove-font-family-tahoma: Tahoma, var(--grove-font-family-system);
+  --grove-font-family-verdana: Verdana, var(--grove-font-family-system);
+  --grove-font-family-plus-jakarta-sans: Plus Jakarta Sans, var(--grove-font-family-system);
+  --grove-font-size-3sx: var(--grove-font-size-2);
+  --grove-font-size-2sx: var(--grove-font-size-3);
+  --grove-font-size-sx: var(--grove-font-size-4);
+  --grove-font-size-sm: var(--grove-font-size-5);
+  --grove-font-size-md: var(--grove-font-size-6);
+  --grove-font-size-lg: var(--grove-font-size-9);
+  --grove-font-size-xl: var(--grove-font-size-12);
+  --grove-font-size-2xl: var(--grove-font-size-14);
+  --grove-font-size-3xl: var(--grove-font-size-15);
+}
