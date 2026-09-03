@@ -64,13 +64,13 @@
     "20": {
       "$value": { "value": 8.75, "unit": "rem" }
     },
-    "3sx": {
+    "3xs": {
       "$value": "{font-size.2}"
     },
-    "2sx": {
+    "2xs": {
       "$value": "{font-size.3}"
     },
-    "sx": {
+    "xs": {
       "$value": "{font-size.4}"
     },
     "sm": {
