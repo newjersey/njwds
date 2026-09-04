@@ -2,7 +2,7 @@ import { outputs } from "./outputs.js";
 
 const cssOptions = { selector: ":root, :host", outputReferences: true };
 const scssOptions = { outputReferences: true };
-const prefix = "grove";
+export const prefix = "grove";
 
 export default {
   usesDtcg: true,
