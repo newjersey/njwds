@@ -26,9 +26,9 @@ Custom properties are declared on both `:root` and `:host`, so they're available
 
 ```css
 .example {
-  font-family: var(--font-family-system);
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-3);
+  font-family: var(--grove-font-family-system);
+  font-size: var(--grove-font-size-md);
+  line-height: var(--grove-line-height-3);
 }
 ```
 
@@ -56,9 +56,9 @@ Then `@use` the file by its partial name (no leading underscore, no extension):
 // or: @use "tokens" as tokens;
 
 .example {
-  font-family: tokens.$font-family-system;
-  font-size: tokens.$font-size-md;
-  line-height: tokens.$line-height-3;
+  font-family: tokens.$grove-font-family-system;
+  font-size: tokens.$grove-font-size-md;
+  line-height: tokens.$grove-line-height-3;
 }
 ```
 
