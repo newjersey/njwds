@@ -1,0 +1,35 @@
+name: Publish tokens release
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  id-token: write # Required for OIDC (npm trusted publishing)
+
+jobs:
+  publish-npm:
+    if: startsWith(github.event.release.tag_name, 'tokens-v')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup npm to publish to npmjs
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
+      - run: npm ci
+      - name: Determine npm dist-tag
+        id: dist_tag
+        run: |
+          DIST_TAG=$(node -p "require('./packages/tokens/package.json').version.match(/-([a-zA-Z]+)/)?.[1] ?? 'latest'")
+          echo "tag=$DIST_TAG" >> "$GITHUB_OUTPUT"
+      - run: npm publish --workspace=packages/tokens --access public --tag ${{ steps.dist_tag.outputs.tag }}

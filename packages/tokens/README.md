@@ -80,3 +80,25 @@ npm run tokens:build   # clean and build build/css, build/scss, build/json
 npm run tokens:watch   # rebuild on token file changes
 npm run tokens:test    # run vitest
 ```
+
+## Releasing
+
+Tokens are released independently from `@newjersey/njwds`, through their own pair of GitHub Actions workflows. Because the two packages share this monorepo, tokens releases use a `tokens-v` tag prefix (e.g. `tokens-v0.2.0`) to keep them separate from njwds' plain `vX.Y.Z` tags — this is what lets each package's workflow find its own release history without picking up the other's.
+
+1. **Draft the release** — run the [`Draft tokens release`](../../.github/workflows/draft-release-tokens.yml) workflow manually (Actions tab → "Draft tokens release" → "Run workflow"). It takes two inputs:
+   - `semver_release_type`: `patch` / `minor` / `major` for a normal release, or `prepatch` / `preminor` / `premajor` / `prerelease` to cut an alpha or beta
+   - `preid`: `alpha` or `beta` — only relevant for the `pre*` release types above; ignored otherwise
+
+   This bumps the version in `packages/tokens/package.json`, opens a PR with that version bump, and creates a **draft** GitHub release tagged `tokens-vX.Y.Z` (or `tokens-vX.Y.Z-alpha.N` / `-beta.N` for prereleases).
+
+2. **Merge the version-bump PR**, then review and **publish the draft release** on GitHub. Publishing the release (not merging the PR) is what triggers the actual npm publish.
+
+3. **Publishing happens automatically** via the [`Publish tokens release`](../../.github/workflows/publish-release-tokens.yml) workflow, which fires when a `tokens-v*` release is published. It runs `npm publish --workspace=packages/tokens`, tagged appropriately on npm:
+   - Stable releases (`tokens-v0.2.0`) publish to the default `latest` npm dist-tag, so a plain `npm install @newjersey/tokens` picks them up.
+   - Prereleases (`tokens-v0.2.0-alpha.0`) publish to the `alpha` or `beta` dist-tag instead — **not** `latest` — so they're only installed by consumers who explicitly ask for them:
+     ```bash
+     npm install @newjersey/tokens@alpha
+     npm install @newjersey/tokens@beta
+     ```
+
+njwds' own release workflows (`draft-release.yml` / `publish-release.yml`) are unaffected — each pair only acts on its own tag prefix, so a tokens release won't trigger an njwds npm publish or CDN deploy, and vice versa.
