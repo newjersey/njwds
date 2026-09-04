@@ -1,0 +1,34 @@
+{
+  "name": "@newjersey/tokens",
+  "version": "0.1.0-alpha",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newjersey/njwds.git"
+  },
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./css/*": "./build/css/*",
+    "./scss/*": "./build/scss/*",
+    "./json/*": "./build/json/*"
+  },
+  "scripts": {
+    "tokens:build": "style-dictionary clean --config ./config/style-dictionary.config.js && style-dictionary build --config ./config/style-dictionary.config.js",
+    "tokens:test": "vitest run",
+    "tokens:watch": "style-dictionary watch --config ./config/style-dictionary.config.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "style-dictionary": "^5.1.1",
+    "vitest": "^4.0.18"
+  }
+}
