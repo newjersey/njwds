@@ -110,8 +110,10 @@ packages/*/build
 # Mac files
 .DS_Store
 
-/build
+build
 /public/dist
+
+packages/tokens/build
 
 # Storybook build output
 storybook-static
