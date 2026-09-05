@@ -1,0 +1,16 @@
+@use "uswds-core" as *;
+
+.usa-link {
+  &:focus,
+  &.usa-focus {
+    background-color: color("white");
+    color: color($theme-link-color);
+    outline: 0.25rem solid color($theme-focus-color);
+    &:visited {
+      color: color($theme-link-visited-color);
+    }
+    &:hover {
+      color: color($theme-link-active-color);
+    }
+  }
+}

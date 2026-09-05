@@ -2,11 +2,23 @@
 
 // Buttons
 .usa-button {
+  position: relative;
   height: units(6);
   padding: units(2) units(2.5);
 
   &:focus,
-  &.usa-focus {
-    outline-color: color($theme-color-primary-vivid);
+  &.usa-focus,
+  &.usa-button:not([disabled]):focus,
+  &.usa-button:not([disabled]).usa-focus {
+    outline: 0.25rem solid color("white");
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -0.5rem;
+      box-shadow: 0 0 0 0.25rem color($theme-focus-color);
+      border-radius: 0.75rem;
+      pointer-events: none;
+    }
   }
 } // .usa-button
