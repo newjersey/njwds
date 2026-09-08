@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   publish-npm:
+    if: ${{ !startsWith(github.event.release.tag_name, 'tokens-v') }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write

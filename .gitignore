@@ -84,6 +84,7 @@ typings/
 .nuxt
 /dist
 packages/*/dist
+packages/*/build
 
 # Gatsby files
 .cache/
@@ -109,8 +110,10 @@ packages/*/dist
 # Mac files
 .DS_Store
 
-/build
+build
 /public/dist
+
+packages/tokens/build
 
 # Storybook build output
 storybook-static

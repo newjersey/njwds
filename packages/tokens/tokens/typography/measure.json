@@ -1,0 +1,41 @@
+{
+  "measure": {
+    "1": {
+      "$value": {
+        "value": "44",
+        "unit": "ex"
+      }
+    },
+    "2": {
+      "$value": {
+        "value": "60",
+        "unit": "ex"
+      }
+    },
+    "3": {
+      "$value": {
+        "value": "64",
+        "unit": "ex"
+      }
+    },
+    "4": {
+      "$value": {
+        "value": "68",
+        "unit": "ex"
+      }
+    },
+    "5": {
+      "$value": {
+        "value": "72",
+        "unit": "ex"
+      }
+    },
+    "6": {
+      "$value": {
+        "value": "88",
+        "unit": "ex"
+      }
+    }
+  },
+  "$type": "dimension"
+}

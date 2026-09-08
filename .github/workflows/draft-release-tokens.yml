@@ -1,0 +1,94 @@
+name: Draft tokens release
+on:
+  workflow_dispatch:
+    inputs:
+      semver_release_type:
+        description: SemVer Level for this Release
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prepatch
+          - preminor
+          - premajor
+          - prerelease
+      preid:
+        description: Prerelease identifier (used by the pre* release types above)
+        required: true
+        default: alpha
+        type: choice
+        options:
+          - alpha
+          - beta
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+      - name: Bump and commit new version
+        id: bump_version
+        run: |
+          git config --global user.email "<>"
+          git config --global user.name "NJWDS Draft Release Action"
+          LATEST_VERSION=$(gh release list --json name,tagName --jq '[.[] | select(.tagName | startswith("tokens-v"))][0].tagName')
+          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --preid=${{ inputs.preid }} --no-git-tag-version -w packages/tokens)
+          NEW_TAG="tokens-$NEW_VERSION"
+          BRANCH_NAME=upgrade-tokens-package-$NEW_VERSION
+          git checkout -b $BRANCH_NAME
+          git add packages/tokens/package.json package-lock.json
+          git commit -m "Bump tokens package version to $NEW_VERSION"
+          git push -u origin $BRANCH_NAME
+          gh pr create -B main -H $BRANCH_NAME --title "Upgrade tokens package version to $NEW_VERSION" --body "Created by Github Action"
+          RELEASE_SHA=$(git rev-parse HEAD)
+          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "release_sha=$RELEASE_SHA" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      latest_version: ${{ steps.bump_version.outputs.latest_version }}
+      new_version: ${{ steps.bump_version.outputs.new_version }}
+      new_tag: ${{ steps.bump_version.outputs.new_tag }}
+      release_sha: ${{ steps.bump_version.outputs.release_sha }}
+
+  draft-release:
+    needs: update-version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.update-version.outputs.release_sha }}
+      - name: Create draft release
+        run: |
+          PRERELEASE_FLAG=""
+          if [[ "${{ needs.update-version.outputs.new_version }}" == *-* ]]; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+
+          NOTES_START_ARGS=()
+          if [[ -n "${{ needs.update-version.outputs.latest_version }}" ]]; then
+            NOTES_START_ARGS=(--notes-start-tag "${{ needs.update-version.outputs.latest_version }}")
+          fi
+
+          gh release create ${{ needs.update-version.outputs.new_tag }} \
+          --draft \
+          --generate-notes \
+          "${NOTES_START_ARGS[@]}" \
+          $PRERELEASE_FLAG \
+          --target ${{ needs.update-version.outputs.release_sha }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

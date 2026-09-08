@@ -1,0 +1,14 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "mobile-lg": {
+      "$value": { "value": "30", "unit": "rem" }
+    },
+    "tablet": {
+      "$value": { "value": "40", "unit": "rem" }
+    },
+    "desktop": {
+      "$value": { "value": "64", "unit": "rem" }
+    }
+  }
+}

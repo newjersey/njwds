@@ -1,0 +1,38 @@
+{
+  "font-family": {
+    "$type": "fontFamily",
+    "system": {
+      "$value": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+    },
+    "georgia": {
+      "$value": "Georgia, Cambria, \"Times New Roman\", Times, serif"
+    },
+    "helvetica": {
+      "$value": "\"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif"
+    },
+    "merriweather": {
+      "$value": "Merriweather, Georgia, Cambria, \"Times New Roman\", Times, serif"
+    },
+    "open-sans": {
+      "$value": "Open Sans, {font-family.system}"
+    },
+    "public-sans": {
+      "$value": "Public Sans, {font-family.system}"
+    },
+    "source-sans-pro": {
+      "$value": "Source Sans Pro, {font-family.system}"
+    },
+    "tahoma": {
+      "$value": "Tahoma, {font-family.system}"
+    },
+    "verdana": {
+      "$value": "Verdana, {font-family.system}"
+    },
+    "plus-jakarta-sans": {
+      "$value": "Plus Jakarta Sans, {font-family.system}"
+    },
+    "roboto-mono": {
+      "$value": "\"Roboto Mono Web\", \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace"
+    }
+  }
+}
