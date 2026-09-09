@@ -1,19 +1,23 @@
 @use "uswds-core" as *;
 
 .usa-dark-background {
-  :focus,
-  .usa-focus,
-  .usa-button:not([disabled]):focus,
-  .usa-button:not([disabled]).usa-focus,
-  button:not([disabled]):focus,
-  input:not([disabled]):focus,
-  select:not([disabled]):focus,
-  textarea:not([disabled]):focus,
-  [contentEditable="true"]:focus,
-  [href]:focus,
-  [tabindex]:focus,
-  iframe:focus {
-    outline-color: color("white");
-    outline-offset: 0.25rem;
+  input,
+  select,
+  textarea,
+  button {
+    &:not([disabled]) {
+      &:focus {
+        @include focus-outline($color: "white");
+      }
+    }
+  }
+
+  iframe,
+  [href],
+  [tabindex],
+  [contentEditable="true"] {
+    &:focus {
+      @include focus-outline($color: "white");
+    }
   }
 }
