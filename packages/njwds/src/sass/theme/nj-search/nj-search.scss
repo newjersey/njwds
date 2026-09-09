@@ -1,0 +1,10 @@
+@use "uswds-core" as *;
+
+// The search button sits after the input in DOM order, so it paints over
+// the input's focus outline where they meet. Lift the focused input above it.
+.usa-search {
+  .usa-input:focus {
+    position: relative;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,7 @@
+@use "uswds-core" as *;
+
+.usa-modal__close {
+  button:not([disabled]):focus {
+    outline-offset: -0.25rem;
+  }
+}
