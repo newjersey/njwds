@@ -8,7 +8,11 @@
   button:not([disabled]):focus,
   input:not([disabled]):focus,
   select:not([disabled]):focus,
-  textarea:not([disabled]):focus {
+  textarea:not([disabled]):focus,
+  [contentEditable="true"]:focus,
+  [href]:focus,
+  [tabindex]:focus,
+  iframe:focus {
     outline-color: color("white");
     outline-offset: 0.25rem;
   }
