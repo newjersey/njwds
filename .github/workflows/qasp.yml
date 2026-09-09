@@ -18,5 +18,6 @@ jobs:
         https://registry.npmjs.org/@newjersey/njwds
         https://registry.npmjs.org/@newjersey/tokens
       system-diagram-location: ""
-      test-coverage-command: "npm run test:coverage" # optional (default: npm run test:coverage)
-      linting-command: "npm run lint" # optional (default: npm run lint)
+      command-test-coverage: "npm run test:coverage" # optional (default: npm run test:coverage)
+      command-linting: "npm run lint" # optional (default: npm run lint)
+      command-accessibility: "npm run test:accessibility" # optional (default: npm run test:accessibility)
