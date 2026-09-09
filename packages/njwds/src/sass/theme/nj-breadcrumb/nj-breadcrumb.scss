@@ -1,5 +1,11 @@
 @use "uswds-core" as *;
 
+.usa-breadcrumb__list {
+  $focus-space: units($theme-focus-width) + units($theme-focus-offset);
+  padding-inline: $focus-space;
+  margin-inline: $focus-space * -1;
+}
+
 .usa-breadcrumb:not(.usa-breadcrumb--wrap) .usa-breadcrumb__list {
   @include at-media($theme-breadcrumb-min-width) {
     overflow-x: clip;
@@ -9,9 +15,6 @@
 .usa-breadcrumb__list-item {
   @include at-media($theme-breadcrumb-min-width) {
     overflow-y: visible;
-  }
-  &:not(:last-child)::after {
-    z-index: 1;
   }
 
   .usa-breadcrumb__link:focus {
