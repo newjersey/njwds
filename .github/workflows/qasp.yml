@@ -13,10 +13,10 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@feat/qasp-shared-workflow
     secrets: inherit
     with:
+      node-version: ".nvmrc" # optional (default: .nvmrc)
       deployment-check-urls: |
         https://registry.npmjs.org/@newjersey/njwds
         https://registry.npmjs.org/@newjersey/tokens
       system-diagram-location: ""
-      node-version: ".nvmrc" # optional (default: .nvmrc)
       test-coverage-command: "npm run test:coverage" # optional (default: npm run test:coverage)
       linting-command: "npm run lint" # optional (default: npm run lint)
