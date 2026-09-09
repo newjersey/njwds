@@ -1,0 +1,20 @@
+name: QASP
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  qasp:
+    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@feat/qasp-shared-workflow
+    secrets: inherit
+    with:
+      deployment-check-urls: |
+        https://registry.npmjs.org/@newjersey/njwds
+        https://registry.npmjs.org/@newjersey/tokens
+      node-version: ".nvmrc" # optional (default: .nvmrc)
+      test-coverage-command: "npm run test:coverage" # optional (default: npm run test:coverage)
