@@ -1,26 +1,8 @@
-import type { Decorator, Preview } from "@storybook/web-components-vite";
-import { html } from "lit";
+import type { Preview } from "@storybook/web-components-vite";
 import "@uswds/uswds";
 import "./storybook.css";
 
 const preview: Preview = {
-  globalTypes: {
-    theme: {
-      description: "Global theme for components",
-      toolbar: {
-        title: "Theme",
-        icon: "circlehollow",
-        items: [
-          { value: "light", icon: "circlehollow", title: "Light" },
-          { value: "dark", icon: "circle", title: "Dark" },
-        ],
-        dynamicTitle: true,
-      },
-    },
-  },
-  initialGlobals: {
-    theme: "light",
-  },
   parameters: {
     layout: "fullscreen",
     backgrounds: {
@@ -43,14 +25,7 @@ const preview: Preview = {
       test: "todo",
     },
   },
-  decorators: [
-    ((story, context) => {
-      const rendered = story();
-      if (context.globals.theme !== "dark") return rendered;
-
-      return html`<div class="usa-dark-background padding-2">${rendered}</div>`;
-    }) satisfies Decorator,
-  ],
+  decorators: [],
 };
 
 export default preview;
