@@ -1,0 +1,8 @@
+@use "uswds-core" as *;
+
+.usa-link {
+  &:focus,
+  &.usa-focus {
+    outline-offset: 0.25rem;
+  }
+}

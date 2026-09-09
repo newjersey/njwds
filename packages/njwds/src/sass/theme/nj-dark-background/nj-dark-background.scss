@@ -1,0 +1,15 @@
+@use "uswds-core" as *;
+
+.usa-dark-background {
+  :focus,
+  .usa-focus,
+  .usa-button:not([disabled]):focus,
+  .usa-button:not([disabled]).usa-focus,
+  button:not([disabled]):focus,
+  input:not([disabled]):focus,
+  select:not([disabled]):focus,
+  textarea:not([disabled]):focus {
+    outline-color: color("white");
+    outline-offset: 0.25rem;
+  }
+}
