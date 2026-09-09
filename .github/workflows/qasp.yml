@@ -19,3 +19,4 @@ jobs:
       system-diagram-location: ""
       node-version: ".nvmrc" # optional (default: .nvmrc)
       test-coverage-command: "npm run test:coverage" # optional (default: npm run test:coverage)
+      lint-command: "npm run lint" # optional (default: npm run lint)
