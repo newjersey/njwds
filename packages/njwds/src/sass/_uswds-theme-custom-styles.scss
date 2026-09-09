@@ -2,6 +2,7 @@
 @use "uswds-core" as *;
 
 @forward "theme/nj-banner";
+@forward "theme/nj-breadcrumb";
 @forward "theme/nj-button";
 @forward "theme/nj-dark-background";
 @forward "theme/nj-error-message";
@@ -9,6 +10,7 @@
 @forward "theme/nj-header";
 @forward "theme/nj-hero";
 @forward "theme/nj-icon";
+@forward "theme/nj-identifier";
 @forward "theme/nj-intro";
 @forward "theme/nj-language-selector";
 @forward "theme/nj-nav";

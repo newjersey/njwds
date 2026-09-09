@@ -1,0 +1,21 @@
+@use "uswds-core" as *;
+
+.usa-breadcrumb:not(.usa-breadcrumb--wrap) .usa-breadcrumb__list {
+  @include at-media($theme-breadcrumb-min-width) {
+    overflow-x: clip;
+    overflow-y: unset;
+  }
+}
+.usa-breadcrumb__list-item {
+  @include at-media($theme-breadcrumb-min-width) {
+    overflow-y: visible;
+  }
+  &:not(:last-child)::after {
+    z-index: 1;
+  }
+
+  .usa-breadcrumb__link:focus {
+    position: relative;
+    z-index: 2;
+  }
+}
