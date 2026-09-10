@@ -20,6 +20,7 @@
     "test": "npm run test -w packages/njwds",
     "test:visual": "npm run test:visual -w packages/njwds",
     "test:accessibility": "npm run test:accessibility -w packages/njwds",
+    "test:accessibility:ci": "start-server-and-test storybook http://localhost:6006 test:accessibility",
     "test:visual:update": "npm run test:visual:update -w packages/njwds",
     "import-components": "npm run import-components -w packages/njwds"
   },
@@ -39,6 +40,7 @@
     "jiti": "^2.7.0",
     "lint-staged": "^17.3.0",
     "prettier": "^3.7.4",
+    "start-server-and-test": "^3.0.12",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.0"
   },
