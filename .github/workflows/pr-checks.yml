@@ -58,10 +58,9 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-browsers-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
-      # install playwright browsers if cache is not hit
+      # install playwright browsers
       - name: Install Playwright browsers
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install chromium --force
+        run: npx playwright install chromium
 
       # install system dependencies (always run, even on cache hit)
       - name: Install Playwright system dependencies
