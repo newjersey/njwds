@@ -7,7 +7,7 @@
   button {
     &:not([disabled]) {
       &:focus {
-        @include focus-outline($color: "white");
+        outline-color: color("white");
       }
     }
   }
@@ -17,7 +17,7 @@
   [tabindex],
   [contentEditable="true"] {
     &:focus {
-      @include focus-outline($color: "white");
+      outline-color: color("white");
     }
   }
 }
