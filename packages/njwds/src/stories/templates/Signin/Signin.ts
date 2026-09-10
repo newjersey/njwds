@@ -25,9 +25,9 @@ export const Signin = ({ error, required, helperText }: SigninProps) => {
         ${helperText ? html`<div id="hint-0" class="usa-hint">Helper text</div>` : ""}
         <input
           class="usa-input ${errorInputClass}"
-          aria-describedby="${helperText ? "hint-0" : undefined} ${error
-            ? "input-error-0"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-0" : undefined} ${
+            error ? "input-error-0" : undefined
+          }"
           id="username"
           name="username"
           type="text"
@@ -43,9 +43,9 @@ export const Signin = ({ error, required, helperText }: SigninProps) => {
         ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
         <input
           class="usa-input ${errorInputClass}"
-          aria-describedby="${helperText ? "hint-1" : undefined} ${error
-            ? "input-error-1"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-1" : undefined} ${
+            error ? "input-error-1" : undefined
+          }"
           id="password-sign-in"
           name="password"
           type="password"

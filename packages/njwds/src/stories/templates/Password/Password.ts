@@ -31,9 +31,9 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
         </label>
         ${helperText ? html`<div id="hint-0" class="usa-hint">Helper text</div>` : ""}
         <input
-          aria-describedby="${helperText ? "hint-0" : undefined} ${error
-            ? "input-error-0"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-0" : undefined} ${
+            error ? "input-error-0" : undefined
+          }"
           class="usa-input ${errorInputClass}"
           id="password-reset"
           name="password"
@@ -46,9 +46,9 @@ export const Password = ({ error, required, helperText }: PasswordProps) => {
         </label>
         ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
         <input
-          aria-describedby="${helperText ? "hint-1" : undefined} ${error
-            ? "input-error-1"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-1" : undefined} ${
+            error ? "input-error-1" : undefined
+          }"
           class="usa-input ${errorInputClass}"
           id="confirmPassword"
           name="confirmPassword"
