@@ -34,3 +34,47 @@ export const Default: Story = {
     smallCounters: false,
   },
 };
+
+export const noLabels: Story = {
+  args: {
+    title: "{title}",
+    label: "{label}",
+    noLabels: true,
+    centered: false,
+    counters: false,
+    smallCounters: false,
+  },
+};
+
+export const Centered: Story = {
+  args: {
+    title: "{title}",
+    label: "{label}",
+    noLabels: false,
+    centered: true,
+    counters: false,
+    smallCounters: false,
+  },
+};
+
+export const counters: Story = {
+  args: {
+    title: "{title}",
+    label: "{label}",
+    noLabels: false,
+    centered: false,
+    counters: true,
+    smallCounters: false,
+  },
+};
+
+export const smallCounters: Story = {
+  args: {
+    title: "{title}",
+    label: "{label}",
+    noLabels: false,
+    centered: false,
+    counters: true,
+    smallCounters: true,
+  },
+};

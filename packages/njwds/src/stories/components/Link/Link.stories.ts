@@ -28,3 +28,30 @@ export const Default: Story = {
     forceVisited: false,
   },
 };
+
+export const External: Story = {
+  args: {
+    label: "Link text",
+    mode: "light",
+    external: true,
+    forceVisited: false,
+  },
+};
+
+export const forceVisited: Story = {
+  args: {
+    label: "Link text",
+    mode: "light",
+    external: false,
+    forceVisited: true,
+  },
+};
+
+export const Dark: Story = {
+  args: {
+    label: "Link text",
+    mode: "dark",
+    external: false,
+    forceVisited: false,
+  },
+};
