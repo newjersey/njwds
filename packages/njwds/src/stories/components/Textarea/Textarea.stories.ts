@@ -36,7 +36,40 @@ export const Default: Story = {
   args: {
     label: "Textarea label",
     required: false,
+    helperText: false,
+    error: false,
+    characterCounter: false,
+    width: "xl",
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Textarea label",
+    required: true,
     helperText: true,
+    error: true,
+    characterCounter: false,
+    width: "xl",
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    label: "Textarea label",
+    required: false,
+    helperText: true,
+    error: false,
+    characterCounter: false,
+    width: "xl",
+  },
+};
+
+export const characterCounter: Story = {
+  args: {
+    label: "Textarea label",
+    required: false,
+    helperText: false,
     error: false,
     characterCounter: true,
     width: "xl",
