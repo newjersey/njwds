@@ -1,9 +1,9 @@
 name: QASP
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+  schedule:
+    - cron: '0 7 * * 1'  # Monday at 2am EST (7am UTC)
+  workflow_dispatch:  # Mmanual triggering
 
 permissions:
   contents: read
