@@ -19,6 +19,7 @@
     "preview": "npm run preview -w packages/njwds",
     "test": "npm run test -w packages/njwds",
     "test:coverage": "npm run test:coverage -w packages/njwds",
+    "test:coverage:ci": "npx playwright install --with-deps chromium && npm run test:coverage",
     "test:visual": "npm run test:visual -w packages/njwds",
     "test:accessibility": "npm run test:accessibility -w packages/njwds",
     "test:accessibility:ci": "npm run grove:build && npm run storybook:build && npm run test:accessibility",
