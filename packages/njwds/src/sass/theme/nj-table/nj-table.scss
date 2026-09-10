@@ -1,0 +1,7 @@
+@use "uswds-core" as *;
+
+.usa-table th[data-sortable]:not([aria-sort]) .usa-table__header__button:focus,
+.usa-table th[data-sortable][aria-sort="ascending"] .usa-table__header__button:focus,
+.usa-table th[data-sortable][aria-sort="descending"] .usa-table__header__button:focus {
+  outline-offset: 0;
+}
