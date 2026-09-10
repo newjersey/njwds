@@ -19,6 +19,24 @@ export const Default: Story = {
   args: {
     label: "Select label",
     required: false,
+    helperText: false,
+    error: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Select label",
+    required: true,
+    helperText: true,
+    error: true,
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    label: "Select label",
+    required: false,
     helperText: true,
     error: false,
   },

@@ -36,6 +36,24 @@ export const Default: Story = {
   args: {
     label: "Appointment time",
     required: false,
+    helperText: false,
+    error: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Appointment time",
+    required: true,
+    helperText: false,
+    error: true,
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    label: "Appointment time",
+    required: false,
     helperText: true,
     error: false,
   },

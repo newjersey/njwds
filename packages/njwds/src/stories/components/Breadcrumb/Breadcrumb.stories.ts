@@ -16,3 +16,9 @@ export const Default: Story = {
     wrap: false,
   },
 };
+
+export const Wrapped: Story = {
+  args: {
+    wrap: true,
+  },
+};

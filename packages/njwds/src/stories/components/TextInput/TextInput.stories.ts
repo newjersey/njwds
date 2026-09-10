@@ -23,6 +23,26 @@ export const Default: Story = {
   args: {
     label: "Input label",
     required: false,
+    helperText: false,
+    error: false,
+    width: "xl",
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Input label",
+    required: true,
+    helperText: true,
+    error: true,
+    width: "xl",
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    label: "Input label",
+    required: false,
     helperText: true,
     error: false,
     width: "xl",

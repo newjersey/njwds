@@ -38,6 +38,22 @@ type Story = StoryObj;
 export const Default: Story = {
   args: {
     required: false,
+    helperText: false,
+    error: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    required: true,
+    helperText: true,
+    error: true,
+  },
+};
+
+export const helperText: Story = {
+  args: {
+    required: false,
     helperText: true,
     error: false,
   },
