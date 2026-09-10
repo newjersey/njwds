@@ -117,8 +117,8 @@ jobs:
       - name: Check Linting
         run: npm run lint
 
-      - name: Run Tests
-        run: npm run test
+      - name: Run Tests with coverage
+        run: npm run test:coverage
 
       - name: Run CDK infrastructure tests
         working-directory: infrastructure

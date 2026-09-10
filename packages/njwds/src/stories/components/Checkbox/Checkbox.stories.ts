@@ -26,6 +26,17 @@ export const Default: Story = {
     tile: false,
     required: false,
     labelDescription: false,
+    helperText: false,
+    error: false,
+  },
+};
+
+export const helperText: Story = {
+  args: {
+    label: "Checkbox Label",
+    tile: false,
+    required: false,
+    labelDescription: false,
     helperText: true,
     error: false,
   },
@@ -37,6 +48,28 @@ export const Tile: Story = {
     tile: true,
     required: false,
     labelDescription: false,
+    helperText: true,
+    error: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Checkbox Label",
+    tile: false,
+    required: true,
+    labelDescription: false,
+    helperText: true,
+    error: true,
+  },
+};
+
+export const labelDescription: Story = {
+  args: {
+    label: "Checkbox Label",
+    tile: false,
+    required: false,
+    labelDescription: true,
     helperText: true,
     error: false,
   },

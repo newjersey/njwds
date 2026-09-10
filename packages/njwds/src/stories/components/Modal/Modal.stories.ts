@@ -56,3 +56,17 @@ export const Default: Story = {
     forceAction: false,
   },
 };
+
+export const Large: Story = {
+  args: {
+    size: "large",
+    forceAction: false,
+  },
+};
+
+export const forceAction: Story = {
+  args: {
+    size: "large",
+    forceAction: true,
+  },
+};

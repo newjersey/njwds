@@ -28,6 +28,13 @@ export const Default: Story = {
   },
 };
 
+export const Megamenu: Story = {
+  args: {
+    megamenu: true,
+    variant: "Default",
+  },
+};
+
 export const Extended: Story = {
   args: {
     megamenu: false,

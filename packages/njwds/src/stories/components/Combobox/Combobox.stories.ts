@@ -27,6 +27,26 @@ export const Default: Story = {
     label: "Select an option",
     defaultValue: "2",
     required: false,
+    helperText: false,
+    error: false,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Select an option",
+    defaultValue: "2",
+    required: true,
+    helperText: true,
+    error: true,
+  },
+};
+
+export const helperText: Story = {
+  args: {
+    label: "Select an option",
+    defaultValue: "2",
+    required: false,
     helperText: true,
     error: false,
   },

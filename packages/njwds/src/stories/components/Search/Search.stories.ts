@@ -22,3 +22,15 @@ export const Default: Story = {
     size: "Default",
   },
 };
+
+export const Big: Story = {
+  args: {
+    size: "Big",
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: "Small",
+  },
+};
