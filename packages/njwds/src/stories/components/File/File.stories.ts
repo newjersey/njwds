@@ -29,3 +29,23 @@ export const Default: Story = {
     multipleFiles: false,
   },
 };
+
+export const Error: Story = {
+  args: {
+    fileTypes: ".pdf,.txt,.doc,.docx,.jpg,.png,.gif",
+    required: true,
+    helperText: true,
+    error: true,
+    multipleFiles: false,
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    fileTypes: ".pdf,.txt,.doc,.docx,.jpg,.png,.gif",
+    required: false,
+    helperText: true,
+    error: false,
+    multipleFiles: false,
+  },
+};

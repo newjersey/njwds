@@ -25,3 +25,13 @@ export const Default: Story = {
     multipleFiles: false,
   },
 };
+
+export const Error: Story = {
+  args: {
+    label: "File input label",
+    required: true,
+    helperText: true,
+    error: true,
+    multipleFiles: false,
+  },
+};

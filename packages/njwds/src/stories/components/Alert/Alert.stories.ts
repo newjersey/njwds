@@ -76,3 +76,14 @@ export const Error: Story = {
     header: true,
   },
 };
+
+export const Slim: Story = {
+  args: {
+    heading: "Informative status",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+    type: "info",
+    slim: true,
+    icon: false,
+    header: true,
+  },
+};

@@ -47,3 +47,21 @@ export const Tertiary: Story = {
     icon: false,
   },
 };
+
+export const Icon: Story = {
+  args: {
+    label: "Button",
+    type: "primary",
+    theme: "light",
+    icon: true,
+  },
+};
+
+export const Dark: Story = {
+  args: {
+    label: "Button",
+    type: "primary",
+    theme: "dark",
+    icon: false,
+  },
+};
