@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   qasp:
-    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@feat/qasp-shared-workflow
+    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
     secrets: inherit
     with:
       node-version: ".nvmrc" # optional (default: .nvmrc)
