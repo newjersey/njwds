@@ -66,16 +66,6 @@ jobs:
       - name: Install Playwright system dependencies
         run: npx playwright install-deps chromium
 
-      # start a static server to serve the built storybook
-      - name: Start static server
-        run: |
-          npx http-server ./packages/njwds/storybook-static -p 6006 &
-          echo $! > server.pid
-
-      # separate step to wait for the server to be ready before running tests
-      - name: Wait for server
-        run: npx wait-on http://localhost:6006
-
       - name: Run ${{ matrix.project }} tests
         run: npx playwright test --config packages/njwds/playwright.config.ts --project=${{ matrix.project }}
 
@@ -88,11 +78,6 @@ jobs:
           path: |
             packages/njwds/playwright-report/
             packages/njwds/test-results/
-
-      # cleanup step to stop the server after tests are done, regardless of success or failure
-      - name: Stop server
-        if: always()
-        run: kill $(cat server.pid)
 
   build:
     name: Health tests
