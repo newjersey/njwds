@@ -3,7 +3,7 @@ name: QASP
 on:
   schedule:
     - cron: '0 7 * * 1'  # Monday at 2am EST (7am UTC)
-  workflow_dispatch:  # Mmanual triggering
+  workflow_dispatch:  # manual triggering
 
 permissions:
   contents: read
