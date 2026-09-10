@@ -36,9 +36,9 @@ export const Textarea = ({
   const coreFieldHtml = html` <label class="usa-label ${classesLabel}" for="input-type-text">
       ${label} ${renderRequired(required)}
     </label>
-    ${helperText
-      ? html`<span id="with-hint-textarea-hint" class="usa-hint">Helper text</span>`
-      : ""}
+    ${
+      helperText ? html`<span id="with-hint-textarea-hint" class="usa-hint">Helper text</span>` : ""
+    }
     <textarea
       class="usa-textarea ${classes} ${classCharacterCounter} ${widthClass}"
       id="input-type-text"
@@ -48,30 +48,32 @@ export const Textarea = ({
     >
     </textarea>`;
 
-  const secondaryFieldHtml = html` ${error
-    ? renderErrorMessage("input-error-message", "Helpful error message")
-    : ""}`;
+  const secondaryFieldHtml = html` ${
+    error ? renderErrorMessage("input-error-message", "Helpful error message") : ""
+  }`;
 
   return html`
     <div class="grid-container">
       <form class="usa-form maxw-none ${errorGroupClass}">
-        ${characterCounter
-          ? html`
-              <div class="usa-character-count">
-                <div class="usa-form-group">${coreFieldHtml}</div>
+        ${
+          characterCounter
+            ? html`
+                <div class="usa-character-count">
+                  <div class="usa-form-group">${coreFieldHtml}</div>
 
-                <span
-                  id="with-hint-textarea-info"
-                  class="usa-hint usa-character-count__message"
-                  aria-live="polite"
-                >
-                  You can enter up to 50 characters
-                </span>
+                  <span
+                    id="with-hint-textarea-info"
+                    class="usa-hint usa-character-count__message"
+                    aria-live="polite"
+                  >
+                    You can enter up to 50 characters
+                  </span>
 
-                ${secondaryFieldHtml}
-              </div>
-            `
-          : html` ${coreFieldHtml} ${secondaryFieldHtml} `}
+                  ${secondaryFieldHtml}
+                </div>
+              `
+            : html` ${coreFieldHtml} ${secondaryFieldHtml} `
+        }
       </form>
     </div>
   `;

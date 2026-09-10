@@ -1,0 +1,23 @@
+name: QASP
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'  # Monday at 2am EST (7am UTC)
+  workflow_dispatch:  # manual triggering
+
+permissions:
+  contents: read
+
+jobs:
+  qasp:
+    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
+    secrets: inherit
+    with:
+      node-version: ".nvmrc" # optional (default: .nvmrc)
+      deployment-check-urls: |
+        https://registry.npmjs.org/@newjersey/njwds
+        https://registry.npmjs.org/@newjersey/tokens
+      system-diagram-location: ""
+      command-test-coverage: "npm run test:coverage"
+      command-linting: "npm run lint"
+      command-accessibility: "npm run test:accessibility:ci"
