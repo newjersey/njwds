@@ -33,6 +33,9 @@
     },
     "roboto-mono": {
       "$value": "\"Roboto Mono Web\", \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace"
+    },
+    "primary": {
+      "$value": "{font-family.public-sans}"
     }
   }
 }
