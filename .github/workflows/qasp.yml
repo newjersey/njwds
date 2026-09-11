@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   qasp:
-    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
+    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@feat/add-slack-alert-to-qasp
     secrets: inherit
     with:
       node-version: ".nvmrc" # optional (default: .nvmrc)
