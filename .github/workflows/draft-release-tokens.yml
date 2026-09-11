@@ -16,11 +16,12 @@ on:
           - premajor
           - prerelease
       preid:
-        description: Prerelease identifier (used by the pre* release types above)
+        description: Prerelease identifier (only used by the pre* release types above; ignored otherwise)
         required: true
-        default: alpha
+        default: none
         type: choice
         options:
+          - none
           - alpha
           - beta
 
@@ -42,7 +43,12 @@ jobs:
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           LATEST_VERSION=$(gh release list --json name,tagName --jq '[.[] | select(.tagName | startswith("tokens-v"))][0].tagName')
-          npm version ${{ inputs.semver_release_type }} --preid=${{ inputs.preid }} --no-git-tag-version -w packages/tokens
+          PREID="${{ inputs.preid }}"
+          NPM_VERSION_ARGS=("${{ inputs.semver_release_type }}" --no-git-tag-version -w packages/tokens)
+          if [[ "$PREID" != "none" ]]; then
+            NPM_VERSION_ARGS+=(--preid="$PREID")
+          fi
+          npm version "${NPM_VERSION_ARGS[@]}"
           NEW_VERSION="v$(node -p "require('./packages/tokens/package.json').version")"
           NEW_TAG="tokens-$NEW_VERSION"
           BRANCH_NAME="upgrade-tokens-package-$NEW_VERSION"
