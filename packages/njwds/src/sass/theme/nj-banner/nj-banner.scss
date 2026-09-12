@@ -20,7 +20,13 @@
 
       &:hover,
       &:focus {
+        outline: 0.25rem solid color($theme-focus-color);
+        background-color: color("white");
         text-decoration: underline;
+        color: color($theme-link-color);
+        &:hover {
+          color: color($theme-link-active-color);
+        }
       }
     } // a
 
