@@ -21,6 +21,8 @@
       &:hover,
       &:focus {
         text-decoration: underline;
+        outline-color: color("white");
+        outline-offset: 0.25rem;
       }
     } // a
 

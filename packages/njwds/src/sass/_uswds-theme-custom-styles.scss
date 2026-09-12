@@ -2,17 +2,24 @@
 @use "uswds-core" as *;
 
 @forward "theme/nj-banner";
+@forward "theme/nj-breadcrumb";
 @forward "theme/nj-button";
+@forward "theme/nj-combo-box";
+@forward "theme/nj-dark-background";
 @forward "theme/nj-error-message";
 @forward "theme/nj-forms";
 @forward "theme/nj-header";
 @forward "theme/nj-hero";
 @forward "theme/nj-icon";
+@forward "theme/nj-identifier";
 @forward "theme/nj-intro";
 @forward "theme/nj-language-selector";
+@forward "theme/nj-modal";
 @forward "theme/nj-nav";
 @forward "theme/nj-prose";
+@forward "theme/nj-search";
 @forward "theme/nj-section";
+@forward "theme/nj-table";
 
 // Needs official integration
 .usa-collection__meta-item.usa-tag {

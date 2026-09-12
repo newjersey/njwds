@@ -1,0 +1,8 @@
+@use "uswds-core" as *;
+
+.usa-search {
+  .usa-input:focus {
+    position: relative;
+    z-index: 1;
+  }
+}

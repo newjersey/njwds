@@ -7,3 +7,9 @@
   //   max-width: 50%;
   // }
 } // .usa-header--extended
+
+.usa-nav__submenu-item {
+  a:focus {
+    outline-color: color("white");
+  }
+}
