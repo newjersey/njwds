@@ -16,9 +16,4 @@
   @include at-media($theme-breadcrumb-min-width) {
     overflow-y: visible;
   }
-
-  .usa-breadcrumb__link:focus {
-    position: relative;
-    z-index: 2;
-  }
 }

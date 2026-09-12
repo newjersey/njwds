@@ -20,7 +20,7 @@ export const Hero = ({ heading, subheading, explainerText }: HeroProps) => {
           ${subheading ?? ""}
         </h1>
         <p>${explainerText}</p>
-        <a class="usa-button" href="#!">Call to action</a>
+        <a class="usa-button nj-button--primary-dark" href="#!">Call to action</a>
       </div>
     </div>
   </section>`;
