@@ -42,9 +42,7 @@ export const Accordion = ({ bordered, toggleValue, allowMultiple }: AccordionPro
             <summary class="usa-accordion__button">
               <h2 class="usa-accordion__heading">${item.title}</h2>
             </summary>
-            <div class="usa-accordion__content usa-prose">
-              ${unsafeHTML(item.content)}
-            </div>
+            <div class="usa-accordion__content usa-prose">${unsafeHTML(item.content)}</div>
           </details>
         `,
       )}
