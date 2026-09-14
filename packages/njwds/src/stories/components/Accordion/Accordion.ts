@@ -35,7 +35,7 @@ export const Accordion = ({ bordered, toggleValue, allowMultiple }: AccordionPro
   const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
 
   return html`
-    <div ?data-allow-multiple=${allowMultiple} class=${classes}>
+    <div class=${classes}>
       ${items.map(
         (item) => html`
           <details ?open=${item.expanded} name=${allowMultiple ? "" : instanceId}>
