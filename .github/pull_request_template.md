@@ -15,7 +15,7 @@ This PR resolves {replace with ticket link placeholder}
     - [ ] All visual information associated with a form field (labels, descriptions, errors) is
           programmatically associated with that field
     - [ ] Any user actions trigger screenreader feedback to inform what is happening
-- [ ] I have checked this with the [WAVE extension](https://wave.webaim.org/extension/).
+- [ ] I have checked this with the [WAVE extension](https://wave.webaim.org/extension/) (or equivalent).
 
 ## Steps to test
 
