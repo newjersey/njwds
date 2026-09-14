@@ -10,19 +10,16 @@ export interface AccordionProps {
 const items = [
   {
     title: "First",
-    id: "a1",
     expanded: true,
     content: `<p>Accordion content for the first item.</p>`,
   },
   {
     title: "Second",
-    id: "a2",
     expanded: false,
     content: `<p>Accordion content for the second item.</p>`,
   },
   {
     title: "Third",
-    id: "a3",
     expanded: false,
     content: `<p>Accordion content for the third item.</p>`,
   },
@@ -33,31 +30,22 @@ export const Accordion = ({ bordered, toggleValue, allowMultiple }: AccordionPro
     .filter(Boolean)
     .join(" ");
 
-  // Unique per call to Accordion needed because the `id` of the content divs
-  // must be unique to ensure correct aria-controls behavior inside Storybook.
+  // Unique per call to Accordion needed so the `name` attribute grouping
+  // `<details>` elements doesn't collide across instances inside Storybook.
   const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
 
   return html`
     <div ?data-allow-multiple=${allowMultiple} class=${classes}>
       ${items.map(
         (item) => html`
-          <h2 class="usa-accordion__heading">
-            <button
-              type="button"
-              class="usa-accordion__button"
-              aria-expanded=${item.expanded ? "true" : "false"}
-              aria-controls="${item.id}-${instanceId}"
-            >
-              ${item.title}
-            </button>
-          </h2>
-          <div
-            id="${item.id}-${instanceId}"
-            class="usa-accordion__content usa-prose"
-            ?hidden=${!item.expanded}
-          >
-            ${unsafeHTML(item.content)}
-          </div>
+          <details ?open=${item.expanded} name=${allowMultiple ? "" : instanceId}>
+            <summary class="usa-accordion__button">
+              <h2 class="usa-accordion__heading">${item.title}</h2>
+            </summary>
+            <div class="usa-accordion__content usa-prose">
+              ${unsafeHTML(item.content)}
+            </div>
+          </details>
         `,
       )}
     </div>
