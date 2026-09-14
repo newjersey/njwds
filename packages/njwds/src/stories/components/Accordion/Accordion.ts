@@ -38,7 +38,7 @@ export const Accordion = ({ bordered, toggleValue, allowMultiple }: AccordionPro
     <div class=${classes}>
       ${items.map(
         (item) => html`
-          <details ?open=${item.expanded} name=${allowMultiple ? "" : instanceId}>
+          <details ?open=${item.expanded} ?name=${allowMultiple ? "" : instanceId}>
             <summary class="usa-accordion__button">
               <h2 class="usa-accordion__heading">${item.title}</h2>
             </summary>
