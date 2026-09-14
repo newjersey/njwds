@@ -1,6 +1,7 @@
 // Custom styles for NJWDS theme
 @use "uswds-core" as *;
 
+@forward "theme/nj-accordion";
 @forward "theme/nj-banner";
 @forward "theme/nj-button";
 @forward "theme/nj-error-message";
