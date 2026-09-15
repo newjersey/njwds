@@ -1,0 +1,25 @@
+@use "uswds-core" as *;
+
+.usa-combo-box__toggle-list,
+.usa-combo-box__clear-input {
+  background-image: none;
+  opacity: 1;
+
+  &::before {
+    background-position: center;
+    content: "";
+    inset: 0;
+    opacity: 0.6;
+    position: absolute;
+  }
+}
+
+.usa-combo-box__clear-input::before {
+  @include add-background-svg("usa-icons/close");
+  background-size: auto units(3);
+}
+
+.usa-combo-box__toggle-list::before {
+  @include add-background-svg("usa-icons/expand_more");
+  background-size: auto units(4);
+}

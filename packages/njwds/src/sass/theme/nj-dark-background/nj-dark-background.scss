@@ -1,0 +1,23 @@
+@use "uswds-core" as *;
+
+.usa-dark-background {
+  input,
+  select,
+  textarea,
+  button {
+    &:not([disabled]) {
+      &:focus {
+        outline-color: color("white");
+      }
+    }
+  }
+
+  iframe,
+  [href],
+  [tabindex],
+  [contentEditable="true"] {
+    &:focus {
+      outline-color: color("white");
+    }
+  }
+}
