@@ -18,6 +18,10 @@ const TEST_CASES = [
     name: "Error",
     url: `/iframe.html?id=components-alert--error&viewMode=story&args=icon%3A!true`,
   },
+  {
+    name: "Dismissable",
+    url: `/iframe.html?id=components-alert--dismissable&viewMode=story`,
+  },
 ];
 
 runVisualSuite({

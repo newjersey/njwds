@@ -1,6 +1,26 @@
+import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
 import { Alert, type AlertProps } from "./Alert";
+
+const dismissAlert = (event: MouseEvent) => {
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+
+  const closeButton = target.closest("[data-close-alert]");
+  if (!closeButton) return;
+
+  const alert = closeButton.closest(".usa-alert");
+  if (!alert) return;
+
+  const parent = alert.parentElement;
+  alert.remove();
+
+  if (parent instanceof HTMLElement) {
+    parent.tabIndex = -1;
+    parent.focus();
+  }
+};
 
 const meta = {
   title: "Components/Alert",
@@ -12,6 +32,18 @@ const meta = {
     }
     return Alert(args);
   },
+  decorators: [
+    (story) => {
+      useEffect(() => {
+        if (document.body.dataset.dismissableAlertsInit) return;
+        document.body.dataset.dismissableAlertsInit = "true";
+
+        document.body.addEventListener("click", dismissAlert);
+      }, []);
+
+      return story();
+    },
+  ],
   argTypes: {
     type: {
       control: { type: "select" },
@@ -25,6 +57,9 @@ const meta = {
       if: { arg: "slim", truthy: false },
     },
     icon: {
+      control: { type: "boolean" },
+    },
+    dismissable: {
       control: { type: "boolean" },
     },
   },
@@ -41,6 +76,7 @@ export const Info: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissable: false,
   },
 };
 
@@ -52,6 +88,7 @@ export const Success: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissable: false,
   },
 };
 
@@ -63,6 +100,7 @@ export const Warning: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissable: false,
   },
 };
 
@@ -74,6 +112,7 @@ export const Error: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissable: false,
   },
 };
 
@@ -85,5 +124,18 @@ export const Slim: Story = {
     slim: true,
     icon: false,
     header: true,
+    dismissable: false,
+  },
+};
+
+export const Dismissable: Story = {
+  args: {
+    heading: "Success status",
+    text: "You saved your document.",
+    type: "success",
+    slim: false,
+    icon: true,
+    header: false,
+    dismissable: true,
   },
 };
