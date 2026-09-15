@@ -18,8 +18,8 @@ const TEST_CASES = [
     url: `/iframe.html?id=components-alert--error&viewMode=story&args=icon%3A!true`,
   },
   {
-    name: "Dismissable",
-    url: `/iframe.html?id=components-alert--dismissable&viewMode=story`,
+    name: "Dismissible",
+    url: `/iframe.html?id=components-alert--dismissible&viewMode=story`,
   },
 ];
 

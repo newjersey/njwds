@@ -7,10 +7,10 @@ export interface AlertProps {
   header: boolean;
   slim: boolean;
   icon: boolean;
-  dismissable: boolean;
+  dismissible: boolean;
 }
 
-export const Alert = ({ heading, text, type, header, slim, icon, dismissable }: AlertProps) => {
+export const Alert = ({ heading, text, type, header, slim, icon, dismissible }: AlertProps) => {
   // When slim is true, header must be false
   const showHeader = slim ? false : header;
 
@@ -20,7 +20,7 @@ export const Alert = ({ heading, text, type, header, slim, icon, dismissable }: 
       type !== "default" && `usa-alert--${type}`,
       slim && "usa-alert--slim",
       !icon && "usa-alert--no-icon",
-      dismissable && "usa-alert--dismissable",
+      dismissible && "usa-alert--dismissible",
     ]
       .filter(Boolean)
       .join(" ")}
@@ -32,7 +32,7 @@ export const Alert = ({ heading, text, type, header, slim, icon, dismissable }: 
       <p class="usa-alert__text">${text}</p>
 
       ${
-        dismissable
+        dismissible
           ? html`
               <button
                 type="button"

@@ -35,8 +35,8 @@ const meta = {
   decorators: [
     (story) => {
       useEffect(() => {
-        if (document.body.dataset.dismissableAlertsInit) return;
-        document.body.dataset.dismissableAlertsInit = "true";
+        if (document.body.dataset.dismissibleAlertsInit) return;
+        document.body.dataset.dismissibleAlertsInit = "true";
 
         document.body.addEventListener("click", dismissAlert);
       }, []);
@@ -59,7 +59,7 @@ const meta = {
     icon: {
       control: { type: "boolean" },
     },
-    dismissable: {
+    dismissible: {
       control: { type: "boolean" },
     },
   },
@@ -76,7 +76,7 @@ export const Info: Story = {
     slim: false,
     icon: false,
     header: true,
-    dismissable: false,
+    dismissible: false,
   },
 };
 
@@ -88,7 +88,7 @@ export const Success: Story = {
     slim: false,
     icon: false,
     header: true,
-    dismissable: false,
+    dismissible: false,
   },
 };
 
@@ -100,7 +100,7 @@ export const Warning: Story = {
     slim: false,
     icon: false,
     header: true,
-    dismissable: false,
+    dismissible: false,
   },
 };
 
@@ -112,7 +112,7 @@ export const Error: Story = {
     slim: false,
     icon: false,
     header: true,
-    dismissable: false,
+    dismissible: false,
   },
 };
 
@@ -124,11 +124,11 @@ export const Slim: Story = {
     slim: true,
     icon: false,
     header: true,
-    dismissable: false,
+    dismissible: false,
   },
 };
 
-export const Dismissable: Story = {
+export const Dismissible: Story = {
   args: {
     heading: "Informative status",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -136,6 +136,6 @@ export const Dismissable: Story = {
     slim: false,
     icon: false,
     header: false,
-    dismissable: true,
+    dismissible: true,
   },
 };

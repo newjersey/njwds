@@ -1,6 +1,6 @@
 @use "uswds-core" as *;
 
-.usa-alert--dismissable {
+.usa-alert--dismissible {
   .usa-alert__body {
     padding-right: calc(#{units($theme-alert-padding-x)} + #{units(3)} + #{units(1)});
   }
