@@ -11,6 +11,10 @@
     position: absolute;
     right: units($theme-alert-padding-x);
     top: units($theme-alert-padding-y);
+    color: color($theme-color-base-darker);
+    :hover {
+      color: color($theme-color-base-darkest);
+    }
   }
 
   &.usa-alert--slim .usa-alert__close {

@@ -31,25 +31,27 @@ export const Alert = ({ heading, text, type, header, slim, icon, dismissable }: 
 
       <p class="usa-alert__text">${text}</p>
 
-      ${dismissable
-        ? html`
-            <button
-              type="button"
-              class="usa-alert__close"
-              aria-label="Close this alert"
-              data-close-alert
-            >
-              <svg
-                class="usa-icon usa-icon--size-3"
-                aria-hidden="true"
-                focusable="false"
-                role="img"
+      ${
+        dismissable
+          ? html`
+              <button
+                type="button"
+                class="usa-alert__close"
+                aria-label="Close this alert"
+                data-close-alert
               >
-                <use href="./img/sprite.svg#close"></use>
-              </svg>
-            </button>
-          `
-        : null}
+                <svg
+                  class="usa-icon usa-icon--size-3"
+                  aria-hidden="true"
+                  focusable="false"
+                  role="img"
+                >
+                  <use href="./img/sprite.svg#close"></use>
+                </svg>
+              </button>
+            `
+          : null
+      }
     </div>
   </div>`;
 };
