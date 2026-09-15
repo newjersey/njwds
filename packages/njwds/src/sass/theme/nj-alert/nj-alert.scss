@@ -1,0 +1,19 @@
+@use "uswds-core" as *;
+
+.usa-alert--dismissable {
+  .usa-alert__body {
+    padding-right: calc(#{units($theme-alert-padding-x)} + #{units(3)} + #{units(1)});
+  }
+
+  .usa-alert__close {
+    @include button-unstyled;
+    @include u-square(3);
+    position: absolute;
+    right: units($theme-alert-padding-x);
+    top: units($theme-alert-padding-y);
+  }
+
+  &.usa-alert--slim .usa-alert__close {
+    top: units(1);
+  }
+}
