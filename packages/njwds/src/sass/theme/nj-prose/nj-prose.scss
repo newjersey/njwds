@@ -1,5 +1,7 @@
 @use "uswds-core" as *;
 
+$grove-bp-tablet: var(--grove-breakpoint-tablet) !default;
+
 .usa-prose {
   // Tighten letter spacing for h1 and intro text
   > h1 {
@@ -12,3 +14,50 @@
     word-wrap: break-word;
   }
 } // .usa-prose
+
+:root,
+:host {
+  --grove-prose-h1: var(--grove-font-size-13);
+  --grove-prose-h2: var(--grove-font-size-11);
+  --grove-prose-h3: var(--grove-font-size-8);
+  --grove-prose-h4: var(--grove-font-size-sm);
+  --grove-prose-h5: var(--grove-font-size-xs);
+  --grove-prose-h6: var(--grove-font-size-3xs);
+  --grove-prose: var(--grove-font-size-sm);
+}
+
+@include at-media("tablet") {
+  :root,
+  :host {
+    --grove-prose-h1: var(--grove-font-size-2xl);
+    --grove-prose-h2: var(--grove-font-size-xl);
+    --grove-prose-h3: var(--grove-font-size-lg);
+  }
+}
+
+.usa-prose {
+  font-size: var(--grove-prose);
+
+  h1 {
+    font-size: var(--grove-prose-h1);
+    border: 1px solid blue;
+    @include at-media("tablet") {
+      border: 1px solid green;
+    }
+  }
+  h2 {
+    font-size: var(--grove-prose-h2);
+  }
+  h3 {
+    font-size: var(--grove-prose-h3);
+  }
+  h4 {
+    font-size: var(--grove-prose-h4);
+  }
+  h5 {
+    font-size: var(--grove-prose-h5);
+  }
+  h6 {
+    font-size: var(--grove-prose-h6);
+  }
+}
