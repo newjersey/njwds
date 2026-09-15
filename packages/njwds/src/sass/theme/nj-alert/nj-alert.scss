@@ -1,0 +1,23 @@
+@use "uswds-core" as *;
+
+.usa-alert--dismissible {
+  .usa-alert__body {
+    padding-inline-end: calc(#{units($theme-alert-padding-x)} + #{units(3)} + #{units(1)});
+  }
+
+  .usa-alert__close {
+    @include button-unstyled;
+    @include u-square(3);
+    position: absolute;
+    inset-inline-end: units($theme-alert-padding-x);
+    inset-block-start: units($theme-alert-padding-y);
+    color: color($theme-color-base-darker);
+    :hover {
+      color: color($theme-color-base-darkest);
+    }
+  }
+
+  &.usa-alert--slim .usa-alert__close {
+    inset-block-start: units(1);
+  }
+}
