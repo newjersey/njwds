@@ -130,11 +130,11 @@ export const Slim: Story = {
 
 export const Dismissable: Story = {
   args: {
-    heading: "Success status",
-    text: "You saved your document.",
-    type: "success",
+    heading: "Informative status",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+    type: "info",
     slim: false,
-    icon: true,
+    icon: false,
     header: false,
     dismissable: true,
   },
