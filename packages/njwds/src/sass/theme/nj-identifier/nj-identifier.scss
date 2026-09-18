@@ -1,9 +1,6 @@
 @use "uswds-core" as *;
 
-// hero
-.usa-hero__callout {
-  background-color: color("secondary-darker");
-
+.usa-identifier {
   a:focus {
     outline-color: color("white");
   }

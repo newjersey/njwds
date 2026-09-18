@@ -1,0 +1,6 @@
+@use "uswds-core" as *;
+
+.usa-date-picker__external-input:focus {
+  position: relative;
+  z-index: 1;
+}
