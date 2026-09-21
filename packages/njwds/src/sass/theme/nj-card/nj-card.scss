@@ -3,3 +3,10 @@
 .usa-card {
   min-width: spacing-multiple(30);
 }
+
+.usa-card--flag .usa-card__media--inset .usa-card__img {
+  background-color: unset;
+  img {
+    @include u-height("auto");
+  }
+}
