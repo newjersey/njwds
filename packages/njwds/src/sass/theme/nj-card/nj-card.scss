@@ -5,7 +5,7 @@
 }
 
 .usa-card--flag .usa-card__media--inset .usa-card__img {
-  background-color: unset;
+  background-color: color("transparent");
   img {
     @include u-height("auto");
   }
