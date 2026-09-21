@@ -1,5 +1,6 @@
 // Get all Grove tokens
 @forward "@newjersey/tokens/css/tokens.css";
+@forward "grove-tokens";
 
 // Sass index file that imports all necessary USWDS styles and themes
 @forward "uswds-theme";
