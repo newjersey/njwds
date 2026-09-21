@@ -55,3 +55,17 @@
     padding-right: units(0);
   } // .nj-banner__inner
 }
+
+.usa-banner {
+  &__button[aria-expanded="true"] {
+    @include at-media-max("tablet") {
+      &:enabled:focus {
+        outline: none;
+
+        &::before {
+          @include focus-outline(null, null, null, "neg-05");
+        }
+      }
+    }
+  } // .usa-banner__button
+}
