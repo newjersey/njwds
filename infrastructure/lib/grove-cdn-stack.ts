@@ -174,7 +174,10 @@ function handler(event) {
     );
 
     // GitHub Actions OIDC Role with restricted trust policy
-    // SECURITY: Only allow tag-based releases (not any branch)
+    // SECURITY: Only allow tag-based releases (not any branch). The sub claim
+    // uses a wildcard, so it must be matched with StringLike, not StringEquals
+    // — StringEquals treats "*" as a literal character and would never match
+    // a real tag name.
     this.githubActionsRole = new iam.Role(this, "GithubActionsRole", {
       roleName: "grove-cdn-publisher",
       assumedBy: new iam.FederatedPrincipal(
@@ -182,8 +185,9 @@ function handler(event) {
         {
           StringEquals: {
             "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-            // SECURITY: Restrict to tag refs only (releases), not any branch
-            "token.actions.githubusercontent.com:sub": `repo:${props.githubRepository}:ref:refs/tags/*`,
+          },
+          StringLike: {
+            "token.actions.githubusercontent.com:sub": `repo:${props.githubRepository}:ref:refs/tags/v*`,
           },
         },
         "sts:AssumeRoleWithWebIdentity",
