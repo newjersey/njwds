@@ -3,7 +3,7 @@
 .nj-banner {
   @include typeset($theme-banner-font-family);
   @include border-box-sizing;
-  background-color: color($theme-banner-background-color);
+  background-color: color($theme-color-base-darkest);
   font-size: font-size($theme-banner-font-family, "2xs");
   line-height: line-height($theme-banner-font-family, 1);
   min-height: units($size-touch-target);
@@ -11,11 +11,11 @@
 
   &__header {
     @include u-padding-y(1);
-    @include set-text-from-bg($theme-banner-background-color);
+    @include set-text-from-bg($theme-color-base-darkest);
     // display: flex;
 
     a {
-      @include set-text-from-bg($theme-banner-background-color);
+      @include set-text-from-bg($theme-color-base-darkest);
       text-decoration: none;
 
       &:hover,
@@ -54,4 +54,18 @@
     @include u-flex("align-center");
     padding-right: units(0);
   } // .nj-banner__inner
+}
+
+.usa-banner {
+  &__button[aria-expanded="true"] {
+    @include at-media-max("tablet") {
+      &:enabled:focus {
+        outline: none;
+
+        &::before {
+          @include focus-outline(null, null, null, "neg-05");
+        }
+      }
+    }
+  } // .usa-banner__button
 }

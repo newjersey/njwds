@@ -154,7 +154,8 @@
   ----------------------------------------
   */
     // Banner
-  $theme-banner-background-color: "base-darkest",
+  $theme-banner-background-color: "base-lightest",
+  $theme-banner-max-width: "none",
 
   // Card
   $theme-utility-breakpoints-custom: ("card-flag": 960px),
