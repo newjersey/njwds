@@ -1,0 +1,12 @@
+@use "uswds-core" as *;
+
+.usa-card {
+  min-width: units("card-lg");
+}
+
+.usa-card--flag .usa-card__media--inset .usa-card__img {
+  background-color: color("transparent");
+  img {
+    @include u-height("auto");
+  }
+}
