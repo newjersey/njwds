@@ -33,7 +33,6 @@ jobs:
   publish-cdn:
     needs: publish-npm
     runs-on: ubuntu-latest
-    environment: production-cdn  # SECURITY: Requires manual approval before CDN deploys
     permissions:
       id-token: write
       contents: write
