@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           LATEST_VERSION=$(gh release list --json name,isLatest --jq '.[] | select(.isLatest)|.name')
-          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version -w packages/njwds)
+          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --no-git-tag-version -w packages/njwds | tail -n1)
           BRANCH_NAME=upgrade-package-$NEW_VERSION
           git checkout -b $BRANCH_NAME
           git add packages/njwds/package.json package-lock.json
