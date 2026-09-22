@@ -63,7 +63,7 @@ describe("GroveCdnStack security properties", () => {
     });
   });
 
-  it("explicitly denies destructive S3 and CloudFront actions on the GitHub Actions role", () => {
+  it("explicitly denies destructive bucket/distribution-level actions on the GitHub Actions role", () => {
     const template = synthTemplate();
 
     template.hasResourceProperties("AWS::IAM::Policy", {
@@ -74,10 +74,47 @@ describe("GroveCdnStack security properties", () => {
             Effect: "Deny",
             Action: Match.arrayWith([
               "s3:DeleteBucket",
-              "s3:DeleteObject",
               "cloudfront:DeleteDistribution",
               "cloudfront:UpdateDistribution",
             ]),
+          }),
+        ]),
+      }),
+    });
+  });
+
+  it("denies deleting objects everywhere except the latest/ prefix", () => {
+    const template = synthTemplate();
+
+    template.hasResourceProperties("AWS::IAM::Policy", {
+      PolicyDocument: Match.objectLike({
+        Statement: Match.arrayWith([
+          Match.objectLike({
+            Sid: "DenyDeleteExceptLatest",
+            Effect: "Deny",
+            Action: Match.arrayWith(["s3:DeleteObject", "s3:DeleteObjectVersion"]),
+            NotResource: Match.objectLike({
+              "Fn::Join": ["", Match.arrayWith(["/latest/*"])],
+            }),
+          }),
+        ]),
+      }),
+    });
+  });
+
+  it("allows deleting objects only within the latest/ prefix (needed for `aws s3 sync --delete`)", () => {
+    const template = synthTemplate();
+
+    template.hasResourceProperties("AWS::IAM::Policy", {
+      PolicyDocument: Match.objectLike({
+        Statement: Match.arrayWith([
+          Match.objectLike({
+            Sid: "S3DeleteLatestOnly",
+            Effect: "Allow",
+            Action: Match.arrayWith(["s3:DeleteObject", "s3:DeleteObjectVersion"]),
+            Resource: Match.objectLike({
+              "Fn::Join": ["", Match.arrayWith(["/latest/*"])],
+            }),
           }),
         ]),
       }),

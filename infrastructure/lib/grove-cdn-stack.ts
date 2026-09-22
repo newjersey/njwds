@@ -248,12 +248,31 @@ function handler(event) {
           "s3:DeleteBucketPolicy",
           "s3:PutBucketPolicy",
           "s3:PutLifecycleConfiguration",
-          "s3:DeleteObject",
-          "s3:DeleteObjectVersion",
           "cloudfront:DeleteDistribution",
           "cloudfront:UpdateDistribution",
         ],
         resources: ["*"],
+      }),
+    );
+
+    // SECURITY: Versioned release prefixes (e.g. "2.10.0/") are immutable and
+    // can never be deleted. Only "latest/" is a mutable pointer that `aws s3
+    // sync --delete` needs to prune stale files from on every publish.
+    this.githubActionsRole.addToPolicy(
+      new iam.PolicyStatement({
+        sid: "DenyDeleteExceptLatest",
+        effect: iam.Effect.DENY,
+        actions: ["s3:DeleteObject", "s3:DeleteObjectVersion"],
+        notResources: [`${this.bucket.bucketArn}/latest/*`],
+      }),
+    );
+
+    this.githubActionsRole.addToPolicy(
+      new iam.PolicyStatement({
+        sid: "S3DeleteLatestOnly",
+        effect: iam.Effect.ALLOW,
+        actions: ["s3:DeleteObject", "s3:DeleteObjectVersion"],
+        resources: [`${this.bucket.bucketArn}/latest/*`],
       }),
     );
 
