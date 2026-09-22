@@ -1,7 +1,7 @@
 @use "uswds-core" as *;
 
 .usa-card {
-  min-width: spacing-multiple(30);
+  min-width: units("card-lg");
 }
 
 .usa-card--flag .usa-card__media--inset .usa-card__img {
