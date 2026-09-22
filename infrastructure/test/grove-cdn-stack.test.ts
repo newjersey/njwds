@@ -42,7 +42,7 @@ describe("GroveCdnStack security properties", () => {
     });
   });
 
-  it("restricts the GitHub Actions IAM role to the production-cdn environment only", () => {
+  it("restricts the GitHub Actions IAM role to v*-tag releases only", () => {
     const template = synthTemplate();
 
     template.hasResourceProperties("AWS::IAM::Role", {
@@ -53,9 +53,8 @@ describe("GroveCdnStack security properties", () => {
             Effect: "Allow",
             Action: "sts:AssumeRoleWithWebIdentity",
             Condition: Match.objectLike({
-              StringEquals: Match.objectLike({
-                "token.actions.githubusercontent.com:sub":
-                  "repo:newjersey/njwds:environment:production-cdn",
+              StringLike: Match.objectLike({
+                "token.actions.githubusercontent.com:sub": "repo:newjersey/njwds:ref:refs/tags/v*",
               }),
             }),
           }),
