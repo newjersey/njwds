@@ -174,7 +174,11 @@ function handler(event) {
     );
 
     // GitHub Actions OIDC Role with restricted trust policy
-    // SECURITY: Only allow tag-based releases (not any branch)
+    // SECURITY: Only assumable by the publish-cdn job's production-cdn GitHub
+    // environment. That environment (configured in GitHub, not here) requires
+    // a manual reviewer, a wait timer, and a deployment-branch policy limiting
+    // it to "v*" tags — the environment claim can't carry a ref pattern too,
+    // so tag-only enforcement lives there rather than in this trust policy.
     this.githubActionsRole = new iam.Role(this, "GithubActionsRole", {
       roleName: "grove-cdn-publisher",
       assumedBy: new iam.FederatedPrincipal(
@@ -182,13 +186,13 @@ function handler(event) {
         {
           StringEquals: {
             "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-            // SECURITY: Restrict to tag refs only (releases), not any branch
-            "token.actions.githubusercontent.com:sub": `repo:${props.githubRepository}:ref:refs/tags/*`,
+            "token.actions.githubusercontent.com:sub": `repo:${props.githubRepository}:environment:production-cdn`,
           },
         },
         "sts:AssumeRoleWithWebIdentity",
       ),
-      description: "Role for GitHub Actions to publish Grove assets to CDN (tag releases only)",
+      description:
+        "Role for GitHub Actions to publish Grove assets to CDN (production-cdn environment only)",
       maxSessionDuration: cdk.Duration.hours(1),
     });
 
