@@ -65,31 +65,31 @@
       "$value": { "value": 8.75, "unit": "rem" }
     },
     "3xs": {
-      "$value": "{font-size.2}"
+      "$value": "{font-size.micro}"
     },
     "2xs": {
-      "$value": "{font-size.3}"
+      "$value": "{font-size.2}"
     },
     "xs": {
-      "$value": "{font-size.4}"
+      "$value": "{font-size.3}"
     },
     "sm": {
       "$value": "{font-size.5}"
     },
     "md": {
-      "$value": "{font-size.6}"
-    },
-    "lg": {
       "$value": "{font-size.9}"
     },
-    "xl": {
+    "lg": {
       "$value": "{font-size.12}"
     },
-    "2xl": {
+    "xl": {
       "$value": "{font-size.14}"
     },
-    "3xl": {
+    "2xl": {
       "$value": "{font-size.15}"
+    },
+    "3xl": {
+      "$value": "{font-size.16}"
     }
   }
 }

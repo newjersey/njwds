@@ -22,3 +22,15 @@ export const Default: Story = {
     variant: "Default",
   },
 };
+
+export const Big: Story = {
+  args: {
+    variant: "Big",
+  },
+};
+
+export const Slim: Story = {
+  args: {
+    variant: "Slim",
+  },
+};

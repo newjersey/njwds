@@ -29,3 +29,19 @@ export const Default: Story = {
     error: false,
   },
 };
+
+export const Error: Story = {
+  args: {
+    required: true,
+    helperText: false,
+    error: true,
+  },
+};
+
+export const HelperText: Story = {
+  args: {
+    required: false,
+    helperText: true,
+    error: false,
+  },
+};

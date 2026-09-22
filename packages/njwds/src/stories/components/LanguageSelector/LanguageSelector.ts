@@ -21,11 +21,13 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
           lang="es"
         >
           <span lang="es">Español</span>
-          ${icon
-            ? html`<svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
-                <use href="./img/sprite.svg#language"></use>
-              </svg>`
-            : ""}
+          ${
+            icon
+              ? html`<svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
+                  <use href="./img/sprite.svg#language"></use>
+                </svg>`
+              : ""
+          }
         </a>
       </div>
     `;
@@ -43,13 +45,15 @@ export const LanguageSelector = ({ pattern, buttonType, icon }: LanguageSelector
             aria-label="Change the language of this page"
           >
             Languages
-            ${icon
-              ? html`
-                  <svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
-                    <use href="./img/sprite.svg#language"></use>
-                  </svg>
-                `
-              : ""}
+            ${
+              icon
+                ? html`
+                    <svg aria-hidden="true" focusable="false" role="img" class="usa-icon">
+                      <use href="./img/sprite.svg#language"></use>
+                    </svg>
+                  `
+                : ""
+            }
           </button>
           <ul id="language-options" class="usa-language__submenu" hidden>
             <li class="usa-language__submenu-item">

@@ -24,9 +24,11 @@ export const DateRange = ({ class: className, required, helperText, error }: Dat
             for="event-date-start"
             >Event start date ${renderRequired(required)}</label
           >
-          ${helperText
-            ? html`<div id="event-date-start-hint" class="usa-hint">mm/dd/yyyy</div>`
-            : ""}
+          ${
+            helperText
+              ? html`<div id="event-date-start-hint" class="usa-hint">mm/dd/yyyy</div>`
+              : ""
+          }
           <div class="usa-date-picker">
             <input
               class="usa-input ${classes}"

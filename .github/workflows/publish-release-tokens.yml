@@ -27,6 +27,8 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
       - run: npm ci
+      - name: Build tokens
+        run: npm run tokens:build
       - name: Determine npm dist-tag
         id: dist_tag
         run: |

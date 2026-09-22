@@ -18,9 +18,9 @@ export const Name = ({ error, required, helperText }: NameProps) => {
       <fieldset class="usa-fieldset">
         <legend class="usa-legend font-heading-xl text-bold">Name</legend>
         <label
-          aria-describedby="${helperText ? "hint-0" : undefined} ${error
-            ? "input-error-0"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-0" : undefined} ${
+            error ? "input-error-0" : undefined
+          }"
           class="usa-label ${errorLabelClass}"
           for="title"
         >
@@ -43,9 +43,9 @@ export const Name = ({ error, required, helperText }: NameProps) => {
         ${helperText ? html`<div id="hint-1" class="usa-hint">Helper text</div>` : ""}
         <input
           class="usa-input ${errorInputClass}"
-          aria-describedby="${helperText ? "hint-1" : undefined} ${error
-            ? "input-error-1"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-1" : undefined} ${
+            error ? "input-error-1" : undefined
+          }"
           id="first-name"
           name="first-name"
           type="text"
@@ -61,9 +61,9 @@ export const Name = ({ error, required, helperText }: NameProps) => {
         </label>
         ${helperText ? html`<div id="hint-2" class="usa-hint">Helper text</div>` : ""}
         <input
-          aria-describedby="${helperText ? "hint-2" : undefined} ${error
-            ? "input-error-2"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-2" : undefined} ${
+            error ? "input-error-2" : undefined
+          }"
           class="usa-input ${errorInputClass}"
           id="middle-name"
           name="middle-name"
@@ -79,9 +79,9 @@ export const Name = ({ error, required, helperText }: NameProps) => {
         ${helperText ? html`<div id="hint-3" class="usa-hint">Helper text</div>` : ""}
         <input
           class="usa-input ${errorInputClass}"
-          aria-describedby="${helperText ? "hint-3" : undefined} ${error
-            ? "input-error-3"
-            : undefined}"
+          aria-describedby="${helperText ? "hint-3" : undefined} ${
+            error ? "input-error-3" : undefined
+          }"
           id="last-name"
           name="last-name"
           type="text"

@@ -17,9 +17,11 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
     <form class="usa-form maxw-none ${errorGroupClass}">
       <fieldset class="usa-fieldset">
         <legend class="usa-legend">Date of birth ${renderRequired(required)}</legend>
-        ${helperText
-          ? html`<div id="with-hint-input-hint" class="usa-hint">Example: April 28 1986</div>`
-          : ""}
+        ${
+          helperText
+            ? html`<div id="with-hint-input-hint" class="usa-hint">Example: April 28 1986</div>`
+            : ""
+        }
         <div class="usa-memorable-date">
           <div class="usa-form-group usa-form-group--month">
             <label class="usa-label" for="month">Month</label>
@@ -27,9 +29,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
               class="usa-select ${classes}"
               name="options"
               id="month"
-              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
-                ? "group-error-message"
-                : undefined}"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${
+                error ? "group-error-message" : undefined
+              }"
             >
               <option value="" selected disabled>Choose an option</option>
               <option value="value1">January</option>
@@ -50,9 +52,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
             <label class="usa-label" for="date_of_birth_2">Day</label>
             <input
               class="usa-input usa-input--inline ${classes}"
-              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
-                ? "group-error-message"
-                : undefined}"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${
+                error ? "group-error-message" : undefined
+              }"
               id="date_of_birth_2"
               name="date_of_birth_2"
               type="text"
@@ -66,9 +68,9 @@ export const Date = ({ required, error, success, helperText }: DateProps) => {
             <label class="usa-label" for="date_of_birth_3">Year</label>
             <input
               class="usa-input usa-input--inline ${classes}"
-              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${error
-                ? "group-error-message"
-                : undefined}"
+              aria-describedby="${helperText ? "with-hint-input-hint" : undefined} ${
+                error ? "group-error-message" : undefined
+              }"
               id="date_of_birth_3"
               name="date_of_birth_3"
               type="text"

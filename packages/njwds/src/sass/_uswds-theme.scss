@@ -102,8 +102,6 @@
   $theme-link-reverse-hover-color: "base-lightest",
   $theme-link-reverse-active-color: "white",
 
-  // Banner
-  $theme-banner-background-color: "base-darkest",
   // Layout Grid
   $theme-layout-grid-use-important: false,
   // Focus Styles
@@ -150,5 +148,17 @@
   */
     // Text align settings
   $text-align-settings: (responsive: true),
-  $theme-show-notifications: false
+  $theme-show-notifications: false,
+  /*
+  ----------------------------------------
+  Component settings
+  ----------------------------------------
+  */
+    // Banner
+  $theme-banner-background-color: "base-lightest",
+  $theme-banner-max-width: "none",
+
+  // Card
+  $theme-utility-breakpoints-custom: ("card-flag": 960px),
+  $theme-card-flag-min-width: card-flag
 );

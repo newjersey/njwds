@@ -20,9 +20,11 @@ export const File = ({ label, error, required, helperText, multipleFiles }: File
       <label class="usa-label ${errorLabelClass}" for="file-html">
         ${label} ${renderRequired(required)}
       </label>
-      ${helperText
-        ? html`<div id="with-hint-input-hint" class="usa-hint">Example: document.pdf</div>`
-        : ""}
+      ${
+        helperText
+          ? html`<div id="with-hint-input-hint" class="usa-hint">Example: document.pdf</div>`
+          : ""
+      }
       <input
         class="usa-input ${errorInputClass}"
         id="file-html"

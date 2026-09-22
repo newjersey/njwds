@@ -31,3 +31,27 @@ export const Default: Story = {
     showTaxpayerDisclaimer: false,
   },
 };
+
+export const Spanish: Story = {
+  args: {
+    language: "Spanish",
+    logos: "Single",
+    showTaxpayerDisclaimer: false,
+  },
+};
+
+export const Disclaimer: Story = {
+  args: {
+    language: "Spanish",
+    logos: "Single",
+    showTaxpayerDisclaimer: true,
+  },
+};
+
+export const MultipleLogos: Story = {
+  args: {
+    language: "Spanish",
+    logos: "Multiple",
+    showTaxpayerDisclaimer: true,
+  },
+};

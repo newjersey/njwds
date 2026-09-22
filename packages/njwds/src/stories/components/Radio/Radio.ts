@@ -73,9 +73,11 @@ export const Radio = ({
             <legend class="usa-legend ${errorLabelClass}">
               Select one option ${renderRequired(required)}
             </legend>
-            ${helperText
-              ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
-              : ""}
+            ${
+              helperText
+                ? html`<div id="with-hint-input-hint" class="usa-hint">Helper text</div>`
+                : ""
+            }
             ${content}
           </fieldset>
 

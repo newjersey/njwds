@@ -41,7 +41,7 @@ export const Default: Story = {
   args: {
     border: true,
     compact: false,
-    scrollable: false,
+    scrollable: true,
     sortable: false,
     striped: false,
     responsiveStack: false,
@@ -61,9 +61,9 @@ export const Compact: Story = {
   },
 };
 
-export const Scrollable: Story = {
+export const noBorder: Story = {
   args: {
-    border: true,
+    border: false,
     compact: false,
     scrollable: true,
     sortable: false,

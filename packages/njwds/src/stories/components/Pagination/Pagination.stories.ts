@@ -15,3 +15,9 @@ export const Default: Story = {
     unbounded: false,
   },
 };
+
+export const Unbounded: Story = {
+  args: {
+    unbounded: true,
+  },
+};

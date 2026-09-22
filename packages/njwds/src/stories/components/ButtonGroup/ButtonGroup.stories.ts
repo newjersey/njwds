@@ -15,3 +15,9 @@ export const Default: Story = {
     segmented: false,
   },
 };
+
+export const Segmented: Story = {
+  args: {
+    segmented: true,
+  },
+};

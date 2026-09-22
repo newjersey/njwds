@@ -26,3 +26,53 @@ export const Default: Story = {
     showTags: true,
   },
 };
+
+export const WithDescription: Story = {
+  args: {
+    externalLinks: false,
+    showDescription: true,
+    type: "default",
+    showMeta: true,
+    showTags: true,
+  },
+};
+
+export const Media: Story = {
+  args: {
+    externalLinks: false,
+    showDescription: true,
+    type: "media",
+    showMeta: true,
+    showTags: true,
+  },
+};
+
+export const Calendar: Story = {
+  args: {
+    externalLinks: false,
+    showDescription: true,
+    type: "calendar",
+    showMeta: true,
+    showTags: true,
+  },
+};
+
+export const WithMeta: Story = {
+  args: {
+    externalLinks: false,
+    showDescription: true,
+    type: "media",
+    showMeta: true,
+    showTags: true,
+  },
+};
+
+export const ExternalLinks: Story = {
+  args: {
+    externalLinks: true,
+    showDescription: true,
+    type: "default",
+    showMeta: true,
+    showTags: true,
+  },
+};

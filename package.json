@@ -18,8 +18,11 @@
     "tokens:dryrun": "npm publish --dry-run --workspace=packages/tokens",
     "preview": "npm run preview -w packages/njwds",
     "test": "npm run test -w packages/njwds",
+    "test:coverage": "npm run test:coverage -w packages/njwds",
+    "test:coverage:ci": "npx playwright install --with-deps chromium && npm run test:coverage",
     "test:visual": "npm run test:visual -w packages/njwds",
     "test:accessibility": "npm run test:accessibility -w packages/njwds",
+    "test:accessibility:ci": "npm run grove:build && npm run storybook:build && npm run test:accessibility",
     "test:visual:update": "npm run test:visual:update -w packages/njwds",
     "import-components": "npm run import-components -w packages/njwds"
   },
@@ -37,10 +40,10 @@
     "globals": "^17.0.0",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
-    "lint-staged": "^17.3.0",
+    "lint-staged": "^17.5.0",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0"
+    "typescript-eslint": "^8.69.0"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

@@ -16,11 +16,12 @@ on:
           - premajor
           - prerelease
       preid:
-        description: Prerelease identifier (used by the pre* release types above)
+        description: Prerelease identifier (only used by the pre* release types above; ignored otherwise)
         required: true
-        default: alpha
+        default: none
         type: choice
         options:
+          - none
           - alpha
           - beta
 
@@ -42,14 +43,20 @@ jobs:
           git config --global user.email "<>"
           git config --global user.name "NJWDS Draft Release Action"
           LATEST_VERSION=$(gh release list --json name,tagName --jq '[.[] | select(.tagName | startswith("tokens-v"))][0].tagName')
-          NEW_VERSION=$(npm version ${{ inputs.semver_release_type }} --preid=${{ inputs.preid }} --no-git-tag-version -w packages/tokens)
+          PREID="${{ inputs.preid }}"
+          NPM_VERSION_ARGS=("${{ inputs.semver_release_type }}" --no-git-tag-version -w packages/tokens)
+          if [[ "$PREID" != "none" ]]; then
+            NPM_VERSION_ARGS+=(--preid="$PREID")
+          fi
+          npm version "${NPM_VERSION_ARGS[@]}"
+          NEW_VERSION="v$(node -p "require('./packages/tokens/package.json').version")"
           NEW_TAG="tokens-$NEW_VERSION"
-          BRANCH_NAME=upgrade-tokens-package-$NEW_VERSION
-          git checkout -b $BRANCH_NAME
+          BRANCH_NAME="upgrade-tokens-package-$NEW_VERSION"
+          git checkout -b "$BRANCH_NAME"
           git add packages/tokens/package.json package-lock.json
           git commit -m "Bump tokens package version to $NEW_VERSION"
-          git push -u origin $BRANCH_NAME
-          gh pr create -B main -H $BRANCH_NAME --title "Upgrade tokens package version to $NEW_VERSION" --body "Created by Github Action"
+          git push -u origin "$BRANCH_NAME"
+          gh pr create -B main -H "$BRANCH_NAME" --title "Upgrade tokens package version to $NEW_VERSION" --body "Created by Github Action"
           RELEASE_SHA=$(git rev-parse HEAD)
           echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT

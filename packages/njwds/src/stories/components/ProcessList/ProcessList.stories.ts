@@ -16,3 +16,10 @@ export const Default: Story = {
     customSizing: false,
   },
 };
+
+export const customSizing: Story = {
+  args: {
+    content: true,
+    customSizing: true,
+  },
+};

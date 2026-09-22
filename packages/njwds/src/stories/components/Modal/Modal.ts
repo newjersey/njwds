@@ -62,20 +62,22 @@ export const Modal = ({ size, forceAction, modalId }: ModalProps) => {
               </ul>
             </div>
           </div>
-          ${!forceAction
-            ? html`
-                <button
-                  type="button"
-                  class="usa-button usa-modal__close"
-                  aria-label="Close this window"
-                  data-close-modal
-                >
-                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use href="./img/sprite.svg#close"></use>
-                  </svg>
-                </button>
-              `
-            : null}
+          ${
+            !forceAction
+              ? html`
+                  <button
+                    type="button"
+                    class="usa-button usa-modal__close"
+                    aria-label="Close this window"
+                    data-close-modal
+                  >
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use href="./img/sprite.svg#close"></use>
+                    </svg>
+                  </button>
+                `
+              : null
+          }
         </div>
       </div>
     </div>

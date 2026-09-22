@@ -23,3 +23,10 @@ export const Default: Story = {
     size: "small",
   },
 };
+
+export const Big: Story = {
+  args: {
+    label: "New",
+    size: "big",
+  },
+};

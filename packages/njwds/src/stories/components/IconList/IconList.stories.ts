@@ -26,3 +26,10 @@ export const Default: Story = {
     size: "default",
   },
 };
+
+export const RichContent: Story = {
+  args: {
+    richContent: true,
+    size: "default",
+  },
+};

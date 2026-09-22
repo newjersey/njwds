@@ -68,9 +68,9 @@ export const Identifier = ({ language, logos, showTaxpayerDisclaimer }: Identifi
           <div class="usa-identifier__identity" aria-label="${content.masthead.descriptionLabel}">
             <p class="usa-identifier__identity-disclaimer">
               ${content.masthead.text}
-              <a href="https://nj.gov">${content.masthead.parentName}</a>.${taxpayerDisclaimer
-                ? html` ${taxpayerDisclaimer}`
-                : null}
+              <a href="https://nj.gov">${content.masthead.parentName}</a>.${
+                taxpayerDisclaimer ? html` ${taxpayerDisclaimer}` : null
+              }
             </p>
           </div>
         </div>

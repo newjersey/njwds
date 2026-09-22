@@ -22,10 +22,6 @@ const TEST_CASES = [
     url: `/iframe.html?id=components-table--compact&viewMode=story`,
   },
   {
-    name: "scrollable",
-    url: `/iframe.html?id=components-table--scrollable&viewMode=story`,
-  },
-  {
     name: "sortable",
     url: `/iframe.html?id=components-table--sortable&viewMode=story`,
   },

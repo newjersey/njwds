@@ -27,6 +27,9 @@ const meta = {
     icon: {
       control: { type: "boolean" },
     },
+    dismissible: {
+      control: { type: "boolean" },
+    },
   },
 } satisfies Meta<AlertProps>;
 
@@ -41,6 +44,7 @@ export const Info: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissible: false,
   },
 };
 
@@ -52,6 +56,7 @@ export const Success: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissible: false,
   },
 };
 
@@ -63,6 +68,7 @@ export const Warning: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissible: false,
   },
 };
 
@@ -74,5 +80,30 @@ export const Error: Story = {
     slim: false,
     icon: false,
     header: true,
+    dismissible: false,
+  },
+};
+
+export const Slim: Story = {
+  args: {
+    heading: "Informative status",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+    type: "info",
+    slim: true,
+    icon: false,
+    header: true,
+    dismissible: false,
+  },
+};
+
+export const Dismissible: Story = {
+  args: {
+    heading: "Informative status",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+    type: "info",
+    slim: false,
+    icon: false,
+    header: false,
+    dismissible: true,
   },
 };

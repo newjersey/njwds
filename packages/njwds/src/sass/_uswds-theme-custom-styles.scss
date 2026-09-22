@@ -1,9 +1,12 @@
 // Custom styles for NJWDS theme
 @use "uswds-core" as *;
 
+@forward "theme/nj-accordion";
+@forward "theme/nj-alert";
 @forward "theme/nj-banner";
 @forward "theme/nj-breadcrumb";
 @forward "theme/nj-button";
+@forward "theme/nj-card";
 @forward "theme/nj-combo-box";
 @forward "theme/nj-dark-background";
 @forward "theme/nj-date-picker";
