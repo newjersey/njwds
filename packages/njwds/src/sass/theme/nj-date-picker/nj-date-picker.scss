@@ -4,3 +4,8 @@
   position: relative;
   z-index: 1;
 }
+.usa-date-picker__calendar__date {
+  &:focus[aria-selected="true"]:not([disabled]) {
+    @include focus-outline($width: 0.5, $offset: -1, $color: "white");
+  }
+}
