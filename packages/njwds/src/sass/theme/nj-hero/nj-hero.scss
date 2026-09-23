@@ -5,6 +5,6 @@
   background-color: color("secondary-darker");
 
   a:focus {
-    outline-color: color("white");
+    @include focus-outline(null, null, "white", null);
   }
 }
