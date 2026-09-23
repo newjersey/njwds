@@ -56,8 +56,10 @@ export const DocumentationLayout = () => {
           <button class="usa-menu-btn">Menu</button>
         </div>
         <nav aria-label="Primary navigation" class="usa-nav">
-          <button class="usa-nav__close">
-            <img src="./img/close.svg" role="img" alt="close" />
+          <button class="usa-nav__close" aria-label="Close navigation">
+            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+              <use href="./img/sprite.svg#close"></use>
+            </svg>
           </button>
           <ul class="usa-nav__primary usa-accordion">
             <li class="usa-nav__primary-item">

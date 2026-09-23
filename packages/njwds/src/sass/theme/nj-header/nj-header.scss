@@ -8,8 +8,27 @@
   // }
 } // .usa-header--extended
 
-.usa-nav__submenu-item {
-  a:focus {
-    outline-color: color("white");
+.usa-nav__submenu {
+  @include at-media($theme-header-min-width) {
+    border: units(2px) solid color("primary-darker");
+  }
+  .usa-nav__submenu-item {
+    @include at-media($theme-header-min-width) {
+      a:focus {
+        @include focus-outline(null, null, "white", "neg-05");
+      }
+    }
+  }
+}
+
+.usa-menu-btn {
+  &:not([disabled]):focus {
+    @include focus-outline(null, null, "white", "neg-1");
+  }
+}
+
+.usa-megamenu .usa-col:first-child .usa-nav__submenu-item a {
+  @include at-media($theme-header-min-width) {
+    padding-left: units(1);
   }
 }
