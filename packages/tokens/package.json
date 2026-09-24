@@ -27,8 +27,8 @@
     "tokens:watch": "style-dictionary watch --config ./config/style-dictionary.config.js"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "style-dictionary": "^5.1.1",
+    "prettier": "^3.9.8",
+    "style-dictionary": "^5.5.4",
     "vitest": "^4.0.18"
   }
 }
