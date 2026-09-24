@@ -13,7 +13,13 @@
   }
 }
 .usa-breadcrumb__list-item {
+  a:focus {
+    @include focus-outline(null, null, null, 0);
+  }
   @include at-media($theme-breadcrumb-min-width) {
     overflow-y: visible;
+    a:focus {
+      @include focus-outline();
+    }
   }
 }
