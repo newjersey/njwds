@@ -27,6 +27,6 @@
 .usa-combo-box__list-option {
   @include u-padding-x("105");
   &:focus[aria-selected="true"] {
-    @include focus-outline($width: 0.5, $offset: -1, $color: "white");
+    @include focus-outline(null, null, "white", "neg-1");
   }
 }
