@@ -1,6 +1,10 @@
 name: QASP
 
 on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
   schedule:
     - cron: '0 7 * * 1'  # Monday at 2am EST (7am UTC)
   workflow_dispatch:  # manual triggering
@@ -10,7 +14,7 @@ permissions:
 
 jobs:
   qasp:
-    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
+    uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@feat/add-slack-alert-to-qasp
     secrets: inherit
     with:
       node-version: ".nvmrc" # optional (default: .nvmrc)
