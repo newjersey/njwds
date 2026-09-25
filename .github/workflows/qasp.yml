@@ -21,7 +21,7 @@ jobs:
       deployment-check-urls: |
         https://registry.npmjs.org/@newjersey/njwds1
         https://registry.npmjs.org/@newjersey/tokens1
-      system-diagram-location: "./documents/system-diagram.svg"
+      system-diagram-location: ""
       command-test-coverage: "npm run test:coverage:ci"
       command-linting: "npm run lint"
       command-accessibility: "npm run test:accessibility:ci"
