@@ -1,0 +1,11 @@
+@use "uswds-core" as *;
+
+.usa-date-picker__external-input:focus {
+  position: relative;
+  z-index: 1;
+}
+.usa-date-picker__calendar__date {
+  &:focus[aria-selected="true"]:not([disabled]) {
+    @include focus-outline(null, null, "white", "neg-1");
+  }
+}

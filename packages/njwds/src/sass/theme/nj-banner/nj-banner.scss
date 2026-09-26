@@ -22,6 +22,10 @@
       &:focus {
         text-decoration: underline;
       }
+
+      &:focus {
+        @include focus-outline(null, null, "white", "05");
+      }
     } // a
 
     li {
@@ -57,9 +61,17 @@
 }
 
 .usa-banner {
-  &__button[aria-expanded="true"] {
+  &__button {
+    &:enabled:focus {
+      @include focus-outline(null, null, null, 0);
+    }
+
     @include at-media-max("tablet") {
       &:enabled:focus {
+        @include focus-outline(null, null, null, "neg-05");
+      }
+
+      &[aria-expanded="true"]:enabled:focus {
         outline: none;
 
         &::before {

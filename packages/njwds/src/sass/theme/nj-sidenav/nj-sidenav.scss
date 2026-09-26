@@ -1,0 +1,7 @@
+@use "uswds-core" as *;
+
+.usa-sidenav__item {
+  a:not(.usa-button):focus {
+    @include focus-outline(null, null, null, 0);
+  }
+}

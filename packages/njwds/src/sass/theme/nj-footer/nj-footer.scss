@@ -1,0 +1,9 @@
+@use "uswds-core" as *;
+
+.usa-footer__primary-link {
+  @include at-media-max("mobile-lg") {
+    &:focus {
+      @include focus-outline(null, null, null, "neg-05");
+    }
+  }
+}
