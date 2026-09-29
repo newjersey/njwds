@@ -1,0 +1,20 @@
+@use "uswds-core" as *;
+
+.usa-accordion {
+  details:not(:first-child) {
+    margin-top: units(1);
+  }
+
+  details:not([open]) > .usa-accordion__button {
+    @include set-icon-from-bg(
+      $theme-accordion-button-background-color,
+      "usa-icons/add",
+      "usa-icons-bg/add--white"
+    );
+    background-size: units(3);
+  }
+
+  summary.usa-accordion__button {
+    box-sizing: border-box;
+  }
+}
