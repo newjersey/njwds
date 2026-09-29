@@ -65,7 +65,7 @@ export const LanguageSelector = ({
           </button>
           <ul id="${languageOptionsId}" class="usa-language__submenu" hidden>
             <li class="usa-language__submenu-item">
-              <a href="#!" hreflang="en" aria-current="page">
+              <a href="#!" hreflang="en">
                 <span lang="en" dir="ltr"><strong>English</strong></span>
               </a>
             </li>

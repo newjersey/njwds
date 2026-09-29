@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { html } from "lit";
 
 import { LanguageSelector, type LanguageSelectorProps } from "./LanguageSelector";
 
@@ -48,14 +47,5 @@ export const WithIcon: Story = {
     pattern: "simple",
     buttonType: "secondary",
     icon: true,
-  },
-};
-
-export const MultipleDropdownMenus: Story = {
-  render: (args) => html` ${LanguageSelector(args)} ${LanguageSelector(args)} `,
-  args: {
-    pattern: "dropdown",
-    buttonType: "secondary",
-    icon: false,
   },
 };
