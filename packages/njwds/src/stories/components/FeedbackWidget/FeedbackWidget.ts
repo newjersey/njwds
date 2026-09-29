@@ -3,10 +3,10 @@ import { html } from "lit";
 export const FeedbackWidget = () => {
   return html`
     <feedback-widget
-      skipEmailStep="false"
+      skip-email-step="false"
       contact-link="https://www.example.com/contact"
-      showCommentDisclaimer="true"
-      onlySaveRatingToAnalytics="false"
+      show-comment-disclaimer="true"
+      only-save-rating-to-analytics="false"
     >
     </feedback-widget>
 
