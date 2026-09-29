@@ -34,7 +34,7 @@ export const Button = ({ label, type = "primary", theme = "light", icon = false 
   const buttonType = typeClasses[type];
 
   const buttonTheme = theme !== "light" ? themeClasses[theme][type] : "";
-  const modeSetting = theme === "dark" ? "usa-dark-background padding-1" : "";
+  const modeSetting = theme === "dark" ? "usa-dark-background padding-2" : "";
 
   return html`
     <div class="${modeSetting}">

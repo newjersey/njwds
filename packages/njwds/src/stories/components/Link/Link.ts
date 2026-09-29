@@ -9,7 +9,7 @@ export interface LinkProps {
 
 export const Link = ({ label, external, mode, forceVisited }: LinkProps) => {
   // Just need something to trigger the theme change, nothing really to output
-  const modeSetting = mode === "dark" ? "usa-dark-background" : "";
+  const modeSetting = mode === "dark" ? "usa-dark-background padding-2" : "";
 
   return html`
     <div class="${modeSetting}">

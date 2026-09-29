@@ -1,3 +1,5 @@
+@use "uswds-core" as *;
+
 .usa-language__link[aria-expanded="true"] {
   color: #112f4e;
   box-shadow: inset 0 0 0 2px #112f4e;
@@ -5,6 +7,7 @@
 
 .usa-language__submenu {
   background-color: #112f4e;
+  border: units(2px) solid #112f4e;
 }
 
 .usa-language__submenu-item {
@@ -17,6 +20,10 @@
 
   &:last-of-type a {
     margin-bottom: 0;
+  }
+
+  a:focus {
+    @include focus-outline(null, null, "white", null);
   }
 }
 
