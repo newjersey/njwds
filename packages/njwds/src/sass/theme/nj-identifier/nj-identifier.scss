@@ -1,0 +1,7 @@
+@use "uswds-core" as *;
+
+.usa-identifier {
+  a:focus {
+    @include focus-outline(null, null, "white", null);
+  }
+}
