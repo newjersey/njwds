@@ -1,0 +1,13 @@
+@use "uswds-core" as *;
+
+.usa-nav__secondary-links {
+  a {
+    color: color("base-darker");
+  }
+} // .usa-nav__secondary-links
+
+.usa-nav__close {
+  &:not([disabled]):focus {
+    @include focus-outline(null, null, null, "neg-1");
+  }
+}
