@@ -7,6 +7,7 @@
 
 .usa-language__submenu {
   background-color: #112f4e;
+  text-align: start;
   border: units(2px) solid #112f4e;
 }
 
@@ -16,6 +17,10 @@
   a {
     padding: 0.55rem;
     margin-bottom: 0.5rem;
+  }
+
+  [lang] {
+    unicode-bidi: isolate;
   }
 
   &:last-of-type a {
@@ -28,6 +33,7 @@
 }
 
 .usa-language__primary-item:last-of-type .usa-language__submenu {
+  inset-inline: auto 0;
   margin-top: 1px;
   max-height: 290px; /* scroll after 6 items */
   overflow: auto;
