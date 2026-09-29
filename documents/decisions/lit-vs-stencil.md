@@ -49,7 +49,7 @@
 
 - [Lit React integration](https://lit.dev/docs/frameworks/react/)
     - What is the difference compared to the Stencil integration?
-        - Seems like in Lit, we have to individually define each React component (as opposed to Stencil which automatically creates a React component for each web component in the package) 
+        - Seems like in Lit, we have to individually define each React component (as opposed to Stencil which automatically creates a React component for each web component in the package). Given React's popularity among Grove consumers, we are going to invest time in working around that individual definition by building our own script similar to [custom React component generation scripts in other design systems](https://github.com/shoelace-style/webawesome/blob/d1a25f9030ccd8e83d020ac4425b6b1697a35e1d/packages/webawesome/scripts/make-react.js).
 - How do we add styles into a component in Lit? 
     - Right now, putting in an `<link>` referencing the USWDS stylesheet within the component
 
