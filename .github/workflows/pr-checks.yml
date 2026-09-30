@@ -33,6 +33,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Filter changed files
+        uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            packages:
+              - 'packages/**'
+
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
@@ -67,6 +75,7 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Run ${{ matrix.project }} tests
+        if: steps.changes.outputs.packages == 'true'
         run: npx playwright test --config packages/njwds/playwright.config.ts --project=${{ matrix.project }}
 
       # if the tests fail, upload the Playwright artifacts for debugging
