@@ -20,7 +20,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
               </div>
               <button
                 type="button"
-                class="usa-accordion__button usa-banner__button"
+                class="usa-accordion__button usa-banner__button margin-x-1"
                 aria-expanded="false"
                 aria-controls="gov-banner-default"
               >
