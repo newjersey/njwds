@@ -1,0 +1,142 @@
+- generic [ref=f25e3]:
+  - generic [ref=f25e4]:
+    - banner [ref=f25e6]:
+      - heading "Storybook" [level=1] [ref=f25e7]
+      - generic [ref=f25e10]:
+        - generic [ref=f25e11]:
+          - generic [ref=f25e13]:
+            - link "Skip to content" [ref=f25e14] [cursor=pointer]:
+              - /url: "#storybook-preview-wrapper"
+            - link "Storybook" [ref=f25e16] [cursor=pointer]:
+              - /url: ./
+              - img "Storybook" [ref=f25e17]
+            - switch "Settings" [ref=f25e22] [cursor=pointer]
+          - generic [ref=f25e26]: Search for components
+          - search [ref=f25e27]:
+            - combobox [ref=f25e28]:
+              - searchbox "Search for components" [ref=f25e29]
+              - code:
+                - generic: ⌘
+                - text: K
+              - button "Tag filters" [ref=f25e31] [cursor=pointer]
+          - navigation [ref=f25e35]:
+            - heading "Stories" [level=2] [ref=f25e36]
+            - generic [ref=f25e38]:
+              - link [ref=f25e40] [cursor=pointer]:
+                - /url: /?path=/docs/getting-started--docs
+              - generic [ref=f25e44]:
+                - button "Collapse" [expanded] [ref=f25e45] [cursor=pointer]: Components
+                - button "Expand all" [ref=f25e49] [cursor=pointer]
+              - button [ref=f25e53] [cursor=pointer]
+              - button [ref=f25e61] [cursor=pointer]
+              - button [ref=f25e69] [cursor=pointer]
+              - button [ref=f25e77] [cursor=pointer]
+              - button [ref=f25e85] [cursor=pointer]
+              - button [ref=f25e93] [cursor=pointer]
+              - button [ref=f25e101] [cursor=pointer]
+              - button [ref=f25e109] [cursor=pointer]
+              - button [ref=f25e117] [cursor=pointer]
+              - button [ref=f25e125] [cursor=pointer]
+              - button [ref=f25e133] [cursor=pointer]
+              - button [ref=f25e141] [cursor=pointer]
+              - button [ref=f25e149] [cursor=pointer]
+              - button [ref=f25e157] [cursor=pointer]
+              - button [ref=f25e165] [cursor=pointer]
+              - button [ref=f25e173] [cursor=pointer]
+              - button [ref=f25e181] [cursor=pointer]
+              - button [ref=f25e189] [cursor=pointer]
+              - button [ref=f25e197] [cursor=pointer]
+              - button [ref=f25e205] [cursor=pointer]
+              - button [ref=f25e213] [cursor=pointer]
+              - button [ref=f25e221] [cursor=pointer]
+              - button [ref=f25e229] [cursor=pointer]
+              - button [ref=f25e237] [cursor=pointer]
+              - button [ref=f25e245] [cursor=pointer]
+              - button [ref=f25e253] [cursor=pointer]
+              - button [ref=f25e261] [cursor=pointer]
+              - button [expanded] [ref=f25e269] [cursor=pointer]
+              - generic [ref=f25e276]:
+                - link [ref=f25e277] [cursor=pointer]:
+                  - /url: /?path=/docs/components-modal--docs
+                - link "Skip to content" [ref=f25e281] [cursor=pointer]:
+                  - /url: "#storybook-preview-wrapper"
+              - link [ref=f25e283] [cursor=pointer]:
+                - /url: /?path=/story/components-modal--default
+              - link [ref=f25e288] [cursor=pointer]:
+                - /url: /?path=/story/components-modal--large
+              - link [ref=f25e293] [cursor=pointer]:
+                - /url: /?path=/story/components-modal--force-action
+              - button [ref=f25e298] [cursor=pointer]
+              - button [ref=f25e306] [cursor=pointer]
+              - button [ref=f25e314] [cursor=pointer]
+              - button [ref=f25e322] [cursor=pointer]
+              - button [ref=f25e330] [cursor=pointer]
+              - button [ref=f25e338] [cursor=pointer]
+              - button [ref=f25e346] [cursor=pointer]
+              - button [ref=f25e354] [cursor=pointer]
+              - button [ref=f25e362] [cursor=pointer]
+              - button [ref=f25e370] [cursor=pointer]
+              - button [ref=f25e378] [cursor=pointer]
+              - button [ref=f25e386] [cursor=pointer]
+              - button [ref=f25e394] [cursor=pointer]
+              - button [ref=f25e402] [cursor=pointer]
+              - button [ref=f25e410] [cursor=pointer]
+              - button [ref=f25e418] [cursor=pointer]
+              - generic [ref=f25e425]:
+                - button "Collapse" [expanded] [ref=f25e426] [cursor=pointer]: Templates
+                - button "Expand all" [ref=f25e430] [cursor=pointer]
+              - button [ref=f25e434] [cursor=pointer]
+              - button [ref=f25e442] [cursor=pointer]
+              - button [ref=f25e450] [cursor=pointer]
+              - button [ref=f25e458] [cursor=pointer]
+              - button [ref=f25e466] [cursor=pointer]
+              - button [ref=f25e474] [cursor=pointer]
+              - generic [ref=f25e481]:
+                - button "Collapse" [expanded] [ref=f25e482] [cursor=pointer]: Utilities
+                - button "Expand all" [ref=f25e486] [cursor=pointer]
+              - button [ref=f25e490] [cursor=pointer]
+              - button [ref=f25e498] [cursor=pointer]
+        - region [ref=f25e506]:
+          - generic [ref=f25e507]:
+            - heading "Component tests" [level=2] [ref=f25e508]
+            - generic [ref=f25e509] [cursor=pointer]:
+              - button "Run tests" [ref=f25e513]
+              - generic [ref=f25e518]:
+                - button "Expand testing module" [ref=f25e519]
+                - button "Clear all statuses" [ref=f25e522]
+            - generic [ref=f25e528]:
+              - generic [ref=f25e529]:
+                - generic [ref=f25e530]:
+                  - generic [ref=f25e531]: Run component tests
+                  - generic [ref=f25e532]: Not run
+                - generic [ref=f25e533]:
+                  - switch "Watch mode" [ref=f25e534] [cursor=pointer]
+                  - button "Start test run" [ref=f25e538] [cursor=pointer]
+              - list [ref=f25e541]:
+                - listitem [ref=f25e542]:
+                  - generic [ref=f25e543]:
+                    - checkbox "Interactions" [checked] [disabled] [ref=f25e545]
+                    - generic [ref=f25e546]: Interactions
+                  - button "Run tests to see results" [disabled] [ref=f25e547]
+                - listitem [ref=f25e549]:
+                  - generic [ref=f25e550] [cursor=pointer]:
+                    - checkbox "Coverage" [ref=f25e552]
+                    - generic [ref=f25e553]: Coverage
+                  - button "Coverage unavailable, run tests first" [disabled] [ref=f25e554]
+    - separator "Sidebar resize handle" [ref=f25e556]
+  - generic [ref=f25e558]:
+    - region [ref=f25e559]:
+      - heading "Toolbar" [level=2] [ref=f25e560]
+      - toolbar [ref=f25e561]:
+        - switch "Outline tool" [ref=f25e563] [cursor=pointer]
+        - generic [ref=f25e566]:
+          - button "Enter full screen" [ref=f25e567] [cursor=pointer]
+          - button "Open in editor" [ref=f25e570] [cursor=pointer]
+    - main [ref=f25e574]:
+      - heading "Main preview area" [level=2] [ref=f25e575]
+      - generic [ref=f25e576]:
+        - progressbar "Content is loading..." [ref=f25e578]
+        - generic [ref=f25e579]:
+          - link "Skip to sidebar" [ref=f25e580] [cursor=pointer]:
+            - /url: "#components-modal--docs"
+          - iframe [ref=f25e584]

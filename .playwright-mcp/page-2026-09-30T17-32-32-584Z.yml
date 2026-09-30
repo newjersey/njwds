@@ -1,0 +1,36 @@
+- generic [ref=f23e3]:
+  - generic [ref=f23e4]:
+    - banner [ref=f23e6]:
+      - heading "Storybook" [level=1] [ref=f23e7]
+      - generic [ref=f23e11]:
+        - generic [ref=f23e13]:
+          - link "Skip to content" [ref=f23e14] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+          - link "Storybook" [ref=f23e16] [cursor=pointer]:
+            - /url: ./
+            - img "Storybook" [ref=f23e17]
+          - switch "Settings" [ref=f23e22] [cursor=pointer]
+        - generic [ref=f23e26]: Search for components
+        - search [ref=f23e27]:
+          - combobox [ref=f23e28]:
+            - searchbox "Search for components" [ref=f23e29]
+            - code:
+              - generic: ⌘
+              - text: K
+        - navigation [ref=f23e31]:
+          - heading "Stories" [level=2] [ref=f23e32]
+    - separator "Sidebar resize handle" [ref=f23e52]
+  - generic [ref=f23e54]:
+    - region [ref=f23e55]:
+      - heading "Toolbar" [level=2] [ref=f23e56]
+      - toolbar [ref=f23e57]:
+        - switch "Outline tool" [ref=f23e59] [cursor=pointer]
+        - button "Enter full screen" [ref=f23e63] [cursor=pointer]
+    - main [ref=f23e66]:
+      - heading "Main preview area" [level=2] [ref=f23e67]
+      - generic [ref=f23e68]:
+        - progressbar "Content is loading..." [ref=f23e70]
+        - generic [ref=f23e71]:
+          - link "Skip to sidebar" [ref=f23e72] [cursor=pointer]:
+            - /url: "#components-modal--docs"
+          - iframe [ref=f23e76]

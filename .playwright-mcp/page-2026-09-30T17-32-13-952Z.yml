@@ -1,0 +1,12 @@
+- generic [ref=f22e4]:
+  - button "Open default modal" [ref=f22e5] [cursor=pointer]
+  - generic [ref=f22e7]:
+    - generic [ref=f22e8]:
+      - heading "Are you sure you want to continue?" [level=1] [ref=f22e9]
+      - paragraph [ref=f22e10]: You have unsaved changes that will be lost.
+      - list [ref=f22e12]:
+        - listitem [ref=f22e13]:
+          - button "Continue without saving" [ref=f22e14] [cursor=pointer]
+        - listitem [ref=f22e15]:
+          - button "Go back" [ref=f22e16] [cursor=pointer]
+    - button "Close this window" [ref=f22e17] [cursor=pointer]
