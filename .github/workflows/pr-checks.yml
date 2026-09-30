@@ -42,15 +42,18 @@ jobs:
               - 'packages/**'
 
       - name: Set up Node.js
+        if: steps.changes.outputs.packages == 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
 
       - name: Install dependencies
+        if: steps.changes.outputs.packages == 'true'
         run: npm ci
 
       - name: Build design system and documentation
+        if: steps.changes.outputs.packages == 'true'
         run: npm run grove:build && npm run storybook:build
 
       # get playwright version from package.json for cache key
