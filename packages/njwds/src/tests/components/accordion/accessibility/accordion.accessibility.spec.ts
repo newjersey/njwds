@@ -2,7 +2,7 @@ import { runA11ySuite } from "../../../../utils/runA11ySuite";
 
 const TEST_CASES = [
   {
-    name: "default",
+    name: "default-test",
     url: `/iframe.html?id=components-accordion--default&viewMode=story`,
   },
   {
