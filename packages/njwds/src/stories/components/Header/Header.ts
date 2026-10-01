@@ -1,14 +1,18 @@
 import { html } from "lit";
 
+import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
+
 export interface HeaderProps {
   variant: "Default" | "Extended";
   megamenu: boolean;
+  languageSelector?: boolean;
   toggleValue?: string;
 }
 
-export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
+export const Header = ({ variant, megamenu, languageSelector, toggleValue }: HeaderProps) => {
   // Creates a unique ID for toggles to work for "docs" view in Storybook
   const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
+  const navigationId = `primary-navigation-${instanceId}`;
 
   const searchform = html`
     <form class="usa-search usa-search--small" role="search">
@@ -24,7 +28,7 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
   `;
 
   const closeButton = html`
-    <button class="usa-nav__close" aria-label="Close navigation">
+    <button class="usa-nav__close" aria-label="Close navigation" aria-controls="${navigationId}">
       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
         <use href="./img/sprite.svg#close"></use>
       </svg>
@@ -106,6 +110,13 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
   `;
 
   const menuHtml = megamenu === true ? megaMenuHtml : simpleMenuHtml;
+  const languageSelectorHtml = languageSelector
+    ? LanguageSelector({
+        pattern: "dropdown",
+        buttonType: "tertiary",
+        icon: true,
+      })
+    : "";
 
   const defaultHTML = html`
     <div class="usa-overlay"></div>
@@ -118,10 +129,10 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
             >
           </div>
           <!--usa-logo-->
-          <button class="usa-menu-btn">Menu</button>
+          <button class="usa-menu-btn" aria-controls="${navigationId}">Menu</button>
         </div>
         <!--/.usa-navbar-->
-        <nav aria-label="Primary navigation" class="usa-nav">
+        <nav id="${navigationId}" aria-label="Primary navigation" class="usa-nav">
           ${closeButton}
           <ul class="usa-nav__primary usa-accordion">
             <li class="usa-nav__primary-item">${menuHtml}</li>
@@ -131,6 +142,9 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
             <li class="usa-nav__primary-item">
               <a class="usa-nav__link" href="#!"><span>Link</span></a>
             </li>
+            ${languageSelector
+              ? html`<li class="usa-nav__primary-item">${languageSelectorHtml}</li>`
+              : ""}
           </ul>
           ${searchform}
         </nav>
@@ -151,10 +165,10 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
             >
           </div>
           <!--/.usa-logo-->
-          <button class="usa-menu-btn">Menu</button>
+          <button class="usa-menu-btn" aria-controls="${navigationId}">Menu</button>
         </div>
         <!--/.usa-navbar-->
-        <nav aria-label="Primary navigation" class="usa-nav">
+        <nav id="${navigationId}" aria-label="Primary navigation" class="usa-nav">
           <div class="usa-nav__inner">
             ${closeButton}
             <ul class="usa-nav__primary usa-accordion">
@@ -165,6 +179,9 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
               <li class="usa-nav__primary-item">
                 <a class="usa-nav__link" href="#!"><span>Link</span></a>
               </li>
+              ${languageSelector
+                ? html`<li class="usa-nav__primary-item">${languageSelectorHtml}</li>`
+                : ""}
             </ul>
             <!--/.usa-nav__primary -->
             <div class="usa-nav__secondary">

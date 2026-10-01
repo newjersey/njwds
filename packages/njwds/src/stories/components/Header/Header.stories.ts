@@ -41,3 +41,11 @@ export const Extended: Story = {
     variant: "Extended",
   },
 };
+
+export const WithLanguageSelector: Story = {
+  args: {
+    languageSelector: true,
+    megamenu: false,
+    variant: "Default",
+  },
+};
