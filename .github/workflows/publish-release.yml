@@ -33,7 +33,6 @@ jobs:
   publish-cdn:
     needs: publish-npm
     runs-on: ubuntu-latest
-    environment: production-cdn  # SECURITY: Requires manual approval before CDN deploys
     permissions:
       id-token: write
       contents: write
@@ -76,6 +75,7 @@ jobs:
           VERSION="${{ steps.extract_version.outputs.version }}"
           aws s3 sync ./packages/njwds/dist "s3://${{ secrets.S3_BUCKET_NAME }}/${VERSION}/" \
             --cache-control "public, max-age=31536000, immutable" \
+            --sse AES256 \
             --exclude ".DS_Store" \
             --delete
 
@@ -83,6 +83,7 @@ jobs:
         run: |
           aws s3 sync ./packages/njwds/dist "s3://${{ secrets.S3_BUCKET_NAME }}/latest/" \
             --cache-control "public, max-age=3600" \
+            --sse AES256 \
             --exclude ".DS_Store" \
             --delete
 

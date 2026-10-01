@@ -122,6 +122,7 @@ storybook-static
 
 .claude/
 .superpowers/
+.playwright-mcp
 CLAUDE.md
 AGENTS.md
 

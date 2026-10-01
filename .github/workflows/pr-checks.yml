@@ -33,25 +33,38 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Filter changed files
+        uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            packages:
+              - 'packages/**'
+
       - name: Set up Node.js
+        if: steps.changes.outputs.packages == 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
 
       - name: Install dependencies
+        if: steps.changes.outputs.packages == 'true'
         run: npm ci
 
       - name: Build design system and documentation
+        if: steps.changes.outputs.packages == 'true'
         run: npm run grove:build && npm run storybook:build
 
       # get playwright version from package.json for cache key
       - name: Get Playwright version
+        if: steps.changes.outputs.packages == 'true'
         id: playwright-version
         run: echo "version=$(node -p "require('./packages/njwds/package.json').devDependencies['@playwright/test']")" >> $GITHUB_OUTPUT
 
       # cache playwright browsers to speed up workflow
       - name: Cache Playwright browsers
+        if: steps.changes.outputs.packages == 'true'
         id: cache-playwright
         uses: actions/cache@v6
         with:
@@ -60,13 +73,16 @@ jobs:
 
       # install playwright browsers
       - name: Install Playwright browsers
+        if: steps.changes.outputs.packages == 'true'
         run: npx playwright install chromium
 
       # install system dependencies (always run, even on cache hit)
       - name: Install Playwright system dependencies
+        if: steps.changes.outputs.packages == 'true'
         run: npx playwright install-deps chromium
 
       - name: Run ${{ matrix.project }} tests
+        if: steps.changes.outputs.packages == 'true'
         run: npx playwright test --config packages/njwds/playwright.config.ts --project=${{ matrix.project }}
 
       # if the tests fail, upload the Playwright artifacts for debugging

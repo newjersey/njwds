@@ -28,10 +28,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "@html-eslint/eslint-plugin": "^0.65.0",
-    "@types/node": "^26.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
+    "@html-eslint/eslint-plugin": "^0.66.1",
+    "@types/node": "^26.6.3",
+    "@typescript-eslint/eslint-plugin": "^8.70.1",
+    "@typescript-eslint/parser": "^8.70.1",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-lit": "^2.1.1",
@@ -40,10 +40,10 @@
     "globals": "^17.0.0",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
-    "lint-staged": "^17.5.0",
-    "prettier": "^3.7.4",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.9",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.69.0"
+    "typescript-eslint": "^8.70.1"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -55,5 +55,10 @@
     "inquirer": {
       "lodash": "^4.17.19"
     }
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true
   }
 }

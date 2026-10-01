@@ -3,4 +3,8 @@
 // hero
 .usa-hero__callout {
   background-color: color("secondary-darker");
+
+  a:focus {
+    @include focus-outline(null, null, "white", null);
+  }
 }

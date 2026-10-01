@@ -7,3 +7,40 @@
   //   max-width: 50%;
   // }
 } // .usa-header--extended
+
+.usa-nav__submenu {
+  @include at-media($theme-header-min-width) {
+    border: units(2px) solid color("primary-darker");
+  }
+
+  &.usa-megamenu {
+    @include at-media($theme-header-min-width) {
+      margin-left: units(-1);
+      padding-left: units(1);
+
+      &::before,
+      &::after {
+        top: units(-2px);
+        bottom: units(-2px);
+      }
+
+      .usa-col:first-child .usa-nav__submenu-item a {
+        padding-left: units(1);
+      }
+    }
+  }
+
+  .usa-nav__submenu-item {
+    @include at-media($theme-header-min-width) {
+      a:focus {
+        @include focus-outline(null, null, "white", "neg-05");
+      }
+    }
+  }
+}
+
+.usa-menu-btn {
+  &:not([disabled]):focus {
+    @include focus-outline(null, null, "white", "neg-1");
+  }
+}
