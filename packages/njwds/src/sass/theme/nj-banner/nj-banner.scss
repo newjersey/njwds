@@ -65,6 +65,10 @@
 }
 
 .usa-banner {
+  &__inner {
+    padding-inline-start: units(1);
+  }
+
   &__button {
     &:enabled:focus {
       @include focus-outline(null, null, null, 0);
