@@ -1,0 +1,7 @@
+requires-release-grove:
+  - changed-files:
+      - any-glob-to-any-file: "packages/njwds/src/sass/**"
+
+requires-release-tokens:
+  - changed-files:
+      - any-glob-to-any-file: "packages/tokens/**"
