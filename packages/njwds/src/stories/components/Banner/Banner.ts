@@ -20,7 +20,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
               </div>
               <button
                 type="button"
-                class="usa-accordion__button usa-banner__button"
+                class="usa-accordion__button usa-banner__button margin-x-1"
                 aria-expanded="false"
                 aria-controls="gov-banner-default"
               >
@@ -112,7 +112,7 @@ export const BannerComponent = ({ governor, ltgovernor }: BannerProps) => {
                     rel="noopener"
                   >
                     <svg
-                      class="usa-icon usa-icon--size-3 nj-banner__mail-icon margin-right-05"
+                      class="usa-icon usa-icon--size-3 nj-banner__mail-icon"
                       role="img"
                       aria-hidden="true"
                       focusable="false"
