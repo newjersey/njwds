@@ -65,6 +65,11 @@
 }
 
 .usa-banner {
+  // RTL support
+  .usa-media-block__img {
+    margin-inline-end: units(0.5);
+  }
+
   &__inner {
     padding-inline-start: units(1);
   }
