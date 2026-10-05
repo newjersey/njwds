@@ -1,0 +1,34 @@
+import { runA11ySuite } from "../../../../utils/runA11ySuite";
+
+const TEST_CASES = [
+  {
+    name: "Default",
+    url: `/iframe.html?id=web-components-nj-identifier--default&viewMode=story`,
+  },
+  {
+    name: "Spanish",
+    url: `/iframe.html?id=web-components-nj-identifier--spanish&viewMode=story`,
+  },
+  {
+    name: "Taxpayer Disclaimer",
+    url: `/iframe.html?id=web-components-nj-identifier--taxpayer-disclaimer&viewMode=story`,
+  },
+  {
+    name: "No Logo",
+    url: `/iframe.html?id=web-components-nj-identifier--no-logo&viewMode=story`,
+  },
+  {
+    name: "Multiple Logos",
+    url: `/iframe.html?id=web-components-nj-identifier--multiple-logos&viewMode=story`,
+  },
+  {
+    name: "Additional Links",
+    url: `/iframe.html?id=web-components-nj-identifier--additional-links&viewMode=story`,
+  },
+];
+
+runA11ySuite({
+  suiteName: "NJ Identifier",
+  include: "nj-identifier",
+  cases: TEST_CASES,
+});
