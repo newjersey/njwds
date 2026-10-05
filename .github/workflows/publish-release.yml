@@ -53,12 +53,16 @@ jobs:
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build Grove assets
-        run: npm run grove:build
+        run: npm run sass:build && npm run web-components:build
 
       - name: Verify build output
         run: |
           if [ ! -d "./packages/njwds/dist" ]; then
             echo "Error: ./packages/njwds/dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "./packages/njwds/dist/components/index.js" ]; then
+            echo "Error: ./packages/njwds/dist/components/index.js not found"
             exit 1
           fi
           ls -lah ./packages/njwds/dist
