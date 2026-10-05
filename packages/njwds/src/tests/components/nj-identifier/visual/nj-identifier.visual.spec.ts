@@ -1,0 +1,33 @@
+import { runVisualSuite } from "../../../../utils/runVisualSuite";
+
+const TEST_CASES = [
+  {
+    name: "Default",
+    url: `/iframe.html?id=web-components-nj-identifier--default&viewMode=story`,
+  },
+  {
+    name: "Spanish",
+    url: `/iframe.html?id=web-components-nj-identifier--spanish&viewMode=story`,
+  },
+  {
+    name: "Taxpayer Disclaimer",
+    url: `/iframe.html?id=web-components-nj-identifier--taxpayer-disclaimer&viewMode=story`,
+  },
+  {
+    name: "No Logo",
+    url: `/iframe.html?id=web-components-nj-identifier--no-logo&viewMode=story`,
+  },
+  {
+    name: "Multiple Logos",
+    url: `/iframe.html?id=web-components-nj-identifier--multiple-logos&viewMode=story`,
+  },
+  {
+    name: "Additional Links",
+    url: `/iframe.html?id=web-components-nj-identifier--additional-links&viewMode=story`,
+  },
+];
+
+runVisualSuite({
+  suiteName: "NJ Identifier",
+  cases: TEST_CASES,
+});
