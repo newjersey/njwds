@@ -5,15 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "npm run grove:build",
+    "prepare": "npm run build",
+    "build": "npm run sass:build && npm run web-components:build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:visual": "playwright test --project=visual",
     "test:accessibility": "playwright test --project=accessibility",
     "test:visual:update": "playwright test --project=visual --update-snapshots=all",
-    "grove:dev": "vite build --config vite.config.grove.ts --watch",
-    "grove:build": "vite build --config vite.config.grove.ts",
+    "sass:dev": "vite build --config vite.config.sass.ts --watch",
+    "sass:build": "vite build --config vite.config.sass.ts",
+    "web-components:build": "vite build --config vite.config.web-components.ts",
     "preview": "npx serve storybook-static",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -29,7 +31,9 @@
   },
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "./dist/components/**",
+    "./src/components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.7.1",

@@ -1,6 +1,7 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { scssLoadPaths } from "../build-scripts/scss-load-paths.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -21,6 +22,7 @@ const config: StorybookConfig = {
     config.css.preprocessorOptions.scss = {
       ...(config.css.preprocessorOptions.scss ?? {}),
       quietDeps: true,
+      loadPaths: scssLoadPaths,
     };
 
     // Add aliases from vite.config.ts
