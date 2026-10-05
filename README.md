@@ -73,7 +73,7 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 ## Build the design system assets
 
-- Run `npm run sass:build` to build the assets into the `packages/njwds/dist/` directory
+- Run `npm run build` to build the assets into the `packages/njwds/dist/` directory
 
 ### View component library locally or development
 
