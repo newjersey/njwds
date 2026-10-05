@@ -10,6 +10,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint",
+    "build": "npm run build -w packages/njwds",
     "sass:dev": "npm run sass:dev -w packages/njwds",
     "sass:build": "npm run sass:build -w packages/njwds",
     "web-components:build": "npm run web-components:build -w packages/njwds",
