@@ -114,7 +114,7 @@ export default defineConfig({
          * Note: Changed @forward "uswds" to @forward "uswds/index" in styles.scss
          * to avoid Vite's package resolution treating it as an npm package import
          */
-        loadPaths: [path.resolve(__dirname, "src/sass"), uswdsPackagesDir],
+        loadPaths: scssLoadPaths,
 
         /**
          * Silence SASS deprecation warnings from upstream dependencies
