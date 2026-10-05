@@ -5,7 +5,7 @@ import { readdirSync } from "node:fs";
 import { scssLoadPaths } from "./build-scripts/scss-load-paths.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const componentsDir = path.resolve(__dirname, "src/components");
+const componentsDir = path.resolve(__dirname, "src/web-components");
 
 const componentEntries = Object.fromEntries(
   readdirSync(componentsDir, { withFileTypes: true })
