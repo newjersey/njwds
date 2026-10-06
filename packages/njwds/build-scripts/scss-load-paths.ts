@@ -22,4 +22,4 @@ if (!resolvedUswdsRoot) {
 export const uswdsRoot = resolvedUswdsRoot;
 export const uswdsPackagesDir = path.join(uswdsRoot, "packages");
 
-export const scssLoadPaths = [path.resolve(__dirname, "../src/sass"), uswdsPackagesDir];
+export const scssLoadPaths = [path.resolve(__dirname, "../src/styles"), uswdsPackagesDir];

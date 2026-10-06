@@ -1,6 +1,8 @@
 requires-release-grove:
   - changed-files:
-      - any-glob-to-any-file: "packages/njwds/src/sass/**"
+      - any-glob-to-any-file:
+          - "packages/njwds/src/styles/**"
+          - "packages/njwds/src/web-components/**"
 
 requires-release-tokens:
   - changed-files:
