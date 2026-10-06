@@ -1,13 +1,12 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import sheet from "./nj-identifier.scss?inline";
+import sheet from "../../sass/web-components/nj-identifier.scss?inline";
 import {
   getIdentifierContent,
   getRequiredLinks,
   type IdentifierLanguage,
 } from "./nj-identifier.content";
 import { classNames } from "../../utils/classNames";
-import { hostStyles } from "../shared-styles";
 import njLogo from "../../img/nj-logo-gray-20.png";
 
 export interface LogoInfo {
@@ -18,7 +17,7 @@ export interface LogoInfo {
 
 @customElement("nj-identifier")
 export class NjIdentifier extends LitElement {
-  static styles = [hostStyles, unsafeCSS(sheet)];
+  static styles = [unsafeCSS(sheet)];
 
   @property({ type: String }) language: IdentifierLanguage = "en";
 

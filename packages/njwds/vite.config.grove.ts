@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
+import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
@@ -122,14 +124,14 @@ export default defineConfig({
          * Load paths for SASS imports
          *
          * Allows SASS files to import from:
-         * - src/styles/ (local Grove styles)
+         * - src/sass/ (local Grove styles)
          * - node_modules/@uswds/uswds/packages/ (USWDS packages)
          *
          * Matches original Gulp includePaths configuration
          * Note: Changed @forward "uswds" to @forward "uswds/index" in styles.scss
          * to avoid Vite's package resolution treating it as an npm package import
          */
-        loadPaths: scssLoadPaths,
+        loadPaths: [path.resolve(__dirname, "src/sass"), uswdsPackagesDir],
 
         /**
          * Silence SASS deprecation warnings from upstream dependencies

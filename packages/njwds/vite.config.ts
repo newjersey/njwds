@@ -3,7 +3,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
-import { scssLoadPaths } from "./build-scripts/scss-load-paths";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -21,7 +20,6 @@ export default defineConfig({
       scss: {
         // Silences Dart Sass deprecation warnings from dependencies
         quietDeps: true,
-        loadPaths: scssLoadPaths,
       },
     },
   },
