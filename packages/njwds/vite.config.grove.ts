@@ -1,8 +1,6 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
-import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
