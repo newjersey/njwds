@@ -21,6 +21,11 @@ export interface IdentifierContent {
     description: string;
   };
 }
+export interface RequiredLink {
+  href: string;
+  label: string;
+  usaLink?: boolean;
+}
 
 const en: IdentifierContent = {
   masthead: {
@@ -64,12 +69,6 @@ const contentByLanguage: Record<IdentifierLanguage, IdentifierContent> = { en, e
 
 export function getIdentifierContent(language: IdentifierLanguage): IdentifierContent {
   return contentByLanguage[language] ?? en;
-}
-
-export interface RequiredLink {
-  href: string;
-  label: string;
-  usaLink?: boolean;
 }
 
 export function getRequiredLinks(): RequiredLink[] {
