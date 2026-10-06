@@ -122,14 +122,14 @@ export default defineConfig({
          * Load paths for SASS imports
          *
          * Allows SASS files to import from:
-         * - src/styles/ (local Grove styles)
+         * - src/sass/ (local Grove styles)
          * - node_modules/@uswds/uswds/packages/ (USWDS packages)
          *
          * Matches original Gulp includePaths configuration
          * Note: Changed @forward "uswds" to @forward "uswds/index" in styles.scss
          * to avoid Vite's package resolution treating it as an npm package import
          */
-        loadPaths: scssLoadPaths,
+        loadPaths: [path.resolve(__dirname, "src/sass"), uswdsPackagesDir],
 
         /**
          * Silence SASS deprecation warnings from upstream dependencies
