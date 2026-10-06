@@ -1,12 +1,7 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import sheet from "./nj-identifier.scss?inline";
-import {
-  getIdentifierContent,
-  getRequiredLinks,
-  type IdentifierLanguage,
-  type RequiredLink,
-} from "./nj-identifier.content";
+import { getIdentifierContent, getRequiredLinks, type IdentifierLanguage } from "./nj-identifier.content";
 import { classNames } from "../../utils/classNames";
 import { hostStyles } from "../shared-styles";
 import njLogo from "../../img/nj-logo-gray-20.png";
@@ -29,11 +24,9 @@ export class NjIdentifier extends LitElement {
 
   @property({ attribute: false }) additionalLogos: LogoInfo[] = [];
 
-  @property({ attribute: false }) additionalLinks: RequiredLink[] = [];
-
   render() {
     const content = getIdentifierContent(this.language);
-    const requiredLinks = [...getRequiredLinks(), ...this.additionalLinks];
+    const requiredLinks = getRequiredLinks();
 
     return html`
       <div class="usa-identifier" lang=${this.language}>
@@ -52,6 +45,7 @@ export class NjIdentifier extends LitElement {
                           class="usa-identifier__logo-img"
                           src=${njLogo}
                           alt=${content.masthead.parentLogoAlt}
+                          role="img"
                         />
                       </a>
                       ${this.additionalLogos.map(
@@ -61,6 +55,7 @@ export class NjIdentifier extends LitElement {
                               class="usa-identifier__logo-img"
                               src=${logo.src}
                               alt=${logo.alt ?? content.masthead.agencyLogoAlt}
+                              role="img"
                             />
                           </a>
                         `,
@@ -74,7 +69,6 @@ export class NjIdentifier extends LitElement {
                 ${content.masthead.text}
                 <a href="https://nj.gov">${content.masthead.parentName}</a>.
                 ${this.taxpayerDisclaimer ? html` ${content.masthead.taxpayerDisclaimer}` : null}
-                <slot name="disclaimer"></slot>
               </p>
             </div>
           </div>
