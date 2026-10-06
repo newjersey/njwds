@@ -7,8 +7,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run styles:build
-        # Storybook bundles web component source directly so no dedicated build step is needed
+        - npm run grove:build
         - npm run storybook:build
   artifacts:
     baseDirectory: packages/njwds/storybook-static

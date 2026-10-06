@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import "./nj-identifier";
-import { IDENTIFIER_LANGUAGES, type IdentifierLanguage } from "./nj-identifier.content";
-import circleGrayIcon from "../../img/circle-gray-20.svg";
+import "../../../web-components/nj-identifier/nj-identifier";
+import {
+  IDENTIFIER_LANGUAGES,
+  type IdentifierLanguage,
+} from "../../../web-components/nj-identifier/nj-identifier.content";
+import circleGrayIcon from "../../../img/circle-gray-20.svg";
 
 type AdditionalLogosOption = "none" | "agency-logo";
 
@@ -30,7 +33,7 @@ const ADDITIONAL_LOGOS_SAMPLE: Record<
 };
 
 const meta = {
-  title: "Web Components/NJ Identifier",
+  title: "Components/Identifier (Web Component)",
   tags: ["autodocs"],
   render: (args) => html`
     <nj-identifier

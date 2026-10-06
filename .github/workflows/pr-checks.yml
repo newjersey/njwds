@@ -54,7 +54,7 @@ jobs:
 
       - name: Build design system and documentation
         if: steps.changes.outputs.packages == 'true'
-        run: npm run styles:build && npm run storybook:build
+        run: npm run grove:build && npm run storybook:build
 
       # get playwright version from package.json for cache key
       - name: Get Playwright version
@@ -151,13 +151,9 @@ jobs:
       - name: Check Typescript
         run: npx tsc --noEmit
 
-      # Make sure the styles:build command runs successfully
-      - name: Test run styles:build
-        run: npm run styles:build
-
-      # Make sure the web-components:build command runs successfully
-      - name: Test run web-components:build
-        run: npm run web-components:build
+      # Make sure the grove:build command runs successfully
+      - name: Test run grove:build
+        run: npm run grove:build
 
       # run storybook:build with retry to avoid random failures
       - name: Test run storybook:build (with retry)

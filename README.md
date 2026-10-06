@@ -73,13 +73,13 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 ## Build the design system assets
 
-- Run `npm run build` to build the assets into the `packages/njwds/dist/` directory
+- Run `npm run grove:build` to build the assets into the `packages/njwds/dist/` directory
 
 ### View component library locally or development
 
 #### Start the local development server
 
-- Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run styles:dev` to work on the design system itself.
+- Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run grove:dev` to work on the design system itself.
 
 ## Releasing a new version to NPM
 
