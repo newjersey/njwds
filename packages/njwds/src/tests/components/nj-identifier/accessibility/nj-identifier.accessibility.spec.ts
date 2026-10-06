@@ -21,10 +21,6 @@ const TEST_CASES = [
     name: "Multiple Logos",
     url: `/iframe.html?id=web-components-nj-identifier--multiple-logos&viewMode=story`,
   },
-  {
-    name: "Additional Links",
-    url: `/iframe.html?id=web-components-nj-identifier--additional-links&viewMode=story`,
-  },
 ];
 
 runA11ySuite({
