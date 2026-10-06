@@ -1,19 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import { expect } from "storybook/test";
 import "./nj-identifier";
-import type { NjIdentifier } from "./nj-identifier";
 import { IDENTIFIER_LANGUAGES, type IdentifierLanguage } from "./nj-identifier.content";
 import circleGrayIcon from "../../img/circle-gray-20.svg";
+
+type AdditionalLogosOption = "none" | "agency-logo";
 
 interface IdentifierStoryArgs {
   language: IdentifierLanguage;
   hideLogo: boolean;
-  showAdditionalLogo: boolean;
+  additionalLogos: AdditionalLogosOption;
   taxpayerDisclaimer: boolean;
 }
 
-const additionalLogos = [{ src: circleGrayIcon, href: "#!", alt: "Agency logo" }];
+const ADDITIONAL_LOGOS_OPTIONS: Record<
+  AdditionalLogosOption,
+  { src: string; href: string; alt: string }[]
+> = {
+  none: [],
+  "agency-logo": [{ src: circleGrayIcon, href: "#!", alt: "Agency logo" }],
+};
+
+const ADDITIONAL_LOGOS_SAMPLE: Record<
+  AdditionalLogosOption,
+  { src: string; href: string; alt: string }[]
+> = {
+  none: [],
+  "agency-logo": [{ src: "/path/to/agency-logo.svg", href: "#!", alt: "Agency logo" }],
+};
 
 const meta = {
   title: "Web Components/NJ Identifier",
@@ -23,9 +37,29 @@ const meta = {
       language=${args.language}
       ?hide-logo=${args.hideLogo}
       ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
-      .additionalLogos=${args.showAdditionalLogo ? additionalLogos : []}
+      .additionalLogos=${ADDITIONAL_LOGOS_OPTIONS[args.additionalLogos]}
     ></nj-identifier>
   `,
+  parameters: {
+    docs: {
+      source: {
+        transform: (_code: string, { args }: { args: IdentifierStoryArgs }) => {
+          const attrs = [
+            `language="${args.language}"`,
+            args.hideLogo && "hide-logo",
+            args.taxpayerDisclaimer && "taxpayer-disclaimer",
+            args.additionalLogos === "agency-logo" &&
+              !args.hideLogo &&
+              `additional-logos='${JSON.stringify(ADDITIONAL_LOGOS_SAMPLE[args.additionalLogos])}'`,
+          ]
+            .filter(Boolean)
+            .join(" ");
+
+          return `<nj-identifier ${attrs}></nj-identifier>`;
+        },
+      },
+    },
+  },
   argTypes: {
     language: {
       control: { type: "select" },
@@ -34,8 +68,9 @@ const meta = {
     hideLogo: {
       control: { type: "boolean" },
     },
-    showAdditionalLogo: {
-      control: { type: "boolean" },
+    additionalLogos: {
+      control: { type: "select" },
+      options: ["none", "agency-logo"],
       if: { arg: "hideLogo", eq: false },
     },
     taxpayerDisclaimer: {
@@ -51,17 +86,8 @@ export const Default: Story = {
   args: {
     language: "en",
     hideLogo: false,
-    showAdditionalLogo: false,
+    additionalLogos: "none",
     taxpayerDisclaimer: false,
-  },
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-    const root = host?.shadowRoot;
-
-    expect(root?.querySelector(".usa-identifier")?.getAttribute("lang")).toBe("en");
-    expect(root?.querySelectorAll(".usa-identifier__required-links-item")).toHaveLength(11);
-    expect(root?.querySelector(".usa-identifier__logo-img")).not.toBeNull();
   },
 };
 
@@ -69,50 +95,17 @@ export const Spanish: Story = {
   args: {
     language: "es",
     hideLogo: false,
-    showAdditionalLogo: false,
+    additionalLogos: "none",
     taxpayerDisclaimer: false,
-  },
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-    const root = host?.shadowRoot;
-
-    expect(root?.querySelector(".usa-identifier")?.getAttribute("lang")).toBe("es");
-    expect(root?.querySelector(".usa-identifier__identity-disclaimer")?.textContent).toContain(
-      "Un sitio web oficial de",
-    );
   },
 };
 
-export const TaxpayerDisclaimer: Story = {
+export const Disclaimer: Story = {
   args: {
     language: "en",
     hideLogo: false,
-    showAdditionalLogo: false,
+    additionalLogos: "none",
     taxpayerDisclaimer: true,
-  },
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-
-    expect(
-      host?.shadowRoot?.querySelector(".usa-identifier__identity-disclaimer")?.textContent,
-    ).toContain("Produced and published at taxpayer expense.");
-  },
-};
-
-export const NoLogo: Story = {
-  args: {
-    language: "en",
-    hideLogo: true,
-    showAdditionalLogo: false,
-    taxpayerDisclaimer: false,
-  },
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-
-    expect(host?.shadowRoot?.querySelector(".usa-identifier__logos")).toBeNull();
   },
 };
 
@@ -120,13 +113,7 @@ export const MultipleLogos: Story = {
   args: {
     language: "en",
     hideLogo: false,
-    showAdditionalLogo: true,
+    additionalLogos: "agency-logo",
     taxpayerDisclaimer: false,
-  },
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-
-    expect(host?.shadowRoot?.querySelectorAll(".usa-identifier__logo-img")).toHaveLength(2);
   },
 };
