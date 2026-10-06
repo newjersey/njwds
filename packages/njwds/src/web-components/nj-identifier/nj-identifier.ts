@@ -22,7 +22,7 @@ export class NjIdentifier extends LitElement {
 
   @property({ type: Boolean, attribute: "taxpayer-disclaimer" }) taxpayerDisclaimer = false;
 
-  @property({ attribute: false }) additionalLogos: LogoInfo[] = [];
+  @property({ attribute: "additional-logos", type: Array }) additionalLogos: LogoInfo[] = [];
 
   render() {
     const content = getIdentifierContent(this.language);
