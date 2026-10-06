@@ -19,11 +19,6 @@ const preview: Preview = {
         showPanel: false, // Shows the panel globally by default
       },
     },
-    options: {
-      storySort: {
-        order: ["Getting Started", "Web Components", "Components", "Templates", "Utilities"],
-      },
-    },
 
     a11y: {
       // 'todo' - show a11y violations in the test UI only
