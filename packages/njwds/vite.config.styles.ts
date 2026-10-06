@@ -122,7 +122,7 @@ export default defineConfig({
          * Load paths for SASS imports
          *
          * Allows SASS files to import from:
-         * - src/sass/ (local Grove styles)
+         * - src/styles/ (local Grove styles)
          * - node_modules/@uswds/uswds/packages/ (USWDS packages)
          *
          * Matches original Gulp includePaths configuration
