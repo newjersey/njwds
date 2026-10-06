@@ -15,6 +15,10 @@ const meta = {
       control: { type: "select" },
       options: ["Default", "Extended"],
     },
+    languageSelector: {
+      control: { type: "select" },
+      options: [undefined, "navigation", "above-search"],
+    },
   },
 } satisfies Meta<HeaderProps>;
 
@@ -44,7 +48,15 @@ export const Extended: Story = {
 
 export const WithLanguageSelector: Story = {
   args: {
-    languageSelector: true,
+    languageSelector: "navigation",
+    megamenu: false,
+    variant: "Default",
+  },
+};
+
+export const WithLanguageSelectorAboveSearch: Story = {
+  args: {
+    languageSelector: "above-search",
     megamenu: false,
     variant: "Default",
   },
