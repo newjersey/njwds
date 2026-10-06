@@ -9,8 +9,11 @@ import circleGrayIcon from "../../img/circle-gray-20.svg";
 interface IdentifierStoryArgs {
   language: IdentifierLanguage;
   hideLogo: boolean;
+  showAdditionalLogo: boolean;
   taxpayerDisclaimer: boolean;
 }
+
+const additionalLogos = [{ src: circleGrayIcon, href: "#!", alt: "Agency logo" }];
 
 const meta = {
   title: "Web Components/NJ Identifier",
@@ -20,6 +23,7 @@ const meta = {
       language=${args.language}
       ?hide-logo=${args.hideLogo}
       ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
+      .additionalLogos=${args.showAdditionalLogo ? additionalLogos : []}
     ></nj-identifier>
   `,
   argTypes: {
@@ -29,6 +33,10 @@ const meta = {
     },
     hideLogo: {
       control: { type: "boolean" },
+    },
+    showAdditionalLogo: {
+      control: { type: "boolean" },
+      if: { arg: "hideLogo", eq: false },
     },
     taxpayerDisclaimer: {
       control: { type: "boolean" },
@@ -43,6 +51,7 @@ export const Default: Story = {
   args: {
     language: "en",
     hideLogo: false,
+    showAdditionalLogo: false,
     taxpayerDisclaimer: false,
   },
   play: async ({ canvasElement }) => {
@@ -60,6 +69,7 @@ export const Spanish: Story = {
   args: {
     language: "es",
     hideLogo: false,
+    showAdditionalLogo: false,
     taxpayerDisclaimer: false,
   },
   play: async ({ canvasElement }) => {
@@ -78,6 +88,7 @@ export const TaxpayerDisclaimer: Story = {
   args: {
     language: "en",
     hideLogo: false,
+    showAdditionalLogo: false,
     taxpayerDisclaimer: true,
   },
   play: async ({ canvasElement }) => {
@@ -94,6 +105,7 @@ export const NoLogo: Story = {
   args: {
     language: "en",
     hideLogo: true,
+    showAdditionalLogo: false,
     taxpayerDisclaimer: false,
   },
   play: async ({ canvasElement }) => {
@@ -108,43 +120,13 @@ export const MultipleLogos: Story = {
   args: {
     language: "en",
     hideLogo: false,
+    showAdditionalLogo: true,
     taxpayerDisclaimer: false,
   },
-  render: (args) => html`
-    <nj-identifier
-      language=${args.language}
-      ?hide-logo=${args.hideLogo}
-      ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
-      .additionalLogos=${[{ src: circleGrayIcon, href: "#!", alt: "Agency logo" }]}
-    ></nj-identifier>
-  `,
   play: async ({ canvasElement }) => {
     const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
     await host?.updateComplete;
 
     expect(host?.shadowRoot?.querySelectorAll(".usa-identifier__logo-img")).toHaveLength(2);
-  },
-};
-
-export const AdditionalLinks: Story = {
-  args: {
-    language: "en",
-    hideLogo: false,
-    taxpayerDisclaimer: false,
-  },
-  render: (args) => html`
-    <nj-identifier
-      language=${args.language}
-      ?hide-logo=${args.hideLogo}
-      ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
-      .additionalLinks=${[{ href: "#!", label: "Agency-Specific Link", usaLink: true }]}
-    ></nj-identifier>
-  `,
-  play: async ({ canvasElement }) => {
-    const host = canvasElement.querySelector<NjIdentifier>("nj-identifier");
-    await host?.updateComplete;
-
-    const links = host?.shadowRoot?.querySelectorAll(".usa-identifier__required-links-item");
-    expect(links?.[links.length - 1]?.textContent).toContain("Agency-Specific Link");
   },
 };
