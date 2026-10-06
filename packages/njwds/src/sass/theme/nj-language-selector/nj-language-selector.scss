@@ -43,6 +43,13 @@
   }
 }
 
+.usa-language__primary {
+  width: 100%;
+  @include at-media("mobile-lg") {
+    width: auto;
+  }
+}
+
 .usa-language__primary-item {
   &:last-of-type .usa-language__submenu {
     inset-inline: auto 0;
