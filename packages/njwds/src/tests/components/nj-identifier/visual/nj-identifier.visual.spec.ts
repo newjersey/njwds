@@ -10,12 +10,12 @@ const TEST_CASES = [
     url: `/iframe.html?id=web-components-nj-identifier--spanish&viewMode=story`,
   },
   {
-    name: "Taxpayer Disclaimer",
-    url: `/iframe.html?id=web-components-nj-identifier--taxpayer-disclaimer&viewMode=story`,
+    name: "Disclaimer",
+    url: `/iframe.html?id=web-components-nj-identifier--disclaimer&viewMode=story`,
   },
   {
     name: "No Logo",
-    url: `/iframe.html?id=web-components-nj-identifier--no-logo&viewMode=story`,
+    url: `/iframe.html?id=web-components-nj-identifier--default&viewMode=story&args=hideLogo:true`,
   },
   {
     name: "Multiple Logos",
