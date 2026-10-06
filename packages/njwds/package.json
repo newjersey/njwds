@@ -32,7 +32,7 @@
   "sideEffects": [
     "**/*.css",
     "./dist/components/**",
-    "./src/components/**"
+    "./src/web-components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.7.1",
