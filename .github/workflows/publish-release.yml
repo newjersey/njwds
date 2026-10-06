@@ -53,7 +53,7 @@ jobs:
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Build Grove assets
-        run: npm run sass:build && npm run web-components:build
+        run: npm run styles:build && npm run web-components:build
 
       - name: Verify build output
         run: |

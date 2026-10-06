@@ -66,7 +66,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // JS entry that imports SASS (enables CSS extraction with sourcemaps)
-        styles: path.resolve(__dirname, "src/sass/styles.entry.js"),
+        styles: path.resolve(__dirname, "src/styles/styles.entry.js"),
       },
       output: {
         // Suppress JS output (we only want CSS)
@@ -105,7 +105,7 @@ export default defineConfig({
          * Load paths for SASS imports
          *
          * Allows SASS files to import from:
-         * - src/sass/ (local Grove styles)
+         * - src/styles/ (local Grove styles)
          * - node_modules/@uswds/uswds/packages/ (USWDS packages)
          *
          * Matches original Gulp includePaths configuration

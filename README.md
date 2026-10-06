@@ -79,7 +79,7 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 #### Start the local development server
 
-- Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run sass:dev` to work on the design system itself.
+- Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run styles:dev` to work on the design system itself.
 
 ## Releasing a new version to NPM
 
