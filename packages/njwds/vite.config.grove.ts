@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
-import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
+import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
