@@ -3,6 +3,7 @@
   "version": "2.11.0",
   "description": "NJ Web Design Standards",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "prepare": "npm run grove:build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
