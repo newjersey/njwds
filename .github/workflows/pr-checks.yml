@@ -139,8 +139,11 @@ jobs:
       - name: Install Playwright system dependencies
         run: npx playwright install-deps chromium
 
-      - name: Run Tests with coverage
+      - name: Run NJWDS tests with coverage
         run: npm run test:coverage
+
+      - name: Run Token tests
+        run: npm run tokens:test
 
       - name: Run CDK infrastructure tests
         working-directory: infrastructure

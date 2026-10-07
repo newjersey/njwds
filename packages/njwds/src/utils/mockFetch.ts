@@ -22,10 +22,18 @@ export function initMockFetch(
   urlToMockResponseMap: Record<string, { status: number; body: unknown }>,
   responseDelay?: number,
 ): void {
+  const originalFetch = window.fetch;
+
   window.fetch = async (...args: Parameters<typeof fetch>) => {
-    console.log("fetch called with args:", args);
     const requestUrl = args[0] as string;
-    const { status, body } = urlToMockResponseMap[requestUrl];
+    const mockedResponse = urlToMockResponseMap[requestUrl];
+
+    if (!mockedResponse) {
+      return originalFetch(...args);
+    }
+
+    console.log("fetch called with args:", args);
+    const { status, body } = mockedResponse;
 
     const mockResponse = new Response(JSON.stringify(body), {
       status: typeof status === "number" ? status : undefined,

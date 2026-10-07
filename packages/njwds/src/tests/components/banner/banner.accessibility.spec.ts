@@ -5,6 +5,10 @@ const TEST_CASES = [
     name: "default",
     url: `/iframe.html?id=components-banner--default&viewMode=story`,
   },
+  {
+    name: "right to left",
+    url: `/iframe.html?id=components-banner--right-to-left&viewMode=story`,
+  },
 ];
 
 runA11ySuite({

@@ -72,10 +72,17 @@ describe("initMockFetch", () => {
     expect(resolved).toBe(true);
   });
 
-  test("rejects when the requested URL has no mapped response", async () => {
+  test("passes through to the real fetch when the requested URL has no mapped response", async () => {
+    const passthroughResponse = new Response(null, { status: 204 });
+    const passthroughFetch = vi.fn().mockResolvedValue(passthroughResponse);
+    window.fetch = passthroughFetch;
+
     initMockFetch({ "https://api.com/rating": { status: 200, body: {} } });
 
-    await expect(window.fetch("https://api.com/unmapped")).rejects.toThrow();
+    const response = await window.fetch("https://api.com/unmapped", { method: "GET" });
+
+    expect(passthroughFetch).toHaveBeenCalledWith("https://api.com/unmapped", { method: "GET" });
+    expect(response).toBe(passthroughResponse);
   });
 
   test("falls back to the default response status when status isn't a number", async () => {
