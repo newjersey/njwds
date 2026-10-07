@@ -21,6 +21,10 @@ const TEST_CASES = [
     name: "Multiple Logos",
     url: `/iframe.html?id=components-identifier-web-component--multiple-logos&viewMode=story`,
   },
+  {
+    name: "Custom Links",
+    url: `/iframe.html?id=components-identifier-web-component--custom-links&viewMode=story`,
+  },
 ];
 
 runVisualSuite({
