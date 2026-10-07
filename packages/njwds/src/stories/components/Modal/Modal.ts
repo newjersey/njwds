@@ -40,9 +40,7 @@ export const Modal = ({ size, forceAction, modalId }: ModalProps) => {
         <div class="usa-modal__content">
           <div class="usa-modal__main">
             <h1 class="usa-modal__heading" id="${id}-heading">${heading}</h1>
-            <div class="usa-prose">
-              <p id="${id}-description">${description}</p>
-            </div>
+            <p id="${id}-description">${description}</p>
             <div class="usa-modal__footer">
               <ul class="usa-button-group">
                 <li class="usa-button-group__item">

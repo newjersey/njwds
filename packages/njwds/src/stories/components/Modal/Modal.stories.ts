@@ -1,6 +1,7 @@
 import { useEffect } from "storybook/internal/preview-api";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Modal, type ModalProps } from "./Modal";
+import { getStoryModalId } from "../../../utils/storyModalId";
 // @ts-expect-error - no types for uswds subpath
 import modal from "@uswds/uswds/js/usa-modal";
 
@@ -8,32 +9,25 @@ const meta = {
   title: "Components/Modal",
   tags: ["autodocs"],
   render: (args, context) => {
-    // Always use stable ID based on story name to avoid conflicts
-    const storyId = `modal-${context.name.toLowerCase().replace(/\s+/g, "-")}`;
     return Modal({
       ...args,
-      modalId: storyId,
+      modalId: getStoryModalId(context.canvasElement),
     });
   },
   decorators: [
-    (story, context) => {
+    (story) => {
       useEffect(() => {
-        const storyId = `modal-${context.name.toLowerCase().replace(/\s+/g, "-")}`;
-
-        // Check if this specific modal already has a wrapper (already initialized)
-        const existingWrapper = document.getElementById(storyId);
-
-        if (existingWrapper && existingWrapper.classList.contains("usa-modal-wrapper")) {
-          // Already initialized, don't reinit
-          return;
-        }
-
-        // Find the newly rendered modal element (not yet wrapped)
-        const newModal = document.getElementById(storyId);
-        if (newModal && newModal.classList.contains("usa-modal")) {
-          // This modal needs initialization
-          modal.init(newModal.parentElement || document.body);
-        }
+        // Storybook's docs page renders the same story into more than one
+        // canvas (a "primary" block plus a "stories" list block), but this
+        // effect only fires once per story, not once per canvas. Scan for
+        // every not-yet-initialized modal - rather than looking up a single
+        // element by id - so every canvas gets wired up regardless of how
+        // many canvases share this one effect firing.
+        document.querySelectorAll(".usa-modal").forEach((modalElement) => {
+          if (!modalElement.closest(".usa-modal-wrapper")) {
+            modal.init(modalElement.parentElement ?? document.body);
+          }
+        });
       }, []);
 
       return story();
