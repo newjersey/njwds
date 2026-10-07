@@ -1,12 +1,15 @@
 import { html } from "lit";
 
+import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
+
 export interface HeaderProps {
   variant: "Default" | "Extended";
   megamenu: boolean;
+  languageSelector?: "navigation" | "above-search";
   toggleValue?: string;
 }
 
-export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
+export const Header = ({ variant, megamenu, languageSelector, toggleValue }: HeaderProps) => {
   // Creates a unique ID for toggles to work for "docs" view in Storybook
   const instanceId = toggleValue ?? `acc-${crypto.randomUUID()}`;
 
@@ -106,6 +109,20 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
   `;
 
   const menuHtml = megamenu === true ? megaMenuHtml : simpleMenuHtml;
+  const languageSelectorHtml =
+    languageSelector === undefined
+      ? ""
+      : LanguageSelector({
+          pattern: "dropdown",
+          buttonType: "tertiary",
+          icon: true,
+        });
+  const languageSelectorNavigationItem =
+    languageSelector === "navigation"
+      ? html`<li class="usa-nav__primary-item">${languageSelectorHtml}</li>`
+      : "";
+  const languageSelectorAboveSearch =
+    languageSelector === "above-search" ? languageSelectorHtml : "";
 
   const defaultHTML = html`
     <div class="usa-overlay"></div>
@@ -131,8 +148,9 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
             <li class="usa-nav__primary-item">
               <a class="usa-nav__link" href="#!"><span>Link</span></a>
             </li>
+            ${languageSelectorNavigationItem}
           </ul>
-          ${searchform}
+          <div class="display-flex flex-column">${languageSelectorAboveSearch} ${searchform}</div>
         </nav>
         <!--/.usa-nav-->
       </div>
@@ -165,6 +183,7 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
               <li class="usa-nav__primary-item">
                 <a class="usa-nav__link" href="#!"><span>Link</span></a>
               </li>
+              ${languageSelectorNavigationItem}
             </ul>
             <!--/.usa-nav__primary -->
             <div class="usa-nav__secondary">
@@ -176,7 +195,7 @@ export const Header = ({ variant, megamenu, toggleValue }: HeaderProps) => {
                   <a href="#!">Another secondary link</a>
                 </li>
               </ul>
-              ${searchform}
+              ${languageSelectorAboveSearch} ${searchform}
             </div>
             <!--/.usa-nav__secondary-->
           </div>
