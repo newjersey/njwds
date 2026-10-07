@@ -43,7 +43,8 @@
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.9",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.70.1"
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^5.0.3"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

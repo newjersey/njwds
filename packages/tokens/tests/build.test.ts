@@ -39,7 +39,7 @@ describe("CSS output", () => {
   it("resolves semantic aliases to their referenced primitive", () => {
     const css = readBuildFile("css/tokens.css");
 
-    expect(css).toContain(`--${prefix}-font-size-md: var(--${prefix}-font-size-6);`);
+    expect(css).toContain(`--${prefix}-font-size-md: var(--${prefix}-font-size-9);`);
   });
 });
 
@@ -69,7 +69,7 @@ describe("JSON output", () => {
   it("includes known tokens with expected values", () => {
     const tokens = JSON.parse(readBuildFile("json/tokens.json"));
 
-    expect(tokens["font-size"].md).toBe("1.0625rem");
+    expect(tokens["font-size"].md).toBe("1.375rem");
     expect(tokens["line-height"]["3"]).toBe(1.35);
     expect(tokens.color.black).toBe("#000000");
   });

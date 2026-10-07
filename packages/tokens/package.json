@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "prettier": "^3.9.9",
-    "style-dictionary": "^5.5.5",
-    "vitest": "^4.0.18"
+    "style-dictionary": "^5.5.5"
   }
 }
