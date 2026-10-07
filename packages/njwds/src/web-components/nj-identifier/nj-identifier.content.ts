@@ -1,7 +1,10 @@
 import commonData from "../../data/common.json";
 
-export const IDENTIFIER_LANGUAGES = ["en", "es"] as const;
-export type IdentifierLanguage = (typeof IDENTIFIER_LANGUAGES)[number];
+export interface RequiredLink {
+  href: string;
+  label: string;
+  usaLink?: boolean;
+}
 
 export interface IdentifierContent {
   masthead: {
@@ -16,18 +19,39 @@ export interface IdentifierContent {
   requiredLinks: {
     ariaLabel: string;
   };
+  links: RequiredLink[];
   copyright: {
     ariaLabel: string;
     description: string;
   };
 }
-export interface RequiredLink {
-  href: string;
-  label: string;
-  usaLink?: boolean;
+
+export interface IdentifierContentOverrides {
+  masthead?: Partial<IdentifierContent["masthead"]>;
+  requiredLinks?: Partial<IdentifierContent["requiredLinks"]>;
+  links?: RequiredLink[];
+  copyright?: Partial<IdentifierContent["copyright"]>;
 }
 
-const en: IdentifierContent = {
+const defaultLinks: RequiredLink[] = [
+  { href: "https://nj.gov/governor/admin/about/", label: `Governor ${commonData.gov}` },
+  { href: "https://nj.gov/governor/admin/lt/", label: `Lt. Governor ${commonData.govlt}` },
+  { href: "https://nj.gov/", label: "NJ Home", usaLink: true },
+  { href: "https://nj.gov/nj/gov/njgov/alphaserv.html", label: "Services A to Z", usaLink: true },
+  { href: "https://nj.gov/nj/gov/deptserv/", label: "Departments/Agencies", usaLink: true },
+  { href: "https://nj.gov/faqs/", label: "FAQs", usaLink: true },
+  { href: "https://nj.gov/nj/feedback.html", label: "Contact Us", usaLink: true },
+  { href: "https://nj.gov/nj/privacy.html", label: "Privacy Notice", usaLink: true },
+  {
+    href: "https://nj.gov/nj/legal.html",
+    label: "Legal Statement & Disclaimers",
+    usaLink: true,
+  },
+  { href: "https://nj.gov/nj/accessibility.html", label: "Accessibility", usaLink: true },
+  { href: "https://nj.gov/opra/", label: "Open Public Records Act (OPRA)", usaLink: true },
+];
+
+const enDefaultContent: IdentifierContent = {
   masthead: {
     ariaLabel: "Agency identifier",
     descriptionLabel: "Agency description",
@@ -40,53 +64,21 @@ const en: IdentifierContent = {
   requiredLinks: {
     ariaLabel: "Important links",
   },
+  links: defaultLinks,
   copyright: {
     ariaLabel: "U.S. government information and services",
     description: "Copyright © 2026 State of New Jersey",
   },
 };
 
-const es: IdentifierContent = {
-  masthead: {
-    ariaLabel: "Identificador de la agencia",
-    descriptionLabel: "Descripción de la agencia",
-    text: "Un sitio web oficial de",
-    parentName: "el Estado de Nueva Jersey",
-    parentLogoAlt: "Logo de la el Estado de Nueva Jersey",
-    agencyLogoAlt: "Logo de la agencia",
-    taxpayerDisclaimer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
-  },
-  requiredLinks: {
-    ariaLabel: "Enlaces importantes",
-  },
-  copyright: {
-    ariaLabel: "Información y servicios del Gobierno de EE. UU.",
-    description: "¿Necesita información y servicios del Gobierno?",
-  },
-};
-
-const contentByLanguage: Record<IdentifierLanguage, IdentifierContent> = { en, es };
-
-export function getIdentifierContent(language: IdentifierLanguage): IdentifierContent {
-  return contentByLanguage[language] ?? en;
-}
-
-export function getRequiredLinks(): RequiredLink[] {
-  return [
-    { href: "https://nj.gov/governor/admin/about/", label: `Governor ${commonData.gov}` },
-    { href: "https://nj.gov/governor/admin/lt/", label: `Lt. Governor ${commonData.govlt}` },
-    { href: "https://nj.gov/", label: "NJ Home", usaLink: true },
-    { href: "https://nj.gov/nj/gov/njgov/alphaserv.html", label: "Services A to Z", usaLink: true },
-    { href: "https://nj.gov/nj/gov/deptserv/", label: "Departments/Agencies", usaLink: true },
-    { href: "https://nj.gov/faqs/", label: "FAQs", usaLink: true },
-    { href: "https://nj.gov/nj/feedback.html", label: "Contact Us", usaLink: true },
-    { href: "https://nj.gov/nj/privacy.html", label: "Privacy Notice", usaLink: true },
-    {
-      href: "https://nj.gov/nj/legal.html",
-      label: "Legal Statement & Disclaimers",
-      usaLink: true,
-    },
-    { href: "https://nj.gov/nj/accessibility.html", label: "Accessibility", usaLink: true },
-    { href: "https://nj.gov/opra/", label: "Open Public Records Act (OPRA)", usaLink: true },
-  ];
+export function resolveIdentifierContent(
+  overrides?: IdentifierContentOverrides,
+): IdentifierContent {
+  if (!overrides) return enDefaultContent;
+  return {
+    masthead: { ...enDefaultContent.masthead, ...overrides.masthead },
+    requiredLinks: { ...enDefaultContent.requiredLinks, ...overrides.requiredLinks },
+    links: overrides.links ?? enDefaultContent.links,
+    copyright: { ...enDefaultContent.copyright, ...overrides.copyright },
+  };
 }

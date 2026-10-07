@@ -1,11 +1,7 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import sheet from "../../sass/web-components/nj-identifier.scss?inline";
-import {
-  getIdentifierContent,
-  getRequiredLinks,
-  type IdentifierLanguage,
-} from "./nj-identifier.content";
+import { resolveIdentifierContent, type IdentifierContentOverrides } from "./nj-identifier.content";
 import { classNames } from "../../utils/classNames";
 import njLogo from "../../img/nj-logo-gray-20.png";
 
@@ -19,7 +15,7 @@ export interface LogoInfo {
 export class NjIdentifier extends LitElement {
   static styles = [unsafeCSS(sheet)];
 
-  @property({ type: String }) language: IdentifierLanguage = "en";
+  @property({ type: String }) language = "en";
 
   @property({ type: Boolean, attribute: "hide-logo" }) hideLogo = false;
 
@@ -27,9 +23,10 @@ export class NjIdentifier extends LitElement {
 
   @property({ attribute: "additional-logos", type: Array }) additionalLogos: LogoInfo[] = [];
 
+  @property({ attribute: "content", type: Object }) content?: IdentifierContentOverrides;
+
   render() {
-    const content = getIdentifierContent(this.language);
-    const requiredLinks = getRequiredLinks();
+    const content = resolveIdentifierContent(this.content);
 
     return html`
       <div class="usa-identifier" lang=${this.language}>
@@ -83,7 +80,7 @@ export class NjIdentifier extends LitElement {
         >
           <div class="usa-identifier__container">
             <ul class="usa-identifier__required-links-list">
-              ${requiredLinks.map(
+              ${content.links.map(
                 (link) => html`
                   <li class="usa-identifier__required-links-item">
                     <a

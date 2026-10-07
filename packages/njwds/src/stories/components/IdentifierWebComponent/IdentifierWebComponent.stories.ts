@@ -1,20 +1,45 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "../../../web-components/nj-identifier/nj-identifier";
-import {
-  IDENTIFIER_LANGUAGES,
-  type IdentifierLanguage,
+import type {
+  IdentifierContentOverrides,
+  RequiredLink,
 } from "../../../web-components/nj-identifier/nj-identifier.content";
 import circleGrayIcon from "../../../img/circle-gray-20.svg";
 
 type AdditionalLogosOption = "none" | "agency-logo";
 
 interface IdentifierStoryArgs {
-  language: IdentifierLanguage;
+  language: string;
+  content?: IdentifierContentOverrides;
   hideLogo: boolean;
   additionalLogos: AdditionalLogosOption;
   taxpayerDisclaimer: boolean;
 }
+
+const CUSTOM_LINKS: RequiredLink[] = [
+  { href: "https://example.com/about", label: "About the Agency" },
+  { href: "https://example.com/contact", label: "Contact Us" },
+];
+
+const SPANISH_CONTENT: IdentifierContentOverrides = {
+  masthead: {
+    ariaLabel: "Identificador de la agencia",
+    descriptionLabel: "Descripción de la agencia",
+    text: "Un sitio web oficial de",
+    parentName: "el Estado de Nueva Jersey",
+    parentLogoAlt: "Logo de la el Estado de Nueva Jersey",
+    agencyLogoAlt: "Logo de la agencia",
+    taxpayerDisclaimer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
+  },
+  requiredLinks: {
+    ariaLabel: "Enlaces importantes",
+  },
+  copyright: {
+    ariaLabel: "Información y servicios del Gobierno de EE. UU.",
+    description: "¿Necesita información y servicios del Gobierno?",
+  },
+};
 
 const ADDITIONAL_LOGOS_OPTIONS: Record<
   AdditionalLogosOption,
@@ -41,6 +66,7 @@ const meta = {
       ?hide-logo=${args.hideLogo}
       ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
       .additionalLogos=${ADDITIONAL_LOGOS_OPTIONS[args.additionalLogos]}
+      .content=${args.content}
     ></nj-identifier>
   `,
   parameters: {
@@ -54,6 +80,7 @@ const meta = {
             args.additionalLogos === "agency-logo" &&
               !args.hideLogo &&
               `additional-logos='${JSON.stringify(ADDITIONAL_LOGOS_SAMPLE[args.additionalLogos])}'`,
+            args.content && `content='${JSON.stringify(args.content)}'`,
           ]
             .filter(Boolean)
             .join(" ");
@@ -65,8 +92,10 @@ const meta = {
   },
   argTypes: {
     language: {
-      control: { type: "select" },
-      options: IDENTIFIER_LANGUAGES,
+      control: { type: "text" },
+    },
+    content: {
+      control: false,
     },
     hideLogo: {
       control: { type: "boolean" },
@@ -97,6 +126,7 @@ export const Default: Story = {
 export const Spanish: Story = {
   args: {
     language: "es",
+    content: SPANISH_CONTENT,
     hideLogo: false,
     additionalLogos: "none",
     taxpayerDisclaimer: false,
@@ -117,6 +147,16 @@ export const MultipleLogos: Story = {
     language: "en",
     hideLogo: false,
     additionalLogos: "agency-logo",
+    taxpayerDisclaimer: false,
+  },
+};
+
+export const CustomLinks: Story = {
+  args: {
+    language: "en",
+    content: { links: CUSTOM_LINKS },
+    hideLogo: false,
+    additionalLogos: "none",
     taxpayerDisclaimer: false,
   },
 };
