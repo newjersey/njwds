@@ -9,6 +9,10 @@
   background-color: #112f4e;
   text-align: start;
   border: units(2px) solid #112f4e;
+  width: 100%;
+  @include at-media("mobile-lg") {
+    width: units("card-lg");
+  }
 }
 
 .usa-language__submenu-item {
@@ -32,9 +36,27 @@
   }
 }
 
-.usa-language__primary-item:last-of-type .usa-language__submenu {
-  inset-inline: auto 0;
-  margin-top: 1px;
-  max-height: 290px; /* scroll after 6 items */
-  overflow: auto;
+.usa-language__primary {
+  width: 100%;
+  @include at-media("mobile-lg") {
+    width: auto;
+  }
+}
+
+.usa-language__primary-item {
+  &:last-of-type .usa-language__submenu {
+    inset-inline: auto 0;
+    margin-top: 1px;
+    max-height: 290px; /* scroll after 6 items */
+    overflow: auto;
+  }
+
+  > .usa-button--unstyled {
+    justify-content: center;
+    width: 100%;
+    @include at-media("mobile-lg") {
+      justify-content: normal;
+      width: auto;
+    }
+  }
 }

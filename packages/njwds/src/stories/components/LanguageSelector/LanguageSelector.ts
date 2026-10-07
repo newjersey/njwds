@@ -18,8 +18,11 @@ export const LanguageSelector = ({
   const languageOptionsId = `language-options-${instanceId}`;
 
   if (pattern === "simple") {
+    const unstyledCenteringClass =
+      buttonType === "secondary" ? "" : "flex-justify-center mobile-lg:flex-justify-end";
+
     return html`
-      <div class="usa-language-container padding-2">
+      <div class="usa-language-container padding-2 ${unstyledCenteringClass}">
         <!-- The aria label says "Change language to Spanish" -->
         <a
           href="#"
