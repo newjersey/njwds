@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "../../../web-components/nj-identifier/nj-identifier";
-import type {
-  IdentifierContentOverrides,
-  RequiredLink,
-} from "../../../web-components/nj-identifier/nj-identifier.content";
+import { defaultIdentifierLinks } from "../../../web-components/nj-identifier/nj-identifier.content";
+import type { IdentifierContentOverrides } from "../../../web-components/nj-identifier/nj-identifier.content";
 import circleGrayIcon from "../../../img/circle-gray-20.svg";
 
 type AdditionalLogosOption = "none" | "agency-logo";
@@ -17,10 +15,12 @@ interface IdentifierStoryArgs {
   taxpayerDisclaimer: boolean;
 }
 
-const CUSTOM_LINKS: RequiredLink[] = [
-  { href: "https://example.com/about", label: "About the Agency" },
-  { href: "https://example.com/contact", label: "Contact Us" },
-];
+const CUSTOM_LINKS = defaultIdentifierLinks
+  .filter((link) => link.href !== "https://nj.gov/faqs/" && link.href !== "https://nj.gov/opra/")
+  .map((link) =>
+    link.href === "https://nj.gov/nj/feedback.html" ? { ...link, label: "Get in Touch" } : link,
+  )
+  .concat({ href: "https://example.com/about", label: "About the Agency" });
 
 const SPANISH_CONTENT: IdentifierContentOverrides = {
   masthead: {
@@ -32,7 +32,7 @@ const SPANISH_CONTENT: IdentifierContentOverrides = {
     agencyLogoAlt: "Logo de la agencia",
     taxpayerDisclaimer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
   },
-  requiredLinks: {
+  linksSection: {
     ariaLabel: "Enlaces importantes",
   },
   copyright: {
@@ -154,7 +154,7 @@ export const MultipleLogos: Story = {
 export const CustomLinks: Story = {
   args: {
     language: "en",
-    content: { links: CUSTOM_LINKS },
+    content: { linksSection: { links: CUSTOM_LINKS } },
     hideLogo: false,
     additionalLogos: "none",
     taxpayerDisclaimer: false,
