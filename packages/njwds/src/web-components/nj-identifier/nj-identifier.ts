@@ -14,13 +14,13 @@ export interface LogoInfo {
 export class NjIdentifier extends LitElement {
   static styles = [unsafeCSS(sheet)];
 
-  @property({ type: Boolean, attribute: "hide-logo" }) hideLogo = false;
+  @property({ attribute: "content", type: Object }) content?: IdentifierContentOverrides;
 
-  @property({ type: Boolean, attribute: "taxpayer-disclaimer" }) taxpayerDisclaimer = false;
+  @property({ type: Boolean, attribute: "hide-logo" }) hideLogo = false;
 
   @property({ attribute: "additional-logos", type: Array }) additionalLogos: LogoInfo[] = [];
 
-  @property({ attribute: "content", type: Object }) content?: IdentifierContentOverrides;
+  @property({ type: Boolean, attribute: "taxpayer-disclaimer" }) taxpayerDisclaimer = false;
 
   render() {
     const content = resolveIdentifierContent(this.content);
