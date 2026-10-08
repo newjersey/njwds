@@ -8,7 +8,6 @@ import circleGrayIcon from "../../../img/circle-gray-20.svg";
 type AdditionalLogosOption = "none" | "agency-logo";
 
 interface IdentifierStoryArgs {
-  language: string;
   content?: IdentifierContentOverrides;
   hideLogo: boolean;
   additionalLogos: AdditionalLogosOption;
@@ -62,11 +61,10 @@ const meta = {
   tags: ["autodocs"],
   render: (args) => html`
     <nj-identifier
-      language=${args.language}
-      ?hide-logo=${args.hideLogo}
-      ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
-      .additionalLogos=${ADDITIONAL_LOGOS_OPTIONS[args.additionalLogos]}
       .content=${args.content}
+      ?hide-logo=${args.hideLogo}
+      .additionalLogos=${ADDITIONAL_LOGOS_OPTIONS[args.additionalLogos]}
+      ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
     ></nj-identifier>
   `,
   parameters: {
@@ -74,7 +72,6 @@ const meta = {
       source: {
         transform: (_code: string, { args }: { args: IdentifierStoryArgs }) => {
           const attrs = [
-            `language="${args.language}"`,
             args.hideLogo && "hide-logo",
             args.taxpayerDisclaimer && "taxpayer-disclaimer",
             args.additionalLogos === "agency-logo" &&
@@ -91,11 +88,8 @@ const meta = {
     },
   },
   argTypes: {
-    language: {
-      control: { type: "text" },
-    },
     content: {
-      control: false,
+      control: { type: "object" },
     },
     hideLogo: {
       control: { type: "boolean" },
@@ -116,7 +110,6 @@ type Story = StoryObj<IdentifierStoryArgs>;
 
 export const Default: Story = {
   args: {
-    language: "en",
     hideLogo: false,
     additionalLogos: "none",
     taxpayerDisclaimer: false,
@@ -125,7 +118,6 @@ export const Default: Story = {
 
 export const Spanish: Story = {
   args: {
-    language: "es",
     content: SPANISH_CONTENT,
     hideLogo: false,
     additionalLogos: "none",
@@ -135,7 +127,6 @@ export const Spanish: Story = {
 
 export const Disclaimer: Story = {
   args: {
-    language: "en",
     hideLogo: false,
     additionalLogos: "none",
     taxpayerDisclaimer: true,
@@ -144,7 +135,6 @@ export const Disclaimer: Story = {
 
 export const MultipleLogos: Story = {
   args: {
-    language: "en",
     hideLogo: false,
     additionalLogos: "agency-logo",
     taxpayerDisclaimer: false,
@@ -153,7 +143,6 @@ export const MultipleLogos: Story = {
 
 export const CustomLinks: Story = {
   args: {
-    language: "en",
     content: { linksSection: { links: CUSTOM_LINKS } },
     hideLogo: false,
     additionalLogos: "none",
