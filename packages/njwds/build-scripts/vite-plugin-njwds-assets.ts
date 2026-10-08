@@ -17,8 +17,8 @@
 import { cpSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
 import type { Plugin } from "vite";
+import { resolveUswdsRoot } from "./resolve-uswds-root";
 
 // Resolve __dirname in ESM
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -43,18 +43,7 @@ interface AssetCopyConfig {
 export function njwdsAssetsPlugin(): Plugin {
   // Resolve paths relative to project root
   const projectRoot = resolve(__dirname, "..");
-  // Locate @uswds/uswds via Node's node_modules search order rather than a
-  // fixed relative depth, since npm workspaces hoists it to the repo-root
-  // node_modules. Uses resolve.paths (not require.resolve("@uswds/uswds/package.json"))
-  // because @uswds/uswds's "exports" map doesn't expose "./package.json" as a subpath.
-  const require = createRequire(import.meta.url);
-  const uswdsSearchPaths = require.resolve.paths("@uswds/uswds") ?? [];
-  const uswdsRoot = uswdsSearchPaths
-    .map((searchPath) => resolve(searchPath, "@uswds/uswds"))
-    .find((candidate) => existsSync(candidate));
-  if (!uswdsRoot) {
-    throw new Error("Could not locate @uswds/uswds in any node_modules directory");
-  }
+  const uswdsRoot = resolveUswdsRoot(import.meta.url);
   const distRoot = resolve(projectRoot, "dist");
 
   /**

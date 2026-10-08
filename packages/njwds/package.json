@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "./src/web-components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.7.1",
