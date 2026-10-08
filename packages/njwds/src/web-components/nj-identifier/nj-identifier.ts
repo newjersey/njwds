@@ -2,7 +2,6 @@ import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import sheet from "../../sass/web-components/nj-identifier.scss?inline";
 import { resolveIdentifierContent, type IdentifierContentOverrides } from "./nj-identifier.content";
-import { classNames } from "../../utils/classNames";
 import njLogo from "../../img/nj-logo-gray-20.png";
 
 export interface LogoInfo {
@@ -14,8 +13,6 @@ export interface LogoInfo {
 @customElement("nj-identifier")
 export class NjIdentifier extends LitElement {
   static styles = [unsafeCSS(sheet)];
-
-  @property({ type: String }) language = "en";
 
   @property({ type: Boolean, attribute: "hide-logo" }) hideLogo = false;
 
@@ -29,7 +26,7 @@ export class NjIdentifier extends LitElement {
     const content = resolveIdentifierContent(this.content);
 
     return html`
-      <div class="usa-identifier" lang=${this.language}>
+      <div class="usa-identifier">
         <section
           class="usa-identifier__section usa-identifier__section--masthead"
           part="masthead"
@@ -76,17 +73,14 @@ export class NjIdentifier extends LitElement {
         <nav
           class="usa-identifier__section usa-identifier__section--required-links"
           part="required-links"
-          aria-label=${content.requiredLinks.ariaLabel}
+          aria-label=${content.linksSection.ariaLabel}
         >
           <div class="usa-identifier__container">
             <ul class="usa-identifier__required-links-list">
-              ${content.links.map(
+              ${content.linksSection.links.map(
                 (link) => html`
                   <li class="usa-identifier__required-links-item">
-                    <a
-                      href=${link.href}
-                      class=${classNames("usa-identifier__required-link", link.usaLink && "usa-link")}
-                    >
+                    <a href=${link.href} class="usa-identifier__required-link usa-link">
                       ${link.label}
                     </a>
                   </li>
