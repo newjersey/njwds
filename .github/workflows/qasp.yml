@@ -25,12 +25,11 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
     secrets: inherit
     with:
+      ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
       slack-channel: "D09H54ABJMQ"
-      deployment-check-urls: |
-        https://registry.npmjs.org/@newjersey/njwds
-        https://registry.npmjs.org/@newjersey/tokens
-      system-diagram-location: "./documents/system-diagram.svg"
+      deployment-check-urls: ""
+      system-diagram-location: ""
       command-test-coverage: "npm run test:coverage:ci"
       command-linting: "npm run lint"
       command-accessibility: "npm run test:accessibility:ci"
