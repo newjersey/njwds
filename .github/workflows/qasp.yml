@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 7 * * 1'  # Monday at 2am EST (7am UTC)
   workflow_dispatch:  # manual triggering
+    inputs:
+      branch:
+        description: "Branch to run QASP against (default: main)"
+        required: false
+        type: string
+        default: "main"
 
 permissions:
   contents: read
@@ -13,6 +19,7 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
     secrets: inherit
     with:
+      ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
       deployment-check-urls: |
         https://registry.npmjs.org/@newjersey/njwds
