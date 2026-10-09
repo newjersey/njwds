@@ -25,7 +25,6 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
     secrets: inherit
     with:
-      ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
       slack-channel: "D09H54ABJMQ"
       deployment-check-urls: |
