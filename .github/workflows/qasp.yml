@@ -19,8 +19,6 @@ jobs:
     uses: newjersey/innovation-shared-actions/.github/workflows/qasp.yml@main
     secrets: inherit
     with:
-      # TODO: swap `uses:` above back to @main once feat/QASP-allow-local-branch-selection
-      # merges in newjersey/innovation-shared-actions.
       ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
       deployment-check-urls: |
