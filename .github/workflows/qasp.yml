@@ -27,7 +27,7 @@ jobs:
     with:
       ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
-      slack-channel: "D09H54ABJMQ"
+      slack-channel: "C0A2ULQ09GA" #grove-internal
       deployment-check-urls: ""
       system-diagram-location: ""
       command-test-coverage: "npm run test:coverage:ci"
