@@ -27,6 +27,7 @@ jobs:
     with:
       ref: ${{ github.event.inputs.branch || 'main' }}
       node-version: ".nvmrc" # optional (default: .nvmrc)
+      slack-channel: "#sandbox"
       deployment-check-urls: ""
       system-diagram-location: ""
       command-test-coverage: "npm run test:coverage:ci"
