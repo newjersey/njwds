@@ -44,3 +44,32 @@
     @include focus-outline(null, null, "white", "neg-1");
   }
 }
+
+// Keep the language selector in the normal flow of the header navigation
+.usa-nav .usa-language-container {
+  align-self: stretch;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  position: static;
+
+  @include at-media-max($theme-header-min-width) {
+    .usa-language__primary {
+      width: 100%;
+    }
+
+    .usa-language__primary-item:last-of-type .usa-language__submenu {
+      position: static;
+      width: auto;
+    }
+
+    .usa-language__submenu-item a {
+      color: color("white");
+    }
+  }
+}
+
+// Align the search with the language selector stacked above it
+.usa-nav .usa-language-container + .usa-search {
+  margin-left: 0;
+}
