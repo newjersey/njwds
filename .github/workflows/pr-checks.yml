@@ -4,8 +4,7 @@ on:
   pull_request:
     branches: ["main", "feat/**"]
   push:
-    branches:
-      - "main"
+    branches: ["main"]
 
 concurrency:
   group: pr-checks-${{ github.ref }}
