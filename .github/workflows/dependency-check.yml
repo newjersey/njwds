@@ -2,7 +2,7 @@ name: Dependency Check
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main", "feat/**"]
   push:
     branches: ["main"]
 
