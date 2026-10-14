@@ -8,15 +8,11 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write # to post Checkov results as a PR comment
 
 jobs:
   checkov:
-    name: IaC security scan
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      pull-requests: write
 
     steps:
       - name: Checkout repository
