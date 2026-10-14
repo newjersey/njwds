@@ -1,0 +1,68 @@
+name: Checkov
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  checkov:
+    name: IaC security scan
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Filter changed files
+        uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            infrastructure:
+              - 'infrastructure/**'
+
+      - name: Set up Node.js
+        if: steps.changes.outputs.infrastructure == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+          cache-dependency-path: infrastructure/package-lock.json
+
+      - name: Install infrastructure dependencies
+        if: steps.changes.outputs.infrastructure == 'true'
+        working-directory: infrastructure
+        run: npm ci
+
+      - name: CDK synth
+        if: steps.changes.outputs.infrastructure == 'true'
+        working-directory: infrastructure
+        run: npx cdk synth
+
+      - name: Run Checkov
+        if: steps.changes.outputs.infrastructure == 'true'
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: infrastructure/cdk.out
+          framework: cloudformation
+          output_format: github_failed_only
+          output_file_path: ./checkov-output
+          quiet: true
+
+      - name: Comment PR with results
+        if: always() && steps.changes.outputs.infrastructure == 'true' && github.event_name == 'pull_request'
+        run: |
+          if [ -f ./checkov-output/results_github_failed_only.md ]; then
+            gh pr comment ${{ github.event.pull_request.number }} -F ./checkov-output/results_github_failed_only.md
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
