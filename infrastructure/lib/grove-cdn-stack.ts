@@ -24,7 +24,7 @@ export class GroveCdnStack extends cdk.Stack {
 
     const enableLogging = props.enableLogging ?? true;
 
-    // S3 bucket for CDN assets
+    // S3 Bucket for CDN assets
     this.bucket = new s3.Bucket(this, "GroveCdnBucket", {
       bucketName: "grove-cdn-assets",
       versioned: true,
