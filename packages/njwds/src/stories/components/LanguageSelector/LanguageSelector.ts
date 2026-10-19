@@ -16,10 +16,12 @@ export const LanguageSelector = ({
   const buttonTypeClass =
     buttonType === "secondary" ? "usa-button--outline" : "usa-button--unstyled";
   const languageOptionsId = `language-options-${instanceId}`;
+  const unstyledCenteringClass =
+    buttonType === "secondary" ? "" : "flex-justify-center mobile-lg:flex-justify-end";
 
   if (pattern === "simple") {
     return html`
-      <div class="usa-language-container padding-2">
+      <div class="usa-language-container padding-2 ${unstyledCenteringClass}">
         <!-- The aria label says "Change language to Spanish" -->
         <a
           href="#"
@@ -44,8 +46,8 @@ export const LanguageSelector = ({
   // Dropdown menu pattern (uses USWDS JavaScript)
   return html`
     <div class="usa-language-container padding-2">
-      <ul class="usa-language__primary usa-accordion">
-        <li class="usa-language__primary-item">
+      <ul class="usa-language__primary usa-accordion width-full mobile-lg:width-auto">
+        <li class="usa-language__primary-item display-flex ${unstyledCenteringClass}">
           <button
             class="usa-button usa-language__link ${buttonTypeClass}"
             aria-expanded="false"
@@ -63,7 +65,11 @@ export const LanguageSelector = ({
                 : ""
             }
           </button>
-          <ul id="${languageOptionsId}" class="usa-language__submenu" hidden>
+          <ul
+            id="${languageOptionsId}"
+            class="usa-language__submenu width-full mobile-lg:width-card-lg top-full"
+            hidden
+          >
             <li class="usa-language__submenu-item">
               <a href="#!" hreflang="en">
                 <span lang="en" dir="ltr"><strong>English</strong></span>

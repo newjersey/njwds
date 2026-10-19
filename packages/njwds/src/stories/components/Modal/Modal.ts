@@ -48,10 +48,10 @@ export const Modal = ({ size, forceAction, modalId }: ModalProps) => {
                     ${primaryButtonText}
                   </button>
                 </li>
-                <li class="usa-button-group__item">
+                <li class="usa-button-group__item display-flex flex-justify-center">
                   <button
                     type="button"
-                    class="usa-button usa-button--unstyled padding-105 text-center"
+                    class="usa-button usa-button--unstyled padding-105"
                     data-close-modal
                   >
                     ${secondaryButtonText}

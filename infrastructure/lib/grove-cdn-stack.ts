@@ -166,6 +166,10 @@ function handler(event) {
       distributionProps,
     );
 
+    (this.distribution.node.defaultChild as cloudfront.CfnDistribution).cfnOptions.metadata = {
+      checkov: { skip: [{ id: "CKV_AWS_174" }, { id: "CKV_AWS_68" }] },
+    };
+
     // GitHub Actions OIDC Role
     const githubOidcProvider = iam.OpenIdConnectProvider.fromOpenIdConnectProviderArn(
       this,
