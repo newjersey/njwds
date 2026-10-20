@@ -2,11 +2,9 @@ name: Code Checks
 
 on:
   pull_request:
-    branches:
-      - "main"
+    branches: ["main", "feat/**"]
   push:
-    branches:
-      - "main"
+    branches: ["main"]
 
 concurrency:
   group: pr-checks-${{ github.ref }}
@@ -165,3 +163,4 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           command: npm run storybook:build
+          
