@@ -15,4 +15,3 @@ jobs:
     with:
       node-version: ".nvmrc"
       audit-level: "critical"
-      
