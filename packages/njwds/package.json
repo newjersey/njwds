@@ -39,10 +39,10 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.64.0",
-    "@storybook/addon-a11y": "^10.6.1",
-    "@storybook/addon-docs": "^10.6.1",
-    "@storybook/addon-vitest": "^10.6.1",
-    "@storybook/web-components-vite": "^10.6.1",
+    "@storybook/addon-a11y": "^10.6.3",
+    "@storybook/addon-docs": "^10.6.3",
+    "@storybook/addon-vitest": "^10.6.3",
+    "@storybook/web-components-vite": "^10.6.3",
     "@vitest/browser": "^5.0.3",
     "@vitest/browser-playwright": "^5.0.3",
     "@vitest/coverage-v8": "^5.0.3",
@@ -52,7 +52,7 @@
     "postcss": "^8.5.28",
     "postcss-csso": "^6.0.1",
     "sass": "^1.105.1",
-    "storybook": "^10.2.13",
+    "storybook": "^10.6.3",
     "vite": "^8.3.4"
   },
   "files": [
