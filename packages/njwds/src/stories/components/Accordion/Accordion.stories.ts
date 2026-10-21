@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { Accordion, type AccordionProps } from "./Accordion";
 
 const meta = {
-  title: "Components/Accordion",
+  title: "Components/AwesomeAccordion",
   tags: ["autodocs"],
   render: (args, context) =>
     Accordion({
