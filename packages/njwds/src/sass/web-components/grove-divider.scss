@@ -1,0 +1,9 @@
+@use "uswds-theme";
+@use "uswds-core" as *;
+@forward "web-styles";
+
+hr {
+  border: 0;
+  @include u-border-top(1px, "base");
+  margin-block: units(2);
+}
