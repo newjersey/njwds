@@ -42,6 +42,12 @@ export class GroveCdnStack extends cdk.Stack {
         ],
         removalPolicy: cdk.RemovalPolicy.RETAIN,
       });
+
+      // checkov CKV_AWS_18: this bucket IS the CloudFront access-log destination;
+      // giving it its own server access logs would just be logs of logs.
+      (logBucket.node.defaultChild as s3.CfnBucket).cfnOptions.metadata = {
+        checkov: { skip: [{ id: "CKV_AWS_18" }] },
+      };
     }
 
     // S3 Bucket for CDN assets

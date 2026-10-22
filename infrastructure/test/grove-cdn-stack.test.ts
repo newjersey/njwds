@@ -63,6 +63,19 @@ describe("GroveCdnStack security properties", () => {
     });
   });
 
+  it("suppresses CKV_AWS_18 on the access-log bucket itself (logging the log bucket is redundant)", () => {
+    const template = synthTemplate();
+
+    template.hasResource("AWS::S3::Bucket", {
+      Properties: Match.objectLike({ BucketName: "grove-cdn-logs" }),
+      Metadata: Match.objectLike({
+        checkov: Match.objectLike({
+          skip: Match.arrayWith([Match.objectLike({ id: "CKV_AWS_18" })]),
+        }),
+      }),
+    });
+  });
+
   it("restricts the GitHub Actions IAM role to v*-tag releases only", () => {
     const template = synthTemplate();
 
