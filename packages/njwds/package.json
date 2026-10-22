@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "npm run grove:build",
+    "prepare": "npm run grove:build && npm run react:build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -14,6 +14,9 @@
     "test:visual:update": "playwright test --project=visual --update-snapshots=all",
     "grove:dev": "vite build --config vite.config.grove.ts --watch",
     "grove:build": "vite build --config vite.config.grove.ts",
+    "cem:analyze": "cem analyze --config custom-elements-manifest.config.js",
+    "react:generate": "node build-scripts/make-react.ts --outdir dist",
+    "react:build": "npm run cem:analyze && npm run react:generate",
     "preview": "npx serve storybook-static",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -30,20 +33,38 @@
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
     "**/*.css",
-    "./src/web-components/**"
+    "./src/web-components/**",
+    "./src/react/**"
   ],
   "dependencies": {
+    "@lit/react": "^1.0.8",
     "@newjersey/feedback-widget": "^0.8.0",
     "@uswds/uswds": "3.14.0",
     "lit": "^3.3.2"
   },
+  "peerDependencies": {
+    "@types/react": "^18.0.0 || ^19.0.0",
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@custom-elements-manifest/analyzer": "^0.11.0",
     "@playwright/test": "^1.64.1",
     "@storybook/addon-a11y": "^10.6.3",
     "@storybook/addon-docs": "^10.6.3",
     "@storybook/addon-vitest": "^10.6.3",
     "@storybook/web-components-vite": "^10.6.3",
+    "@testing-library/dom": "^10.4.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitest/browser": "^5.0.3",
     "@vitest/browser-playwright": "^5.0.3",
     "@vitest/coverage-v8": "^5.0.3",
@@ -52,6 +73,8 @@
     "playwright": "^1.64.0",
     "postcss": "^8.5.30",
     "postcss-csso": "^6.0.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "sass": "^1.105.2",
     "storybook": "^10.6.3",
     "vite": "^8.3.4"
@@ -61,5 +84,6 @@
     "src",
     "package.json",
     ".browserslistrc"
-  ]
+  ],
+  "customElements": "dist/custom-elements.json"
 }
