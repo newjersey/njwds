@@ -30,7 +30,7 @@
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
     "**/*.css",
-    "./src/web-components/**"
+    "**/web-components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.8.0",
