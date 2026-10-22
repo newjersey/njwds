@@ -24,30 +24,6 @@ export class GroveCdnStack extends cdk.Stack {
 
     const enableLogging = props.enableLogging ?? true;
 
-    // S3 Bucket for CDN assets
-    this.bucket = new s3.Bucket(this, "GroveCdnBucket", {
-      bucketName: "grove-cdn-assets",
-      versioned: true,
-      encryption: s3.BucketEncryption.S3_MANAGED,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      cors: [
-        {
-          allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
-          allowedOrigins: ["*"],
-          allowedHeaders: ["*"],
-          exposedHeaders: ["ETag"],
-          maxAge: 3600,
-        },
-      ],
-      lifecycleRules: [
-        {
-          // Delete old versions after 90 days
-          noncurrentVersionExpiration: cdk.Duration.days(90),
-        },
-      ],
-      removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
-    });
-
     // S3 Bucket for CloudFront access logs (if enabled)
     let logBucket: s3.Bucket | undefined;
     if (enableLogging) {
@@ -67,6 +43,33 @@ export class GroveCdnStack extends cdk.Stack {
         removalPolicy: cdk.RemovalPolicy.RETAIN,
       });
     }
+
+    // S3 Bucket for CDN assets
+    this.bucket = new s3.Bucket(this, "GroveCdnBucket", {
+      bucketName: "grove-cdn-assets",
+      versioned: true,
+      encryption: s3.BucketEncryption.S3_MANAGED,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      // checkov CKV_AWS_18: Ensure S3 bucket has access logging enabled
+      serverAccessLogsBucket: logBucket,
+      serverAccessLogsPrefix: "asset-access-logs/",
+      cors: [
+        {
+          allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
+          allowedOrigins: ["*"],
+          allowedHeaders: ["*"],
+          exposedHeaders: ["ETag"],
+          maxAge: 3600,
+        },
+      ],
+      lifecycleRules: [
+        {
+          // Delete old versions after 90 days
+          noncurrentVersionExpiration: cdk.Duration.days(90),
+        },
+      ],
+      removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
+    });
 
     // CloudFront Origin Access Identity
     const oai = new cloudfront.OriginAccessIdentity(this, "GroveCdnOai", {

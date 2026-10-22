@@ -42,6 +42,18 @@ describe("GroveCdnStack security properties", () => {
     });
   });
 
+  it("enables access logging on the CDN assets bucket (CKV_AWS_18)", () => {
+    const template = synthTemplate();
+
+    template.hasResourceProperties("AWS::S3::Bucket", {
+      BucketName: "grove-cdn-assets",
+      LoggingConfiguration: Match.objectLike({
+        DestinationBucketName: Match.anyValue(),
+        LogFilePrefix: "asset-access-logs/",
+      }),
+    });
+  });
+
   it("versions the CloudFront access-log bucket (CKV_AWS_21)", () => {
     const template = synthTemplate();
 
