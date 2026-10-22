@@ -8,6 +8,6 @@ const TEST_CASES = [
 ];
 
 runVisualSuite({
-  suiteName: "NJ Divider",
+  suiteName: "Divider",
   cases: TEST_CASES,
 });

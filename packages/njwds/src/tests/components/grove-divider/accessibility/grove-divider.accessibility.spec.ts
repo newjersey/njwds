@@ -8,7 +8,7 @@ const TEST_CASES = [
 ];
 
 runA11ySuite({
-  suiteName: "NJ Divider",
-  include: "nj-divider",
+  suiteName: "Divider",
+  include: "grove-divider",
   cases: TEST_CASES,
 });

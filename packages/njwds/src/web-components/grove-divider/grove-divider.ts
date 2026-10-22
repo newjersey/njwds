@@ -1,9 +1,9 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
-import sheet from "../../sass/web-components/nj-divider.scss?inline";
+import sheet from "../../sass/web-components/grove-divider.scss?inline";
 
-@customElement("nj-divider")
-export class NjDivider extends LitElement {
+@customElement("grove-divider")
+export class GroveDivider extends LitElement {
   static styles = [unsafeCSS(sheet)];
 
   render() {
@@ -13,6 +13,6 @@ export class NjDivider extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "nj-divider": NjDivider;
+    "grove-divider": GroveDivider;
   }
 }
