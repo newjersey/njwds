@@ -2,7 +2,7 @@ name: Code Checks
 
 on:
   pull_request:
-    branches: ["main", "feat/**"]
+    branches: ["main", "feat/**", "feature/**"]
   push:
     branches: ["main"]
 
