@@ -42,6 +42,15 @@ describe("GroveCdnStack security properties", () => {
     });
   });
 
+  it("versions the CloudFront access-log bucket (CKV_AWS_21)", () => {
+    const template = synthTemplate();
+
+    template.hasResourceProperties("AWS::S3::Bucket", {
+      BucketName: "grove-cdn-logs",
+      VersioningConfiguration: { Status: "Enabled" },
+    });
+  });
+
   it("restricts the GitHub Actions IAM role to v*-tag releases only", () => {
     const template = synthTemplate();
 

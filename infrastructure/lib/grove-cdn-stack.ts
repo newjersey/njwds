@@ -53,6 +53,7 @@ export class GroveCdnStack extends cdk.Stack {
     if (enableLogging) {
       logBucket = new s3.Bucket(this, "GroveCdnLogBucket", {
         bucketName: "grove-cdn-logs",
+        versioned: true, // checkov CKV_AWS_21: Ensure S3 bucket has versioning enabled
         encryption: s3.BucketEncryption.S3_MANAGED,
         blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
         objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_PREFERRED,
