@@ -24,12 +24,41 @@ export class GroveCdnStack extends cdk.Stack {
 
     const enableLogging = props.enableLogging ?? true;
 
+    // S3 Bucket for CloudFront access logs (if enabled)
+    let logBucket: s3.Bucket | undefined;
+    if (enableLogging) {
+      logBucket = new s3.Bucket(this, "GroveCdnLogBucket", {
+        bucketName: "grove-cdn-logs",
+        versioned: true, // checkov CKV_AWS_21: Ensure S3 bucket has versioning enabled
+        encryption: s3.BucketEncryption.S3_MANAGED,
+        blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+        objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_PREFERRED,
+        lifecycleRules: [
+          {
+            id: "DeleteOldLogs",
+            enabled: true,
+            expiration: cdk.Duration.days(90),
+          },
+        ],
+        removalPolicy: cdk.RemovalPolicy.RETAIN,
+      });
+
+      // checkov CKV_AWS_18: this bucket IS the CloudFront access-log destination;
+      // giving it its own server access logs would just be logs of logs.
+      (logBucket.node.defaultChild as s3.CfnBucket).cfnOptions.metadata = {
+        checkov: { skip: [{ id: "CKV_AWS_18" }] },
+      };
+    }
+
     // S3 Bucket for CDN assets
     this.bucket = new s3.Bucket(this, "GroveCdnBucket", {
       bucketName: "grove-cdn-assets",
       versioned: true,
       encryption: s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      // checkov CKV_AWS_18: Ensure S3 bucket has access logging enabled
+      serverAccessLogsBucket: logBucket,
+      serverAccessLogsPrefix: "asset-access-logs/",
       cors: [
         {
           allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
@@ -47,25 +76,6 @@ export class GroveCdnStack extends cdk.Stack {
       ],
       removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
     });
-
-    // S3 Bucket for CloudFront access logs (if enabled)
-    let logBucket: s3.Bucket | undefined;
-    if (enableLogging) {
-      logBucket = new s3.Bucket(this, "GroveCdnLogBucket", {
-        bucketName: "grove-cdn-logs",
-        encryption: s3.BucketEncryption.S3_MANAGED,
-        blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-        objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_PREFERRED,
-        lifecycleRules: [
-          {
-            id: "DeleteOldLogs",
-            enabled: true,
-            expiration: cdk.Duration.days(90),
-          },
-        ],
-        removalPolicy: cdk.RemovalPolicy.RETAIN,
-      });
-    }
 
     // CloudFront Origin Access Identity
     const oai = new cloudfront.OriginAccessIdentity(this, "GroveCdnOai", {
