@@ -59,6 +59,7 @@
   "files": [
     "dist",
     "src",
+    "index.js",
     "package.json",
     ".browserslistrc"
   ]

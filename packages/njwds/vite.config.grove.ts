@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readdirSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
 import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root";
+import { listWebComponentNames } from "./build-scripts/web-components";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,12 +15,10 @@ const uswdsPackagesDir = path.join(resolveUswdsRoot(import.meta.url), "packages"
 const webComponentsDir = path.resolve(__dirname, "src/web-components");
 
 const webComponentEntries = Object.fromEntries(
-  readdirSync(webComponentsDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => [
-      `web-components/${entry.name}/${entry.name}`,
-      path.join(webComponentsDir, entry.name, `${entry.name}.ts`),
-    ]),
+  listWebComponentNames(webComponentsDir).map((name) => [
+    `web-components/${name}/${name}`,
+    path.join(webComponentsDir, name, `${name}.ts`),
+  ]),
 );
 
 /**
@@ -85,6 +83,8 @@ export default defineConfig({
       },
 
       external: (id) => id === "lit" || id.startsWith("lit/"),
+
+      preserveEntrySignatures: "strict",
 
       output: {
         entryFileNames: (chunk) => (chunk.name === "styles" ? "js/[name].js" : "[name].js"),
