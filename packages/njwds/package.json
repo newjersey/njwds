@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "**/web-components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.8.0",
@@ -58,6 +59,7 @@
   "files": [
     "dist",
     "src",
+    "index.js",
     "package.json",
     ".browserslistrc"
   ]
