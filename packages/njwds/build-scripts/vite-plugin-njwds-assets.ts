@@ -130,9 +130,9 @@ export function njwdsAssetsPlugin(): Plugin {
      * to be replaced with "based on uswds v{actual-version-number}" in the
      * final CSS output. This provides version tracking in the compiled CSS.
      *
-     * It also generates the package entry point (index.js), re-exporting each
-     * web component from its built dist/ output. This runs independently of
-     * CSS version replacement so a missing styles.css doesn't skip it.
+     * For web components, it generates the package entry point (index.js),
+     * re-exporting each web component from its built dist/ output. This runs
+     * independently of CSS version replacement.
      */
     writeBundle() {
       // Read USWDS version from its package.json
