@@ -206,8 +206,9 @@ export function njwdsAssetsPlugin(): Plugin {
             .map((name) => `export * from "./dist/web-components/${name}/${name}.js";`)
             .join("\n") + "\n";
         writeFileSync(resolve(projectRoot, "index.js"), indexContent, "utf-8");
+        writeFileSync(resolve(projectRoot, "index.d.ts"), indexContent, "utf-8");
         console.log(
-          `[njwds-assets] Generated index.js with ${webComponentNames.length} web component export(s)`,
+          `[njwds-assets] Generated index.js/index.d.ts with ${webComponentNames.length} web component export(s)`,
         );
       } catch (error) {
         throw new Error(

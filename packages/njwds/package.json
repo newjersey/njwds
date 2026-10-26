@@ -4,6 +4,17 @@
   "description": "NJ Web Design Standards",
   "main": "index.js",
   "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./*": {
+      "types": "./dist/web-components/*/*.d.ts",
+      "default": "./dist/web-components/*/*.js"
+    }
+  },
   "scripts": {
     "prepare": "npm run grove:build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
@@ -60,6 +71,7 @@
     "dist",
     "src",
     "index.js",
+    "index.d.ts",
     "package.json",
     ".browserslistrc"
   ]
