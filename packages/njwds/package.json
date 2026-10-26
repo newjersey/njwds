@@ -24,7 +24,8 @@
     "test:accessibility": "playwright test --project=accessibility",
     "test:visual:update": "playwright test --project=visual --update-snapshots=all",
     "grove:dev": "vite build --config vite.config.grove.ts --watch",
-    "grove:build": "vite build --config vite.config.grove.ts",
+    "grove:build": "vite build --config vite.config.grove.ts && npm run grove:build:types",
+    "grove:build:types": "tsc -p tsconfig.components.json",
     "preview": "npx serve storybook-static",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
