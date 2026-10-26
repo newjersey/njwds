@@ -4,9 +4,9 @@ import sheet from "../../sass/web-components/grove-divider.scss?inline";
 
 @customElement("grove-divider")
 export class GroveDivider extends LitElement {
-  static styles = [unsafeCSS(sheet)];
+  static override styles = [unsafeCSS(sheet)];
 
-  render() {
+  override render() {
     return html`<hr />`;
   }
 }
@@ -14,5 +14,16 @@ export class GroveDivider extends LitElement {
 declare global {
   interface HTMLElementTagNameMap {
     "grove-divider": GroveDivider;
+  }
+}
+
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "grove-divider": import("react").DetailedHTMLProps<
+        import("react").HTMLAttributes<GroveDivider>,
+        GroveDivider
+      >;
+    }
   }
 }

@@ -49,6 +49,14 @@
     "@uswds/uswds": "3.14.0",
     "lit": "^3.3.2"
   },
+  "peerDependencies": {
+    "@types/react": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.64.1",
@@ -56,6 +64,7 @@
     "@storybook/addon-docs": "^10.6.3",
     "@storybook/addon-vitest": "^10.6.3",
     "@storybook/web-components-vite": "^10.6.3",
+    "@types/react": "^19.3.0",
     "@vitest/browser": "^5.0.3",
     "@vitest/browser-playwright": "^5.0.3",
     "@vitest/coverage-v8": "^5.0.3",
