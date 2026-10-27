@@ -1,33 +1,30 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
-import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
-import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
+import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
+import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root";
+import { listWebComponentNames } from "./build-scripts/web-components";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Locate @uswds/uswds via Node's node_modules search order rather than a
-// fixed relative depth, since npm workspaces hoists it to the repo-root
-// node_modules. Uses resolve.paths (not require.resolve("@uswds/uswds/package.json"))
-// because @uswds/uswds's "exports" map doesn't expose "./package.json" as a subpath.
-const require = createRequire(import.meta.url);
-const uswdsSearchPaths = require.resolve.paths("@uswds/uswds") ?? [];
-const uswdsRoot = uswdsSearchPaths
-  .map((searchPath) => path.join(searchPath, "@uswds/uswds"))
-  .find((candidate) => existsSync(candidate));
-if (!uswdsRoot) {
-  throw new Error("Could not locate @uswds/uswds in any node_modules directory");
-}
-const uswdsPackagesDir = path.join(uswdsRoot, "packages");
+const uswdsPackagesDir = path.join(resolveUswdsRoot(import.meta.url), "packages");
+
+const webComponentsDir = path.resolve(__dirname, "src/web-components");
+
+const webComponentEntries = Object.fromEntries(
+  listWebComponentNames(webComponentsDir).map((name) => [
+    `web-components/${name}/${name}`,
+    path.join(webComponentsDir, name, `${name}.ts`),
+  ]),
+);
 
 /**
- * Vite configuration for Grove CSS build
+ * Vite configuration for the Grove CSS and web component bundles
  *
- * This configuration is used specifically for building the Grove CSS bundle.
+ * This configuration is used specifically for building the Grove npm package assets.
  * It is separate from vite.config.ts which is used for Storybook development.
  *
  * Uses standard build mode (not library mode) to ensure proper CSS sourcemap generation.
@@ -37,7 +34,7 @@ const uswdsPackagesDir = path.join(uswdsRoot, "packages");
  * 2. Vite compiles SASS with include paths for USWDS imports
  * 3. PostCSS applies autoprefixer and csso (configured in postcss.config.js)
  * 4. Custom plugin replaces version strings (writeBundle hook)
- * 5. CSS and sourcemap written to dist/css/
+ * 5. CSS and sourcemap written to dist/css/, each web component written to dist/web-components/
  */
 export default defineConfig({
   // Custom logger to suppress asset resolution warnings
@@ -82,10 +79,15 @@ export default defineConfig({
       input: {
         // JS entry that imports SASS (enables CSS extraction with sourcemaps)
         styles: path.resolve(__dirname, "src/sass/styles.entry.js"),
+        ...webComponentEntries,
       },
+
+      external: (id) => id === "lit" || id.startsWith("lit/"),
+
+      preserveEntrySignatures: "strict",
+
       output: {
-        // Suppress JS output (we only want CSS)
-        entryFileNames: "js/[name].js",
+        entryFileNames: (chunk) => (chunk.name === "styles" ? "js/[name].js" : "[name].js"),
         chunkFileNames: "js/[name].js",
 
         // Control asset file naming (CSS files go to css/ subdirectory)
