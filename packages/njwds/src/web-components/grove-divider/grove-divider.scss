@@ -1,6 +1,6 @@
 @use "uswds-theme";
 @use "uswds-core" as *;
-@forward "web-styles";
+@forward "../web-styles";
 
 hr {
   border: 0;
