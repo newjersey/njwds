@@ -4,6 +4,17 @@
   "description": "NJ Web Design Standards",
   "main": "index.js",
   "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./*": {
+      "types": "./dist/web-components/*/*.d.ts",
+      "default": "./dist/web-components/*/*.js"
+    }
+  },
   "scripts": {
     "prepare": "npm run grove:build",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
@@ -13,7 +24,8 @@
     "test:accessibility": "playwright test --project=accessibility",
     "test:visual:update": "playwright test --project=visual --update-snapshots=all",
     "grove:dev": "vite build --config vite.config.grove.ts --watch",
-    "grove:build": "vite build --config vite.config.grove.ts",
+    "grove:build": "vite build --config vite.config.grove.ts && npm run grove:build:types",
+    "grove:build:types": "tsc -p tsconfig.components.json",
     "preview": "npx serve storybook-static",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -30,12 +42,20 @@
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
     "**/*.css",
-    "./src/web-components/**"
+    "**/web-components/**"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.8.0",
     "@uswds/uswds": "3.14.0",
     "lit": "^3.3.2"
+  },
+  "peerDependencies": {
+    "@types/react": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
@@ -44,6 +64,7 @@
     "@storybook/addon-docs": "^10.6.3",
     "@storybook/addon-vitest": "^10.6.3",
     "@storybook/web-components-vite": "^10.6.3",
+    "@types/react": "^19.3.0",
     "@vitest/browser": "^5.0.3",
     "@vitest/browser-playwright": "^5.0.3",
     "@vitest/coverage-v8": "^5.0.3",
@@ -59,6 +80,8 @@
   "files": [
     "dist",
     "src",
+    "index.js",
+    "index.d.ts",
     "package.json",
     ".browserslistrc"
   ]
