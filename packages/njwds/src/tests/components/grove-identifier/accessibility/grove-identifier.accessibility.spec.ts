@@ -1,4 +1,4 @@
-import { runVisualSuite } from "../../../../utils/runVisualSuite";
+import { runA11ySuite } from "../../../../utils/runA11ySuite";
 
 const TEST_CASES = [
   {
@@ -27,7 +27,8 @@ const TEST_CASES = [
   },
 ];
 
-runVisualSuite({
-  suiteName: "NJ Identifier",
+runA11ySuite({
+  suiteName: "Identifier",
+  include: "grove-identifier",
   cases: TEST_CASES,
 });

@@ -1,7 +1,10 @@
 import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import sheet from "../../sass/web-components/nj-identifier.scss?inline";
-import { resolveIdentifierContent, type IdentifierContentOverrides } from "./nj-identifier.content";
+import sheet from "./grove-identifier.scss?inline";
+import {
+  resolveIdentifierContent,
+  type IdentifierContentOverrides,
+} from "./grove-identifier.content";
 import njLogo from "../../img/nj-logo-gray-20.png";
 
 export interface LogoInfo {
@@ -10,8 +13,8 @@ export interface LogoInfo {
   alt?: string;
 }
 
-@customElement("nj-identifier")
-export class NjIdentifier extends LitElement {
+@customElement("grove-identifier")
+export class GroveIdentifier extends LitElement {
   static styles = [unsafeCSS(sheet)];
 
   @property({ attribute: "content", type: Object }) content?: IdentifierContentOverrides;
@@ -105,6 +108,17 @@ export class NjIdentifier extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "nj-identifier": NjIdentifier;
+    "grove-identifier": GroveIdentifier;
+  }
+}
+
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "grove-identifier": import("react").DetailedHTMLProps<
+        import("react").HTMLAttributes<GroveIdentifier>,
+        GroveIdentifier
+      >;
+    }
   }
 }

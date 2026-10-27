@@ -1,4 +1,4 @@
-import { runA11ySuite } from "../../../../utils/runA11ySuite";
+import { runVisualSuite } from "../../../../utils/runVisualSuite";
 
 const TEST_CASES = [
   {
@@ -27,8 +27,7 @@ const TEST_CASES = [
   },
 ];
 
-runA11ySuite({
-  suiteName: "NJ Identifier",
-  include: "nj-identifier",
+runVisualSuite({
+  suiteName: "Identifier",
   cases: TEST_CASES,
 });

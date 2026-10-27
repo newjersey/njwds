@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import "../../../web-components/nj-identifier/nj-identifier";
-import { defaultIdentifierLinks } from "../../../web-components/nj-identifier/nj-identifier.content";
-import type { IdentifierContentOverrides } from "../../../web-components/nj-identifier/nj-identifier.content";
+import "../../../web-components/grove-identifier/grove-identifier";
+import { defaultIdentifierLinks } from "../../../web-components/grove-identifier/grove-identifier.content";
+import type { IdentifierContentOverrides } from "../../../web-components/grove-identifier/grove-identifier.content";
 import circleGrayIcon from "../../../img/circle-gray-20.svg";
 
 type AdditionalLogosOption = "none" | "agency-logo";
@@ -60,12 +60,12 @@ const meta = {
   title: "Components/Identifier (Web Component)",
   tags: ["autodocs"],
   render: (args) => html`
-    <nj-identifier
+    <grove-identifier
       .content=${args.content}
       ?hide-logo=${args.hideLogo}
       .additionalLogos=${ADDITIONAL_LOGOS_OPTIONS[args.additionalLogos]}
       ?taxpayer-disclaimer=${args.taxpayerDisclaimer}
-    ></nj-identifier>
+    ></grove-identifier>
   `,
   parameters: {
     docs: {
@@ -82,7 +82,7 @@ const meta = {
             .filter(Boolean)
             .join(" ");
 
-          return `<nj-identifier ${attrs}></nj-identifier>`;
+          return `<grove-identifier ${attrs}></grove-identifier>`;
         },
       },
     },
