@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import "../../../web-components/grove-divider/grove-divider";
+import "../../../web-components/nj-divider/nj-divider";
 
 const meta = {
   title: "Components/Divider (Web Component)",
   tags: ["autodocs"],
-  render: () => html`<grove-divider></grove-divider>`,
+  render: () => html`<nj-divider></nj-divider>`,
 } satisfies Meta;
 
 export default meta;

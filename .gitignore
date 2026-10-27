@@ -85,8 +85,6 @@ typings/
 /dist
 packages/*/dist
 packages/*/build
-packages/njwds/index.js
-packages/njwds/index.d.ts
 
 # Gatsby files
 .cache/
