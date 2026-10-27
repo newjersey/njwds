@@ -1,0 +1,9 @@
+@use "uswds-theme";
+@use "uswds-core" as *;
+@forward "../web-styles";
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--grove-divider-color, #{color("base")});
+  margin-block: units(2);
+}
