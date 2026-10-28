@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "npm run grove:build",
+    "pregrove:build": "npm run tokens:build -w @newjersey/tokens",
     "import-components": "cp -nr node_modules/uswds/src/components ./src/",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

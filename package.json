@@ -13,7 +13,6 @@
     "grove:dev": "npm run grove:dev -w packages/njwds",
     "pregrove:dev": "npm run tokens:build --prefix packages/tokens",
     "grove:build": "npm run grove:build -w packages/njwds",
-    "pregrove:build": "npm run tokens:build --prefix packages/tokens",
     "storybook": "npm run storybook -w packages/njwds",
     "storybook:build": "npm run storybook:build -w packages/njwds",
     "prestorybook:build": "npm run tokens:build --prefix packages/tokens",
