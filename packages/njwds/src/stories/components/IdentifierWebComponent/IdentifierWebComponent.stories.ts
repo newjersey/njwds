@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import "../../../web-components/grove-identifier/grove-identifier";
-import { defaultIdentifierLinks } from "../../../web-components/grove-identifier/grove-identifier.content";
-import type { IdentifierContentOverrides } from "../../../web-components/grove-identifier/grove-identifier.content";
+import "../../../web-components/grove-identifier";
+import { defaultIdentifierLinks } from "../../../web-components/grove-identifier";
+import type { IdentifierContentOverrides } from "../../../web-components/grove-identifier";
 import circleGrayIcon from "../../../img/circle-gray-20.svg";
 
 type AdditionalLogosOption = "none" | "agency-logo";

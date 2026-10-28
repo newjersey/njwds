@@ -1,4 +1,10 @@
-export { GroveIdentifier } from "./grove-identifier";
+import { GroveIdentifier } from "./grove-identifier";
+
+if (!customElements.get("grove-identifier")) {
+  customElements.define("grove-identifier", GroveIdentifier);
+}
+
+export { GroveIdentifier };
 export { defaultIdentifierLinks } from "./grove-identifier.content";
 export type {
   IdentifierContent,

@@ -1,5 +1,5 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import sheet from "./grove-identifier.scss?inline";
 import {
   resolveIdentifierContent,
@@ -13,7 +13,6 @@ export interface LogoInfo {
   alt?: string;
 }
 
-@customElement("grove-identifier")
 export class GroveIdentifier extends LitElement {
   static styles = [unsafeCSS(sheet)];
 
