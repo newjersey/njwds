@@ -15,9 +15,9 @@ const uswdsPackagesDir = path.join(resolveUswdsRoot(import.meta.url), "packages"
 const webComponentsDir = path.resolve(__dirname, "src/web-components");
 
 const webComponentEntries = Object.fromEntries(
-  listWebComponentNames(webComponentsDir).map((name) => [
-    `web-components/${name}/${name}`,
-    path.join(webComponentsDir, name, `${name}.ts`),
+  listWebComponentNames(webComponentsDir).flatMap((name) => [
+    [`web-components/${name}/${name}`, path.join(webComponentsDir, name, `${name}.ts`)],
+    [`web-components/${name}/index`, path.join(webComponentsDir, name, "index.ts")],
   ]),
 );
 

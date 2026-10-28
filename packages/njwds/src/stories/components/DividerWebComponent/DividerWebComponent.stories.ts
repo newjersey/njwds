@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
-import "../../../web-components/grove-divider/grove-divider";
+import "../../../web-components/grove-divider";
 
 const meta = {
   title: "Components/Divider (Web Component)",
