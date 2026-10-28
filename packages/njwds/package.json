@@ -11,8 +11,8 @@
       "default": "./index.js"
     },
     "./*": {
-      "types": "./dist/web-components/*/*.d.ts",
-      "default": "./dist/web-components/*/*.js"
+      "types": "./dist/web-components/*/index.d.ts",
+      "default": "./dist/web-components/*/index.js"
     }
   },
   "scripts": {
@@ -42,7 +42,8 @@
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
     "**/*.css",
-    "**/web-components/**"
+    "**/web-components/**/index.js",
+    "**/web-components/**/index.ts"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.8.0",
