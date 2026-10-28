@@ -12,7 +12,7 @@ npm install @newjersey/tokens --save
 
 ## Usage
 
-Each token category is available as a standalone file, and every format also ships a combined file with every token in the system. Right now the only category is `typography`, containing font family, font size, and line height tokens.
+Each token category is available as a standalone file, and every format also ships a combined file with every token in the system. The categories today are `typography` (font family, font size, font weight, line height, and measure), `color`, and `breakpoint` — see [Breakpoints](#breakpoints) below for a caveat on that category.
 
 ### CSS
 
@@ -70,6 +70,22 @@ import typography from "@newjersey/tokens/json/typography.json";
 
 typography["font-size"].md; // "1.13rem"
 ```
+
+### Breakpoints
+
+The `breakpoint` category mirrors USWDS's standard breakpoint scale, so consumers
+using these tokens outside of Grove's own Sass/USWDS pipeline have one place to
+find the same values — for a `postcss-custom-media` config, another build tool's
+breakpoint config, or JS reading the custom property at runtime via
+`getComputedStyle`.
+
+They are **not** meant to drive `@media` queries directly: CSS custom properties
+can't appear in a media feature condition (`@media (min-width: var(--grove-breakpoint-tablet))`
+is invalid CSS by spec, not by browser support). Inside `@newjersey/njwds` itself,
+components use USWDS's own `at-media()` Sass mixin for breakpoint-dependent styling,
+since USWDS's grid and responsive utility classes are built against its own internal
+breakpoint scale and aren't swappable — these tokens happen to match that scale today,
+but aren't the mechanism njwds relies on internally.
 
 ## Development
 

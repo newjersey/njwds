@@ -1,0 +1,12 @@
+/*
+Naming convention for CSS custom properties is:
+--grove-<component>-<role>
+*/
+
+:root,
+:host {
+  --grove-table-font-size: var(--grove-font-size-sm);
+  --grove-table-line-height: var(--grove-line-height-5);
+  --grove-table-caption-font-size: var(--grove-font-size-4);
+  --grove-table-caption-weight: var(--grove-font-weight-bold);
+}
