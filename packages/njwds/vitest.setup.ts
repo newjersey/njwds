@@ -1,2 +1,5 @@
-// Vitest setup file
-// Add any global test setup here if needed
+declare global {
+  var IS_REACT_ACT_ENVIRONMENT: boolean;
+}
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
