@@ -17,7 +17,7 @@ Naming convention for CSS custom properties is:
   --grove-prose-h4: var(--grove-font-size-sm);
   --grove-prose-h5: var(--grove-font-size-xs);
   --grove-prose-h6: var(--grove-font-size-3xs);
-  --grove-prose-body-font-size: var(--grove-font-size-sm);
+  --grove-prose-body-font-size: var(--grove-font-size-body);
 }
 
 @include at-media("tablet") {
