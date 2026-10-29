@@ -58,6 +58,7 @@ export default defineConfig([
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
+      "@typescript-eslint/no-namespace": ["error", { allowDeclarations: true }],
 
       /* Web Component Best Practices (plugin:wc) */
       "wc/no-constructor-attributes": "error",

@@ -1,9 +1,10 @@
 /**
  * Custom Vite plugin for NJWDS asset management
  *
- * This plugin handles two critical tasks in the NJWDS build pipeline:
+ * This plugin handles three critical tasks in the NJWDS build pipeline:
  * 1. Copying static assets from USWDS and local sources to dist/
  * 2. Replacing version strings in compiled CSS output
+ * 3. Generating index.js, re-exporting each web component from dist/
  *
  * The plugin implements two Vite build hooks:
  * - buildStart: Runs before compilation, copies all static assets
@@ -17,8 +18,9 @@
 import { cpSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
 import type { Plugin } from "vite";
+import { resolveUswdsRoot } from "./resolve-uswds-root";
+import { listWebComponentNames } from "./web-components";
 
 // Resolve __dirname in ESM
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -43,18 +45,7 @@ interface AssetCopyConfig {
 export function njwdsAssetsPlugin(): Plugin {
   // Resolve paths relative to project root
   const projectRoot = resolve(__dirname, "..");
-  // Locate @uswds/uswds via Node's node_modules search order rather than a
-  // fixed relative depth, since npm workspaces hoists it to the repo-root
-  // node_modules. Uses resolve.paths (not require.resolve("@uswds/uswds/package.json"))
-  // because @uswds/uswds's "exports" map doesn't expose "./package.json" as a subpath.
-  const require = createRequire(import.meta.url);
-  const uswdsSearchPaths = require.resolve.paths("@uswds/uswds") ?? [];
-  const uswdsRoot = uswdsSearchPaths
-    .map((searchPath) => resolve(searchPath, "@uswds/uswds"))
-    .find((candidate) => existsSync(candidate));
-  if (!uswdsRoot) {
-    throw new Error("Could not locate @uswds/uswds in any node_modules directory");
-  }
+  const uswdsRoot = resolveUswdsRoot(import.meta.url);
   const distRoot = resolve(projectRoot, "dist");
 
   /**
@@ -128,7 +119,7 @@ export function njwdsAssetsPlugin(): Plugin {
     },
 
     /**
-     * writeBundle hook - Replaces version string in CSS output
+     * writeBundle hook - Replaces version string in CSS output and generates index.js
      *
      * This hook runs AFTER the bundle is written to disk, which is necessary
      * because Vite's library mode extracts CSS to a separate file outside the
@@ -138,6 +129,10 @@ export function njwdsAssetsPlugin(): Plugin {
      * The USWDS SASS source contains the string "uswds @version" which needs
      * to be replaced with "based on uswds v{actual-version-number}" in the
      * final CSS output. This provides version tracking in the compiled CSS.
+     *
+     * For web components, it generates the package entry point (index.js),
+     * re-exporting each web component from its built dist/ output. This runs
+     * independently of CSS version replacement.
      */
     writeBundle() {
       // Read USWDS version from its package.json
@@ -171,26 +166,53 @@ export function njwdsAssetsPlugin(): Plugin {
 
       if (!existsSync(cssOutputPath)) {
         console.log("[njwds-assets] Warning: styles.css not found, skipping version replacement");
-        return;
+      } else {
+        try {
+          const cssContent = readFileSync(cssOutputPath, "utf-8");
+
+          if (cssContent.includes("uswds @version")) {
+            const updatedCss = cssContent.replace(
+              /\buswds @version\b/g,
+              `based on uswds v${uswdsVersion}`,
+            );
+
+            writeFileSync(cssOutputPath, updatedCss, "utf-8");
+            console.log(`[njwds-assets] Replaced version string in styles.css`);
+          } else {
+            console.log("[njwds-assets] Version marker not found in styles.css");
+          }
+        } catch (error) {
+          throw new Error(
+            `[njwds-assets] Failed to replace version string:\n${error instanceof Error ? error.message : String(error)}`,
+          );
+        }
+      }
+
+      // Generate the package entry point, re-exporting each web component
+      // from its built dist/ output so `import { X } from "@newjersey/njwds"` works
+      const webComponentsDir = resolve(projectRoot, "src/web-components");
+
+      if (!existsSync(webComponentsDir)) {
+        throw new Error(
+          `[njwds-assets] Cannot find web components source directory at: ${webComponentsDir}\n` +
+            `This is required to generate index.js re-exports for the package entry point.`,
+        );
       }
 
       try {
-        const cssContent = readFileSync(cssOutputPath, "utf-8");
-
-        if (cssContent.includes("uswds @version")) {
-          const updatedCss = cssContent.replace(
-            /\buswds @version\b/g,
-            `based on uswds v${uswdsVersion}`,
-          );
-
-          writeFileSync(cssOutputPath, updatedCss, "utf-8");
-          console.log(`[njwds-assets] Replaced version string in styles.css`);
-        } else {
-          console.log("[njwds-assets] Version marker not found in styles.css");
-        }
+        const webComponentNames = listWebComponentNames(webComponentsDir);
+        const indexContent =
+          webComponentNames
+            .map((name) => `export * from "./dist/web-components/${name}/${name}.js";`)
+            .join("\n") + "\n";
+        writeFileSync(resolve(projectRoot, "index.js"), indexContent, "utf-8");
+        writeFileSync(resolve(projectRoot, "index.d.ts"), indexContent, "utf-8");
+        console.log(
+          `[njwds-assets] Generated index.js/index.d.ts with ${webComponentNames.length} web component export(s)`,
+        );
       } catch (error) {
         throw new Error(
-          `[njwds-assets] Failed to replace version string:\n${error instanceof Error ? error.message : String(error)}`,
+          `[njwds-assets] Failed to generate index.js:\n${error instanceof Error ? error.message : String(error)}`,
         );
       }
     },
