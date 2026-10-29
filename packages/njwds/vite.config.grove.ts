@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
@@ -20,6 +21,20 @@ const webComponentEntries = Object.fromEntries(
     [`web-components/${name}/index`, path.join(webComponentsDir, name, "index.ts")],
   ]),
 );
+
+const EXTERNAL_PACKAGES = ["lit", "react", "react-dom", "@lit/react"];
+
+const reactDir = path.resolve(__dirname, "src/react");
+
+const reactEntries = existsSync(reactDir)
+  ? Object.fromEntries([
+      ["react/index", path.join(reactDir, "index.ts")],
+      ...listWebComponentNames(reactDir).map((name) => [
+        `react/${name}/index`,
+        path.join(reactDir, name, "index.ts"),
+      ]),
+    ])
+  : {};
 
 /**
  * Vite configuration for the Grove CSS and web component bundles
@@ -80,9 +95,10 @@ export default defineConfig({
         // JS entry that imports SASS (enables CSS extraction with sourcemaps)
         styles: path.resolve(__dirname, "src/sass/styles.entry.js"),
         ...webComponentEntries,
+        ...reactEntries,
       },
 
-      external: (id) => id === "lit" || id.startsWith("lit/"),
+      external: (id) => EXTERNAL_PACKAGES.some((pkg) => id === pkg || id.startsWith(`${pkg}/`)),
 
       preserveEntrySignatures: "strict",
 

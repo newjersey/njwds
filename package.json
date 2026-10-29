@@ -12,6 +12,8 @@
     "lint": "eslint",
     "grove:dev": "npm run grove:dev -w packages/njwds",
     "grove:build": "npm run grove:build -w packages/njwds",
+    "react:generate": "npm run react:generate -w packages/njwds",
+    "react:build": "npm run react:build -w packages/njwds",
     "storybook": "npm run storybook -w packages/njwds",
     "storybook:build": "npm run storybook:build -w packages/njwds",
     "tokens:build": "npm run tokens:build -w packages/tokens",
