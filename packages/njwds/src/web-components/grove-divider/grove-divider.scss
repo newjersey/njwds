@@ -5,8 +5,10 @@
 hr {
   border: 0;
   border-top: 1px solid var(--grove-divider-color, #{color("base")});
-  margin: units(3) units(2.5);
+  margin-block: var(--grove-divider-margin-block-mobile, #{units(3)});
+  margin-inline: var(--grove-divider-margin-inline-mobile, #{units(2.5)});
   @include at-media("tablet") {
-    margin: units(6) units(15);
+    margin-block: var(--grove-divider-margin-block-desktop, #{units(6)});
+    margin-inline: var(--grove-divider-margin-inline-desktop, #{units(15)});
   }
 }
