@@ -18,10 +18,11 @@ export default {
           format: "css/variables",
           options: cssOptions,
         },
-        ...outputs.map(({ name, filter }) => ({
+        ...outputs.map(({ name, filter, outputReferences }) => ({
           destination: `${name}.css`,
           format: "css/variables",
-          options: cssOptions,
+          options:
+            outputReferences === false ? { ...cssOptions, outputReferences: false } : cssOptions,
           filter,
         })),
       ],
@@ -36,10 +37,11 @@ export default {
           format: "scss/variables",
           options: scssOptions,
         },
-        ...outputs.map(({ name, filter }) => ({
+        ...outputs.map(({ name, filter, outputReferences }) => ({
           destination: `_${name}.scss`,
           format: "scss/variables",
-          options: scssOptions,
+          options:
+            outputReferences === false ? { ...scssOptions, outputReferences: false } : scssOptions,
           filter,
         })),
       ],
