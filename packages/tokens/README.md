@@ -12,7 +12,7 @@ npm install @newjersey/tokens --save
 
 ## Usage
 
-Each token category is available as a standalone file, and every format also ships a combined file with every token in the system. The categories today are `typography` (font family, font size, font weight, line height, and measure), `color`, and `breakpoint` — see [Breakpoints](#breakpoints) below for a caveat on that category.
+Each token category is available as a standalone file, and every format also ships a combined file with every token in the system. The categories today are `typography` (font family, font size, font weight, line height, and measure), `color`, `unit` (a shared rem scale used by `breakpoint` and `layout`), `breakpoint` — see [Breakpoints](#breakpoints) below for a caveat on that category — and `layout` (container sizes and min/max widths).
 
 ### CSS
 

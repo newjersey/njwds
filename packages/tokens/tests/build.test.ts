@@ -34,6 +34,7 @@ describe("CSS output", () => {
     expect(css).toContain(`--${prefix}-font-size-6: 1.0625rem;`);
     expect(css).toContain(`--${prefix}-line-height-3: 1.35;`);
     expect(css).toContain(`--${prefix}-color-black: #000000;`);
+    expect(css).toContain(`--${prefix}-unit-desktop: 64rem;`);
   });
 
   it("resolves semantic aliases to their referenced primitive", () => {
@@ -46,6 +47,21 @@ describe("CSS output", () => {
     const css = readBuildFile("css/tokens.css");
 
     expect(css).toContain(`--${prefix}-font-weight-normal: var(--${prefix}-font-weight-regular);`);
+  });
+
+  it("resolves layout tokens to their referenced container tokens", () => {
+    const css = readBuildFile("css/tokens.css");
+
+    expect(css).toContain(
+      `--${prefix}-max-width-in-container: var(--${prefix}-container-width-desktop);`,
+    );
+  });
+
+  it("keeps per-category files self-contained when they alias another category", () => {
+    const breakpoints = readBuildFile("css/breakpoints.css");
+
+    expect(breakpoints).toContain(`--${prefix}-breakpoint-desktop: 64rem;`);
+    expect(breakpoints).not.toContain("var(");
   });
 });
 

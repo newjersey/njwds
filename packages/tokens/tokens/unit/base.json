@@ -1,0 +1,17 @@
+{
+  "unit": {
+    "$type": "dimension",
+    "205": { "$value": { "value": "1.25", "unit": "rem" } },
+    "5": { "$value": { "value": "2.5", "unit": "rem" } },
+    "10": { "$value": { "value": "5", "unit": "rem" } },
+    "card": { "$value": { "value": "10", "unit": "rem" } },
+    "card-lg": { "$value": { "value": "15", "unit": "rem" } },
+    "mobile": { "$value": { "value": "20", "unit": "rem" } },
+    "mobile-lg": { "$value": { "value": "30", "unit": "rem" } },
+    "tablet": { "$value": { "value": "40", "unit": "rem" } },
+    "tablet-lg": { "$value": { "value": "55", "unit": "rem" } },
+    "desktop": { "$value": { "value": "64", "unit": "rem" } },
+    "desktop-lg": { "$value": { "value": "75", "unit": "rem" } },
+    "widescreen": { "$value": { "value": "87.5", "unit": "rem" } }
+  }
+}

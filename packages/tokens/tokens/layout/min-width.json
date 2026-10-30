@@ -1,0 +1,10 @@
+{
+  "min-width": {
+    "$type": "dimension",
+    "full-screen": { "$value": "{container.device-size.mobile}" },
+    "in-container": { "$value": "{container.width.mobile}" },
+    "content-container": { "$value": "{container.width.mobile}" },
+    "content": { "$value": "{container.width.mobile}" },
+    "form-input": { "$value": "{unit.card}" }
+  }
+}
