@@ -1,0 +1,9 @@
+@use "uswds-core" as *;
+
+// ref: documents/decisions/general.md#Component-Styling-Ownership
+
+.usa-list,
+.usa-prose > ol,
+.usa-prose > ul {
+  line-height: var(--grove-list-line-height);
+}

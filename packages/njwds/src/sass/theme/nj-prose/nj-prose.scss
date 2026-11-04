@@ -1,9 +1,55 @@
 @use "uswds-core" as *;
 
 .usa-prose {
+  font-family: var(--grove-prose-font-family);
+  font-size: var(--grove-prose-body-font-size);
+  line-height: var(--grove-prose-line-height);
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    font-family: var(--grove-prose-font-family);
+  }
+
+  > h3,
+  > h4,
+  > h5 {
+    line-height: var(--grove-prose-subheading-line-height);
+    font-weight: var(--grove-prose-subheading-weight);
+  }
+
   // Tighten letter spacing for h1 and intro text
   > h1 {
+    font-size: var(--grove-prose-h1);
     letter-spacing: -0.4px;
+  }
+
+  > h2 {
+    font-size: var(--grove-prose-h2);
+  }
+
+  > h3 {
+    font-size: var(--grove-prose-h3);
+  }
+
+  > h4 {
+    font-size: var(--grove-prose-h4);
+  }
+
+  > h5 {
+    font-size: var(--grove-prose-h5);
+  }
+
+  > h6 {
+    font-size: var(--grove-prose-h6);
+  }
+
+  > p {
+    line-height: var(--grove-prose-line-height);
+    font-size: var(--grove-prose-body-font-size);
   }
 
   // Wrap long links that would break page container
@@ -12,3 +58,29 @@
     word-wrap: break-word;
   }
 } // .usa-prose
+
+/*
+.usa-prose {
+
+  & > {
+
+    * + * {
+      margin-top: $theme-paragraph-margin-top;
+      margin-bottom: 0;
+    }
+
+    * + {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: $theme-heading-margin-top;
+      }
+    }
+
+  }
+}
+
+*/

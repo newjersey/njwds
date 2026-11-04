@@ -1,0 +1,9 @@
+/*
+Naming convention for CSS custom properties is:
+--grove-<component>-<role>
+*/
+
+:root,
+:host {
+  --grove-list-line-height: var(--grove-line-height-5);
+}

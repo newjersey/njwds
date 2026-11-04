@@ -1,7 +1,21 @@
 @use "uswds-core" as *;
 
+// outline bugfix
 .usa-table th[data-sortable]:not([aria-sort]) .usa-table__header__button:focus,
 .usa-table th[data-sortable][aria-sort="ascending"] .usa-table__header__button:focus,
 .usa-table th[data-sortable][aria-sort="descending"] .usa-table__header__button:focus {
   outline-offset: 0;
+}
+
+// ref: documents/decisions/general.md#Component-Styling-Ownership
+
+.usa-table,
+.usa-prose > table {
+  font-size: var(--grove-table-font-size);
+  line-height: var(--grove-table-line-height);
+
+  caption {
+    font-size: var(--grove-table-caption-font-size);
+    font-weight: var(--grove-table-caption-weight);
+  }
 }

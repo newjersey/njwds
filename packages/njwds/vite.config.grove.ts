@@ -6,6 +6,7 @@ import { existsSync } from "node:fs";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
+import { NodePackageImporter } from "sass";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -135,6 +136,7 @@ export default defineConfig({
          * Matches original Gulp silenceDeprecations configuration
          */
         silenceDeprecations: ["color-functions", "global-builtin", "legacy-js-api", "if-function"],
+        importers: [new NodePackageImporter()],
       },
     },
   },

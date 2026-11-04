@@ -90,6 +90,9 @@
     },
     "3xl": {
       "$value": "{font-size.16}"
+    },
+    "body": {
+      "$value": "{font-size.5}"
     }
   }
 }
