@@ -7,5 +7,5 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "include": ["src/web-components/**/*.ts"]
+  "include": ["src/web-components/**/*.ts", "src/react/**/*.ts"]
 }

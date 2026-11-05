@@ -50,6 +50,9 @@ export default defineConfig({
     projects: [
       {
         extends: true,
+        resolve: {
+          conditions: ["browser"],
+        },
         test: {
           name: "unit",
           globals: true,

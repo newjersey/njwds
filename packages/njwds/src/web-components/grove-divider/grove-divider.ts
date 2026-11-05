@@ -1,8 +1,6 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
 import sheet from "./grove-divider.scss?inline";
 
-@customElement("grove-divider")
 export class GroveDivider extends LitElement {
   static override styles = [unsafeCSS(sheet)];
 
