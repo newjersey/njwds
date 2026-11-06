@@ -26,3 +26,15 @@ export function listWebComponentNames(webComponentsDir: string): string[] {
 
   return names;
 }
+
+/**
+ * Content of the generated package entry point (index.js and index.d.ts):
+ * re-exports each component's built entry, in the order given.
+ */
+export function webComponentIndexContent(webComponentNames: string[]): string {
+  return (
+    webComponentNames
+      .map((name) => `export * from "./dist/web-components/${name}/index.js";`)
+      .join("\n") + "\n"
+  );
+}

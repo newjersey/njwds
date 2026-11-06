@@ -1,15 +1,16 @@
 /**
- * Tests for listWebComponentNames
+ * Tests for listWebComponentNames and webComponentIndexContent
  *
- * Its output drives both the Vite build entries (vite.config.grove.ts) and the
- * generated package entry point (index.js), so it decides what ships.
+ * listWebComponentNames drives both the Vite build entries (vite.config.grove.ts)
+ * and the generated package entry point (index.js), so it decides what ships;
+ * webComponentIndexContent is the content of that entry point.
  */
 
 import { afterEach, beforeEach, describe, expect, test } from "vitest";
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { listWebComponentNames } from "./web-components";
+import { listWebComponentNames, webComponentIndexContent } from "./web-components";
 
 let webComponentsDir: string;
 
@@ -49,6 +50,15 @@ describe("listWebComponentNames", () => {
 
     expect(() => listWebComponentNames(webComponentsDir)).toThrow(
       /grove-divider.*missing index\.ts/,
+    );
+  });
+});
+
+describe("webComponentIndexContent", () => {
+  test("re-exports each component's built index.js, one line per component, in the given order", () => {
+    expect(webComponentIndexContent(["grove-divider", "grove-tabs"])).toBe(
+      'export * from "./dist/web-components/grove-divider/index.js";\n' +
+        'export * from "./dist/web-components/grove-tabs/index.js";\n',
     );
   });
 });

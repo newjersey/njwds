@@ -20,7 +20,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Plugin } from "vite";
 import { resolveUswdsRoot } from "./resolve-uswds-root.ts";
-import { listWebComponentNames } from "./web-components.ts";
+import { listWebComponentNames, webComponentIndexContent } from "./web-components.ts";
 
 // Resolve __dirname in ESM
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -201,10 +201,7 @@ export function njwdsAssetsPlugin(): Plugin {
 
       try {
         const webComponentNames = listWebComponentNames(webComponentsDir);
-        const indexContent =
-          webComponentNames
-            .map((name) => `export * from "./dist/web-components/${name}/index.js";`)
-            .join("\n") + "\n";
+        const indexContent = webComponentIndexContent(webComponentNames);
         writeFileSync(resolve(projectRoot, "index.js"), indexContent, "utf-8");
         writeFileSync(resolve(projectRoot, "index.d.ts"), indexContent, "utf-8");
         console.log(
