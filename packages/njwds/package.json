@@ -10,10 +10,11 @@
       "types": "./index.d.ts",
       "default": "./index.js"
     },
-    "./*": {
+    "./web-components/*": {
       "types": "./dist/web-components/*/*.d.ts",
       "default": "./dist/web-components/*/*.js"
-    }
+    },
+    "./*": "./*"
   },
   "scripts": {
     "prepare": "npm run grove:build",
@@ -42,7 +43,8 @@
   "homepage": "https://github.com/newjersey/njwds#readme",
   "sideEffects": [
     "**/*.css",
-    "**/web-components/**"
+    "**/web-components/**",
+    "./index.js"
   ],
   "dependencies": {
     "@newjersey/feedback-widget": "^0.8.0",

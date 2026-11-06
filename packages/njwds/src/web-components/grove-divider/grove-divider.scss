@@ -1,4 +1,4 @@
-@use "uswds-theme";
+@use "../../sass/uswds-theme"; // relative path in case someone imports this file directly
 @use "uswds-core" as *;
 
 // Also compiled into the global stylesheet, so only rules that are valid outside
