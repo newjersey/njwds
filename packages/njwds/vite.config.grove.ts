@@ -3,9 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
-import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets";
-import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root";
-import { listWebComponentNames } from "./build-scripts/web-components";
+import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
+import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root.ts";
+import { listWebComponentNames } from "./build-scripts/web-components.ts";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
