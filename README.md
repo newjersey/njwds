@@ -31,7 +31,7 @@ import "@newjersey/njwds/web-components/grove-divider"; // one component
 import "@newjersey/njwds"; // or every component
 ```
 
-> **TypeScript projects using `"moduleResolution": "node"`:** the `web-components/<tag>` path won't resolve types. Import from `"@newjersey/njwds"` instead, or use the full path `"@newjersey/njwds/dist/web-components/grove-divider/grove-divider.js"`.
+> **TypeScript projects using `"moduleResolution": "node"`:** the `web-components/<tag>` path won't resolve types. Import from `"@newjersey/njwds"` instead, or use the full path `"@newjersey/njwds/dist/web-components/grove-divider/index.js"`.
 
 For a full list of examples of Grove (NJWDS) components and their corresponding code, see our [Storybook Component Examples](https://storybook.grove.nj.gov/?path=/docs/getting-started--docs) and our [Grove (NJWDS) Documentation Site](https://grove.nj.gov/). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
 

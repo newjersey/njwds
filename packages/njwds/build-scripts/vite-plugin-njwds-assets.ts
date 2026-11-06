@@ -203,7 +203,7 @@ export function njwdsAssetsPlugin(): Plugin {
         const webComponentNames = listWebComponentNames(webComponentsDir);
         const indexContent =
           webComponentNames
-            .map((name) => `export * from "./dist/web-components/${name}/${name}.js";`)
+            .map((name) => `export * from "./dist/web-components/${name}/index.js";`)
             .join("\n") + "\n";
         writeFileSync(resolve(projectRoot, "index.js"), indexContent, "utf-8");
         writeFileSync(resolve(projectRoot, "index.d.ts"), indexContent, "utf-8");

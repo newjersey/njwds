@@ -11,8 +11,8 @@
       "default": "./index.js"
     },
     "./web-components/*": {
-      "types": "./dist/web-components/*/*.d.ts",
-      "default": "./dist/web-components/*/*.js"
+      "types": "./dist/web-components/*/index.d.ts",
+      "default": "./dist/web-components/*/index.js"
     },
     "./*": "./*"
   },
