@@ -1,6 +1,8 @@
 @use "uswds-theme";
 @use "uswds-core" as *;
-@forward "../web-styles";
+
+// Also compiled into the global stylesheet, so only rules that are valid outside
+// a shadow root belong here. Shadow-only CSS (:host, ::slotted) lives in the component.
 
 .grove-divider {
   border: 0;
