@@ -2,7 +2,7 @@
 @use "uswds-core" as *;
 @forward "../web-styles";
 
-hr {
+.grove-divider {
   border: 0;
   border-top: 1px solid var(--grove-divider-color, #{color("base")});
   margin-block: var(--grove-divider-margin-block-mobile, #{units(3)});
