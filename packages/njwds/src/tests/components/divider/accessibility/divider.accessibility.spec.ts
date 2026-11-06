@@ -13,5 +13,6 @@ const TEST_CASES = [
 
 runA11ySuite({
   suiteName: "Divider",
+  include: "#root-inner",
   cases: TEST_CASES,
 });
