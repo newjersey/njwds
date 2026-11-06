@@ -7,23 +7,25 @@
  */
 
 import { describe, expect, test } from "vitest";
+import { execFileSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import * as sass from "sass";
 import { resolveUswdsRoot } from "./resolve-uswds-root";
 import { listWebComponentNames } from "./web-components";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const buildScriptsDir = path.dirname(fileURLToPath(import.meta.url));
+const projectRoot = path.resolve(buildScriptsDir, "..");
 const webComponentsDir = path.join(projectRoot, "src/web-components");
-const consumerLoadPaths = [path.join(resolveUswdsRoot(import.meta.url), "packages")];
+const consumerLoadPath = path.join(resolveUswdsRoot(import.meta.url), "packages");
 
+// Compiles in a child process; see compile-sass-as-consumer.mjs for why.
 function compileAsConsumer(file: string): string {
-  return sass.compile(file, {
-    loadPaths: consumerLoadPaths,
-    quietDeps: true,
-    logger: sass.Logger.silent,
-  }).css;
+  return execFileSync(
+    process.execPath,
+    [path.join(buildScriptsDir, "compile-sass-as-consumer.mjs"), file, consumerLoadPath],
+    { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 },
+  );
 }
 
 describe("Sass compiled the way consumers compile it", () => {
