@@ -7,7 +7,7 @@ export class GroveDivider extends LitElement {
   static override styles = [unsafeCSS(sheet)];
 
   override render() {
-    return html`<hr class="nj-divider" />`;
+    return html`<hr class="grove-divider" />`;
   }
 }
 
