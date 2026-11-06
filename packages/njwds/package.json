@@ -51,14 +51,6 @@
     "@uswds/uswds": "3.14.0",
     "lit": "^3.3.2"
   },
-  "peerDependencies": {
-    "@types/react": "^18.0.0 || ^19.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/react": {
-      "optional": true
-    }
-  },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.64.1",
