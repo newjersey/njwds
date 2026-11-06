@@ -13,6 +13,8 @@ export default defineConfig({
     alias: {
       // If you need to alias Lit or other packages, do it here
       "@": path.resolve(__dirname, "src"),
+      "@stories": path.resolve(__dirname, "src/stories"),
+      "@web-components": path.resolve(__dirname, "src/web-components"),
     },
   },
   css: {

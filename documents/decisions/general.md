@@ -2,7 +2,7 @@
 
 ## Naming Conventions
 
-Web components should be prefixed with `nj-` (e.g. `<nj-accordion />`)
+Web components should be prefixed with `grove-` (e.g. `<grove-accordion />`)
 
 ## Base HTML Elements
 
