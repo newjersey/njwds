@@ -74,6 +74,27 @@ export default defineConfig([
     },
   },
 
-  // 4. Formatting (Always last)
+  // 4. Published web components: relative imports only
+  // tsc copies import paths into the shipped .d.ts files unchanged, so a repo-only
+  // alias there is unresolvable for consumers and silently erases the types it carried.
+  {
+    files: ["packages/njwds/src/web-components/**/*.ts"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              regex: "^@(web-components|stories)?/",
+              message:
+                "Use a relative import. Path aliases are not rewritten in the published .d.ts files, so consumers can't resolve them.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+
+  // 5. Formatting (Always last)
   prettierConfig,
 ]);
