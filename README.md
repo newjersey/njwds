@@ -53,7 +53,7 @@ Apps that don't use React don't need `@lit/react`; the web component imports abo
 
 > **Troubleshooting:** if your build fails with `"createComponent" is not exported by "__vite-optional-peer-dep:@lit/react:@newjersey/njwds"`, install `@lit/react`.
 >
-> **TypeScript:** `@newjersey/njwds/react` needs `"moduleResolution"` set to `"bundler"`, `"node16"`, or `"nodenext"` (Vite and Next.js projects already use one of these).
+> **TypeScript:** `@newjersey/njwds/react` needs `"moduleResolution"` set to `"bundler"`, `"node16"`, or `"nodenext"` (projects created with `create-vite` or `create-next-app` already use `"bundler"`).
 
 **React 16:** use the web component directly. Import it once (`import "@newjersey/njwds/web-components/grove-divider";`) and render `<grove-divider />`. TypeScript projects need to declare the tag once, in any `.d.ts` file in the project:
 

@@ -31,5 +31,12 @@ export function groveReactEntryPlugin(webComponentsDir: string): Plugin {
         webComponentsDir,
       );
     },
+
+    // The wrappers use hooks, so React Server Components bundlers (e.g. Next.js App
+    // Router) must load /react as a client module. Added as a banner rather than in
+    // the module source, where Rolldown warns about module-level directives.
+    banner(chunk) {
+      return chunk.facadeModuleId === RESOLVED_ID ? '"use client";' : "";
+    },
   };
 }
