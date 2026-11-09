@@ -17,14 +17,3 @@ declare global {
     "grove-divider": GroveDivider;
   }
 }
-
-declare module "react" {
-  namespace JSX {
-    interface IntrinsicElements {
-      "grove-divider": import("react").DetailedHTMLProps<
-        import("react").HTMLAttributes<GroveDivider>,
-        GroveDivider
-      >;
-    }
-  }
-}
