@@ -107,7 +107,26 @@ Two path structures are available:
   <script src="https://cdn.grove.nj.gov/latest/js/uswds.min.js"></script>
   ```
 
-CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, gated behind a manual approval step.
+#### Web components from the CDN
+
+For pages without a bundler (legacy applications, prototypes), one script registers every Grove web component, with Lit included. Load it once, then use the tags anywhere:
+
+```html
+<script src="https://cdn.grove.nj.gov/<version>/web-components/grove.min.js"
+        integrity="sha384-<hash>"
+        crossorigin="anonymous"
+        defer></script>
+
+<grove-divider></grove-divider>
+```
+
+- Its SRI hash is in the release's `sri-hashes.txt`. For prototypes, `https://cdn.grove.nj.gov/latest/web-components/grove.min.js` always points to the newest release.
+- It works as a classic script or with `type="module"`, in the `<head>` (with `defer`) or at the end of the `<body>`.
+- It doesn't replace `css/styles.css` or `js/uswds.min.js`; keep those for the rest of Grove.
+- If another copy of Grove's web components is already on the page, the first registration wins and the console warns naming the tag, instead of the page throwing an error.
+- Apps with a bundler should install the npm package instead: it shares Lit with your app and only includes the components you import.
+
+CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, once the npm publish succeeds.
 
 ## Developing the library
 

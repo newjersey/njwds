@@ -3,8 +3,9 @@
  *
  * listWebComponentNames drives both the Vite build entries (vite.config.grove.ts)
  * and the generated package entry points, so it decides what ships;
- * webComponentIndexContent is the content of the root index.js, and the
- * webComponentReact* functions are the source and types of @newjersey/njwds/react.
+ * webComponentIndexContent is the content of the root index.js, the
+ * webComponentReact* functions are the source and types of @newjersey/njwds/react,
+ * and webComponentBundleContent is the entry of the CDN bundle (grove.min.js).
  */
 
 import { afterEach, beforeEach, describe, expect, test } from "vitest";
@@ -13,6 +14,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import {
   listWebComponentNames,
+  webComponentBundleContent,
   webComponentIndexContent,
   webComponentReactIndexContent,
   webComponentReactTypesContent,
@@ -82,6 +84,14 @@ describe("webComponentReactTypesContent", () => {
   test("re-exports each wrapper's emitted declarations, relative to dist/react/", () => {
     expect(webComponentReactTypesContent(["grove-divider"])).toBe(
       'export * from "../web-components/grove-divider/grove-divider.react.js";\n',
+    );
+  });
+});
+
+describe("webComponentBundleContent", () => {
+  test("imports each component's entry for its registration side effect, in the given order", () => {
+    expect(webComponentBundleContent(["grove-divider", "grove-tabs"], "/x")).toBe(
+      'import "/x/grove-divider/index.ts";\n' + 'import "/x/grove-tabs/index.ts";\n',
     );
   });
 });
