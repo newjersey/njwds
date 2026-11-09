@@ -170,10 +170,12 @@ jobs:
           **Versioned (immutable, recommended for production):**
           - \`${VERSIONED_URL}/css/styles.css\`
           - \`${VERSIONED_URL}/js/uswds.min.js\`
+          - \`${VERSIONED_URL}/web-components/grove.min.js\`
 
           **Latest (always points to newest version):**
           - \`${LATEST_URL}/css/styles.css\`
           - \`${LATEST_URL}/js/uswds.min.js\`
+          - \`${LATEST_URL}/web-components/grove.min.js\`
 
           SRI hashes are included in the release assets (\`sri-hashes.txt\`). Use them to verify asset integrity.
           EOF

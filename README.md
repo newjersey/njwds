@@ -126,7 +126,7 @@ For pages without a bundler (legacy applications, prototypes), one script regist
 - If another copy of Grove's web components is already on the page, the first registration wins and the console warns naming the tag, instead of the page throwing an error.
 - Apps with a bundler should install the npm package instead: it shares Lit with your app and only includes the components you import.
 
-CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, gated behind a manual approval step.
+CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, once the npm publish succeeds.
 
 ## Developing the library
 
