@@ -14,9 +14,11 @@ const meta = {
   },
   parameters: {
     docs: {
-      // The rendered DOM is just the mount container, so show the JSX consumers write
+      description: {
+        component: '`import { GroveDivider } from "@newjersey/njwds/react";`',
+      },
       source: {
-        code: `import { GroveDivider } from "@newjersey/njwds/react";\n\n<GroveDivider />`,
+        code: `\n\n<GroveDivider />`,
         language: "tsx",
       },
     },
