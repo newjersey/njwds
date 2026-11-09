@@ -9,10 +9,14 @@ const TEST_CASES = [
     name: "Default (Web Component)",
     url: `/iframe.html?id=web-components-divider--default&viewMode=story`,
   },
+  {
+    name: "Default (React)",
+    url: `/iframe.html?id=react-components-divider--default&viewMode=story`,
+  },
 ];
 
 runA11ySuite({
   suiteName: "Divider",
-  include: "#root-inner",
+  include: "#storybook-root",
   cases: TEST_CASES,
 });

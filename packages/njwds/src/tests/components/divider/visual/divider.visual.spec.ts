@@ -9,6 +9,10 @@ const TEST_CASES = [
     name: "Default (Web Component)",
     url: `/iframe.html?id=web-components-divider--default&viewMode=story`,
   },
+  {
+    name: "Default (React)",
+    url: `/iframe.html?id=react-components-divider--default&viewMode=story`,
+  },
 ];
 
 runVisualSuite({

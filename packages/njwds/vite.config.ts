@@ -32,7 +32,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     // Add Lit or other dependencies here if Vite fails to pre-bundle them
-    include: ["lit", "lit/decorators.js"],
+    include: ["lit", "lit/decorators.js", "@lit/react"],
   },
   // Note: build-scripts/*.spec.ts also run in the `unit` project (jsdom); build-scripts/vitest.config.ts isn't used here
   // Note: Playwright tests (visual/accessibility) are run via separate commands
