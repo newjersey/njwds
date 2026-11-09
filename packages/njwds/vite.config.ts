@@ -34,7 +34,7 @@ export default defineConfig({
     // Add Lit or other dependencies here if Vite fails to pre-bundle them
     include: ["lit", "lit/decorators.js"],
   },
-  // Note: build-scripts/ has its own vitest.config.ts for Node environment
+  // Note: build-scripts/*.spec.ts also run in the `unit` project (jsdom); build-scripts/vitest.config.ts isn't used here
   // Note: Playwright tests (visual/accessibility) are run via separate commands
   test: {
     coverage: {
