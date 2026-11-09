@@ -17,6 +17,6 @@ const TEST_CASES = [
 
 runA11ySuite({
   suiteName: "Divider",
-  include: "#root-inner",
+  include: "#storybook-root",
   cases: TEST_CASES,
 });
