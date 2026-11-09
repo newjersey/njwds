@@ -1,16 +1,22 @@
 /**
- * Tests for listWebComponentNames and webComponentIndexContent
+ * Tests for listWebComponentNames and the generated entry point contents
  *
  * listWebComponentNames drives both the Vite build entries (vite.config.grove.ts)
- * and the generated package entry point (index.js), so it decides what ships;
- * webComponentIndexContent is the content of that entry point.
+ * and the generated package entry points, so it decides what ships;
+ * webComponentIndexContent is the content of the root index.js, and the
+ * webComponentReact* functions are the source and types of @newjersey/njwds/react.
  */
 
 import { afterEach, beforeEach, describe, expect, test } from "vitest";
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { listWebComponentNames, webComponentIndexContent } from "./web-components";
+import {
+  listWebComponentNames,
+  webComponentIndexContent,
+  webComponentReactIndexContent,
+  webComponentReactTypesContent,
+} from "./web-components";
 
 let webComponentsDir: string;
 
@@ -59,6 +65,23 @@ describe("webComponentIndexContent", () => {
     expect(webComponentIndexContent(["grove-divider", "grove-tabs"])).toBe(
       'export * from "./dist/web-components/grove-divider/index.js";\n' +
         'export * from "./dist/web-components/grove-tabs/index.js";\n',
+    );
+  });
+});
+
+describe("webComponentReactIndexContent", () => {
+  test("re-exports each component's React wrapper source, one line per component, in the given order", () => {
+    expect(webComponentReactIndexContent(["grove-divider", "grove-tabs"], "/x")).toBe(
+      'export * from "/x/grove-divider/grove-divider.react.ts";\n' +
+        'export * from "/x/grove-tabs/grove-tabs.react.ts";\n',
+    );
+  });
+});
+
+describe("webComponentReactTypesContent", () => {
+  test("re-exports each wrapper's emitted declarations, relative to dist/react/", () => {
+    expect(webComponentReactTypesContent(["grove-divider"])).toBe(
+      'export * from "../web-components/grove-divider/grove-divider.react.js";\n',
     );
   });
 });
