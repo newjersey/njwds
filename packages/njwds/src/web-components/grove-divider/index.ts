@@ -1,1 +1,1 @@
-export { GroveDivider } from "./grove-divider";
+export { GroveDivider } from "./grove-divider.js";

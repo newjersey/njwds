@@ -8,8 +8,8 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { act, createElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { GroveDivider } from "./grove-divider.react.ts";
-import type { GroveDivider as GroveDividerElement } from "./grove-divider";
+import { GroveDivider } from "./grove-divider.react.js";
+import type { GroveDivider as GroveDividerElement } from "./grove-divider.js";
 
 // Tells React this environment supports act(), so it doesn't warn on every update
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
