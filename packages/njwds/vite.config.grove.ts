@@ -6,6 +6,10 @@ import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
 import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root.ts";
 import { listWebComponentNames } from "./build-scripts/web-components.ts";
+import {
+  GROVE_REACT_ENTRY_ID,
+  groveReactEntryPlugin,
+} from "./build-scripts/vite-plugin-grove-react-entry.ts";
 
 // Resolve __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,7 +38,8 @@ const webComponentEntries = Object.fromEntries(
  * 2. Vite compiles SASS with include paths for USWDS imports
  * 3. PostCSS applies autoprefixer and csso (configured in postcss.config.js)
  * 4. Custom plugin replaces version strings (writeBundle hook)
- * 5. CSS and sourcemap written to dist/css/, each web component written to dist/web-components/
+ * 5. CSS and sourcemap written to dist/css/, each web component written to dist/web-components/,
+ *    and the React wrappers written to dist/react/
  */
 export default defineConfig({
   // Custom logger to suppress asset resolution warnings
@@ -80,15 +85,28 @@ export default defineConfig({
         // JS entry that imports SASS (enables CSS extraction with sourcemaps)
         styles: path.resolve(__dirname, "src/sass/styles.entry.js"),
         ...webComponentEntries,
+        // @newjersey/njwds/react: every component's React wrapper (vite-plugin-grove-react-entry.ts)
+        "react/index": GROVE_REACT_ENTRY_ID,
       },
 
-      external: (id) => id === "lit" || id.startsWith("lit/"),
+      // Consumers provide these; bundling React would give an app two Reacts and break hooks
+      external: (id) =>
+        ["lit", "react", "react-dom", "@lit/react"].includes(id) ||
+        id.startsWith("lit/") ||
+        id.startsWith("react/") ||
+        id.startsWith("react-dom/"),
 
       preserveEntrySignatures: "strict",
 
       output: {
         entryFileNames: (chunk) => (chunk.name === "styles" ? "js/[name].js" : "[name].js"),
-        chunkFileNames: "js/[name].js",
+        // Element code shared by dist/react/ and dist/web-components/ lands in a chunk.
+        // Keep it under web-components/ so package.json's "**/web-components/**"
+        // sideEffects glob covers it and bundlers don't tree-shake the registration away.
+        chunkFileNames: (chunk) =>
+          chunk.moduleIds.some((id) => id.startsWith(webComponentsDir + path.sep))
+            ? "web-components/chunks/[name].js"
+            : "js/[name].js",
 
         // Control asset file naming (CSS files go to css/ subdirectory)
         assetFileNames: (assetInfo) => {
@@ -141,6 +159,6 @@ export default defineConfig({
     },
   },
 
-  // Register custom plugin for asset copying and version replacement
-  plugins: [njwdsAssetsPlugin()],
+  // Asset copying, version replacement, and generated entry points; the virtual /react entry
+  plugins: [njwdsAssetsPlugin(), groveReactEntryPlugin(webComponentsDir)],
 });

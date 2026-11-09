@@ -32,9 +32,28 @@ export function listWebComponentNames(webComponentsDir: string): string[] {
  * re-exports each component's built entry, in the order given.
  */
 export function webComponentIndexContent(webComponentNames: string[]): string {
-  return (
-    webComponentNames
-      .map((name) => `export * from "./dist/web-components/${name}/index.js";`)
-      .join("\n") + "\n"
-  );
+  return reExports(webComponentNames.map((name) => `./dist/web-components/${name}/index.js`));
+}
+
+/**
+ * Source of the @newjersey/njwds/react build entry: re-exports each component's
+ * React wrapper (<tag>/<tag>.react.ts), in the order given.
+ */
+export function webComponentReactIndexContent(
+  webComponentNames: string[],
+  webComponentsDir: string,
+): string {
+  return reExports(webComponentNames.map((name) => `${webComponentsDir}/${name}/${name}.react.ts`));
+}
+
+/**
+ * Content of dist/react/index.d.ts: re-exports each wrapper's declarations, which
+ * grove:build:types emits next to the component in dist/web-components/.
+ */
+export function webComponentReactTypesContent(webComponentNames: string[]): string {
+  return reExports(webComponentNames.map((name) => `../web-components/${name}/${name}.react.js`));
+}
+
+function reExports(specifiers: string[]): string {
+  return specifiers.map((specifier) => `export * from "${specifier}";`).join("\n") + "\n";
 }

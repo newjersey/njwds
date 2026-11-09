@@ -1,9 +1,9 @@
 /**
  * Vitest configuration for build-scripts tests
  *
- * Build scripts (Vite plugins, Node.js utilities) need to run in Node.js environment.
- * The root vite.config.ts uses jsdom for web component tests.
- * Vitest automatically discovers this config for tests in build-scripts/ directory.
+ * Not used by `npm run test` or `npm run test:coverage`: those run from the package
+ * root with vite.config.ts, so build-scripts/*.spec.ts run in its `unit` project
+ * (jsdom), not in this config's Node environment. Vitest doesn't merge nested configs.
  */
 import { defineConfig } from "vitest/config";
 

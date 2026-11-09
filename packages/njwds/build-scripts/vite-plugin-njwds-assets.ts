@@ -4,7 +4,8 @@
  * This plugin handles three critical tasks in the NJWDS build pipeline:
  * 1. Copying static assets from USWDS and local sources to dist/
  * 2. Replacing version strings in compiled CSS output
- * 3. Generating index.js, re-exporting each web component from dist/
+ * 3. Generating index.js, re-exporting each web component from dist/, and
+ *    dist/react/index.d.ts, re-exporting each React wrapper's declarations
  *
  * The plugin implements two Vite build hooks:
  * - buildStart: Runs before compilation, copies all static assets
@@ -20,7 +21,11 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Plugin } from "vite";
 import { resolveUswdsRoot } from "./resolve-uswds-root.ts";
-import { listWebComponentNames, webComponentIndexContent } from "./web-components.ts";
+import {
+  listWebComponentNames,
+  webComponentIndexContent,
+  webComponentReactTypesContent,
+} from "./web-components.ts";
 
 // Resolve __dirname in ESM
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -204,8 +209,15 @@ export function njwdsAssetsPlugin(): Plugin {
         const indexContent = webComponentIndexContent(webComponentNames);
         writeFileSync(resolve(projectRoot, "index.js"), indexContent, "utf-8");
         writeFileSync(resolve(projectRoot, "index.d.ts"), indexContent, "utf-8");
+        // dist/react/index.js is built from the virtual:grove-react entry; its types
+        // point at the wrapper declarations grove:build:types emits
+        writeFileSync(
+          resolve(distRoot, "react/index.d.ts"),
+          webComponentReactTypesContent(webComponentNames),
+          "utf-8",
+        );
         console.log(
-          `[njwds-assets] Generated index.js/index.d.ts with ${webComponentNames.length} web component export(s)`,
+          `[njwds-assets] Generated index.js/index.d.ts and dist/react/index.d.ts with ${webComponentNames.length} web component export(s)`,
         );
       } catch (error) {
         throw new Error(
