@@ -129,7 +129,7 @@ jobs:
           echo "Use these hashes to verify asset integrity when loading from CDN:" >> ../../../sri-hashes.txt
           echo "" >> ../../../sri-hashes.txt
 
-          for file in css/*.css js/*.js; do
+          for file in css/*.css js/*.js web-components/*.js; do
             if [ -f "$file" ]; then
               HASH=$(openssl dgst -sha384 -binary "$file" | openssl base64 -A)
               echo "**$file**" >> ../../../sri-hashes.txt
