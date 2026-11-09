@@ -33,6 +33,43 @@ import "@newjersey/njwds"; // or every component
 
 > **TypeScript projects using `"moduleResolution": "node"`:** the `web-components/<tag>` path won't resolve types. Import from `"@newjersey/njwds"` instead, or use the full path `"@newjersey/njwds/dist/web-components/grove-divider/index.js"`.
 
+#### Using Grove in React
+
+React 17 and later can use Grove's React components, which wrap the web components with typed props. Install `@lit/react` alongside Grove:
+
+```bash
+npm install @newjersey/njwds @lit/react
+```
+
+```tsx
+import { GroveDivider } from "@newjersey/njwds/react";
+
+export function Page() {
+  return <GroveDivider />;
+}
+```
+
+Apps that don't use React don't need `@lit/react`; the web component imports above keep working without it.
+
+> **Troubleshooting:** if your build fails with `"createComponent" is not exported by "__vite-optional-peer-dep:@lit/react:@newjersey/njwds"`, install `@lit/react`.
+>
+> **TypeScript:** `@newjersey/njwds/react` needs `"moduleResolution"` set to `"bundler"`, `"node16"`, or `"nodenext"` (Vite and Next.js projects already use one of these).
+
+**React 16:** use the web component directly. Import it once (`import "@newjersey/njwds/web-components/grove-divider";`) and render `<grove-divider />`. TypeScript projects need to declare the tag once, in any `.d.ts` file in the project:
+
+```ts
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
+import type { GroveDivider } from "@newjersey/njwds";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "grove-divider": DetailedHTMLProps<HTMLAttributes<GroveDivider>, GroveDivider>;
+    }
+  }
+}
+```
+
 For a full list of examples of Grove (NJWDS) components and their corresponding code, see our [Storybook Component Examples](https://storybook.grove.nj.gov/?path=/docs/getting-started--docs) and our [Grove (NJWDS) Documentation Site](https://grove.nj.gov/). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
 
 ### Customizing Grove or compiling your own assets
