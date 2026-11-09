@@ -54,6 +54,21 @@ export function webComponentReactTypesContent(webComponentNames: string[]): stri
   return reExports(webComponentNames.map((name) => `../web-components/${name}/${name}.react.js`));
 }
 
+/**
+ * Entry of the CDN bundle (dist/web-components/grove.min.js): imports each
+ * component's entry for its registration side effect, in the order given.
+ */
+export function webComponentBundleContent(
+  webComponentNames: string[],
+  webComponentsDir: string,
+): string {
+  return lines(webComponentNames.map((name) => `import "${webComponentsDir}/${name}/index.ts";`));
+}
+
 function reExports(specifiers: string[]): string {
-  return specifiers.map((specifier) => `export * from "${specifier}";`).join("\n") + "\n";
+  return lines(specifiers.map((specifier) => `export * from "${specifier}";`));
+}
+
+function lines(statements: string[]): string {
+  return statements.join("\n") + "\n";
 }
