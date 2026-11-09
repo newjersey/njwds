@@ -74,9 +74,10 @@ export default defineConfig([
     },
   },
 
-  // 4. Published web components: relative imports only
+  // 4. Published web components: relative imports only, with explicit .js extensions
   // tsc copies import paths into the shipped .d.ts files unchanged, so a repo-only
   // alias there is unresolvable for consumers and silently erases the types it carried.
+  // The same goes for extensionless paths under node16/nodenext module resolution.
   {
     files: ["packages/njwds/src/web-components/**/*.ts"],
     rules: {
@@ -88,6 +89,12 @@ export default defineConfig([
               regex: "^@(web-components|stories)?/",
               message:
                 "Use a relative import. Path aliases are not rewritten in the published .d.ts files, so consumers can't resolve them.",
+            },
+            {
+              // Relative imports must end in .js (resolved to the .ts source) or be a ?inline stylesheet
+              regex: "^\\.{1,2}/(?!.*(\\.js|\\.scss\\?inline)$)",
+              message:
+                'Add the .js extension (e.g. "./grove-divider.js"). The published .d.ts files keep this path, and node16/nodenext consumers can\'t resolve it without one.',
             },
           ],
         },
