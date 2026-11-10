@@ -24,6 +24,52 @@ Once installed, the Grove/NJWDS npm package name would affect the file path used
 
 Follow the instructions on the [USWDS Documentation - Using USWDS](https://designsystem.digital.gov/documentation/developers/#using-uswds-css-and-javascript-in-your-project) page. Note that instead of `uswds.css` or `uswds.min.css`, you will refer to `styles.css` in the `/dist/css` directory. Also, the filepath should have `njwds` instead of `uswds` (i.e. `assets/njwds/dist/js/uswds.min.js` instead of `assets/uswds/dist/js/uswds.min.js`).
 
+Grove also includes web components, prefixed with `grove-` (e.g. `<grove-divider>`). Import a component once in your app entry point to register it, then use the tag anywhere:
+
+```ts
+import "@newjersey/njwds/web-components/grove-divider"; // one component
+import "@newjersey/njwds"; // or every component
+```
+
+> **TypeScript projects using `"moduleResolution": "node"`:** the `web-components/<tag>` path won't resolve types. Import from `"@newjersey/njwds"` instead, or use the full path `"@newjersey/njwds/dist/web-components/grove-divider/index.js"`.
+
+#### Using Grove in React
+
+React 17 and later can use Grove's React components, which wrap the web components with typed props. Install `@lit/react` alongside Grove:
+
+```bash
+npm install @newjersey/njwds @lit/react
+```
+
+```tsx
+import { GroveDivider } from "@newjersey/njwds/react";
+
+export function Page() {
+  return <GroveDivider />;
+}
+```
+
+Apps that don't use React don't need `@lit/react`; the web component imports above keep working without it.
+
+> **Troubleshooting:** if your build fails with `"createComponent" is not exported by "__vite-optional-peer-dep:@lit/react:@newjersey/njwds"`, install `@lit/react`.
+>
+> **TypeScript:** `@newjersey/njwds/react` needs `"moduleResolution"` set to `"bundler"`, `"node16"`, or `"nodenext"` (projects created with `create-vite` or `create-next-app` already use `"bundler"`).
+
+**React 16:** use the web component directly. Import it once (`import "@newjersey/njwds/web-components/grove-divider";`) and render `<grove-divider />`. TypeScript projects need to declare the tag once, in any `.d.ts` file in the project:
+
+```ts
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
+import type { GroveDivider } from "@newjersey/njwds";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "grove-divider": DetailedHTMLProps<HTMLAttributes<GroveDivider>, GroveDivider>;
+    }
+  }
+}
+```
+
 For a full list of examples of Grove (NJWDS) components and their corresponding code, see our [Storybook Component Examples](https://storybook.grove.nj.gov/?path=/docs/getting-started--docs) and our [Grove (NJWDS) Documentation Site](https://grove.nj.gov/). Note that because the NJWDS is built on top of the USWDS, you can use USWDS [components](https://designsystem.digital.gov/components/overview/) and [utilities](https://designsystem.digital.gov/utilities/) not listed in our docs.
 
 ### Customizing Grove or compiling your own assets
@@ -61,7 +107,26 @@ Two path structures are available:
   <script src="https://cdn.grove.nj.gov/latest/js/uswds.min.js"></script>
   ```
 
-CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, gated behind a manual approval step.
+#### Web components from the CDN
+
+For pages without a bundler (legacy applications, prototypes), one script registers every Grove web component, with Lit included. Load it once, then use the tags anywhere:
+
+```html
+<script src="https://cdn.grove.nj.gov/<version>/web-components/grove.min.js"
+        integrity="sha384-<hash>"
+        crossorigin="anonymous"
+        defer></script>
+
+<grove-divider></grove-divider>
+```
+
+- Its SRI hash is in the release's `sri-hashes.txt`. For prototypes, `https://cdn.grove.nj.gov/latest/web-components/grove.min.js` always points to the newest release.
+- It works as a classic script or with `type="module"`, in the `<head>` (with `defer`) or at the end of the `<body>`.
+- It doesn't replace `css/styles.css` or `js/uswds.min.js`; keep those for the rest of Grove.
+- If another copy of Grove's web components is already on the page, the first registration wins and the console warns naming the tag, instead of the page throwing an error.
+- Apps with a bundler should install the npm package instead: it shares Lit with your app and only includes the components you import.
+
+CDN assets are published automatically as part of the [release process](#releasing-a-new-version-to-npm) below, once the npm publish succeeds.
 
 ## Developing the library
 

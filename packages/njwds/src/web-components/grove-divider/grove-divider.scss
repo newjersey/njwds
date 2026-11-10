@@ -1,0 +1,16 @@
+@use "../../sass/uswds-theme"; // relative path in case someone imports this file directly
+@use "uswds-core" as *;
+
+// Also compiled into the global stylesheet, so only rules that are valid outside
+// a shadow root belong here. Shadow-only CSS (:host, ::slotted) lives in the component.
+
+.grove-divider {
+  border: 0;
+  border-top: 1px solid var(--grove-divider-color, #{color("base")});
+  margin-block: var(--grove-divider-margin-block, #{units(3)});
+  margin-inline: var(--grove-divider-margin-inline, #{units(2.5)});
+  @include at-media("tablet") {
+    margin-block: var(--grove-divider-margin-block, #{units(6)});
+    margin-inline: var(--grove-divider-margin-inline, #{units(15)});
+  }
+}

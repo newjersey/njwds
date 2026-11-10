@@ -27,6 +27,9 @@
 @forward "theme/nj-sidenav";
 @forward "theme/nj-table";
 
+// web component imports
+@forward "../web-components/grove-divider/grove-divider";
+
 // Needs official integration
 .usa-collection__meta-item.usa-tag {
   background-color: #c6cace;
