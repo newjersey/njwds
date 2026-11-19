@@ -146,6 +146,12 @@ CDN assets are published automatically as part of the [release process](#releasi
 
 - Run `npm run storybook` to build the docs, launch a web server to host it on port 6006, and live reload on development changes. This is not the design system, it is Storybook. Run `npm run grove:dev` to work on the design system itself.
 
+## Adding a new component
+
+To add a new component, use the node script like: `npm run new-component -- {name} --title "{optional title}" --css-class`
+
+This script will scaffold out the component along with initial test files, CDN wiring, and React exports so you can focus on building the component.
+
 ## Releasing a new version to NPM
 
 1. Go to the [Draft Release GitHub Action](https://github.com/newjersey/njwds/actions/workflows/draft-release.yml)
