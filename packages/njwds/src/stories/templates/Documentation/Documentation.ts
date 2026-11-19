@@ -101,8 +101,10 @@ export const DocumentationLayout = () => {
               </div>
               <ul class="grid-col-auto display-flex flex-align-center">
                 <li>
-                  <a href="https://nj.gov/governor/" rel="noopener">
-                    Governor ${commonData.gov} &bull; Lt. Governor ${commonData.govlt}
+                  <a href="https://nj.gov/governor/" rel="noopener"> Governor ${commonData.gov} </a>
+                  &bull;
+                  <a href="https://www.nj.gov/governor/admin/ltgovernor/" rel="noopener">
+                    Lt. Governor ${commonData.govlt}
                   </a>
                 </li>
                 <li class="grid-col-auto">
