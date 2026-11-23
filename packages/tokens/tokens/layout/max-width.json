@@ -1,0 +1,10 @@
+{
+  "max-width": {
+    "$type": "dimension",
+    "full-screen": { "$value": "{container.device-size.desktop}" },
+    "in-container": { "$value": "{container.width.desktop}" },
+    "content-container": { "$value": "{measure.6}" },
+    "content": { "$value": "{measure.4}" },
+    "form-input": { "$value": "{unit.tablet}" }
+  }
+}

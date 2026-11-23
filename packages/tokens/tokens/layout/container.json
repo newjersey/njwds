@@ -1,0 +1,20 @@
+{
+  "container": {
+    "$type": "dimension",
+    "width": {
+      "mobile": { "$value": { "value": "17.5", "unit": "rem" } },
+      "desktop": { "$value": "{unit.desktop}" }
+    },
+    "page-margin": {
+      "mobile": { "$value": "{unit.205}" },
+      "desktop": { "$value": "{unit.10}" }
+    },
+    "min-width": {
+      "$value": "{unit.card-lg}"
+    },
+    "device-size": {
+      "mobile": { "$value": "{unit.mobile}" },
+      "desktop": { "$value": "{unit.widescreen}" }
+    }
+  }
+}
