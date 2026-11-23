@@ -115,23 +115,23 @@
   $theme-global-link-styles: true,
   // Custom Typeface Tokens
   $theme-typeface-tokens: (
-      "plus-jakarta-sans": (
-        display-name: "Plus Jakarta Sans",
-        cap-height: 745,
-        stack: (
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif,
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-        ),
-      )
+    "plus-jakarta-sans": (
+      display-name: "Plus Jakarta Sans",
+      cap-height: 745,
+      stack: (
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+      ),
     ),
+  ),
   // Type Based Font Settings
   $theme-font-type-sans: "public-sans",
   // Role Based Font Settings
@@ -146,8 +146,10 @@
   Configuration settings
   ----------------------------------------
   */
-    // Text align settings
-  $text-align-settings: (responsive: true),
+  // Text align settings
+  $text-align-settings: (
+    responsive: true,
+  ),
   $theme-show-notifications: false,
   /*
   ----------------------------------------
@@ -159,6 +161,8 @@
   $theme-banner-max-width: "none",
 
   // Card
-  $theme-utility-breakpoints-custom: ("card-flag": 960px),
+  $theme-utility-breakpoints-custom: (
+    "card-flag": 960px,
+  ),
   $theme-card-flag-min-width: card-flag
 );

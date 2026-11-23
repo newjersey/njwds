@@ -90,8 +90,10 @@ export const LandingLayout = () => {
               <div class="grid-col-auto">
                 <img
                   class="nj-banner__header-seal"
-                  src="./img/nj_state_seal.png"
+                  src="./img/nj_state_seal.svg"
                   alt="New Jersey State Seal"
+                  height="30"
+                  width="30"
                 />
               </div>
               <div class="grid-col-fill">
@@ -99,8 +101,10 @@ export const LandingLayout = () => {
               </div>
               <ul class="grid-col-auto display-flex flex-align-center">
                 <li>
-                  <a href="https://nj.gov/governor/" rel="noopener">
-                    Governor ${commonData.gov} &bull; Lt. Governor ${commonData.govlt}
+                  <a href="https://nj.gov/governor/" rel="noopener"> Governor ${commonData.gov} </a>
+                  &bull;
+                  <a href="https://www.nj.gov/governor/admin/ltgovernor/" rel="noopener">
+                    Lt. Governor ${commonData.govlt}
                   </a>
                 </li>
                 <li class="grid-col-auto">

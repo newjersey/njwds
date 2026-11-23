@@ -129,7 +129,7 @@ jobs:
           echo "Use these hashes to verify asset integrity when loading from CDN:" >> ../../../sri-hashes.txt
           echo "" >> ../../../sri-hashes.txt
 
-          for file in css/*.css js/*.js; do
+          for file in css/*.css js/*.js web-components/*.js; do
             if [ -f "$file" ]; then
               HASH=$(openssl dgst -sha384 -binary "$file" | openssl base64 -A)
               echo "**$file**" >> ../../../sri-hashes.txt
@@ -170,10 +170,12 @@ jobs:
           **Versioned (immutable, recommended for production):**
           - \`${VERSIONED_URL}/css/styles.css\`
           - \`${VERSIONED_URL}/js/uswds.min.js\`
+          - \`${VERSIONED_URL}/web-components/grove.min.js\`
 
           **Latest (always points to newest version):**
           - \`${LATEST_URL}/css/styles.css\`
           - \`${LATEST_URL}/js/uswds.min.js\`
+          - \`${LATEST_URL}/web-components/grove.min.js\`
 
           SRI hashes are included in the release assets (\`sri-hashes.txt\`). Use them to verify asset integrity.
           EOF

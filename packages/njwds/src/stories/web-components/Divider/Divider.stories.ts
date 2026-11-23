@@ -1,0 +1,23 @@
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { html } from "lit";
+import "@web-components/grove-divider";
+
+const meta = {
+  title: "Web Components/Divider",
+  tags: ["autodocs"],
+  render: () => html`<grove-divider></grove-divider>`,
+  parameters: {
+    docs: {
+      description: {
+        component: '`import "@newjersey/njwds/web-components/grove-divider";`',
+      },
+    },
+  },
+} satisfies Meta;
+
+export default meta;
+type Story = StoryObj;
+
+export const Default: Story = {
+  args: {},
+};

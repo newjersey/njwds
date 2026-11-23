@@ -30,7 +30,14 @@
     "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+
+    /* Module aliases — must mirror resolve.alias in packages/njwds/vite.config.ts */
+    "paths": {
+      "@/*": ["./packages/njwds/src/*"],
+      "@web-components/*": ["./packages/njwds/src/web-components/*"],
+      "@stories/*": ["./packages/njwds/src/stories/*"]
+    }
   },
   "include": ["packages/**/*.ts", "eslint.config.ts", "types/declarations.d.ts"],
   "exclude": ["node_modules", "**/dist/**", "**/build/**"]
