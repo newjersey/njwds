@@ -82,7 +82,7 @@ export const Identifier = ({ language, logos, showTaxpayerDisclaimer }: Identifi
         <div class="usa-identifier__container">
           <ul class="usa-identifier__required-links-list">
             <li class="usa-identifier__required-links-item">
-              <a href="https://nj.gov/governor/admin/about/" class="usa-identifier__required-link">
+              <a href="https://nj.gov/governor/" class="usa-identifier__required-link">
                 Governor ${commonData.gov}
               </a>
             </li>
