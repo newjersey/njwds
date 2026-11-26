@@ -22,6 +22,7 @@
     "./json/*": "./build/json/*"
   },
   "scripts": {
+    "prepare": "npm run tokens:build",
     "tokens:build": "style-dictionary clean --config ./config/style-dictionary.config.js && style-dictionary build --config ./config/style-dictionary.config.js",
     "tokens:test": "vitest run",
     "tokens:watch": "style-dictionary watch --config ./config/style-dictionary.config.js"

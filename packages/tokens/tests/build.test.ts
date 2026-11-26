@@ -41,6 +41,12 @@ describe("CSS output", () => {
 
     expect(css).toContain(`--${prefix}-font-size-md: var(--${prefix}-font-size-9);`);
   });
+
+  it("resolves font-weight normal as an alias of regular", () => {
+    const css = readBuildFile("css/tokens.css");
+
+    expect(css).toContain(`--${prefix}-font-weight-normal: var(--${prefix}-font-weight-regular);`);
+  });
 });
 
 describe("Sass output", () => {

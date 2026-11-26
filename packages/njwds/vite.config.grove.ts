@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { njwdsAssetsPlugin } from "./build-scripts/vite-plugin-njwds-assets.ts";
+import { NodePackageImporter } from "sass";
 import { resolveUswdsRoot } from "./build-scripts/resolve-uswds-root.ts";
 import { listWebComponentNames } from "./build-scripts/web-components.ts";
 import {
@@ -155,6 +156,7 @@ export default defineConfig({
          * Matches original Gulp silenceDeprecations configuration
          */
         silenceDeprecations: ["color-functions", "global-builtin", "legacy-js-api", "if-function"],
+        importers: [new NodePackageImporter()],
       },
     },
   },

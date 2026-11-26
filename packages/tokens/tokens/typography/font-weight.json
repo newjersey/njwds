@@ -14,7 +14,7 @@
       "$value": 400
     },
     "normal": {
-      "$value": 400
+      "$value": "{font-weight.regular}"
     },
     "medium": {
       "$value": 500
